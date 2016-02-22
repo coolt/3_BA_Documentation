@@ -1,10 +1,22 @@
 \chapter{Verzeichnisse}
 
 
-\section{Glossar und Abkürzungen}
 
 
-\section{Literaturverzeichnis}
+\renewcommand{\bibsection}{\section{\refname}}  % add a number to the bibl section
+\makeatletter
+%\renewcommand*\bib@heading{ \section{\refname}}
+\makeatother
+
+
+\bibliography{BibTex/references}
+
+
+
+\section{Glossar und Abkürzungen}\label{glossar}
+
+\textbf{Clock Domain}\\
+Ein Bereich der Hardware, der mit demselben Takt läuft.
 
 
 \section{Abbildungsverzeichnis}
