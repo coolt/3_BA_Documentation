@@ -8,6 +8,29 @@
 
 \section{Energieoptimierung}
 
+\subsection{EM8500 Verhalten}
+
+Mit Hilfe des EM8500-Chips werden Verhaltensweisen gespeichert, die danach autonom ablaufen:
+
+At start-up the device enters a boot sequence. It controls the state of both energy storage elements, and sets the default configuration parameters
+of the device by retrieving the corresponding values from the on-chip E2PROM.
+Upon completion of the boot sequence the system enters the supervising and harvester controller state (“normal mode”). It is now possible to
+modify configuration parameters through the serial interface to change the behavior of the device. When updating the device configuration through
+the serial interface it is recommended to write the complete set of EM8500 configuration parameters in a single transaction (see §6).
+EM8500 is able to operate autonomously by using default configuration values from the on-chip E2PROM.\cite{datasheet_EM85}, p.11
+
+\subsubsection{Speicherkonzept}
+
+Implementiert ist ein Super Cap als Speicher. Erweiterbar mit zwei Speichern: einem Long Term Storage (LTS) und einem Short Term Storage (STS). Der erste Dient dem Sammeln von Energie für den ersten Moment, damit das System (das Energy Management Board) starten kann. Der Zweite Speicher dient einer längeren Betreibung mehrere Aktionen.
+
+
+
+\subsubsection{Status Informationen der Speicher}
+
+Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
+
+Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+
 \section{Applikationsentwicklung}
 
 \section{Option 1}
