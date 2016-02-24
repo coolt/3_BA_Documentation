@@ -8,6 +8,7 @@
 - Theoretische Grundlagen:
   Unterkapitel: Referenzen, Fachbücher notwendig
   - Energy Harvesting
+  - Boost Converter
   - Energy Management
   - Low Power Microkomputer
   - Bluetooth Low Energy
