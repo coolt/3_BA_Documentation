@@ -23,6 +23,10 @@ EM8500 is able to operate autonomously by using default configuration values fro
 
 Implementiert ist ein Super Cap als Speicher. Erweiterbar mit zwei Speichern: einem Long Term Storage (LTS) und einem Short Term Storage (STS). Der erste Dient dem Sammeln von Energie für den ersten Moment, damit das System (das Energy Management Board) starten kann. Der Zweite Speicher dient einer längeren Betreibung mehrere Aktionen.
 
+\subsection{Konfiguration}
+
+Die Konfiguration wird in die EPROM Register gespeichert und beim Aufwachen des EM8500 Chips geladen.
+Die Liste der Befehle finden sich in der Application Note zum EM8500-chip \cite{config_EM85}.
 
 
 \subsubsection{Status Informationen der Speicher}
