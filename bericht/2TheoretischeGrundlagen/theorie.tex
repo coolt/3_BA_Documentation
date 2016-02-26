@@ -1,18 +1,41 @@
 \chapter{Theoretische Grundlagen}
 
-\section{Energy Harvesting}
+\section{Energy Harvesting mit Bewegungsinduktion}
 
-\section{Energy Management}
+\section{Energy Management mit dem EM8500}
 Energy Management, abgekürzt mit EM, bezeichnet das Überwachen von Energiezuständen in Speichern und das intelligente Verbrauchen von Energie, das von den aktuellen Speicherzuständen abhängt.
 
 Die Firma EM Microelectonic SA produziert für low power energy systeme den Chip EM8500.
 The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11
 
+\subsection{EM8500 Verhalten}
+
+Mit Hilfe des EM8500-Chips werden Verhaltensweisen gespeichert, die danach autonom ablaufen:
+
+At start-up the device enters a boot sequence. It controls the state of both energy storage elements, and sets the default configuration parameters
+of the device by retrieving the corresponding values from the on-chip E2PROM.
+Upon completion of the boot sequence the system enters the supervising and harvester controller state (“normal mode”). It is now possible to
+modify configuration parameters through the serial interface to change the behavior of the device. When updating the device configuration through
+the serial interface it is recommended to write the complete set of EM8500 configuration parameters in a single transaction (see §6).
+EM8500 is able to operate autonomously by using default configuration values from the on-chip E2PROM.\cite{datasheet_EM85}, p.11
+
+\subsubsection{Speicherkonzept}
+Implementiert ist ein Super Cap als Speicher. Erweiterbar mit zwei Speichern: einem Long Term Storage (LTS) und einem Short Term Storage (STS). Der erste Dient dem Sammeln von Energie für den ersten Moment, damit das System (das Energy Management Board) starten kann. Der Zweite Speicher dient einer längeren Betreibung mehrere Aktionen.
 
 
-Frage:
-Ist der Chip EM8500 von EM Microelectronic ?
-\section{Low Power Microkontroller }
+
+\subsubsection{Status Informationen der Speicher}
+
+Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
+
+Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+
+
+Frage:\\
+
+Ist der Chip EM8500 von EM Microelectronic ?\\
+
+\section{Low Power Microcontroller }
 
 \section{Bluetooth Low Energy}
 
