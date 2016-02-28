@@ -35,7 +35,7 @@ $RECYCLE.BIN/
 
 # ==============================================
 ## Core latex/pdflatex auxiliary files:
-bericht/**/*.aux
+bericht/1Einleitung/*.aux
 *.lof
 *.log
 **/*.lot
