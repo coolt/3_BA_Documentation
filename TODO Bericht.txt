@@ -1,0 +1,4 @@
+TODO Bericht
+- PNG-Bilder korrekt einfügen in Textfluss
+- Abbildungsverzeichnis erstellen
+
