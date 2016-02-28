@@ -162,3 +162,5 @@ sympy-plots-for-*.tex/
 *.sav
 *.aux
 *.log
+*.aux
+bericht/1Einleitung/einleitung.log
