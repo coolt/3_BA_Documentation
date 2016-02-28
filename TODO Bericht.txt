@@ -1,4 +1,5 @@
-TODO Bericht
+﻿TODO Bericht
+- EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
 - Abbildungsverzeichnis erstellen
 
