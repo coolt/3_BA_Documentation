@@ -1,37 +1,26 @@
 \chapter{Vorgehen}
 
-\section{Inbetriebnahme Prototyp}
-
-\subsubsection{Senden Geschwindigkeit per BLE}
-Funktioniert bei einer Geschwindigkeit von 70 km/h. 
-
-\begin{figure}[h!]
-\includegraphics[bb=0 240 50 50]{EnergieSenden.PNG}
-\caption{Prototyp Ausgangsspannung Energy Management Board}
-\end{figure}
-
-\newpage 
-
-Nachmessen der Energie Spule:
-
-Es braucht hohe Geschwindigkeit.
-
-Neue Spule gestestet.
+\section{Inbetriebnahme des Vorzeige-Exemplars}
+Mit der in der Projektarbeit entwickelten Harvesterschaltung kann per Bluetooth Smart auf dem Android-Endgerät die Geschwindigkeit ausgegeben werden. 
 
 
-\begin{figure}[h]
-\includegraphics[bb=0 100 50 50]{PremoSpule.PNG}
-\caption{Energiegewinnung Premospule}
-\end{figure}
+\subsubsection{Reduktion Kapazität Harvesting-Schaltung}
+Im Vorzeige-Exemplar ist nach dem Gleichrichter ein Kondensator von 470 uF nachgeschaltet. Dieser glätten den Rippel. Ives von EMMicroelectronics rät den Kondensator um den Faktor 10 zu verkleineren, da eine zu grosse Kapazität vor dem Em-Board Schwingungen verursachen kann (?). 
 
-\begin{figure}[h]
-\includegraphics[bb=0 150 50 50]{UnbekannteSpule.PNG}
-\caption{Energiegewinnung Unbekannte Spule}
-\end{figure}
+Die Verkleinerung des Kondensators wird getestet (iehe Messprotokoll im Anhang).
+
+
+
+
+
+
 
 \pagebreak 
 \subsubsection{Messungen Energy Management Board}
-Die Applikationsspannung braucht alle Energie. LTS lädt nicht. 
+
+ 
+Es zeigt sich, dass der LTS nicht geladen wird . Und es zeigt sich, dass das EM-Board nicht zu regulieren beginnt.
+
 \\
 
 Lastverhalten wie Sensortag
