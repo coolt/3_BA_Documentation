@@ -7,8 +7,7 @@ Bei der Inbetriebnahme zeigten sich folgende Grenzen im gegebenen Modell:
 
 \begin{enumerate}
     \item Zu hoher Kondensator vor Energiemanagmenetschaltung gefährdet deren Stabilität
-    \item Konfiguration auf Energiemanagementboard sind nicht auf EnergieHarvesterSchaltung angepasst
-    \item ???
+    \item Konfiguration auf Energiemanagementboard sind nicht auf Energieharvesterschaltung angepasst
 \end{enumerate}
 
 
@@ -44,36 +43,60 @@ Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx
 \end{figure}
 
 \begin{figure}
-\includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/47uF.PNG}
-\caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
+    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/47uF.PNG}
+    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
 \end{figure}
 
 
 \subsubsection{Messungen Energy Management Board}
+In der Projektarbeit findet sich auf S. 36 folgende Abbildung \ref{spannungMachbarkeit} zu den Spannungswerten des Modells der Machbarkeitsstudie.
+
+\begin{tabbing}
+    Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
+    CH1\> gelb\> Spannung von Harvesterquelle\\
+    CH2\> blau\> Spannung am STS--Kondensator\\
+    CH3\> violet\> Spannung am LTS--Kondensator\\
+    CH4\> grün\> Ausgangsspannung Energiemanagment\\
+\end{tabbing}
 
 \begin{figure}
-\includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/messungPA.png}
-\caption{Rippelspannung mit 47 uFKondensator}
+    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/messungPA.png}
+    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
 \end{figure}
-Es zeigt sich, dass der LTS nicht geladen wird . Und es zeigt sich, dass das EM-Board nicht zu regulieren beginnt.
+
+Auffällig sind zwei Spannungskurven: Die Spannung des Energieerzeugers. Die Spannungsregelung am Eingang der EMS funktioniert nicht korrekt. Zwischen zwei Regelperioden sollten konstante Spannungen eintreffen (siehe Erklärung in ref). 
+Es zeigt sich, dass der LTS nicht geladen wird . Und es zeigt sich, dass das EM-Board nicht zu regulieren beginnt. Damit das Energiemanagement funktioniert, muss der Wer XXXX erreicht werden. Da dieser Wert nicht erreicht wird, passt die Energiemanagementschaltung den Innenwiderstand nicht auf.
+
+Zum korrekten Einstellen des Energiemanagements braucht es eine MaximumPowerPointTracking-Ratio.
 
 
 
 
-
-
-
-
-\pagebreak
-\subsubsection{Messungen Sensortag}
-Ziel: Energieverbrauch kennen.
-
-Unterschied zwischen dem Programmierten Sensortag des Prototypen und dem neuen Sensortag.
 
 
 
 
 \section{Layout Print}
+
+Die Spule ist gegeben.
+
+\subsection{Bauteiloptimierung}
+Der Glättungskondensator wird auf 47 uF geändert. Daneben führten nachfolgende Messung zu nachfolgender Bauteiloptimierungen.
+
+\subsubsection{Limiter mit weniger Leckstrom}
+Der Limiter in der Machbarkeitsstudie besteht aus 3 Dioden. Die verwendete Dioden haben, wie alle Halbleiterelemente, einen Leckstrom. 
+
+\subsubsection*{Leckstrom Dioden als Limiter}
+
+
+\subsubsection*{Leckstrom bei LDO}
+
+
+
+\subsubsection{Gleichrichter für LowPower}
+
+
+
 
 \section{Kommunikation Bluetooth Low Energy}
 

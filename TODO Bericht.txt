@@ -1,5 +1,5 @@
 ﻿TODO Bericht
 - EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
-- Abbildungsverzeichnis erstellen
+- Abbildungsverzeichnis erstellen (Bilder der PA unterscheiden von unseren Bildern)
 
