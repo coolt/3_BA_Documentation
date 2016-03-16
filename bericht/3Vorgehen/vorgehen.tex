@@ -96,7 +96,47 @@ Der Limiter in der Machbarkeitsstudie besteht aus 3 Dioden. Die verwendete Diode
 \subsubsection{Gleichrichter für LowPower}
 
 
+\section{Kommunikation Bluetooth Low Energy}
+\chapter{Firmwareentwicklung}
+Gearbeitet wird mit einem Cortex M3 von TI. 
+Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement bezieht sich auf RTOS Kernel.
 
+\subsection{VO: SimpleBroadcast}
+Gestartet mit simpleBLE-Projekt von TI mit Einstellungen von Assistenten vom Ines.
+
+\begin{itemize}
+    \item Configure ccfg.c to use internal LF RCOSC
+    \item Configure WAKE INTERVAL
+    \item Configure recharge period to 400ms if WAKE INTERVAL is larger than 400ms(ish)
+    \item Configure IO's and set up advertisment payload       
+\end{itemize}
+
+Allgemeine Einstellungen in der Konfigurationsdatei ccfg.c:
+Vmin = 2.25 V
+Imax = 39 mA
+
+
+Einstellungen in config.h
+// GPIO to be used
+\# define IO\_A  IOID\_0
+\#define IO\_B  IOID\_1
+\#define IO\_C  IOID\_2
+\#define IO\_D  IOID\_3
+\#define IO\_E  IOID\_4
+
+
+// RTC wakeup interval
+\#define WAKE\_INTERVAL\_MS 		1000
+\#define WAKE\_INTERVAL\_TICKS 	WAKE\_INTERVAL\_MS*65536 / 1000
+
+
+// Advertisment payload length in bytes
+\#define ADVLEN 10
+
+
+Gehen in den Standby modus. Wird eingestellt über die Datei pwr\_ctr.c /h
+
+Dort stehen alle Handlungen, die das System macht, um in den Standby-Modus zu gelangen.
 
 \section{Kommunikation Bluetooth Low Energy}
 
