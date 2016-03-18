@@ -2,4 +2,13 @@
 - EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
 - Abbildungsverzeichnis erstellen (Bilder der PA unterscheiden von unseren Bildern)
+- Tabellenverzeichnis und Beschriftung
+
+- Zweiseitiges Dokument (Duplex)
+- Betreuer und Nebenbetreuer dazu
+
+Probleme:
+German Quotes:
+Kap3 Vorgehen/Energieverbrauch Sensortag
+Text unter Tabelle. Mit "Zitat". Danach hat das Wort keinen Abstand.
 

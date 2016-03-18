@@ -11,22 +11,21 @@ Bei der Inbetriebnahme zeigten sich folgende Grenzen im gegebenen Modell:
 \end{enumerate}
 
 
-
 \subsubsection{Kapazität für Harvesting-Schaltung verbessern}
-In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 uF nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\uF $F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
 
-Mit einem Kondensator von 470 uF wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+Mit einem Kondensator von 470 $\uF $F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
 \begin{figure}
     \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/470uF.PNG}
-    \caption{Rippelspannung bei Glättung mit 470 uF Kondensator}\label{kond470uF} 
+    \caption{Rippelspannung bei Glättung mit 470 $\uF $F Kondensator}\label{kond470uF} 
 \end{figure}
 
-Gemäss Ives \textbf{XXXXXX} von EMMicroelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 47 uF liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\uF $F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
 
 Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
 
 \subsubsection*{Messaufbau}
-In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 uF), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 uF, 47 uF und 10 uF gemessen.
+In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 uF), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\uF $F, 47 $\uF $F und 10 $\uF $F gemessen.
 
 \begin{figure}
     \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
@@ -96,7 +95,62 @@ Der Limiter in der Machbarkeitsstudie besteht aus 3 Dioden. Die verwendete Diode
 \subsubsection{Gleichrichter für LowPower}
 
 
-\section{Kommunikation Bluetooth Low Energy}
+\section{Energie Management}
+
+
+\subsection{Energiekalkulation}
+Die Energie der Quelle [$\bar{E_{HRV} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}$].
+
+\[\bar{E_{HRV}} \ge \bar{E_{BLE}}  \]
+
+
+Die durchschnittliche maximale Leistung der Quelle kann aus der Abbildung \ref{MPP_Werte} entnommen werden. Diese basiert auf dem Messprotokoll im Anhang \ref{anhang_messprotokoll_energie_harvester}. Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energie-System in drei Zustände eingeteilt:
+
+\begin{itemize}
+    \item tiefe Geschwindigkeit: 0 - 10 km/h
+    \item mittlere Geschwindigkeit: 10 - 20 km/h 
+    \item hohe Geschwindigkeit: grösser als 20 km/h 
+\end{itemize}
+
+
+
+\subsubsection*{Leistungsabgabe Harvester-Schaltung}
+
+\begin{tabular}{|l|l|}\hline \label{MPP_Werte} 
+    Geschwindigkeit [km/h] & Maximale Leistung [$\mu W$] \\ \hline
+    10 & 74.4 \\ \hline
+    20 & unbekannt \\ \hline
+    40 & unbekannt \\ \hline
+\end{tabular}
+
+
+Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die Geschwindigkeit übermittelt, ist der Verbrauch kleiner, als wenn zusätzlich die Temperatur und die Höhe mitgesendet werden.
+
+\subsubsection*{Energieverbrauch BLE-Packete versenden}
+ 
+\begin{tabular}{|l|l|}\hline \label{Energie_Pakete_Werte} 
+    Anzahl Inhalte  & Energieverbrauch [$\mu J$] \\ \hline
+    1 & 11000 \\ \hline
+    2 & unbekannt \\ \hline
+    3 & unbekannt \\ \hline
+\end{tabular}
+
+(Für die Zuverlässigkeit der Datenübermittlung wird jeweils dasselbe Paket über drei Kanäle gesendet. Wenn hier \glqq 1 Inhalt versenden \grqq  steht, meint dies, ein Paket über drei Kanäle senden.)
+
+\subsubsection*{Berechnung}
+
+\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
+\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
+\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
+\[t = 147 s}  \]
+
+\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
+\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
+\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
+\[t = 147 s}  \]
+
+
+\section{Low Power Einstellungen Sensortag}
 \chapter{Firmwareentwicklung}
 Gearbeitet wird mit einem Cortex M3 von TI. 
 Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement bezieht sich auf RTOS Kernel.
@@ -140,7 +194,7 @@ Dort stehen alle Handlungen, die das System macht, um in den Standby-Modus zu ge
 
 \section{Kommunikation Bluetooth Low Energy}
 
-\section{Energieoptimierung}
+
 
 
 

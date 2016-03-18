@@ -1,35 +1,31 @@
 \chapter{Theoretische Grundlagen}
 
 \section{Energy Harvesting mit Bewegungsinduktion}
-HarvesterSchaltung ist durch Machbarkeitsstudie vorgegeben.
-Kurze Einführung der von uns optimierten Schaltung. 
+Erwähnen: HarvesterSchaltung ist durch Machbarkeitsstudie vorgegeben.
+Kurze Einführung die optimierte Schaltung.
 
 
 
 
 
-\section{Konzept des Energy Management der gewonnenen Energie}
-In der Bachelorarbeit ist die Entwicklung des Enerergymanagements mit diesem Board vorgegeben.
-Links zu anderen PowerManagementSystemen: Booster TI, Analog Devices, E-Beas.
+\section{Energy Management für die gewonnene Energie}
+In der Bachelorarbeit ist bei der Umsetzung des Enerergymanagements der Chip EM8500 vorgegeben. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. %( Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.)
 
 
 Energy Management bezeichnet das Regeln von Energiezuständen, damit ein Optimum an Leistung aus einer Quelle bezogen werden kann.
 
-EM Microelectronics aus Marin (NE) entwickelt den Energymanagement-Chip EM8500 für Low Power-Anwendungen. 
 
-The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
+%The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
 
-Zu diesem Chip ist das Evaluation-Board EMEVB8500 entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
+Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
 
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 
-Wichtigster Punkt in der Energieoptimierung ist das Leistungsverhalten der Quelle. Zu jeder Quelle gehören MaximumPowerPoints (MPP), die Punkte, an denen am effizientesten Leistung bezogen werden kann. 
+Wichtigster Punkt in der Energieoptimierung ist das Maximum aus der produzierten Energie herauszuholen. Die maximale Leistung ergibt sich beim MaximumPowerPoints (MPP), dem Punkte, an denen am effizientesten Leistung bezogen werden kann. 
+Das EVB versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht.
 
-Das Evalutions-Board von Microelectronics (im Text mit EVB abgekürzt) versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies macht das EVB so, in dem es zu jeder Eingangsspannung intern den Innenwiderstand auf dem EVB so regelt, dass über den geregelten EVB-Strom die Eingangsleistung möglichst dem MPP entspricht.
-
-
-Neben der Optimalen Leistungsnutzung ist das Ziel der Regelung, konstante Eingangsspannungen zu erzwingen. Das System kontrolliert periodisch den aktuellen (unregulierten) Spannungswert der Harvestingquelle. Hat sich der Wert mehr als 37 mV gegenüber der zur Zeit aktuellen Regelspannung geändert, wird der neue Wert als Spannungsreferenz zum Regeln genommen. Die Abbildung \ref{RegelungSpannung} zeigt das Anpassen der Spannungslevel alle s. Die periodischen Kontrollmessungen alle 8 s verursachen kurze Spannungsspitzen. Diese entstehen bei der Kurzschlussmessung, für den akutellen Stromwert.
+Zweite Aufgabe beim Energiemanagement ist eine konstante Eingangsspannungen zu erzwingen. Das System kontrolliert periodisch den aktuellen (unregulierten) Spannungswert der Harvestingquelle. Hat sich der Wert mehr als 37 mV gegenüber der zur Zeit aktuellen Regelspannung geändert, wird der neue Wert als Spannungsreferenz zum Regeln genommen. Die Abbildung \ref{RegelungSpannung} zeigt das Anpassen der Spannungslevel alle s. Die periodischen Kontrollmessungen alle 8 s verursachen kurze Spannungsspitzen. Diese entstehen bei der Kurzschlussmessung, für den akutellen Stromwert.
 
 \begin{figure}
     \includegraphics[bb = 0 0 100 100]{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
@@ -43,23 +39,62 @@ Entsprechen die Konfigurationen auf dem EVB nicht dem Verhalten der Eingangsquel
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{falscheRegelung} 
 \end{figure}
 
-Ausgelassen: Details zur Open Voltage und zur Kurzschluss-Messung.
+Dritter Punkt ist der Aufbau von Energiespeichern. Diese sollen so viel Energie speichern, wie eine gewisse Aktion braucht. Das Energiemanagmenet kennt für jede Aktion den Energieverbrauch und löst, bei genügend Speicherenergie eine Aktion laufen (siehe Berechnung der Kondensatoren).
+
+Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XXXXS.
 
 
 
 
-\subsubsection{Kommunikation mit anderem Bauteil}
+
+
+\subsubsection{Energiestände kontrollieren}
 
 Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
 
 Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
 
+Kommunikationsschema ? 
+
+% -------------------------------------------------------
+\section{Low Power Microcontroller von Texas Instruments}
+Zur Verwaltung der gegebenen Energie ist der Microcontroller gegeben. Es handelt sich um einen Cortex M3, der sich auf dem Sensortag von Texas Instruments befindet. Die zentralen Eigenschaften dieses Boards und die Funktionsblöcke befindet sich im Anhang \ref{anhang_sensortag}.
+
+\subsection{Fähigkeiten eines Low Power Microcontrollers}
+  
+Low Power Microcontroller können Gebiete des Prozessors oder von Periopherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereich aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
+
+Bild: Energie-Langzeitmessung BLE versenden
+Beschriften mit aktiv und standby modus
+
+Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.
 
 
 
-\section{Low Power Microcontroller }
-Das TI Sensortag ist vorgegeben. Im Rahmen der Bachelorarbeit nicht möglich, Kontroller zu evaluieren. Dieser hat viele Sensoren.
-Grund ist die hohe Rechenleistung. Die mögliche Erweiterung auf Zigbee. 
+\section{Aufsetzen des Low Power Microcontrollers}
+%Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
+(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
+
+Konfiguration der CPU (system.h, config.h)
+Einstellungen Active Mode: Sensoren, Wireless Processor, SPI-Kommunikation
+
+Einstellungen sleep Mode: Abstellen
+
+PowerDomain ausschalten
+Clk
+
+GPiO Konfigurieren (gpio.h, board.h)
+Event anstelle von Interrupt
+Synchronisation
+timer, oder systick oder GPiO signal. Wake up
+
+Aktivitäten aufsetzen
+
+
+
+
+
+
 
 \section{Bluetooth Low Energy}
 
