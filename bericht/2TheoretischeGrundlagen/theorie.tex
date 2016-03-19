@@ -4,15 +4,49 @@ In diesem Kapitel wird in die benutzen Konzepte eingeführt.
 \section{Energy Harvesting}
 \glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}
 
+
 Bekannte Methoden sind Thermogeneratoren, die aus Umgebungswärme Energie gewinnen, passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. 
 
-In dieser Bachelorarbeit wird Energie über Bewegungsinduktion gewonnen. \glqq Befindet sich eine Spule in einem dynamischen Magnetfeld, wird in der Spule eine Spannung induziert\grqq \cite{PA_bicycle} S.8. Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen, eines Magneten an einer fix verankerten Spule erzeugt.
+In dieser Bachelorarbeit wird Energie über Bewegungsinduktion gewonnen. Die nachfolgenden Erklärungen stammen aus \cite{PA_bicycle} S.8.  
+\subsection*{Bewegungsindktion}
+
+Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
+
+\begin{equation}
+    U_{ind}=-\frac{d}{dt}\intop A\,dB \ \label{Formel_induzSpannung} 
+\end{equation}
+
+Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magnetischen Fluss $\phi$. Hat die Spule mehrere Wicklungen $N$, so verstärkt sich der magnetische Fluss proportional. 
+
+ 
+\begin{equation}
+    \frac{d}{dt} \int A\,dB=\phi\cdot N\
+\end{equation}
+
+Verläuft der \textbf{magnetische Flus???}s $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\label{Formel_senkrecht}). 
+ 
+\begin{equation}
+    \frac{d}{dt} \int A\,\perp\, dB=\frac{d}{dt}\int \phi\cdot N=B\cdot A\cdot N\ \label{Formel_senkrecht} 
+\end{equation} 
+  
+ 
+In diesem Fall berechnet sich die induzierte Spannung in einer Spule vereinfacht mit
+\begin{equation}
+    U_{ind}= - N \cdot A \cdot B
+\end{equation}
+
+Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen, eines Magneten an einer fix verankerten Spule erzeugt.
 Die produzierte Spannung hängt von drei Kriterien ab:
 
+Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
+\begin{enumerate}
+    \item die eingeschlossene Fläche $A$ der Spule    
+    \item die \textbf{magnetische Flussdichte???} des Magneten $B$ 
+    \item die Anzahl Windungen $N$ der Spule und
+    \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche Einfluss auf $dt$ hat
+\end{enumerate}
 
-
-
-
+(Für die Schaltungsoptimierung sind die ersten drei Punkte relevant.)
 
 \section{Energy Management für die gewonnene Energie}
 Was wir machen: HRV Energie nicht direkt in sensortag, sondern in LTS speichern.
