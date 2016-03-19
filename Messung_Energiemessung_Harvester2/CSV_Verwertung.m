@@ -2,9 +2,9 @@ clc, clear all;
 
 %% Vor dem Ausführen folgende Variabeln definiren
 
-filename = 'Harvester2_40Ohm.csv'; % evtl. Dateiname anpassen
-R = 40; % verwendeten Widerstand eintragen
-v = 10; % eingestellte Geschwindigkeit eintragen
+filename = 'Harvester_40kOhm.csv'; % evtl. Dateiname anpassen
+R = 40e3; % verwendeten Widerstand eintragen
+v = 40; % eingestellte Geschwindigkeit eintragen
 
 %% Laden der Daten aus dem CSV-File
 
@@ -15,7 +15,7 @@ x_resolution = csvread(filename, 5, 1, [5, 1, 5, 1]);
 %% Variabeln berechnen
 
 resolution = x_resolution * 10 / data_points;
-period = 1/(v * 1000 / 3600 / 2.04);
+period = 1/(v * 1000 / 3600 / 2.04);    
 data_range = period / resolution;
 
 %% Durchschnittliche Spannung, Strom, Leistung berechnen
