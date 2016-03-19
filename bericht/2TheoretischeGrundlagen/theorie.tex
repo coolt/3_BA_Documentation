@@ -1,4 +1,6 @@
 \chapter{Theoretische Grundlagen}
+- nicht spezifisch
+nur allgemein:
 
 \section{Energy Harvesting mit Bewegungsinduktion}
 Erwähnen: HarvesterSchaltung ist durch Machbarkeitsstudie vorgegeben.
@@ -9,6 +11,8 @@ Kurze Einführung die optimierte Schaltung.
 
 
 \section{Energy Management für die gewonnene Energie}
+Was wir machen: HRV Energie nicht direkt in sensortag, sondern in LTS speichern.
+
 In der Bachelorarbeit ist bei der Umsetzung des Enerergymanagements der Chip EM8500 vorgegeben. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. %( Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.)
 
 
@@ -21,6 +25,9 @@ Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) e
 
 
 \subsection{Regelung des optimalen Leistungsbezugs}
+- Generell MPP beshreiben
+_Widerstandskurve
+wie Leistungsanpasung
 
 Wichtigster Punkt in der Energieoptimierung ist das Maximum aus der produzierten Energie herauszuholen. Die maximale Leistung ergibt sich beim MaximumPowerPoints (MPP), dem Punkte, an denen am effizientesten Leistung bezogen werden kann. 
 Das EVB versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht.
@@ -59,6 +66,8 @@ Kommunikationsschema ?
 
 % -------------------------------------------------------
 \section{Low Power Microcontroller von Texas Instruments}
+- Zeichnen des Init, sleep, Aufwachen
+
 Zur Verwaltung der gegebenen Energie ist der Microcontroller gegeben. Es handelt sich um einen Cortex M3, der sich auf dem Sensortag von Texas Instruments befindet. Die zentralen Eigenschaften dieses Boards und die Funktionsblöcke befindet sich im Anhang \ref{anhang_sensortag}.
 
 \subsection{Fähigkeiten eines Low Power Microcontrollers}
@@ -98,6 +107,10 @@ Aktivitäten aufsetzen
 
 
 \section{Bluetooth Low Energy}
+
+Unterschied zu Bluetooth
+
+Spezifikationen
 
 
 

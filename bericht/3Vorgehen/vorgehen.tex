@@ -101,12 +101,18 @@ Der Limiter in der Machbarkeitsstudie besteht aus 3 Dioden. Die verwendete Diode
 
 
 \subsection{Energiekalkulation}
+EHRV gesammelt >= BLESenden
+Zeitkomponente
+Energie Harvester braucht länger, verbrauch schneller.
+
 Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}}$].
 
 \[\bar{E_{HRV}} \ge \bar{E_{BLE}}  \]
 
 
-Die durchschnittliche maximale Leistung der Quelle kann aus der Abbildung \ref{MPP_Werte} entnommen werden. Diese basiert auf dem Messprotokoll im Anhang \ref{anhang_messprotokoll_energie_harvester}. Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energie-System in drei Zustände eingeteilt:
+Die durchschnittliche maximale Leistung der Quelle kann aus der Abbildung \ref{MPP_Werte} entnommen werden. Diese basiert auf dem Messprotokoll im Anhang \ref{anhang_messprotokoll_energie_harvester}. 
+
+MAN KÖNNTE. (GEHRÖT ZU OPTIONAL) Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energie-System in drei Zustände eingeteilt:
 
 \begin{itemize}
     \item tiefe Geschwindigkeit: 0 - 10 km/h
@@ -151,13 +157,26 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 \[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
 \[t = 147 s  \]
 
+\subsubsection*{EM BOARD KONZEPT}
+Funktion generell beschreiben (im Anhang) 
+\subsubsection*{Schwellwerte}
+Ausrechnend der schwellwerte
+\subsubsection*{Konfigurationen}
+Konfigurationseinstellungen
+
+
 
 \section{Low Power Einstellungen Sensortag}
 
 Gearbeitet wird mit einem Cortex M3 von TI. 
-Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement bezieht sich auf RTOS Kernel.
+Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
 
 \subsection{VO: SimpleBroadcast}
+- Was ist der Unterschied zum RTOS.
+- Was muss gemacht werden.
+
+- Was überprüft werden musste, was gut ist.
+
 Gestartet mit simpleBLE-Projekt von TI mit Einstellungen von Assistenten vom Ines.
 
 \begin{itemize}
@@ -172,13 +191,7 @@ Vmin = 2.25 V
 Imax = 39 mA
 
 
-Einstellungen in config.h
-// GPIO to be used
-\# define IO\_A  IOID\_0
-\#define IO\_B  IOID\_1
-\#define IO\_C  IOID\_2
-\#define IO\_D  IOID\_3
-\#define IO\_E  IOID\_4
+Da VSUP bei 1.8 V startet, ist zu überprüfen. 
 
 
 // RTC wakeup interval

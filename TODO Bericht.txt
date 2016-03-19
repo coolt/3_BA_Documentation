@@ -1,4 +1,5 @@
 ﻿TODO Bericht
+- Anhang braucht im Inhaltsverzeichnis einen Titel
 - EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
 - Problem mit korrektem Bild einbinden:
