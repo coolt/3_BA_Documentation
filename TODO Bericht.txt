@@ -1,10 +1,14 @@
 ﻿TODO Bericht
 - EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
+- Problem mit korrektem Bild einbinden:
+  Fehlermeldungen. Im Anhang unter Blockschema ein Bild auskommentiert
 - Abbildungsverzeichnis erstellen (Bilder der PA unterscheiden von unseren Bildern)
 - Tabellenverzeichnis und Beschriftung
 
-- Zweiseitiges Dokument (Duplex)
+- Zweiseitiges Dokument (Duplex): 
+  Siehe Kap.3, 3.1 Dokumentenstil:
+  sollte in Book so sein, twoside als Argument von documentclass gibt Fehler
 - Betreuer und Nebenbetreuer dazu
 
 Probleme:

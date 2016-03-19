@@ -12,23 +12,25 @@ Bei der Inbetriebnahme zeigten sich folgende Grenzen im gegebenen Modell:
 
 
 \subsubsection{Kapazität für Harvesting-Schaltung verbessern}
-In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\uF $F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
 
-Mit einem Kondensator von 470 $\uF $F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+
+Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+
 \begin{figure}
-    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/470uF.PNG}
-    \caption{Rippelspannung bei Glättung mit 470 $\uF $F Kondensator}\label{kond470uF} 
+    \includegraphics[scale = 0.6]{3Vorgehen/imag/470uF.PNG}
+    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
 \end{figure}
 
-Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\uF $F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
 
 Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
 
 \subsubsection*{Messaufbau}
-In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 uF), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\uF $F, 47 $\uF $F und 10 $\uF $F gemessen.
+In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 uF), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
 
-\begin{figure}
-    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
+\begin{figure}[h]
+    \includegraphics[scale = 0.4]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
     \caption{Messschaltung}
 \end{figure}
 
@@ -37,12 +39,12 @@ In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem K
 Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
  
 \begin{figure}
-    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/10uF.PNG}
+    \includegraphics[scale = 0.4]{3Vorgehen/imag/10uF.PNG}
     \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
 \end{figure}
 
 \begin{figure}
-    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/47uF.PNG}
+    \includegraphics[scale = 0.4]{3Vorgehen/imag/47uF.PNG}
     \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
 \end{figure}
 
@@ -59,7 +61,7 @@ In der Projektarbeit findet sich auf S. 36 folgende Abbildung \ref{spannungMachb
 \end{tabbing}
 
 \begin{figure}
-    \includegraphics[bb = 0 0 100 100]{3Vorgehen/imag/messungPA.png}
+    \includegraphics[scale = 0.3]{3Vorgehen/imag/messungPA.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
 \end{figure}
 
@@ -99,7 +101,7 @@ Der Limiter in der Machbarkeitsstudie besteht aus 3 Dioden. Die verwendete Diode
 
 
 \subsection{Energiekalkulation}
-Die Energie der Quelle [$\bar{E_{HRV} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}$].
+Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}}$].
 
 \[\bar{E_{HRV}} \ge \bar{E_{BLE}}  \]
 
@@ -142,16 +144,16 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 \[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
 \[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
 \[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
-\[t = 147 s}  \]
+\[t = 147 s  \]
 
 \[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
 \[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
 \[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
-\[t = 147 s}  \]
+\[t = 147 s  \]
 
 
 \section{Low Power Einstellungen Sensortag}
-\chapter{Firmwareentwicklung}
+
 Gearbeitet wird mit einem Cortex M3 von TI. 
 Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement bezieht sich auf RTOS Kernel.
 
@@ -192,10 +194,10 @@ Gehen in den Standby modus. Wird eingestellt über die Datei pwr\_ctr.c /h
 
 Dort stehen alle Handlungen, die das System macht, um in den Standby-Modus zu gelangen.
 
-\section{Kommunikation Bluetooth Low Energy}
+\subsection{V1}
 
 
-
+\subsection{V2}
 
 
 \section{Applikationsentwicklung}

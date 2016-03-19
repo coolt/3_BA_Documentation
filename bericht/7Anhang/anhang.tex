@@ -4,10 +4,13 @@
 
 \appendix
 
-\chapter{Ausschreibung Bachelorarbeit}\label{anhang_ausschreibung} 
+\chapter{Ausschreibung Bachelorarbeit}\label{anhang_ausschreibung}
+ 
+\includepdf{../ressources/Projektorganisation/Ausschreibung.pdf}
 
 
-\chapter{Projektplanung}\label{anhang_projektplan} 
+\chapter{Projektplanung}  \label{anhang_projektplan} 
+\includepdf [landscape = true, pages=-] {../ressources/Projektorganisation/PlannungV0.pdf}
 
 \chapter{Referenz Sensortag von Texas Instrument}\label{anhang_sensortag} 
 Im Rahmen dieser Bachelorarbeit sind nicht Microcontroller für Low Power Anwendungen zu evaluieren. Das Sensortag von Texax Instrument ist vorgegeben und beinhaltet für die Entwicklung des Bicycle Computer bereits mehrere Eigenschaften auf einem Borad vereint:
@@ -22,20 +25,20 @@ Im Rahmen dieser Bachelorarbeit sind nicht Microcontroller für Low Power Anwend
 
 \section{Blockschema Sensortag}
 
-
-\begin{figure}
-    \includegraphics[scale=1]{../ressources/SimpleLink/CC26xx_Block_Diagram.png} 
- \caption{Blockschema Sensortag  }\label{RegelungSpannung} 
+\begin{figure}[h]
+    \includegraphics {../ressources/SimpleLink/CC26xx_Block_Diagram.png} 
+     \caption{Blockschema Sensortag}
 \end{figure}
 
-\cite{Sensortag_Datasheet }S.3
+\cite{Sensortag_Datasheet}S.3
 
 
 \chapter{Messprotokoll Energiegewinnung Harvester}\label{anhang_messprotokoll_energie_harvester} 
-
+\includepdf[pages=-]{../ressources/Energiemessungen/MessungHarvesterschaltungV0.pdf}
 
 
 \chapter{Messprotokoll Energieverbrauch Sensortag}\label{anhang_messprotokoll_energie_sensortag} 
-
+%\includepdf{../ressources/Projektorganisation/Ausschreibung.pdf}
 
 \chapter{Messprotokoll Rippelspannung Ausgangskondensator Harvesterschaltung}\label{anhang_messprotokoll_kondensator_harvester} 
+\includepdf[pages=-]{../ressources/Energiemessungen/MessungKondensatorAusgang.pdf}

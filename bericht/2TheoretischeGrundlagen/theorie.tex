@@ -27,15 +27,16 @@ Das EVB versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Die
 
 Zweite Aufgabe beim Energiemanagement ist eine konstante Eingangsspannungen zu erzwingen. Das System kontrolliert periodisch den aktuellen (unregulierten) Spannungswert der Harvestingquelle. Hat sich der Wert mehr als 37 mV gegenüber der zur Zeit aktuellen Regelspannung geändert, wird der neue Wert als Spannungsreferenz zum Regeln genommen. Die Abbildung \ref{RegelungSpannung} zeigt das Anpassen der Spannungslevel alle s. Die periodischen Kontrollmessungen alle 8 s verursachen kurze Spannungsspitzen. Diese entstehen bei der Kurzschlussmessung, für den akutellen Stromwert.
 
-\begin{figure}
-    \includegraphics[bb = 0 0 100 100]{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
+
+\begin{figure}    
+    \includegraphics[scale = 0.3]{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{RegelungSpannung} 
 \end{figure}
 
 Entsprechen die Konfigurationen auf dem EVB nicht dem Verhalten der Eingangsquelle, so entstehen keine konstanten Spannungswerte an der Harvestingquelle, was Abbildung \ref{falscheRegelung} zeigt.
 
 \begin{figure}
-    \includegraphics[bb = 0 0 100 100]{2TheoretischeGrundlagen/imag/falscheRegelung.png}
+    \includegraphics[scale = 0.3]{2TheoretischeGrundlagen/imag/falscheRegelung.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{falscheRegelung} 
 \end{figure}
 
