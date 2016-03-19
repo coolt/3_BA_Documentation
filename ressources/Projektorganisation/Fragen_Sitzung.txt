@@ -1,9 +1,0 @@
-﻿Fragen Spezifikationssitzung
-
-EnergieManagement: - Energy Management:
-                     Wie berechnen ? Hilfe? Artikel ?
-		     - Verbrauch Sensortag
-	             - Annahme Energiemanagement (Kondensatoren)
-		    
-			
-                   - Übersicht Befehle ? 

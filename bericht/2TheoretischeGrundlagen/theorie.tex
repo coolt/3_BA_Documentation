@@ -1,10 +1,14 @@
 \chapter{Theoretische Grundlagen}
-- nicht spezifisch
-nur allgemein:
+In diesem Kapitel wird in die benutzen Konzepte eingeführt.
 
-\section{Energy Harvesting mit Bewegungsinduktion}
-Erwähnen: HarvesterSchaltung ist durch Machbarkeitsstudie vorgegeben.
-Kurze Einführung die optimierte Schaltung.
+\section{Energy Harvesting}
+\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}
+
+Bekannte Methoden sind Thermogeneratoren, die aus Umgebungswärme Energie gewinnen, passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. 
+
+In dieser Bachelorarbeit wird Energie über Bewegungsinduktion gewonnen. \glqq Befindet sich eine Spule in einem dynamischen Magnetfeld, wird in der Spule eine Spannung induziert\grqq \cite{PA_bicycle} S.8. Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen, eines Magneten an einer fix verankerten Spule erzeugt.
+Die produzierte Spannung hängt von drei Kriterien ab:
+
 
 
 
@@ -25,9 +29,10 @@ Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) e
 
 
 \subsection{Regelung des optimalen Leistungsbezugs}
-- Generell MPP beshreiben
-_Widerstandskurve
-wie Leistungsanpasung
+
+Generell MPP beschreiben, nicht EM MPP
+Widerstandskurve als Graphik nehmen
+MPP ist wie Leistungsanpasung
 
 Wichtigster Punkt in der Energieoptimierung ist das Maximum aus der produzierten Energie herauszuholen. Die maximale Leistung ergibt sich beim MaximumPowerPoints (MPP), dem Punkte, an denen am effizientesten Leistung bezogen werden kann. 
 Das EVB versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht.
