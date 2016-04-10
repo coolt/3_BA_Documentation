@@ -1,5 +1,14 @@
 ﻿TODO Bericht
-- Anhang braucht im Inhaltsverzeichnis einen Titel
+-------------------
+1.) Anhang braucht im Inhaltsverzeichnis einen Titel
+2.) Bildbreite generell definieren (jetzt With = 15 cm)
+3.) Korrektes Einbindem von PDF (im Anhang) 
+
+- Probleme: German Quotes:
+	Kap3 Vorgehen/Energieverbrauch Sensortag
+	Text unter Tabelle. Mit "Zitat". Danach hat das Wort keinen Abstand.
+	
+	
 - EPS-Einbindung ging nicht
 - PNG-Bilder korrekt einfügen in Textfluss
 - Problem mit korrektem Bild einbinden:
@@ -12,8 +21,5 @@
   sollte in Book so sein, twoside als Argument von documentclass gibt Fehler
 - Betreuer und Nebenbetreuer dazu
 
-Probleme:
-German Quotes:
-Kap3 Vorgehen/Energieverbrauch Sensortag
-Text unter Tabelle. Mit "Zitat". Danach hat das Wort keinen Abstand.
+
 
