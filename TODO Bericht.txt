@@ -1,8 +1,7 @@
 ﻿TODO Bericht
 -------------------
-1.) Anhang braucht im Inhaltsverzeichnis einen Titel
-2.) Bildbreite generell definieren (jetzt With = 15 cm)
-3.) Korrektes Einbindem von PDF (im Anhang) 
+1.) Titelseite: Bild, Schrift
+2.) Wie Schrift für Kapitel, Header, ...
 
 - Probleme: German Quotes:
 	Kap3 Vorgehen/Energieverbrauch Sensortag
@@ -16,9 +15,6 @@
 - Abbildungsverzeichnis erstellen (Bilder der PA unterscheiden von unseren Bildern)
 - Tabellenverzeichnis und Beschriftung
 
-- Zweiseitiges Dokument (Duplex): 
-  Siehe Kap.3, 3.1 Dokumentenstil:
-  sollte in Book so sein, twoside als Argument von documentclass gibt Fehler
 - Betreuer und Nebenbetreuer dazu
 
 
