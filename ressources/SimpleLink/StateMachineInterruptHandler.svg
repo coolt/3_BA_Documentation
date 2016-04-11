@@ -171,7 +171,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.75999999"
-     inkscape:cx="200.06039"
+     inkscape:cx="618.48145"
      inkscape:cy="405.76589"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -180,11 +180,11 @@
      guidetolerance="10000"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1004"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1026"
+     inkscape:window-height="996"
+     inkscape:window-x="886"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -239,7 +239,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -491,15 +491,15 @@
          sodipodi:role="line"
          x="988.02917"
          y="397.81644"
-         id="tspan5186">setConfigurations()</tspan><tspan
+         id="tspan5186" /><tspan
          sodipodi:role="line"
          x="988.02917"
          y="422.81644"
-         id="tspan5188">initInterrupt()</tspan><tspan
+         id="tspan5188" /><tspan
          sodipodi:role="line"
          x="988.02917"
          y="447.81644"
-         id="tspan3448">- RTC_Velocity()</tspan><tspan
+         id="tspan3448">- InitIntGPIO</tspan><tspan
          sodipodi:role="line"
          x="988.02917"
          y="472.81644"
