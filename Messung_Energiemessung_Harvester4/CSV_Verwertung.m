@@ -2,9 +2,9 @@ clc, clear all;
 
 %% Vor dem Ausführen folgende Variabeln definiren
 
-filename = 'Harvester_10kmh_100Ohm.csv'; % evtl. Dateiname anpassen
+filename = 'Harvester_20kmh_9kOhm.csv'; % evtl. Dateiname anpassen
 R = 9e3; % verwendeten Widerstand eintragen
-v = 40; % eingestellte Geschwindigkeit eintragen
+v = 20; % eingestellte Geschwindigkeit eintragen
 
 %% Laden der Daten aus dem CSV-File
 
