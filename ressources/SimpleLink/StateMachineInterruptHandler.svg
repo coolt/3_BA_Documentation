@@ -201,9 +201,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.75999999"
-     inkscape:cx="400.06584"
-     inkscape:cy="454.4362"
+     inkscape:zoom="1.52"
+     inkscape:cx="966.39011"
+     inkscape:cy="435.77315"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -211,11 +211,11 @@
      guidetolerance="10000"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1004"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     inkscape:window-maximized="1"
+     inkscape:window-width="952"
+     inkscape:window-height="996"
+     inkscape:window-x="960"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -274,7 +274,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -608,27 +608,31 @@
          id="tspan3498"
          y="659.33661"
          x="678.60809"
-         sodipodi:role="line">disableRTC_CH0_Interrupts() </tspan><tspan
+         sodipodi:role="line">disableRTCChannel(CH0)</tspan><tspan
          id="tspan3500"
          y="684.33661"
          x="678.60809"
-         sodipodi:role="line">enableSPICommunication()</tspan><tspan
+         sodipodi:role="line">powerSystem() </tspan><tspan
          y="709.33661"
          x="678.60809"
          sodipodi:role="line"
-         id="tspan4727">enableGPIOInterrupts()</tspan><tspan
+         id="tspan4270">enableRTCChannel(CH2)</tspan><tspan
          y="734.33661"
          x="678.60809"
          sodipodi:role="line"
-         id="tspan4729">enableRTC_CH2_Interrupts()</tspan><tspan
-         id="tspan3502"
+         id="tspan4727">enableGPIOInterrupts()</tspan><tspan
          y="759.33661"
          x="678.60809"
-         sodipodi:role="line">disableGPIOInterrupts()</tspan><tspan
+         sodipodi:role="line"
+         id="tspan4729">disabelRTCChannel(CH2)</tspan><tspan
+         id="tspan3502"
          y="784.33661"
          x="678.60809"
+         sodipodi:role="line">disableGPIOInterrupts()</tspan><tspan
+         y="809.33661"
+         x="678.60809"
          sodipodi:role="line"
-         id="tspan4731">disbale RTC_CH2_Interrupts()</tspan></text>
+         id="tspan4731" /></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -642,48 +646,50 @@
          id="tspan3441"
          x="1001.3157"
          y="264.73068"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Arial;-inkscape-font-specification:Arial"
-           id="tspan3514">initSensortag()</tspan></tspan><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;font-family:Arial;-inkscape-font-specification:Arial">initSensortag()</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="292.38992"
-         id="tspan3443">- initRTCInterrupt</tspan><tspan
+         id="tspan3443">initWUC(); // set wake up events</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="317.38992"
-         id="tspan3455">  CH0: wakeUp</tspan><tspan
+         id="tspan3455">  CH0: wake Up from sleep</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="342.38992"
-         id="tspan3457">  CH2: speed measuring</tspan><tspan
+         id="tspan4256">  CH1: all GPIO</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="367.38992"
-         id="tspan3445">- initGPIOInterrupt</tspan><tspan
+         id="tspan3457">  CH2: speed measuring</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="392.38992"
-         id="tspan3447">- initRFCInterrupt:</tspan><tspan
+         id="tspan3445">initRTCInterrupts();</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="417.38992"
-         id="tspan3459">   Add 3 RFE Int to NVIC</tspan><tspan
+         id="tspan4258">initGPIOInterrupt();</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="442.38992"
-         id="tspan3449" /><tspan
+         id="tspan3449">initRFCInterrupt();</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="467.38992"
-         id="tspan3451">Enable all extern Interrupts</tspan><tspan
+         id="tspan3451">enableAllExternInterrupts()</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="492.38992"
-         id="tspan3461">Disable GPIO, edge detected Inteerrupts</tspan><tspan
+         id="tspan3461">enableRTC(); !!!!</tspan><tspan
          sodipodi:role="line"
          x="1001.3157"
          y="517.38989"
+         id="tspan4268">disbaleRTCChannel(CH2)</tspan><tspan
+         sodipodi:role="line"
+         x="1001.3157"
+         y="542.38989"
          id="tspan3453"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'" /></text>
     <text
