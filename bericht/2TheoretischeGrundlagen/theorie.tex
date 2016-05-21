@@ -10,9 +10,8 @@ Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. 
 
 \glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}. \\
 
-Als erstes werden Methoden zur Energiegewinnung vorgestellt \ref{harv_arten} und danch die im Bicycle Computer verwendete Harvesting Art genauer beschrieben \ref{harv_bewegung}. Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig. 
+Als erstes werden Methoden zur Energiegewinnung vorgestellt \ref{harv_arten} und danch die im Bicycle Computer verwendete Harvesting Art genauer beschrieben \ref{harv_bewegung}. Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig
 
- 
 
 \subsection{Energy Harvesting Methoden}\label{harv_arten} 
 
@@ -75,7 +74,7 @@ Die produzierte Spannung hängt von drei Kriterien ab:
 Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
 \begin{enumerate}
     \item die eingeschlossene Fläche $A$ der Spule    
-    \item die \textbf{magnetische Flussdichte???} des Magneten $B$ 
+    \item die magnetische Flussdichte des Magneten $B$ 
     \item die Anzahl Windungen $N$ der Spule und
     \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche Einfluss auf $dt$ hat
 \end{enumerate}
@@ -94,43 +93,48 @@ Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Glei
 Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung. Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen.\\
 
 \subsubsection{Konstanter Maximum Power Point zu dynamischem}
-Der wesentliche Unterschied zwischen einer Solarzelle und einem TEG liegt in der Leistungkurve, dem Maximum Power Point.
+Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50 \%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80 \% der maximalen Spannung. Die MPPT-Ratio ist 80 \%.  Bei der Bewegungsinduktion existiert kein fixe MPPT-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.\\
 
-Die Solarzelle hat ihr Maximum bei  a 80 \% un die elektrische Spannung bei maximaler Leistung (Maximum Power Point, Leistungsanpassung) liegt bei den gebräuchlichsten Zellen (kristalline Siliciumzellen) bei etwa 0,5 V. (Wikipedia.
+Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Graphik angefügt.\\
+
+Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50 \%. Die Graphik \ref{MPP_TEG} zeigt, dieses unabhängige Verhalten. 
 
 \begin{figure}
- \includegraphics{2TheoretischeGrundlagen/imag/MPPTEG.png}
-\caption{MPP TEG}
+ \includegraphics{2TheoretischeGrundlagen/imag/MPPTEG.png}\label{MPP_TEG} 
+\caption{MPP TEG (\cite{MPP_TEG})}
 \end{figure}
 
 
-Das TEG hat seine Leistungsmaximum bei 50 \% . 
-$(http://www.digikey.com/en/articles/techzone/2013/mar/maximizing-energy-harvesting-efficiency-from-thermal-sources, Maximizing Energy-Harvesting Efficiency from Thermal Sources, By Stephen Evanczuk, Contributed By Electronic Products, 2013-03-06)$\\ 
-Bild 1 Kurve\\
-
-$https://www.researchgate.net/publication/https://www.researchgate.net/publication/262154138_Maximum_Power_Point_Tracking_Converter_Based_on_the_Open-Circuit_Voltage_Method_for_Thermoelectric_Generators$\\
-Bild 3 Kurven\\
-
+Graphik \ref{mpp_solar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80 \% liegt.
 
 \begin{figure}
-   \includegraphics{2TheoretischeGrundlagen/imag/MPPSolar.png}
-   \caption{MPP Solarzelle}
+   \includegraphics{2TheoretischeGrundlagen/imag/MPPSolar.png}\label{mpp_solar} 
+   \caption{MPP Solarzelle }
 \end{figure}
 
+% \cite{mpp_solar}
 
-Bewegungsindktion bei ca. 50 \%
-$http://www.electronicproducts.com/Power_Products/Batteries_and_Fuel_Cells/Energy_harvesting_from_an_ambient_electric_field.aspx$  -> Bild für eine Kurve
+Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. \\
+Exemplarisch sind drei MPPT-Ratios einer Spule in der Graphik \ref{mpp_spule} abgebildet. In dieser Graphik zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Graphik wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde.\\
+
+Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit der der Magnet an der Spule vorbeizieht, genauer dokumentiert. Denn dieser Faktor ist durch den Nutzer direkt beeinflussbar (Graphik \ref{mpp_harvester}). \\
 
 
-
+Über alle Messungen hinweg lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 40 - 80 \% bewegt.
 
 \begin{figure}
- \includegraphics{2TheoretischeGrundlagen/imag/MPPSpule.png}
-\caption{MPP Spule}
+   \includegraphics{2TheoretischeGrundlagen/imag/MPPSpule.png}
+   \caption{MPP Spule}\label{mpp_spule} 
 \end{figure}
 
+%\cite{MPP_Spule}
 
+\begin{figure}
+   \includegraphics{Idle.jpg}
+   \caption{MPP Spule}\label{mpp_harvester} 
+\end{figure}
 
+\cite{MPP_Harv}
 
 
 % 2.2-------------------------------------------------------------------
