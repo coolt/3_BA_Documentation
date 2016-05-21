@@ -23,12 +23,26 @@ Da der im Prototyp verwendete Energy Mangement-Chip \ref{t_em8500} für die Ener
 
 \subsubsection{Energy Harvesting mit einer Solarzelle}\label{harv_solarzelle} 
 
-\subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
 
+Bei der Umwandlung von Elektromagnetischen Wellen (Licht) in Strom wird eine spezielle Eigenschaft des Siliziums genutzt: Führt man Silizium Energie zu, entstehen freie Ladungsträger, bzw. Elektronen und Löcher. "Um aus diesen Ladungen einen elektrischen Strom zu erzeugen, ist es nötig, die erzeugten freien Ladungsträger in unterschiedliche Richtungen zu lenken; dies geschieht ... durch ein internes elektrisches Feld, welches durch einen p-n-Übergang erzeugt werden kann." (https://de.wikipedia.org/wiki/Solarzelle ((21.5.16:12:04), 12:22)
+Auf der einen Seite sammelt sich positive, auf der anderen Seite negative Ladung an. Werden diese verbunden, entsteht ein Strom. \\
+
+(http://sms.ckw.ch/content/ckwsms/de/startseite/mittelstufe/solaranlage-erklaert.html   (21.5.16:12:04))Abschnitt Funktionsprinzip). \\
+
+Diese Harvestingmethode produziert ein Gleichstrom, es braucht somit keinen Gleichrichter. Die Spannung am Ausgang ist konstant, da es sich um eine Stromquelle handelt (stimmt das ?).
+
+
+
+\subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
+TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. (https://de.wikipedia.org/wiki/Thermoelement)\\
+Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 µV pro 1 °C Temperaturdifferenz. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind.(https://de.wikipedia.org/wiki/Thermoelement)\\
+
+
+Diese Harvestingmethode produziert eine DC-Spannung und braucht keinen Gleichrichter. 
 
 
 \subsection{Energy Harvesting über Bewegungsindktion}\label{harv_bewegung} 
-In dieser Bachelorarbeit wird Energie über Bewegungsinduktion gewonnen. Die nachfolgenden Erklärungen stammen aus \cite{PA_bicycle} S.8.  
+Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben \cite{PA_bicycle} S.8. : 
 
 Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
 
@@ -66,16 +80,29 @@ Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
     \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche Einfluss auf $dt$ hat
 \end{enumerate}
 
-(Für die Schaltungsoptimierung sind die ersten drei Punkte relevant.)
+Diese Harvestingmethode produziert einen Wechselstrom. Ein Gleichrichter und einen Kondensator zur Glättung der Rippelspannung ist nach der Energiegewinnung notwendig.\\
+
+(Für die Schaltungsoptimierung sind die ersten drei Punkte relevant.)\\
 
 \subsection{Unterschiede der Methoden}\label{harv_diff} 
 %Bei der Umsetzung zeigten sich problem.....
 
-Strom
+Der grösste Unterschied besteht in der Art in der die Energie zur Verfügung steht. Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Gleichrichterschaltung und Glättung notwendig sind.\\
 
-Spannung
 
-MPPT
+Der wesentliche Unterschied zwischen einer Solarzelle und einem TEG liegt in der Leistungkurve, dem Maximum Power Point.
+
+Die Solarzelle hat ihr Maximum bei  a 80 \% un die elektrische Spannung bei maximaler Leistung (Maximum Power Point, Leistungsanpassung) liegt bei den gebräuchlichsten Zellen (kristalline Siliciumzellen) bei etwa 0,5 V. (Wikipedia.
+
+Das TEG hat seine Leistungsmaximum bei 50 \% . 
+(http://www.digikey.com/en/articles/techzone/2013/mar/maximizing-energy-harvesting-efficiency-from-thermal-sources, Maximizing Energy-Harvesting Efficiency from Thermal Sources, By Stephen Evanczuk, Contributed By Electronic Products, 2013-03-06)\\ 
+Bild 1 Kurve\\
+
+https://www.researchgate.net/publication/https://www.researchgate.net/publication/262154138_Maximum_Power_Point_Tracking_Converter_Based_on_the_Open-Circuit_Voltage_Method_for_Thermoelectric_Generators\\
+Bild 3 Kurven\\
+
+Bewegungsindktion bei ca. 50%
+
 
 
 
@@ -134,11 +161,14 @@ Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XX
 
 \subsubsection{Energie Management Chip EM8500}\label{t_em8500} 
 
-Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
+MPP:
+- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
 
-Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+%Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
 
-Kommunikationsschema ? 
+%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+
+
 
 % 2.3-------------------------------------------------------
 \section{Power Management}\label{t_power_management} 
