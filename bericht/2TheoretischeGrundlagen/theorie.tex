@@ -29,16 +29,16 @@ Auf der einen Seite sammelt sich positive, auf der anderen Seite negative Ladung
 
 (http://sms.ckw.ch/content/ckwsms/de/startseite/mittelstufe/solaranlage-erklaert.html   (21.5.16:12:04))Abschnitt Funktionsprinzip). \\
 
-Diese Harvestingmethode produziert ein Gleichstrom, es braucht somit keinen Gleichrichter. Die Spannung am Ausgang ist konstant, da es sich um eine Stromquelle handelt (stimmt das ?).
+Diese Harvestingmethode produziert ein Gleichstrom. Die Spannung am Ausgang ist konstant, da es sich um eine Stromquelle handelt (stimmt das ?). Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
 
 
 
 \subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
 TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. (https://de.wikipedia.org/wiki/Thermoelement)\\
-Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 µV pro 1 °C Temperaturdifferenz. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind.(https://de.wikipedia.org/wiki/Thermoelement)\\
+Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind.(https://de.wikipedia.org/wiki/Thermoelement)\\
 
 
-Diese Harvestingmethode produziert eine DC-Spannung und braucht keinen Gleichrichter. 
+Diese Harvestingmethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$ V pro $1^\circ C$ Temperaturdifferenz.
 
 
 \subsection{Energy Harvesting über Bewegungsindktion}\label{harv_bewegung} 
@@ -80,32 +80,54 @@ Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
     \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche Einfluss auf $dt$ hat
 \end{enumerate}
 
-Diese Harvestingmethode produziert einen Wechselstrom. Ein Gleichrichter und einen Kondensator zur Glättung der Rippelspannung ist nach der Energiegewinnung notwendig.\\
+Diese Harvestingmethode produziert einen Wechselstrom. Ein Gleichrichter und einen Kondensator zur Glättung der Rippelspannung ist nach der Energiegewinnung notwendig. Die Leistung der produzierten Spannung geht vom $\mu$W-Bereich bis zu für die Industrie optimierten Anlagen mit Leistung MW-Bereich wie z. B. durch Drehstrom-Generatoren.\\
 
-(Für die Schaltungsoptimierung sind die ersten drei Punkte relevant.)\\
+
 
 \subsection{Unterschiede der Methoden}\label{harv_diff} 
-%Bei der Umsetzung zeigten sich problem.....
 
-Der grösste Unterschied besteht in der Art in der die Energie zur Verfügung steht. Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Gleichrichterschaltung und Glättung notwendig sind.\\
+Der grösste Unterschied besteht in der Art in der die Energie zur Verfügung steht. 
 
+\subsubsection{Gleichmässige Energie versus gepulster Energie}
+Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Gleichrichterschaltung und Glättung notwendig sind.\\
 
+Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung. Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen.\\
+
+\subsubsection{Konstanter Maximum Power Point zu dynamischem}
 Der wesentliche Unterschied zwischen einer Solarzelle und einem TEG liegt in der Leistungkurve, dem Maximum Power Point.
 
 Die Solarzelle hat ihr Maximum bei  a 80 \% un die elektrische Spannung bei maximaler Leistung (Maximum Power Point, Leistungsanpassung) liegt bei den gebräuchlichsten Zellen (kristalline Siliciumzellen) bei etwa 0,5 V. (Wikipedia.
 
+\begin{figure}
+ \includegraphics{2TheoretischeGrundlagen/imag/MPPTEG.png}
+\caption{MPP TEG}
+\end{figure}
+
+
 Das TEG hat seine Leistungsmaximum bei 50 \% . 
-(http://www.digikey.com/en/articles/techzone/2013/mar/maximizing-energy-harvesting-efficiency-from-thermal-sources, Maximizing Energy-Harvesting Efficiency from Thermal Sources, By Stephen Evanczuk, Contributed By Electronic Products, 2013-03-06)\\ 
+$(http://www.digikey.com/en/articles/techzone/2013/mar/maximizing-energy-harvesting-efficiency-from-thermal-sources, Maximizing Energy-Harvesting Efficiency from Thermal Sources, By Stephen Evanczuk, Contributed By Electronic Products, 2013-03-06)$\\ 
 Bild 1 Kurve\\
 
-https://www.researchgate.net/publication/https://www.researchgate.net/publication/262154138_Maximum_Power_Point_Tracking_Converter_Based_on_the_Open-Circuit_Voltage_Method_for_Thermoelectric_Generators\\
+$https://www.researchgate.net/publication/https://www.researchgate.net/publication/262154138_Maximum_Power_Point_Tracking_Converter_Based_on_the_Open-Circuit_Voltage_Method_for_Thermoelectric_Generators$\\
 Bild 3 Kurven\\
 
-Bewegungsindktion bei ca. 50%
+
+\begin{figure}
+   \includegraphics{2TheoretischeGrundlagen/imag/MPPSolar.png}
+   \caption{MPP Solarzelle}
+\end{figure}
+
+
+Bewegungsindktion bei ca. 50 \%
+$http://www.electronicproducts.com/Power_Products/Batteries_and_Fuel_Cells/Energy_harvesting_from_an_ambient_electric_field.aspx$  -> Bild für eine Kurve
 
 
 
 
+\begin{figure}
+ \includegraphics{2TheoretischeGrundlagen/imag/MPPSpule.png}
+\caption{MPP Spule}
+\end{figure}
 
 
 
