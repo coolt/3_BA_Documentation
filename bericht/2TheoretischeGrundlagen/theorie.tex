@@ -139,18 +139,16 @@ Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit
 
 % 2.2-------------------------------------------------------------------
 \section{Energy Management}\label{t_energy_management} 
-Was wir machen: HRV Energie nicht direkt in sensortag, sondern in LTS speichern.
+Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$W-Bereich. Um diese für eine Applikation zu verwenden, müssen die geringen Energieportionen summiert werden. Sind Energiemengen im mW-Bereich verfügbar, kann die Energie kontrolliert freigegeben werden.\\
 
-In der Bachelorarbeit ist bei der Umsetzung des Enerergymanagements der Chip EM8500 vorgegeben. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. %( Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.)
-
-
-Energy Management bezeichnet das Regeln von Energiezuständen, damit ein Optimum an Leistung aus einer Quelle bezogen werden kann.
+Energy Management bezeichnet den Vorgang des Sammeln an Energie, dem Regeln von Spannung und Strom auf einen geforderten Schwellwert und die kontrollierte Freigabe. Zudem ist das Regeln des Inputs wesentlich, damit ein Optimum an Leistung aus einer Quelle bezogen werden kann \\
 
 
-%The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
+In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. 
+\textbf{Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.}
 
-Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
 
+\subsection{Bauteile des Energiemanagements}
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 
@@ -180,12 +178,21 @@ Dritter Punkt ist der Aufbau von Energiespeichern. Diese sollen so viel Energie 
 
 Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XXXXS.
 
+\subsection{Booster}
 
+\subsection{Energiezustand kennen und In- und Ausgänge schalten}
 
 
 
 
 \subsubsection{Energie Management Chip EM8500}\label{t_em8500} 
+
+
+Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. 
+
+The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
+
+Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
 
 MPP:
 - start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
