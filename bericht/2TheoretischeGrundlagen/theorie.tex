@@ -1,14 +1,34 @@
 \chapter{Theoretische Grundlagen}
-In diesem Kapitel wird in die benutzen Konzepte eingeführt.
+Der Bicycle Computer basiert auf Energy Harvesting. Was Energie ernten bedeutet und welche Art von Energy Harvesting in dieser Arbeit benutzt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. \\
+Da die gewonnene Energie im $\mu$W-Bereich liegt, ist ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Ansätze zur Umsetzung zum Sammeln und Weiterleiten von Energie werden im Unterkapitel \ref{t_energy_management} beschrieben.\\ 
+Die gewonnene Energie darf nicht sofort verbraucht werden, deshalb ist auch ein Power Mangement notwendig. Dieses regelt, wie schnell wie viel Energie verbraucht werden kann (siehe \ref{t_power_management}).\\
+Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Da bietet die Bluetooth Low Energie Technologie ideale Voraussetzungen. Das Protokoll und die Technologie werden im letzten Grundlageteil \ref{t_ble} vorgestellt.
 
-\section{Energy Harvesting}
-\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}
+
+% 2.1-------------------------------------------------------------------
+\section{Energy Harvesting}\label{t_harvesting} 
+
+\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}. \\
+
+Als erstes werden Methoden zur Energiegewinnung vorgestellt \ref{harv_arten} und danch die im Bicycle Computer verwendete Harvesting Art genauer beschrieben \ref{harv_bewegung}. Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig. 
+
+ 
+
+\subsection{Energy Harvesting Methoden}\label{harv_arten} 
+
+Bekannte Methoden sind die Solarzelle, die aus der Energie der Sonnenstrahlen Strom erzeugt, die Thermogeneratoren (TEG), die aus Umgebungswärme Energie gewinnen,  passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt.\\
 
 
-Bekannte Methoden sind Thermogeneratoren, die aus Umgebungswärme Energie gewinnen, passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. 
+Da der im Prototyp verwendete Energy Mangement-Chip \ref{t_em8500} für die Energieoptimierung von Solarzellen oder von Thermogenaratoren spezialisiert ist, werden diese zwei Methoden vorgestellt. 
 
+\subsubsection{Energy Harvesting mit einer Solarzelle}\label{harv_solarzelle} 
+
+\subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
+
+
+
+\subsection{Energy Harvesting über Bewegungsindktion}\label{harv_bewegung} 
 In dieser Bachelorarbeit wird Energie über Bewegungsinduktion gewonnen. Die nachfolgenden Erklärungen stammen aus \cite{PA_bicycle} S.8.  
-\subsection*{Bewegungsindktion}
 
 Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
 
@@ -48,7 +68,24 @@ Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
 
 (Für die Schaltungsoptimierung sind die ersten drei Punkte relevant.)
 
-\section{Energy Management für die gewonnene Energie}
+\subsection{Unterschiede der Methoden}\label{harv_diff} 
+%Bei der Umsetzung zeigten sich problem.....
+
+Strom
+
+Spannung
+
+MPPT
+
+
+
+
+
+
+
+
+% 2.2-------------------------------------------------------------------
+\section{Energy Management}\label{t_energy_management} 
 Was wir machen: HRV Energie nicht direkt in sensortag, sondern in LTS speichern.
 
 In der Bachelorarbeit ist bei der Umsetzung des Enerergymanagements der Chip EM8500 vorgegeben. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. %( Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.)
@@ -95,7 +132,7 @@ Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XX
 
 
 
-\subsubsection{Energiestände kontrollieren}
+\subsubsection{Energie Management Chip EM8500}\label{t_em8500} 
 
 Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
 
@@ -103,8 +140,8 @@ Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die i
 
 Kommunikationsschema ? 
 
-% -------------------------------------------------------
-\section{Low Power Microcontroller von Texas Instruments}
+% 2.3-------------------------------------------------------
+\section{Power Management}\label{t_power_management} 
 - Zeichnen des Init, sleep, Aufwachen
 
 Zur Verwaltung der gegebenen Energie ist der Microcontroller gegeben. Es handelt sich um einen Cortex M3, der sich auf dem Sensortag von Texas Instruments befindet. Die zentralen Eigenschaften dieses Boards und die Funktionsblöcke befindet sich im Anhang \ref{anhang_sensortag}.
@@ -144,8 +181,8 @@ Aktivitäten aufsetzen
 
 
 
-
-\section{Bluetooth Low Energy}
+% 2.4-------------------------------------------------------------------
+\section{Bluetooth Low Energy}\label{t_ble} 
 
 Unterschied zu Bluetooth
 
