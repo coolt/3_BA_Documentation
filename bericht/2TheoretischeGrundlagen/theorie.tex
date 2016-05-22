@@ -201,15 +201,21 @@ MPP:
 - start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
 
 
-\subsection{Booster}
-Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau zu heben. EM8500 arbeitet ab einer Eingangsspannungen von 0.3 V, braucht aber zum vollständigen Betrieb des Chips eine Spannung von 1.8 V.\\
-
-Da die beiden Kondensatoren STS und LTS vom Boosterausgang gespiesen werden, ist dessen Spannung für die Berechnung der gewonnenen Energie wichtig.
+\subsection{Booster definiert Spannung}
+Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. \\
 
 
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
-Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11
+Da der Kondensatoren STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem geregelten Boosterausgang. Für die Berechnung der Schwellwerte und der Kondensatoren ergibt sich:\\
+
+
+  E_{Applikation}= C * \frac{1}{2} V_{STS}\ \
+
+ 
+ $E_{Applikation}$ bezeichnet die  minimale 
+ 
+Die Energiequelle, wie auch die angeschlossenen Speicher, haben eigene Pins, die ihren Zustand übermitteln (\cite{datasheet_EM85}, p.11).
 
 
 \begin{figure}    
