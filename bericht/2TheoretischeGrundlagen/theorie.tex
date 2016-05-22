@@ -146,15 +146,46 @@ Energy Management bezeichnet das der Energie in Speichern, das Regeln des Inputs
 
 In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings (MPPT) und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist.\\
 
-Das Funktionsdiagramm des EM8500 finden sie im Anhang. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. 
+Das Datenblatt des EM8500 ist der CD beigelegt. Der EM8500 ist für Low Power Applikationen entwickelt.\\
 
-The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
+\subsection{Kontrollierte Energiespeicherung}
 
-Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
+Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie, genug Energie gesammelt wurde. Umgesetzt wird dies, in dem die Freigabe der Energie an eine Applikation, VSUP, erst nach dem Erreichen eines gewissen Ladezustands erfolgt. Der Ladezustand des Primärkondensator ist mit VSTS in der Graphik\ref{em_grundprinzip}.
 
-\subsection{Kontrollierte Energie Speicherung}
+\begin{figure}
+   \includegraphics{Idle.jpg}
+   \caption{Grundprinzip Applikationsspeisung }\label{em_grundprinzip} 
+\end{figure}
 
-%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em8500}): Erreicht der Primärkondensator STS den Schwellwert v_bat_min_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Kondensator weiter lädt. VSUP folgt der Kondensatorspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v_bat_min_low, so wird die Speisung der Applikation gestoppt.\\
+
+
+\begin{figure}
+   \includegraphics{Idle.jpg}
+   \caption{Applikationsspeisung EM8500 }\label{em_grundprinzip_em8500} 
+\end{figure}
+
+Beim Energy Managment werden zwei Zustände unterschieden: Das kurzfristige Betreiben der Applikationen, in dem gerade genug Energie für das sichere Ausführen besteht und das langfristige sichere Betreiben der Applikation. Letzteres bedeutet, dass die Applikation auch bei einem Energiemangel weiterfunktioniert.\\ 
+Dazu sind zwei unterschiedliche Speicherelemente konzipiert: Die Aufgabe des Short Time Storage-Kondensators (STS) ist, möglichst schnell genug Energie für das kurzfristige Betreiben der Applikation zur Verfügung zu stellen. Die Aufgabe des Long Time Storage-Kondensators (LTS) ist es, Reserveenergie aufzubauen. Diese Überbrückt die Energieengpässe, wenn zu wenig Energie für das Betreiben der Applikation zur Verfügung steht.\\
+
+
+Das Freigeben der Speisung der Applikation muss mindestens für die Initialisierung der Applikation reichen. 
+Je nachdem wie viel Energie die Applikation braucht, fällt der Ladezustand (Spannung STS) wieder oder er kann sich erhöhen. (EM8500 ist gedacht, dass das Einschalten praktisch keine Energie braucht und die Energie weiter geladen wird.\\
+
+
+(\cite{datasheet_EM85} p. 11.)
+
+\begin{figure}
+   \includegraphics{Idle.jpg}
+   \caption{Timing Kondensatoren laden EM8500 (\cite{datasheet_EM85} p. 11.)}\label{mpp_harvester} 
+\end{figure}
+%aus: Datasheet S. 5
+
+Damit Energieunterbrüche überbrückt werden können, dient ein zweiter Kondensator. LTS bedeutet Long Time Storage und bezeichnet den Kondensator, der für die langfristige Dauer der Applikation verantwortlich ist.\\
+
+Dieser Kondensator wird möglichst bald parallel geladen. Dies ist der Fall, sobald der STS eine gewisser Überschuss besitzt. Also Spannungen aufweist, die deutlich höher sind, als die für das kurzfristige Betreiben der Applikation notwendig ist.\\ 
+
+
 
 
 \subsection{Regelung des optimalen Leistungsbezugs}
@@ -192,7 +223,7 @@ Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XX
 \subsection{Booster}
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
-
+%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11
 
 
 
