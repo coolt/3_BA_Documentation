@@ -165,25 +165,25 @@ Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em85
    \caption{Applikationsspeisung EM8500 }\label{em_grundprinzip_em8500} 
 \end{figure}
 
-Beim Energy Managment werden zwei Zustände unterschieden: Das kurzfristige Betreiben der Applikationen, in dem gerade genug Energie für das sichere Ausführen besteht und das langfristige sichere Betreiben der Applikation. Letzteres bedeutet, dass die Applikation auch bei einem Energiemangel weiterfunktioniert.\\ 
-Dazu sind zwei unterschiedliche Speicherelemente konzipiert: Die Aufgabe des Short Time Storage-Kondensators (STS) ist, möglichst schnell genug Energie für das kurzfristige Betreiben der Applikation zur Verfügung zu stellen. Die Aufgabe des Long Time Storage-Kondensators (LTS) ist es, Reserveenergie aufzubauen. Diese Überbrückt die Energieengpässe, wenn zu wenig Energie für das Betreiben der Applikation zur Verfügung steht.\\
-
-
-Das Freigeben der Speisung der Applikation muss mindestens für die Initialisierung der Applikation reichen. 
-Je nachdem wie viel Energie die Applikation braucht, fällt der Ladezustand (Spannung STS) wieder oder er kann sich erhöhen. (EM8500 ist gedacht, dass das Einschalten praktisch keine Energie braucht und die Energie weiter geladen wird.\\
-
-
-(\cite{datasheet_EM85} p. 11.)
+Der Primärkondensator STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das lanfristige, sichere Ausführen braucht das System ein Long Term Storage-Kondensator (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
+VLTS wird geladen, wenn der Schwellwert bei v_appl_max_los ist (siehe Graphik \ref{energiespeisung_lts}).
 
 \begin{figure}
    \includegraphics{Idle.jpg}
-   \caption{Timing Kondensatoren laden EM8500 (\cite{datasheet_EM85} p. 11.)}\label{mpp_harvester} 
+   \caption{Sicheres Betreiben durch Long Term Storage-Kondensator}\label{energiespeisung_lts} 
 \end{figure}
-%aus: Datasheet S. 5
 
-Damit Energieunterbrüche überbrückt werden können, dient ein zweiter Kondensator. LTS bedeutet Long Time Storage und bezeichnet den Kondensator, der für die langfristige Dauer der Applikation verantwortlich ist.\\
+Im Datenblatt des EM8500 \cite{datasheet_EM85} sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres betreiben. Die Dateien sind auf der CD abgelegt. 
 
-Dieser Kondensator wird möglichst bald parallel geladen. Dies ist der Fall, sobald der STS eine gewisser Überschuss besitzt. Also Spannungen aufweist, die deutlich höher sind, als die für das kurzfristige Betreiben der Applikation notwendig ist.\\ 
+Grundsätzlich ist zur Berechnung der Kondensatoren und den Schwellwerten zu sagen, dass der erste Schwellwert (v\_bat\_min\_lo), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. \\
+Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
+
+\begin{figure}
+   \includegraphics{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
+   \caption{Konzept Hersteller }\label{energiespeisung_lts} 
+\end{figure}
+
+%(\cite{datasheet_EM85} S. 5)
 
 
 
