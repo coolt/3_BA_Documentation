@@ -183,55 +183,39 @@ Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht a
    \caption{Konzept Hersteller }\label{energiespeisung_lts} 
 \end{figure}
 
-%(\cite{datasheet_EM85} S. 5)
-
-
-
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 
-Generell MPP beschreiben, nicht EM MPP
-Widerstandskurve als Graphik nehmen
-MPP ist wie Leistungsanpasung
+Wichtigster Punkt in der Energieoptimierung ist, das Maximum aus der produzierten Energie weiterzuverwenden. Aus diesem Grund wird vor Inbetriebnahme eine Leistungskurve des Harvesters erstellt. Wie in Unterkapitel \ref{harv_diff} beschrieben, unterscheidet sich der Maximum Power Point (MPP) unter den Harvestern stark.\\ 
 
-Wichtigster Punkt in der Energieoptimierung ist das Maximum aus der produzierten Energie herauszuholen. Die maximale Leistung ergibt sich beim MaximumPowerPoints (MPP), dem Punkte, an denen am effizientesten Leistung bezogen werden kann. 
-Das EVB versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht.
-
-Zweite Aufgabe beim Energiemanagement ist eine konstante Eingangsspannungen zu erzwingen. Das System kontrolliert periodisch den aktuellen (unregulierten) Spannungswert der Harvestingquelle. Hat sich der Wert mehr als 37 mV gegenüber der zur Zeit aktuellen Regelspannung geändert, wird der neue Wert als Spannungsreferenz zum Regeln genommen. Die Abbildung \ref{RegelungSpannung} zeigt das Anpassen der Spannungslevel alle s. Die periodischen Kontrollmessungen alle 8 s verursachen kurze Spannungsspitzen. Diese entstehen bei der Kurzschlussmessung, für den akutellen Stromwert.
-
+EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht. Wie schnell die aktuelle Leistung überprüft wird, ist einstellbar. Der EM8500 besitzt eine Auflösung von 37 mV. Die Graphik \ref{RegelungSpannung} zeigt das periodische Messen des (unregulierten) Spannungswert des Harvesters. Da die Kurzschlussmessung für das Messen des Stromwerts eine Spannungsspitzen verursacht, sollte die Leistungsüberprüfung nicht zu oft geschehen. In der Graphik \ref{RegelungSpannung} beträgt die Periode 8 s.
 
 \begin{figure}    
     \includegraphics{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
-    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{RegelungSpannung} 
+    \caption{Leistungsmessung des Harvesters}\label{RegelungSpannung} 
 \end{figure}
 
-Entsprechen die Konfigurationen auf dem EVB nicht dem Verhalten der Eingangsquelle, so entstehen keine konstanten Spannungswerte an der Harvestingquelle, was Abbildung \ref{falscheRegelung} zeigt.
 
-\begin{figure}
-    \includegraphics{2TheoretischeGrundlagen/imag/falscheRegelung.png}
-    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{falscheRegelung} 
-\end{figure}
-
-Dritter Punkt ist der Aufbau von Energiespeichern. Diese sollen so viel Energie speichern, wie eine gewisse Aktion braucht. Das Energiemanagmenet kennt für jede Aktion den Energieverbrauch und löst, bei genügend Speicherenergie eine Aktion laufen (siehe Berechnung der Kondensatoren).
 
 MPP:
 - start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
 
 
-Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XXXXS.
-
 \subsection{Booster}
+Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau zu heben. EM8500 arbeitet ab einer Eingangsspannungen von 0.3 V, braucht aber zum vollständigen Betrieb des Chips eine Spannung von 1.8 V.\\
+
+Da die beiden Kondensatoren STS und LTS vom Boosterausgang gespiesen werden, ist dessen Spannung für die Berechnung der gewonnenen Energie wichtig.
+
+
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
-%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11
+Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11
 
 
-
-
-
-
-
-
+\begin{figure}    
+    \includegraphics{2TheoretischeGrundlagen/imag/EM8500IO.png}
+    \caption{In- und Outputs EM8500}\label{IOEM8500} 
+\end{figure}
 
 
 
