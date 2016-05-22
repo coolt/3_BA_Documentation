@@ -207,20 +207,29 @@ Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \re
 
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
-Da der Kondensatoren STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem geregelten Boosterausgang. Für die Berechnung der Schwellwerte und der Kondensatoren ergibt sich:\\
+Da der Kondensatoren STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung des Kondensatoren muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:\\
 
 
-  E_{Applikation}= C * \frac{1}{2} V_{STS}\ \
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster} \\
 
  
- $E_{Applikation}$ bezeichnet die  minimale 
- 
-Die Energiequelle, wie auch die angeschlossenen Speicher, haben eigene Pins, die ihren Zustand übermitteln (\cite{datasheet_EM85}, p.11).
+( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.)\\
 
+Da aus dem Kondensatorwert und desssen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:\\
+
+v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}} \\
+
+Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Kondensator nicht auf 0 entlädt.\\
+
+
+Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Graphik  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), der Kondensatoren (VDD_STS und VDD_LTS)und des Harvestereingangs (VDD_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.\\
+
+EM8500 stellt zwei digitale Überwachungssignale zur Verfügung: Die Ausgänge BAT_LOW und HRV_LOW geben eine logische '1' aus, wenn .
+Diese zwei Signale dienen der vereinfachten Energiezustandsabfrage. Die grob den Systemzustand abbildet.\\
 
 \begin{figure}    
     \includegraphics{2TheoretischeGrundlagen/imag/EM8500IO.png}
-    \caption{In- und Outputs EM8500}\label{IOEM8500} 
+    \caption{In- und Outputs EM8500  (\cite{datasheet_EM85}, p.11)}\label{IOEM8500} 
 \end{figure}
 
 
