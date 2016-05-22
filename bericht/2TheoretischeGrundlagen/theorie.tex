@@ -141,14 +141,21 @@ Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit
 \section{Energy Management}\label{t_energy_management} 
 Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$W-Bereich. Um diese für eine Applikation zu verwenden, müssen die geringen Energieportionen summiert werden. Sind Energiemengen im mW-Bereich verfügbar, kann die Energie kontrolliert freigegeben werden.\\
 
-Energy Management bezeichnet den Vorgang des Sammeln an Energie, dem Regeln von Spannung und Strom auf einen geforderten Schwellwert und die kontrollierte Freigabe. Zudem ist das Regeln des Inputs wesentlich, damit ein Optimum an Leistung aus einer Quelle bezogen werden kann \\
 
+Energy Management bezeichnet das der Energie in Speichern, das Regeln des Inputs, damit die maximale Leistung aus der Quelle bezogen werden kann, das Aufwärtswandeln von Spannung oder Strom auf den geforderten Wert und die kontrollierte Freigabe.\\
 
-In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. 
-\textbf{Alternative Powermanagementsysteme sind z. B. : Booster TI, Analog Devices, E-Beas.}
+In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings (MPPT) und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist.\\
 
+Das Funktionsdiagramm des EM8500 finden sie im Anhang. Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. 
 
-\subsection{Bauteile des Energiemanagements}
+The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
+
+Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
+
+\subsection{Kontrollierte Energie Speicherung}
+
+%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
+
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 
@@ -176,6 +183,10 @@ Entsprechen die Konfigurationen auf dem EVB nicht dem Verhalten der Eingangsquel
 
 Dritter Punkt ist der Aufbau von Energiespeichern. Diese sollen so viel Energie speichern, wie eine gewisse Aktion braucht. Das Energiemanagmenet kennt für jede Aktion den Energieverbrauch und löst, bei genügend Speicherenergie eine Aktion laufen (siehe Berechnung der Kondensatoren).
 
+MPP:
+- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
+
+
 Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XXXXS.
 
 \subsection{Booster}
@@ -185,21 +196,11 @@ Das Berechnen der Schwellwerte und der Kondensatoren detaillierter in Kapitel XX
 
 
 
-\subsubsection{Energie Management Chip EM8500}\label{t_em8500} 
 
 
-Dieser IC ist von EM Microelectronics aus Marin (NE) entwickelt. 
 
-The EM8500 is an autonomous power management system able to manage power domains, power sources and storage elements \cite{datasheet_EM85}, p. 11.
 
-Zu diesem Chip ist das Evaluation-Board EMEVB8500 (im Text mit EVB abgekürzt) entwickelt, welches das Aufsetzen eines energieoptimierten Systems unterstützt. 
 
-MPP:
-- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
-
-%Sobald genügend Startenergie bereit steht, wacht der EM8500-Chips auf. Neben dem Setzen der Konfigurationen aus dem EPROM kontrolliert der Chip als erstes den aktuellen Speicherzustand der angeschlossenen Speicher.
-
-%Die Engeriequelle wie auch die angeschlossenen Speicher haben eigene Pins, die ihren Zustand übermitteln\cite{datasheet_EM85}, p.11. 
 
 
 
@@ -247,9 +248,7 @@ Aktivitäten aufsetzen
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
 
-Unterschied zu Bluetooth
 
-Spezifikationen
 
 
 
