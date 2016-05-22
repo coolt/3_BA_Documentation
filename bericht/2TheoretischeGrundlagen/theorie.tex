@@ -196,11 +196,6 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 \end{figure}
 
 
-
-MPP:
-- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
-
-
 \subsection{Booster definiert Spannung}
 Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. \\
 
@@ -222,10 +217,26 @@ v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}}
 Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Kondensator nicht auf 0 entlädt.\\
 
 
-Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Graphik  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), der Kondensatoren (VDD_STS und VDD_LTS)und des Harvestereingangs (VDD_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.\\
+Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Graphik  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), der Kondensatoren (VDD\_STS und VDD\_LTS)und des Harvestereingangs (VDD\_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.\\
 
-EM8500 stellt zwei digitale Überwachungssignale zur Verfügung: Die Ausgänge BAT_LOW und HRV_LOW geben eine logische '1' aus, wenn .
-Diese zwei Signale dienen der vereinfachten Energiezustandsabfrage. Die grob den Systemzustand abbildet.\\
+EM8500 stellt zwei digitale Überwachungssignale zur Verfügung:\\ 
+Der Ausgang HRV\_LOW ist auf logisch '0', wenn die Eingangsspannung vom Harvester grösser als 0.3 V ist. Fällt diese darunter, geht HRV\_LOW auf logisch '1'.
+Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation speist:
+
+\begin{itemize}
+     \item BAT\_LOW = '0'\\
+           Nicht genügend Energie zur Speisung der Applikation.
+           VSUP ist ausgeschalten.
+     \item BAT\_LOW = '1'\\
+           Genügend Energie zur Speisung der Applikation.\\
+           VSUP ist eingeschalten.
+      \item BAT\_LOW = '0'\\
+           Genügend Energie zur Speisung von LTS.\\
+           VSUP ist eingeschalten.\\
+           Der Zustand entspricht nicht mehr BAT\_LOW.   
+\end{itemize} 
+
+Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.\\
 
 \begin{figure}    
     \includegraphics{2TheoretischeGrundlagen/imag/EM8500IO.png}
@@ -236,39 +247,52 @@ Diese zwei Signale dienen der vereinfachten Energiezustandsabfrage. Die grob den
 
 % 2.3-------------------------------------------------------
 \section{Power Management}\label{t_power_management} 
-- Zeichnen des Init, sleep, Aufwachen
+Die Aufgabe des EM8500-Chip ist es, Energie zu sammeln und kontrolliert frei zu geben. Die Aufgabe das nachfolgenden Microkontrollers ist es, die freigegebenen Energieportionen optimal zu verwenden. Das bedeutet, möglichst wenig Energie bei der Datenverarbeitung zu benötigen. Dies wird durch Abstellen aller unnötigen Microkontroller-Bereiche erreicht und einem zusätzlichen Schlafen während allen Warteprozessen.\\
 
-Zur Verwaltung der gegebenen Energie ist der Microcontroller gegeben. Es handelt sich um einen Cortex M3, der sich auf dem Sensortag von Texas Instruments befindet. Die zentralen Eigenschaften dieses Boards und die Funktionsblöcke befindet sich im Anhang \ref{anhang_sensortag}.
+In diesem Kapitel werden drei Konzepte zum Umsetzen eines Low Power Systems vorgestellt. Das Hautpthema ist das Schlafen zwischen allen Prozessen. Dies wird im ersten Unterkapitel beschrieben. Das Schlafen bedingt ein Aufwecken aufgrund von Ereignissen. Dadurch ergibt sich eine Interrupt Driven Applikation. Diese wird im zweiten Unterkapitel erklärt. Als letztes dient ein Design Aspekt: Durch das Einbauen einer State Machine über alle laufenden Interrupts, ist es nachfolgenden Entwicklerinnen und Entwicklern einfacher, den Code und die gegenseitigen Beeinflussungen zu verstehen. Dies wird im Unterkapitel beschrieben.\\
 
-\subsection{Fähigkeiten eines Low Power Microcontrollers}
+Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kurz auf die verwendete Hardware eingegangen. In der Bachelorarbeit war als Microkontroller das Simple Link Sensortag von Texas Instrument vorgegeben. Der Grund für dieses Board ist, dass das Sensortag drei Anforderungen auf einem Borad vereint:
+
+\begin{itemize}
+    \item Ein Cortex M3 dient als Haupt-Microkontroller und ist aufgrund seiner hohen, und somit schnellen, Rechenleistung und seiner Low Power-Fähigkeiten für eine Harvester-Anwendung wie der Bicycle Computer geeignet.
+    \item Auf dem Board ist ein zweiter Cortex M0 für die Wireless-Anbindung angeschlossen. Die Schnittstelle zum Low Power Datensenden ist bereits aufgesetzt. Neben Bluetooth Low Energy kann auch Zigbee verwendet werden.
+    \item Auf dem Board sind 10 Sensoren angebunden.
+\end{itemize}
+
+Die Funktionsblöcke des Sensortags befinden sich im Anhang \ref{anhang_sensortag}.
+
+\subsection{Sleep}\label{pm_sleep} 
+
+
+\subsection{Interrupt Driven Appliacation}\label{pm_interrupt} 
+
+\subsection{Designed by a State Machine}\label{pm_state_machine} 
+
   
-Low Power Microcontroller können Gebiete des Prozessors oder von Periopherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereich aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
+%Low Power Microcontroller können Gebiete des Prozessors oder von Periopherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereich aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
+%
+%Bild: Energie-Langzeitmessung BLE versenden
+%Beschriften mit aktiv und standby modus
+%
+%Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.
 
-Bild: Energie-Langzeitmessung BLE versenden
-Beschriften mit aktiv und standby modus
-
-Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.
-
-
-
-\section{Aufsetzen des Low Power Microcontrollers}
 %Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
-(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
-
-Konfiguration der CPU (system.h, config.h)
-Einstellungen Active Mode: Sensoren, Wireless Processor, SPI-Kommunikation
-
-Einstellungen sleep Mode: Abstellen
-
-PowerDomain ausschalten
-Clk
-
-GPiO Konfigurieren (gpio.h, board.h)
-Event anstelle von Interrupt
-Synchronisation
-timer, oder systick oder GPiO signal. Wake up
-
-Aktivitäten aufsetzen
+%(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
+%
+%Konfiguration der CPU (system.h, config.h)
+%Einstellungen Active Mode: Sensoren, Wireless Processor, SPI-Kommunikation
+%
+%Einstellungen sleep Mode: Abstellen
+%
+%PowerDomain ausschalten
+%Clk
+%
+%GPiO Konfigurieren (gpio.h, board.h)
+%Event anstelle von Interrupt
+%Synchronisation
+%timer, oder systick oder GPiO signal. Wake up
+%
+%Aktivitäten aufsetzen
 
 
 
