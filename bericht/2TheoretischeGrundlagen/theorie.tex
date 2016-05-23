@@ -278,16 +278,25 @@ Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor 
 \subsubsection{Schlafen innerhalb einer Aktion}
 Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode gegangen. Innerhalb des Codes dominieren die Aufwach- und Abstell-Einstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionialität eingeschalten und nach ausführen der Aktion wieder abgeschalten. Ein UML 
 \begin{figure}    
-    \includegraphics{2TheoretischeGrundlagen/imag/EM8500IO.png}
+    \includegraphics{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
     \caption{Schlafen innerhalb des Codes}\label{sleep_intern} 
 \end{figure}
 
 
 \subsection{Interrupt Driven Appliacation}\label{pm_interrupt} 
-Das Schlafen der Applikation tönt gut. Doch wie wacht sie wieder auf? Dies ist ein nicht-triviales Problem, dass sich durch Interrupts lösen lässt.\\
+Zum Schlafen geört auch ein Aufwachen. Dies ist ein nicht-triviales Problem, lässt sich mit Interrupts lösen.\\
 
-In diesem Unterkapitel wird das Konzept der Interrupt Driven Applikation erklärt (wie auch ????)
+In diesem Unterkapitel werden zwei Konzepte einer Interrupt Driven Applikation erklärt: fixes Aufwachen aufgrund interner Interrupts und asynchrones Aufwachen aufgrund externer Events.
 
+\subsubsection{Aufwachen durch interne Interrupts}
+Ein System kann intern seine Signale auswerten und aufgrund kombinatorischen Logik, dem erreichen eines Schwellwerten oder dem Ablaufen eines Timers aufwachen. Solche Wakeups sind fix und unabhängig von äusseren Einflüssen.\\
+
+Ein System mit internen Interrupts ist determinierbar. Das heisst, der Empfang interner Interrupts ist präzis (nur 1 malig und kein Prellen) und kann über Prioritäten gut geregelt werden.
+
+\subsubsection{Aufwachen durch externe Events}
+Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. \\
+
+Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und den Systemablauf schlimmstenfalls aus dem Rhythmus bringen.
 
 \subsection{Designed by a State Machine}\label{pm_state_machine} 
 
