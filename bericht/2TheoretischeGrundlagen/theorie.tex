@@ -262,13 +262,16 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
 Die Funktionsblöcke des Sensortags befinden sich im Anhang \ref{anhang_sensortag}.
 
 \subsection{Einbauen von Schlaufmodi}\label{pm_sleep} 
+(Low Power Microcontroller können Gebiete des Prozessors oder von Periopherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereich aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.)\\
+
+
 Dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist Usus (Allgemeingut, bekannt). Bei einer Low Power Applikation geht der Prozessor jedoch nach kleinsten Ausführungsblöcken direkt wieder schlafen. So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Moduses konzeptionell erklärt.\\
 
 \subsubsection{Schlafen zwischen Ausführungen}
 
 Die Graphik \ref{sleep_Grundprinzip} zeigt das Grunprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\triangleup $ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialierungen vor jeder Aktion.\\
 
-Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor (hier als Bsp. Cortex M3) wird nur die Konfigurationen im Flash regelmässig "refreshed". Dies ist in der Graphik \ref{sleep_Grundprinzip} an den grünen Spannungsspitzen zu sehen. Ohne "refreshen" des Speichers, gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.\\
+Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor (hier als Bsp. Cortex M3) wird nur die Konfigurationen im Flash regelmässig "refreshed". (Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.)  Dies ist in der Graphik \ref{sleep_Grundprinzip} an den grünen Spannungsspitzen zu sehen. Ohne "refreshen" des Speichers, gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.\\
 
 \begin{figure}    
     \includegraphics{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -277,6 +280,7 @@ Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor 
 
 \subsubsection{Schlafen innerhalb einer Aktion}
 Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode gegangen. Innerhalb des Codes dominieren die Aufwach- und Abstell-Einstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionialität eingeschalten und nach ausführen der Aktion wieder abgeschalten. Ein UML 
+
 \begin{figure}    
     \includegraphics{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
     \caption{Schlafen innerhalb des Codes}\label{sleep_intern} 
@@ -296,35 +300,19 @@ Ein System mit internen Interrupts ist determinierbar. Das heisst, der Empfang i
 \subsubsection{Aufwachen durch externe Events}
 Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. \\
 
-Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und den Systemablauf schlimmstenfalls aus dem Rhythmus bringen.
+Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und schlimmstenfalls den Systemablauf aus dem Rhythmus bringen.
 
-\subsection{Designed by a State Machine}\label{pm_state_machine} 
+\subsection{State Machine für Lesbarkeit}\label{pm_state_machine} 
+Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden.\\
+ 
+Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Das Aufsetzen einer State Machine kann helfen. Die Graphik \ref{t_stateMachine} zeigt die Strukturierung von Interrupts und ihren Abhängigkeiten durch eine einfache State Machine.\\
 
-  
-%Low Power Microcontroller können Gebiete des Prozessors oder von Periopherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereich aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
-%
-%Bild: Energie-Langzeitmessung BLE versenden
-%Beschriften mit aktiv und standby modus
-%
-%Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.
+\begin{figure}    
+    \includegraphics{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
+    \caption{Struktur durch State Machine}\label{t_stateMachine} 
+\end{figure}
 
-%Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
-%(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
-%
-%Konfiguration der CPU (system.h, config.h)
-%Einstellungen Active Mode: Sensoren, Wireless Processor, SPI-Kommunikation
-%
-%Einstellungen sleep Mode: Abstellen
-%
-%PowerDomain ausschalten
-%Clk
-%
-%GPiO Konfigurieren (gpio.h, board.h)
-%Event anstelle von Interrupt
-%Synchronisation
-%timer, oder systick oder GPiO signal. Wake up
-%
-%Aktivitäten aufsetzen
+
 
 
 

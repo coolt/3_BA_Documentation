@@ -1,77 +1,95 @@
 \chapter{Vorgehen}
+ 
+ Die Bachelorarbeit basiert auf der Machbarkeitsstudie von Roman Schneider und Daniel Studer \cite{PA_bicycle}. Als erstes wird der Aufbau der vorangehenden Arbeit in Betrieb genommen \ref{v_inbetriebnahme} und geklärt, welche Funktionalitäten verbessert werden sollen und wie das Endprodukt auszusehen hat. Dies geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über die getane Arbeit, die offenen Fragen und die Entscheidungen, in welche Richtung weiterentwickelt werden soll. Als Leitfaden für die Weiterentwicklung diente die zu Beginn definierte Aufgabenstellung (siehe Unterkapitel \ref{Aufgabenstellung}).\\
+Nach der ersten Klärung, entstanden folgende vier Arbeitsschritte:\\
 
-\section{Inbetriebnahme des Modells der Machbarkeitsstudie}
-Mit der in der Projektarbeit entwickelten Harvesterschaltung kann per Bluetooth Smart auf dem Android-Endgerät die Geschwindigkeit ausgegeben werden.
-Bei der Inbetriebnahme zeigten sich folgende Grenzen im gegebenen Modell:
+\begin{enumerate}
+  \item Print erstellen
+  \item Energy Management optimieren
+  \item Power Management im Sensortag optimieren
+  \item Entwickeln einer BLE-Applikation
+ \end{enumerate}  
+
+Jeder dieser Schritt wird in einem Unterkapitel beschrieben.
+ 
+ % 1---------------------------------------------------------------------------
+\section{Inbetriebnahme des Modells der Machbarkeitsstudie}\label{v_inbetriebnahme} 
+
+
+\subsection{Harvester-Schaltung}
+
+%In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+%
+%Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+%
+%\begin{figure}
+%    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
+%    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
+%\end{figure}
+%
+%Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+%
+%Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
+%
+%\subsubsection*{Messaufbau}
+%In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
+%
+%\begin{figure}[h]
+%    \includegraphics[width=15cm]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
+%    \caption{Messschaltung}
+%\end{figure}
+%
+%\subsubsection*{Resultat}
+%
+%Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
+% 
+%\begin{figure}
+%    \includegraphics[width=15cm]{3Vorgehen/imag/10uF.PNG}
+%    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
+%\end{figure}
+%
+%\begin{figure}
+%    \includegraphics[width=15cm]{3Vorgehen/imag/47uF.PNG}
+%    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
+%\end{figure}
+
+
+\subsubsection{Energy Management}
+Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie (\cite{PA_bicycle} S.36):
+
+\begin{itemize}
+ \item Ist der STS (470 $\mu$F) geladen, genügt die geerntete Energie zum Versenden von 4 BLE-Paketen im Abstand von 10 s
+ \item Das Nutzen der Energie (VSUP) funktioniert über den Sensortag-Timer zuverlässig 
+ \item LTS lädt sich, wird aber nicht verwendet 
+ \item Der Verlauf des geregelten Harvester-Eingangs ist teilweise chaotisch und mit abrupten Wechseln. Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
+\end{itemize} 
+
+Der Ansatz ist, die geerntete Energie vom Harvester soll erhöht werden, sodass mehr als 4 Pakete alle 10 s gesendet werden können.\\
+
+Die eingestellten Schwellwerte sollen überprüft werden. Ziel ist, dass LTS sich ebenfalls entlädt.\\
+
+Die Wirkung eines kleineren Eingangskondensators auf die Regelung soll geprüft werden.\\
+
+STS sollte nicht im Voraus geladen sein. Ideal ist, wenn bei die geerntete Energie bei 10 km/h genügt, um den STS zu laden und genügend Energie für das Versenden eines BLE-Pakets besteht.\\
+
+
+
+\subsubsection{Power Management}
+
+Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert.\\
+
+Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll.\\
+
+
+Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten:
+
 
 \begin{enumerate}
     \item Zu hoher Kondensator vor Energiemanagmenetschaltung gefährdet deren Stabilität
     \item Konfiguration auf Energiemanagementboard sind nicht auf Energieharvesterschaltung angepasst
 \end{enumerate}
 
-
-\subsection{Kapazität für Harvesting-Schaltung verbessern}
-
-In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
-
-Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
-
-\begin{figure}
-    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
-    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
-\end{figure}
-
-Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
-
-Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
-
-\subsubsection*{Messaufbau}
-In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
-
-\begin{figure}[h]
-    \includegraphics[width=15cm]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
-    \caption{Messschaltung}
-\end{figure}
-
-\subsubsection*{Resultat}
-
-Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
- 
-\begin{figure}
-    \includegraphics[width=15cm]{3Vorgehen/imag/10uF.PNG}
-    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
-\end{figure}
-
-\begin{figure}
-    \includegraphics[width=15cm]{3Vorgehen/imag/47uF.PNG}
-    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
-\end{figure}
-
-
-\subsubsection{Messungen Energy Management Board}
-In der Projektarbeit findet sich auf S. 36 folgende Abbildung \ref{spannungMachbarkeit} zu den Spannungswerten des Modells der Machbarkeitsstudie.
-
-\begin{tabbing}
-    Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
-    CH1\> gelb\> Spannung von Harvesterquelle\\
-    CH2\> blau\> Spannung am STS--Kondensator\\
-    CH3\> violet\> Spannung am LTS--Kondensator\\
-    CH4\> grün\> Ausgangsspannung Energiemanagment\\
-\end{tabbing}
-
-\begin{figure}
-    \includegraphics[width=15cm]{3Vorgehen/imag/messungPA.png}
-    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
-\end{figure}
-
-Auffällig sind zwei Spannungskurven: Die Spannung des Energieerzeugers. Die Spannungsregelung am Eingang der EMS funktioniert nicht korrekt. Zwischen zwei Regelperioden sollten konstante Spannungen eintreffen (siehe Erklärung in ref). 
-Es zeigt sich, dass der LTS nicht geladen wird . Und es zeigt sich, dass das EM-Board nicht zu regulieren beginnt. Damit das Energiemanagement funktioniert, muss der Wer XXXX erreicht werden. Da dieser Wert nicht erreicht wird, passt die Energiemanagementschaltung den Innenwiderstand nicht auf.
-
-Zum korrekten Einstellen des Energiemanagements braucht es eine MaximumPowerPointTracking-Ratio.
-
-
-
-%--------------------------------------------------------------------------
+% 2---------------------------------------------------------------------------
 
 \section{Layout Print}
 
@@ -158,7 +176,9 @@ Wann immer möglich wurden die Leiterbahnen, welche zu der Harvesterschaltung ge
 
 Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erfüllt und somit kann die Leiterplatte auch für ein Praktikum verwendet werden. Die Leiterplatte ist mit sehr vielen Testpunkten ausgestattet, sowie die Möglichkeit für Strommessungen.
 
-%--------------------------------------------------------------------------
+
+% 3---------------------------------------------------------------------------
+\section{Energy Management}
 
 \subsection{Energiekalkulation}
 EHRV gesammelt >= BLESenden
@@ -233,17 +253,25 @@ Konfigurationseinstellungen
 
 
 
-\section{Low Power Einstellungen Sensortag}
+% 4---------------------------------------------------------------------------
+\section{Power Management}
+Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
+%(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
+
 
 Problem: So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) Zu lange warten: braucht Energie.
 
 Sleep konkret: Power Banks abschalten:
-Power Domains zeigen
+Power Domains zeigen\\
 
-Schwierigkeit Interrupt and Events !!
+Schwierigkeit Interrupt and Events !!\\
 
-Gearbeitet wird mit einem Cortex M3 von TI. 
-Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
+Bild: Energie-Langzeitmessung BLE versenden\\
+Beschriften mit aktiv und standby modus\\
+
+
+Gearbeitet wird mit einem Cortex M3 von TI.\\ 
+Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).\\
 
 \subsection{VO: SimpleBroadcast}
 Ablaufdiagramm Senden
@@ -295,9 +323,11 @@ Dort stehen alle Handlungen, die das System macht, um in den Standby-Modus zu ge
 
 \subsection{V2}
 
-
+% 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
 
+
+% 6---------------------------------------------------------------------------
 \section{Option 1}
 
 
