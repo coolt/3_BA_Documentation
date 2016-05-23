@@ -261,10 +261,32 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
 
 Die Funktionsblöcke des Sensortags befinden sich im Anhang \ref{anhang_sensortag}.
 
-\subsection{Sleep}\label{pm_sleep} 
-Dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist Usus (Allgemeingut, bekannt). Bei einer Low Power Applikation geht der Prozessor jedoch nach kleinsten Ausführungsblöcken direkt wieder schlafen. So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.)
+\subsection{Einbauen von Schlaufmodi}\label{pm_sleep} 
+Dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist Usus (Allgemeingut, bekannt). Bei einer Low Power Applikation geht der Prozessor jedoch nach kleinsten Ausführungsblöcken direkt wieder schlafen. So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Moduses konzeptionell erklärt.\\
+
+\subsubsection{Schlafen zwischen Ausführungen}
+
+Die Graphik \ref{sleep_Grundprinzip} zeigt das Grunprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\triangleup $ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialierungen vor jeder Aktion.\\
+
+Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor (hier als Bsp. Cortex M3) wird nur die Konfigurationen im Flash regelmässig "refreshed". Dies ist in der Graphik \ref{sleep_Grundprinzip} an den grünen Spannungsspitzen zu sehen. Ohne "refreshen" des Speichers, gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.\\
+
+\begin{figure}    
+    \includegraphics{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
+    \caption{Schlafen zwischen Ausführungen}\label{sleep_Grundprinzip} 
+\end{figure}
+
+\subsubsection{Schlafen innerhalb einer Aktion}
+Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode gegangen. Innerhalb des Codes dominieren die Aufwach- und Abstell-Einstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionialität eingeschalten und nach ausführen der Aktion wieder abgeschalten. Ein UML 
+\begin{figure}    
+    \includegraphics{2TheoretischeGrundlagen/imag/EM8500IO.png}
+    \caption{Schlafen innerhalb des Codes}\label{sleep_intern} 
+\end{figure}
+
 
 \subsection{Interrupt Driven Appliacation}\label{pm_interrupt} 
+Das Schlafen der Applikation tönt gut. Doch wie wacht sie wieder auf? Dies ist ein nicht-triviales Problem, dass sich durch Interrupts lösen lässt.\\
+
+In diesem Unterkapitel wird das Konzept der Interrupt Driven Applikation erklärt (wie auch ????)
 
 
 \subsection{Designed by a State Machine}\label{pm_state_machine} 
