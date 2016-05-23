@@ -57,6 +57,20 @@ Jeder dieser Schritt wird in einem Unterkapitel beschrieben.
 \subsubsection{Energy Management}
 Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie (\cite{PA_bicycle} S.36):
 
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/messungPA.png}
+    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
+\end{figure}
+
+Legende zu Graphik \ref{spannungMachbarkeit}
+\begin{tabbing}
+    Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
+    CH1\> gelb\> Spannung von Harvesterquelle\\
+    CH2\> blau\> Spannung am STS--Kondensator\\
+    CH3\> violet\> Spannung am LTS--Kondensator\\
+    CH4\> grün\> Ausgangsspannung Energiemanagment\\
+\end{tabbing}
+
 \begin{itemize}
  \item Ist der STS (470 $\mu$F) geladen, genügt die geerntete Energie zum Versenden von 4 BLE-Paketen im Abstand von 10 s
  \item Das Nutzen der Energie (VSUP) funktioniert über den Sensortag-Timer zuverlässig 
@@ -76,7 +90,7 @@ STS sollte nicht im Voraus geladen sein. Ideal ist, wenn bei die geerntete Energ
 
 \subsubsection{Power Management}
 
-Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert.\\
+Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik \ref{spannungMachbarkeit} zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert.\\
 
 Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll.\\
 
@@ -85,8 +99,10 @@ Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten
 
 
 \begin{enumerate}
-    \item Zu hoher Kondensator vor Energiemanagmenetschaltung gefährdet deren Stabilität
-    \item Konfiguration auf Energiemanagementboard sind nicht auf Energieharvesterschaltung angepasst
+    \item Harvesterschaltung optimieren
+    \item Auswirkung des zu hohen Kondensator vor Harvestereingang testen
+    \item Konfigurationen beim EM8500 überarbeiten
+    \item Power Management flexibler gestalten
 \end{enumerate}
 
 % 2---------------------------------------------------------------------------
