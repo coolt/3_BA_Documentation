@@ -130,8 +130,8 @@ Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit
 %\cite{MPP_Spule}
 
 \begin{figure}
-   \includegraphics{Idle.jpg}
-   \caption{MPP Spule}\label{mpp_harvester} 
+   \includegraphics{2TheoretischeGrundlagen/imag/MPPHarvester.png}
+   \caption{MPP Harvester}\label{mpp_harvester} 
 \end{figure}
 
 \cite{MPP_Harv}
@@ -153,7 +153,7 @@ Das Datenblatt des EM8500 ist der CD beigelegt. Der EM8500 ist für Low Power Ap
 Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie, genug Energie gesammelt wurde. Umgesetzt wird dies, in dem die Freigabe der Energie an eine Applikation, VSUP, erst nach dem Erreichen eines gewissen Ladezustands erfolgt. Der Ladezustand des Primärkondensator ist mit VSTS in der Graphik\ref{em_grundprinzip}.
 
 \begin{figure}
-   \includegraphics{Idle.jpg}
+   \includegraphics{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
    \caption{Grundprinzip Applikationsspeisung }\label{em_grundprinzip} 
 \end{figure}
 
@@ -161,7 +161,7 @@ Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em85
 
 
 \begin{figure}
-   \includegraphics{Idle.jpg}
+   \includegraphics{2TheoretischeGrundlagen/imag/levelSTSReal.png}
    \caption{Applikationsspeisung EM8500 }\label{em_grundprinzip_em8500} 
 \end{figure}
 
@@ -169,7 +169,7 @@ Der Primärkondensator STS ist für die kurzfristige Speisung der Applikation ve
 VLTS wird geladen, wenn der Schwellwert bei v_appl_max_los ist (siehe Graphik \ref{energiespeisung_lts}).
 
 \begin{figure}
-   \includegraphics{Idle.jpg}
+   \includegraphics{2TheoretischeGrundlagen/imag/levelMitLTS.png}
    \caption{Sicheres Betreiben durch Long Term Storage-Kondensator}\label{energiespeisung_lts} 
 \end{figure}
 
@@ -262,9 +262,10 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
 Die Funktionsblöcke des Sensortags befinden sich im Anhang \ref{anhang_sensortag}.
 
 \subsection{Sleep}\label{pm_sleep} 
-
+Dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist Usus (Allgemeingut, bekannt). Bei einer Low Power Applikation geht der Prozessor jedoch nach kleinsten Ausführungsblöcken direkt wieder schlafen. So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.)
 
 \subsection{Interrupt Driven Appliacation}\label{pm_interrupt} 
+
 
 \subsection{Designed by a State Machine}\label{pm_state_machine} 
 
