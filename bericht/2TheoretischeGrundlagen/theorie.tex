@@ -130,7 +130,7 @@ Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit
 %\cite{MPP_Spule}
 
 \begin{figure}
-   \includegraphics{2TheoretischeGrundlagen/imag/MPPHarvester.png}
+   %\includegraphics{2TheoretischeGrundlagen/imag/MPPHarvester.png}
    \caption{MPP Harvester}\label{mpp_harvester} 
 \end{figure}
 
@@ -157,7 +157,7 @@ Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendu
    \caption{Grundprinzip Applikationsspeisung }\label{em_grundprinzip} 
 \end{figure}
 
-Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em8500}): Erreicht der Primärkondensator STS den Schwellwert v_bat_min_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Kondensator weiter lädt. VSUP folgt der Kondensatorspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v_bat_min_low, so wird die Speisung der Applikation gestoppt.\\
+Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em8500}): Erreicht der Primärkondensator STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Kondensator weiter lädt. VSUP folgt der Kondensatorspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.\\
 
 
 \begin{figure}
@@ -166,7 +166,7 @@ Im EM8500 wird dies folgendermassen umgesetzt (Graphik \ref{em_grundprinzip_em85
 \end{figure}
 
 Der Primärkondensator STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das lanfristige, sichere Ausführen braucht das System ein Long Term Storage-Kondensator (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
-VLTS wird geladen, wenn der Schwellwert bei v_appl_max_los ist (siehe Graphik \ref{energiespeisung_lts}).
+VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Graphik \ref{energiespeisung_lts}).
 
 \begin{figure}
    \includegraphics{2TheoretischeGrundlagen/imag/levelMitLTS.png}
@@ -204,15 +204,17 @@ Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \re
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
 Da der Kondensatoren STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung des Kondensatoren muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:\\
 
-
-  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster} \\
-
+\begin{equation}
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster}
+\end{equation}
  
-( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.)\\
+( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.)
 
 Da aus dem Kondensatorwert und desssen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:\\
 
-v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}} \\
+\begin{equation}
+v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}}}
+\end{equation}
 
 Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Kondensator nicht auf 0 entlädt.\\
 
@@ -269,7 +271,7 @@ Dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehe
 
 \subsubsection{Schlafen zwischen Ausführungen}
 
-Die Graphik \ref{sleep_Grundprinzip} zeigt das Grunprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\triangleup $ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialierungen vor jeder Aktion.\\
+Die Graphik \ref{sleep_Grundprinzip} zeigt das Grunprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialierungen vor jeder Aktion.
 
 Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor (hier als Bsp. Cortex M3) wird nur die Konfigurationen im Flash regelmässig "refreshed". (Zu den unabdingbaren Aktivitäten eines laufenden Microcontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.)  Dies ist in der Graphik \ref{sleep_Grundprinzip} an den grünen Spannungsspitzen zu sehen. Ohne "refreshen" des Speichers, gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.\\
 
