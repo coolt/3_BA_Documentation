@@ -1,7 +1,6 @@
 \chapter{Vorgehen}
  
- Die Bachelorarbeit basiert auf der Machbarkeitsstudie von Roman Schneider und Daniel Studer \cite{PA_bicycle}. Als erstes wird der Aufbau der vorangehenden Arbeit in Betrieb genommen \ref{v_inbetriebnahme} und geklärt, welche Funktionalitäten verbessert werden sollen und wie das Endprodukt auszusehen hat. Dies geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über die getane Arbeit, die offenen Fragen und die Entscheidungen, in welche Richtung weiterentwickelt werden soll. Als Leitfaden für die Weiterentwicklung diente die zu Beginn definierte Aufgabenstellung (siehe Unterkapitel \ref{Aufgabenstellung}).\\
-Nach der ersten Klärung, entstanden folgende vier Arbeitsschritte:\\
+ Als erstes wird der Aufbau der vorangehenden Arbeit von Roman Schneider und Daniel Studer \cite{PA_bicycle} in Betrieb genommen \ref{v_inbetriebnahme} und geklärt, welche Funktionalitäten verbessert werden sollen und wie das Endprodukt auszusehen hat. Dies geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über die getane Arbeit, die offenen Fragen und die Entscheidungen, in welche Richtung weiterentwickelt werden soll. Nach der ersten Klärung, entstanden untenstehende vier Arbeitsschritte. Jeder dieser Schritt wird in einem Unterkapitel beschrieben.\\
 
 \begin{enumerate}
   \item Print erstellen
@@ -10,13 +9,15 @@ Nach der ersten Klärung, entstanden folgende vier Arbeitsschritte:\\
   \item Entwickeln einer BLE-Applikation
  \end{enumerate}  
 
-Jeder dieser Schritt wird in einem Unterkapitel beschrieben.
+
  
  % 1---------------------------------------------------------------------------
 \section{Inbetriebnahme des Modells der Machbarkeitsstudie}\label{v_inbetriebnahme} 
 
 
 \subsection{Harvester-Schaltung}
+
+Text Manu
 
 %In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
 %
@@ -55,7 +56,13 @@ Jeder dieser Schritt wird in einem Unterkapitel beschrieben.
 
 
 \subsubsection{Energy Management}
-Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie (\cite{PA_bicycle} S.36):
+Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie \cite{PA_bicycle} S.36, das in der Graphik \ref{spannungMachbarkeit} dargestellt ist:
+\begin{itemize}
+ \item Ist der STS (470 $\mu$F) geladen, genügt die geerntete Energie zum Versenden von 4 BLE-Paketen im Abstand von 10 s
+ \item Das Nutzen der Energie (VSUP) funktioniert über den Sensortag-Timer zuverlässig 
+ \item LTS lädt sich, wird aber nicht verwendet 
+ \item Der Verlauf des geregelten Harvester-Eingangs ist teilweise chaotisch und mit abrupten Wechseln. Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
+\end{itemize} 
 
 \begin{figure}
     \includegraphics{3Vorgehen/imag/messungPA.png}
@@ -71,32 +78,12 @@ Legende zu Graphik \ref{spannungMachbarkeit}
     CH4\> grün\> Ausgangsspannung Energiemanagment\\
 \end{tabbing}
 
-\begin{itemize}
- \item Ist der STS (470 $\mu$F) geladen, genügt die geerntete Energie zum Versenden von 4 BLE-Paketen im Abstand von 10 s
- \item Das Nutzen der Energie (VSUP) funktioniert über den Sensortag-Timer zuverlässig 
- \item LTS lädt sich, wird aber nicht verwendet 
- \item Der Verlauf des geregelten Harvester-Eingangs ist teilweise chaotisch und mit abrupten Wechseln. Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
-\end{itemize} 
-
-Der Ansatz ist, die geerntete Energie vom Harvester soll erhöht werden, sodass mehr als 4 Pakete alle 10 s gesendet werden können.\\
-
-Die eingestellten Schwellwerte sollen überprüft werden. Ziel ist, dass LTS sich ebenfalls entlädt.\\
-
-Die Wirkung eines kleineren Eingangskondensators auf die Regelung soll geprüft werden.\\
-
-STS sollte nicht im Voraus geladen sein. Ideal ist, wenn bei die geerntete Energie bei 10 km/h genügt, um den STS zu laden und genügend Energie für das Versenden eines BLE-Pakets besteht.\\
+Daraus ergab sich folgende konkrete Aufgaben zu den vier Arbeitsschritten: Ziel der Harvesterentwicklung ist, dass die geerntete Energie mehr als vier Pakete alle 10 s senden kann und die Wirkung eines kleineren Eingangskondensators soll geprüft werden. Der Fokus der Energieoptimierung ist, dass die Kondensatoren nicht im Voraus geladen werden müssen und dass bei 10 km/h genügend Energie für das Versenden von BLE-Paketen besteht. Zudem sollen die eingestellten Schwellwerte überprüft werden, sodass LTS sich ebenfalls entlädt.
 
 
+\subsubsection{Power Management und Zusammenfassung der Arbeitsschritte}
 
-\subsubsection{Power Management}
-
-Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik \ref{spannungMachbarkeit} zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert.\\
-
-Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll.\\
-
-
-Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten:
-
+Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik \ref{spannungMachbarkeit} zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert. Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll. Die fixe Wartezeit von 10 s soll der Geschwindigkeit angepasst werden. Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten:
 
 \begin{enumerate}
     \item Harvesterschaltung optimieren
@@ -196,6 +183,8 @@ Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erf
 % 3---------------------------------------------------------------------------
 \section{Energy Management}
 
+Noch zu schreiben....
+
 \subsection{Energiekalkulation}
 EHRV gesammelt >= BLESenden
 Zeitkomponente
@@ -271,6 +260,8 @@ Konfigurationseinstellungen
 
 % 4---------------------------------------------------------------------------
 \section{Power Management}
+
+... noch zu schreiben ....
 Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
 %(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
 
