@@ -10,24 +10,38 @@
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{graphicx}
-\setkeys{Gin}{width=\textwidth, keepaspectratio=true} % default graphicx width to pagewidth
+\setkeys{Gin}{keepaspectratio=true} % default graphicx width to pagewidth
 \usepackage{helvet}
+%\usepackage{fancyhdr}
+\usepackage{url}
+\usepackage{tocloft} % for cftaddtitleline
+\usepackage{todonotes}
 
 % Page
 % ====
 
 \geometry{a4paper, top=30mm, inner=30mm, outer=25mm, bottom=30mm,headsep=10mm,footskip=10mm}
 
+% lowercase heading for the table of contents
+%\tableofcontents{\fancyhead[LE]{\slshape\contentsname}}
+%\listoffigures{\fancyhead[LE]{\slshape\listfigurename}}
+%\listoftables{\fancyhead[LE]{\slshape\listtablename}}
+
+% do not uppercase the headers
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+% do not uppercase the toc headers
+\renewcommand{\cftmarktoc}{\@mkboth{\contentsname}{\contentsname}}
+
+% do not bold the page numbers in the toc
+\renewcommand{\cftchappagefont}{\normalfont}
 
 % Bibliography
 % ============
 \usepackage[sectionbib]{natbib} % bibl will be a section and not a chapter
 \bibliographystyle{abbrvnat}
 \setcitestyle{authoryear,open={(},close={)}}
-
-% pour avoir les en-tetes en minuscules
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 % Titles tweaking
 % ===============
@@ -38,7 +52,9 @@
 % inspiré de /usr/share/texmf/tex/latex/base/book.cls
 \renewcommand\thesubsubsection{\@alph\c@subsubsection.}
 % in toc moins de retrait pour subsubsection...
+%\makeatletter
 \renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{1.5em}}
+%\makeatother
 
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
@@ -46,13 +62,28 @@
 % Paragraphs and text
 % ===================
 
-%\setlength{\parskip}{\baselineskip}
+\setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
+% add a command for a having an indent in a specific paragraph
+\newcommand{\forceindent}{\leavevmode{\parindent=1em\indent}}
+
+\renewcommand{\url}{\begingroup \small\Url}
+
 % Tables and figures
 % ==================
 
+% one empty line before "here" figures (it's for all floats)
+\addtolength{\intextsep}{\baselineskip}
+
 % left aligned captions figures
 \usepackage[justification=raggedright,singlelinecheck=false]{caption}
+
+% a try to make the list of tables a section instead of a chapter
+%\renewcommand\listoftables{%
+%    \section{\contentsname}%
+%    \@startlot{lot}%
+%}
+
 
 % Lists
 % =====
@@ -64,6 +95,7 @@
 
 \renewcommand{\labelitemi}{$-$}
 \renewcommand{\labelitemii}{$-$}
+
 
 % Title page
 % ==========
@@ -165,3 +197,4 @@ Datum & \parbox[t]{5cm}{\@date}\\
 \restoregeometry
 \pagebreak
 }
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{7.0em}{1.5em}}
