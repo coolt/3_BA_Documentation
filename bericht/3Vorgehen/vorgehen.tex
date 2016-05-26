@@ -64,8 +64,8 @@ Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie 
  \item Der Verlauf des geregelten Harvester-Eingangs ist teilweise chaotisch und mit abrupten Wechseln. Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
 \end{itemize} 
 
-\begin{figure}
-    \includegraphics{3Vorgehen/imag/messungPA.png}
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messungPA.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
 \end{figure}
 
@@ -205,35 +205,35 @@ MAN KÖNNTE. (GEHRÖT ZU OPTIONAL) Da die produzierter Energie von der Fahrgesch
     \item hohe Geschwindigkeit: grösser als 20 km/h 
 \end{itemize}
 
-
-
-\subsubsection*{Leistungsabgabe Harvester-Schaltung}
-
+\begin{table}[ht]
 \begin{tabular}{|l|l|}\hline \label{MPP_Werte} 
     Geschwindigkeit [km/h] & Maximale Leistung [$\mu W$] \\ \hline
     10 & 74.4 \\ \hline
     20 & unbekannt \\ \hline
     40 & unbekannt \\ \hline
 \end{tabular}
+\caption{Leistungsabgabe Harvester-Schaltung}
+\end{table}
 
 
 Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die Geschwindigkeit übermittelt, ist der Verbrauch kleiner, als wenn zusätzlich die Temperatur und die Höhe mitgesendet werden.
 
 
 \subsubsection{MPP einstellen}
+
 MPP:
 - start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
 
-
-
-\subsubsection*{Energieverbrauch BLE-Packete versenden}
  
+\begin{table}[ht]
 \begin{tabular}{|l|l|}\hline \label{Energie_Pakete_Werte} 
     Anzahl Inhalte  & Energieverbrauch [$\mu J$] \\ \hline
     1 & 11000 \\ \hline
     2 & unbekannt \\ \hline
     3 & unbekannt \\ \hline
 \end{tabular}
+\caption{Energieverbrauch BLE-Packete versenden}
+\end{table}
 
 (Für die Zuverlässigkeit der Datenübermittlung wird jeweils dasselbe Paket über drei Kanäle gesendet. Wenn hier \glqq 1 Inhalt versenden \grqq  steht, meint dies, ein Paket über drei Kanäle senden.)
 
@@ -278,9 +278,10 @@ Beschriften mit aktiv und standby modus
 
 
 Gearbeitet wird mit einem Cortex M3 von TI.\\ 
-Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).\\
+Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
 
 \subsection{VO: SimpleBroadcast}
+
 Ablaufdiagramm Senden
 - Was ist der Unterschied zum RTOS.
 - Was muss gemacht werden.
@@ -290,7 +291,7 @@ Ablaufdiagramm Senden
 Gestartet mit simpleBLE-Projekt von TI mit Einstellungen von Assistenten vom Ines.
 
 \begin{figure}
-  \includegraphics[width=15cm]{../ressources/SimpleLink/V0Sendeablauf.png}
+  \includegraphics[width=1.0\textwidth]{../ressources/SimpleLink/V0Sendeablauf.png}
   \caption{Prozessablauf V0}
 \end{figure}
 
