@@ -1,6 +1,6 @@
 \chapter{Vorgehen}
  
- Als erstes wird der Aufbau der vorangehenden Arbeit von Roman Schneider und Daniel Studer \cite{PA_bicycle} in Betrieb genommen \ref{v_inbetriebnahme} und geklärt, welche Funktionalitäten verbessert werden sollen und wie das Endprodukt auszusehen hat. Dies geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über die getane Arbeit, die offenen Fragen und die Entscheidungen, in welche Richtung weiterentwickelt werden soll. Nach der ersten Klärung, entstanden untenstehende vier Arbeitsschritte. Jeder dieser Schritt wird in einem Unterkapitel beschrieben.\\
+Als erstes wird der Aufbau der vorangehenden Arbeit von Roman Schneider und Daniel Studer \cite{PA_bicycle} in Betrieb genommen \ref{v_inbetriebnahme} und geklärt, welche Funktionalitäten verbessert werden sollen und wie das Endprodukt auszusehen hat. Dies geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über die getane Arbeit, die offenen Fragen und die Entscheidungen, in welche Richtung weiterentwickelt werden soll. Nach der ersten Klärung, entstanden untenstehende vier Arbeitsschritte. Jeder dieser Schritt wird in einem Unterkapitel beschrieben.
 
 \begin{enumerate}
   \item Print erstellen
@@ -56,7 +56,7 @@ Text Manu
 
 
 \subsubsection{Energy Management}
-Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie \cite{PA_bicycle} S.36, das in der Graphik \ref{spannungMachbarkeit} dargestellt ist:
+Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie \cite{PA_bicycle} S.36, das in der Abbildung \ref{spannungMachbarkeit} dargestellt ist:
 \begin{itemize}
  \item Ist der STS (470 $\mu$F) geladen, genügt die geerntete Energie zum Versenden von 4 BLE-Paketen im Abstand von 10 s
  \item Das Nutzen der Energie (VSUP) funktioniert über den Sensortag-Timer zuverlässig 
@@ -69,7 +69,7 @@ Die Inbetriebnahme bestätigt das beschriebene Verhalten der Machbarkeitsstudie 
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
 \end{figure}
 
-Legende zu Graphik \ref{spannungMachbarkeit}
+Legende zu Abbildung \ref{spannungMachbarkeit}
 \begin{tabbing}
     Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
     CH1\> gelb\> Spannung von Harvesterquelle\\
@@ -83,7 +83,7 @@ Daraus ergab sich folgende konkrete Aufgaben zu den vier Arbeitsschritten: Ziel 
 
 \subsubsection{Power Management und Zusammenfassung der Arbeitsschritte}
 
-Das Power Management geht Hand in Hand mit dem Energy Management. Die Graphik \ref{spannungMachbarkeit} zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert. Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll. Die fixe Wartezeit von 10 s soll der Geschwindigkeit angepasst werden. Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten:
+Das Power Management geht Hand in Hand mit dem Energy Management. Die Abbildung \ref{spannungMachbarkeit} zeigt, dass beim Modell der Machbarkeitsstudie das Nutzen der Energie über VSUP über den Sensortag-Timer zuverlässig funktioniert. Aus den Sitzungen ergab sich der Bedarf, dass bei schnellerem Fahren und höherer Leistung, das Senden der Pakete dem Energiebedarfs angepasst werden soll. Die fixe Wartezeit von 10 s soll der Geschwindigkeit angepasst werden. Zusammenfassend lassen sich nach der Inbetriebnahme folgende Aufgaben festhalten:
 
 \begin{enumerate}
     \item Harvesterschaltung optimieren
@@ -132,30 +132,30 @@ Der Block Interface enthält die Verbindung zum TI-SensorTag, ein Stecker realis
 
 \subsection{Optimierung der Harvesterschaltung}
 % Zwei Gründe:
-- Ives: Der Glättungskondensator wird auf 47 uF geändert. 
-- Zu wenig Energie für 10 km/h
+%- Ives: Der Glättungskondensator wird auf 47 uF geändert. 
+%- Zu wenig Energie für 10 km/h
 
 Nach dem Erfassen des Schemas wurde die Optimierung der Hardware angegangen. Die beste Optimierungsmöglichkeit und auch der kritischste Block ist die Harvesterschaltung, hier wird die Energie für die restliche Schaltung gewonnen. In mehreren Schritten wurden die einzelnen Teile der Schaltung analysiert und versucht zu optimieren.
 
 \subsubsection{Optimierung der Spule}
 
 Die Spule gewinnt die Energie aus dem vorbei schnellenden Magneten, hier kann die gewonnene Energie beeinflusst werden. Eine gute Spule kann mehr Energie aus dem bewegten Magneten gewinnen, wichtig ist die Induktivität L und die Fläche A, welche die Spule hat. Eine Vorgabe war dass die Spule von der Grösse nicht merklich verändert wird, ausser man würde eine kleinere Spule finden, welche mehr Energie gewinnt. Eine Spule mit ähnlicher Fläche bzw. Grösse wurde gefunden, welche eine höhere Induktivität besitzt. Die Spule von Würth Elektronik ist sehr vielversprechend, denn die gleiche Fläche mit höherer Induktivität bedeutet mehr Energiegewinn aus dem Magneten.
-Hier Schlusswort von Messprotokoll einfügen.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 \subsubsection{Optimierung des Gleichrichters}
 
 Der Gleichrichter aus dem Aufbau der Machbarkeitsstudie besteht aus vier Dioden vom Typ 1N5819, diese Dioden sind nicht für eine LowPower-Anwendung ausgelegt. Ausserdem könnte ein Gleichrichter gefunden werden, welcher in einem Gehäuse ausgeliefert wird. Wichtig ist dass der Leckstrom so gering wie möglich ist und die Schwellenspannung ebenfalls möglichst klein bleibt. 
-Hier Schlusswort vom Messprotokoll einfügen.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 \subsubsection{Optimierung des Limiter}
 
 Der Limiter ist eine Spannungbegrenzung, da die nachfolgende Schaltung nicht mit einer zu hohen Spannung betrieben werden darf. Dieser Schaltungsteil ist sehr kritisch, denn er darf nicht zu viel Energie verlieren, muss aber trotzdem die Spannung immer begrenzen. Die Spannung darf einen Pegel von 2 V nicht überschreiten, da ansonsten der EM-8500-Chip droht zerstört zu werden. 
-Hier Schlusswort vom Messprotokoll einfügen.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 \subsubsection{Optimierung des Ausgangskondensators}
 
 Der Ausgangskondensator muss möglichst niedrig gehalten werden, gemäss Aussage von Yves, da ansonsten der EM8500-Chip Mühe hat den Eingang zu regeln. Trotzdem darf der Ausgangskondensator nicht zu klein dimensioniert werden, da ansonsten die Rippelspannung am Ausgang der Harvestersschaltung zu hoch ist und der EM8500-Chip ebenfalls nicht mehr richtig regeln kann.
-Hier Schlussword vom Messprotokoll einfügen.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 
 \subsection{Bauteildefinition}
@@ -178,7 +178,7 @@ Wann immer möglich wurden die Leiterbahnen, welche zu der Harvesterschaltung ge
 \subsubsection{Ergebnis}
 
 Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erfüllt und somit kann die Leiterplatte auch für ein Praktikum verwendet werden. Die Leiterplatte ist mit sehr vielen Testpunkten ausgestattet, sowie die Möglichkeit für Strommessungen.
-
+\todo{Bild Neues Layout}.
 
 % 3---------------------------------------------------------------------------
 \section{Energy Management}
@@ -186,9 +186,9 @@ Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erf
 Noch zu schreiben....
 
 \subsection{Energiekalkulation}
-EHRV gesammelt >= BLESenden
-Zeitkomponente
-Energie Harvester braucht länger, verbrauch schneller.
+%EHRV gesammelt >= BLESenden
+%Zeitkomponente
+%Energie Harvester braucht länger, verbrauch schneller.
 
 Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}}$].
 
@@ -197,7 +197,8 @@ Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der
 
 Die durchschnittliche maximale Leistung der Quelle kann aus der Abbildung \ref{MPP_Werte} entnommen werden. Diese basiert auf dem Messprotokoll im Anhang \ref{anhang_messprotokoll_energie_harvester}. 
 
-MAN KÖNNTE. (GEHRÖT ZU OPTIONAL) Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energie-System in drei Zustände eingeteilt:
+%MAN KÖNNTE. (GEHRÖT ZU OPTIONAL) 
+Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energie-System in drei Zustände eingeteilt:
 
 \begin{itemize}
     \item tiefe Geschwindigkeit: 0 - 10 km/h
@@ -215,27 +216,26 @@ MAN KÖNNTE. (GEHRÖT ZU OPTIONAL) Da die produzierter Energie von der Fahrgesch
 \caption{Leistungsabgabe Harvester-Schaltung}
 \end{table}
 
-
 Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die Geschwindigkeit übermittelt, ist der Verbrauch kleiner, als wenn zusätzlich die Temperatur und die Höhe mitgesendet werden.
 
 
 \subsubsection{MPP einstellen}
 
-MPP:
-- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
-
- 
-\begin{table}[ht]
-\begin{tabular}{|l|l|}\hline \label{Energie_Pakete_Werte} 
-    Anzahl Inhalte  & Energieverbrauch [$\mu J$] \\ \hline
-    1 & 11000 \\ \hline
-    2 & unbekannt \\ \hline
-    3 & unbekannt \\ \hline
-\end{tabular}
-\caption{Energieverbrauch BLE-Packete versenden}
-\end{table}
-
-(Für die Zuverlässigkeit der Datenübermittlung wird jeweils dasselbe Paket über drei Kanäle gesendet. Wenn hier \glqq 1 Inhalt versenden \grqq  steht, meint dies, ein Paket über drei Kanäle senden.)
+%MPP:
+%- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
+%
+% 
+%\begin{table}[ht]
+%\begin{tabular}{|l|l|}\hline \label{Energie_Pakete_Werte} 
+%    Anzahl Inhalte  & Energieverbrauch [$\mu J$] \\ \hline
+%    1 & 11000 \\ \hline
+%    2 & unbekannt \\ \hline
+%    3 & unbekannt \\ \hline
+%\end{tabular}
+%\caption{Energieverbrauch BLE-Packete versenden}
+%\end{table}
+%
+%(Für die Zuverlässigkeit der Datenübermittlung wird jeweils dasselbe Paket über drei Kanäle gesendet. Wenn hier \glqq 1 Inhalt versenden \grqq  steht, meint dies, ein Paket über drei Kanäle senden.)
 
 \subsubsection*{Berechnung}
 
@@ -250,45 +250,38 @@ MPP:
 \[t = 147 s  \]
 
 \subsubsection*{EM BOARD KONZEPT}
-Funktion generell beschreiben (im Anhang) 
+%Funktion generell beschreiben (im Anhang) 
 \subsubsection*{Schwellwerte}
-Ausrechnend der schwellwerte
+%Ausrechnend der schwellwerte
 \subsubsection*{Konfigurationen}
-Konfigurationseinstellungen
+%Konfigurationseinstellungen
 
 
 
 % 4---------------------------------------------------------------------------
 \section{Power Management}
 
-... noch zu schreiben ....
-Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
+%... noch zu schreiben ....
+%Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
+
+
 %(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
 
 
-Problem: So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) Zu lange warten: braucht Energie.
+%Problem: So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) Zu lange warten: braucht Energie.
+%
+%Sleep konkret: Power Banks abschalten:\\
+%Power Domains zeigen
+%
+%Schwierigkeit Interrupt and Events !!
+%
+%Bild: Energie-Langzeitmessung BLE versenden\\
+%Beschriften mit aktiv und standby modus
+%
+%
+%Gearbeitet wird mit einem Cortex M3 von TI.\\ 
+%Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
 
-Sleep konkret: Power Banks abschalten:\\
-Power Domains zeigen
-
-Schwierigkeit Interrupt and Events !!
-
-Bild: Energie-Langzeitmessung BLE versenden\\
-Beschriften mit aktiv und standby modus
-
-
-Gearbeitet wird mit einem Cortex M3 von TI.\\ 
-Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
-
-\subsection{VO: SimpleBroadcast}
-
-Ablaufdiagramm Senden
-- Was ist der Unterschied zum RTOS.
-- Was muss gemacht werden.
-
-- Was überprüft werden musste, was gut ist.
-
-Gestartet mit simpleBLE-Projekt von TI mit Einstellungen von Assistenten vom Ines.
 
 \begin{figure}
   \includegraphics[width=1.0\textwidth]{../ressources/SimpleLink/V0Sendeablauf.png}
@@ -298,45 +291,11 @@ Gestartet mit simpleBLE-Projekt von TI mit Einstellungen von Assistenten vom Ine
 
 
 
-\begin{itemize}
-    \item Configure ccfg.c to use internal LF RCOSC
-    \item Configure WAKE INTERVAL
-    \item Configure recharge period to 400ms if WAKE INTERVAL is larger than 400ms(ish)
-    \item Configure IO's and set up advertisment payload       
-\end{itemize}
-
-Allgemeine Einstellungen in der Konfigurationsdatei ccfg.c:
-Vmin = 2.25 V
-Imax = 39 mA
-
-
-Da VSUP bei 1.8 V startet, ist zu überprüfen. 
-
-
-// RTC wakeup interval
-\#define WAKE\_INTERVAL\_MS 		1000
-\#define WAKE\_INTERVAL\_TICKS 	WAKE\_INTERVAL\_MS*65536 / 1000
-
-
-// Advertisment payload length in bytes
-\#define ADVLEN 10
-
-
-Gehen in den Standby modus. Wird eingestellt über die Datei pwr\_ctr.c /h
-
-Dort stehen alle Handlungen, die das System macht, um in den Standby-Modus zu gelangen.
-
-\subsection{V1}
-
-
-\subsection{V2}
-
 % 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
 
 
-% 6---------------------------------------------------------------------------
-\section{Option 1}
+
 
 
 
