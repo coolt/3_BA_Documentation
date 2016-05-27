@@ -16,11 +16,59 @@
 \section{Glossar und Abkürzungen}\label{glossar}
 
 \textbf{Clock Domain}\\
-Ein Bereich der Hardware, der mit demselben Takt läuft.
+\forceindent Ein Bereich der Hardware, der mit demselben Takt läuft.
+
+\textbf{Power Domain}\\
+\forceindent Basiert auf der Fähigkeit eines Prozessor Speisungsgebiete zur Verfügung zu stellen. Der Prozessor teilt seine Funktionalitäten in Gebiete ein, die separat ein- und ausgeschalten werden können.
+
+\textbf{MPP}\\
+\forceindent Maximum Power Point (MPP) bezeichnet in einer Leistungskurve den höchsten Punkt, also das Leistungsmaxiumum.
+
+\textbf{MPPT}\\
+\forceindent Versucht ein System, einen Input stets auf das Leistungsmaximum zu regeln, spricht man von Maximum Power Point Tracking. Tracking steht für Einfangen.
+
+\textbf{MPPT-Ratio}\\
+\forceindent Bezeichnet die Auswertung des MPP auf Spannungsachse. Liegt das Leistungmaximum beim Kurzschluss, so ist die MPPT-Ratio bei 0 \%, liegt sie bei Leerlauf, dann liegt die MPPT-Ratio bei 100 \%. Üblicherweise liegt die MPPT-Ratio dazwischen.
+
+\textbf{State Machine}\\
+\forceindent Heisst korrekt Finite State Machine und bezeichnet eine Konzept, bei dem aufgrund einer Kombination von Eingangssignalen, sich das System in einem bestimmten Zustand befindet. In jedem Zustand sind nur gewisse Inputs zulässig, ansonsten verbleibt das System in diesem Zustand. Folgt ein korrekter Input, wechselt das System in den entsprechenden Zustand. 
+
+\textbf{UML}\\
+\forceindent Die Unified Modeling Language (UML) ist ein Quasistandard, wie Prozesse abgebildet werden können. Die Sprache definiert Formen, aufgrund deren man weiss, ob es sich um eine Initialiserung, eine Entscheidung oder um eine Verarbeitung, etc. handelt.
 
 
-\section{Abbildungsverzeichnis}
+% make the list of figures title a section title
+% i could not get it to work in the cls
+\makeatletter
+\renewcommand\listoffigures{%
+    \section{\listfigurename}%
+      \@mkboth{\listfigurename}%
+              {\listfigurename}%
+    \@starttoc{lof}%
+}
+\makeatother
 
+% create a list of figures with the label used for figure in front of each entry
+% http://tex.stackexchange.com/questions/155177/how-to-add-the-word-figure-to-the-list-of-figures
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\figurename~\oldnumberline}%
+\listoffigures%
+}
 
-\section{Tabellenverzeichnis}
+% make the list of tables title a section title
+% i could not get it to work in the cls
+\makeatletter
+\renewcommand\listoftables{%
+    \section{\listtablename}%
+      \@mkboth{\listtablename}%
+              {\listtablename}%
+    \@starttoc{lot}%
+}
+\makeatother
 
+{%
+\let\oldnumberline\numberline%
+\renewcommand{\numberline}{\tablename~\oldnumberline}%
+\listoftables%
+}

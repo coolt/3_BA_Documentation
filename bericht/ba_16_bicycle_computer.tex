@@ -1,16 +1,18 @@
-\documentclass[a4paper, 12pt]{book}
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
+\documentclass[]{zhawinesba} 
 
+%\usepackage[final]{pdfpages}
 
-\title{Energy harvesting bicycle computer}
-\author{Katrin Bächli, Manuel König}
+%\graphicspath{{C:/Users/katrin/Documents/Dokumente/ZHAW/5Jahr/3_BA_documentation/ressources}}
+\graphicspath{{../ressources}}
 
+\title{Energy Harvesting Bicycle Computer}
+%\subtitle{Bachelorarbeit Elektrotechnik}
+\author{Katrin Bächli,\\Manuel König}
+\tutor{Prof. Dr. Marcel Meli}
+\cotutor{Dario Dündar}
 
-
-\usepackage[sectionbib]{natbib} % bibl will be a section and not a chapter
-\bibliographystyle{abbrvnat}
-\setcitestyle{authoryear,open={(},close={)}}
+%\includegraphics[scale=0.1]{0Titelblatt/road.png} 
+\newcommand{\titleImagePath}{0Titelblatt/road.png}
 
 \begin{document}
 \maketitle
@@ -18,6 +20,8 @@
 \include{1Einleitung/einleitung}
 \include{2TheoretischeGrundlagen/theorie}
 \include{3Vorgehen/vorgehen}
+\include{4Resultate/resultat}
+\include{5Diskussion/diskussion}
 \include{6Verzeichnisse/verzeichnis}
 \include{7Anhang/anhang}
 

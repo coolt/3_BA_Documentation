@@ -36,12 +36,12 @@ $RECYCLE.BIN/
 # ==============================================
 ## Core latex/pdflatex auxiliary files:
 **/*.aux
-**/*.lof
-**/*.log
+*.lof
+*.log
 **/*.lot
-**/*.fls
-**/*.out
-**/*.toc
+*.fls
+*.out
+*.toc
 
 ## Intermediate documents:
 *.dvi
@@ -160,3 +160,10 @@ sympy-plots-for-*.tex/
 # WinEdt
 *.bak
 *.sav
+*.aux
+*.log
+*.aux
+bericht/1Einleitung/einleitung.log
+*.log
+*.aux
+bericht/ba_16_bicycle_computer.pdf

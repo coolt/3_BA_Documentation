@@ -1,0 +1,21 @@
+﻿TODO Bericht
+-------------------
+1.) Titelseite: Bild, Schrift
+2.) Wie Schrift für Kapitel, Header, ...
+
+- Probleme: German Quotes:
+	Kap3 Vorgehen/Energieverbrauch Sensortag
+	Text unter Tabelle. Mit "Zitat". Danach hat das Wort keinen Abstand.
+	
+	
+- EPS-Einbindung ging nicht
+- PNG-Bilder korrekt einfügen in Textfluss
+- Problem mit korrektem Bild einbinden:
+  Fehlermeldungen. Im Anhang unter Blockschema ein Bild auskommentiert
+- Abbildungsverzeichnis erstellen (Bilder der PA unterscheiden von unseren Bildern)
+- Tabellenverzeichnis und Beschriftung
+
+- Betreuer und Nebenbetreuer dazu
+
+
+

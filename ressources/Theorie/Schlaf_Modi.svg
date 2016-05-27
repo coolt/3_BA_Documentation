@@ -1,0 +1,1319 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="337.45148mm"
+   height="246.46585mm"
+   viewBox="0 0 1195.6943 873.30419"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Schlaf_Modi.svg"
+   inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
+   inkscape:export-xdpi="150"
+   inkscape:export-ydpi="150">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10382"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path10384"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10250"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10252"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10124"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path10126"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9968"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9970"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker9854"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path9856"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8495"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8497"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker5030"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path5032"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker4844"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path4846"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0-0"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0-4"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0-1"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0-1-6"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0-1-8"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0-1-6-2"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0-1-8-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker4474-4-0-1-6-2-1"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4476-2-0-1-8-5-3"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker5100-2-2-2-8-4"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path5102-4-6-2-7-0"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker9854-8"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path9856-3"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10124-7"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path10126-3"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10250-6"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10252-1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8495-3"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8497-0"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker10250-6-6"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path10252-1-5"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker10124-7-5"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path10126-3-8"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker9854-8-1"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend"
+       inkscape:collect="always">
+      <path
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         id="path9856-3-1"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker8495-3-8"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path8497-0-6"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9968-3"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9970-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker9968-3-8"
+       style="overflow:visible"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         inkscape:connector-curvature="0"
+         id="path9970-7-7"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.53740115"
+     inkscape:cx="-241.34493"
+     inkscape:cy="-75.933221"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     objecttolerance="10000"
+     guidetolerance="10000"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1004"
+     inkscape:window-x="-4"
+     inkscape:window-y="-4"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3336"
+       originx="43.238872"
+       originy="157.8809" />
+    <sodipodi:guide
+       position="-76.761137,497.8809"
+       orientation="1,0"
+       id="guide3715" />
+    <sodipodi:guide
+       position="-96.761138,497.8809"
+       orientation="1,0"
+       id="guide3717" />
+    <sodipodi:guide
+       position="663.23892,477.8809"
+       orientation="1,0"
+       id="guide3739" />
+    <sodipodi:guide
+       position="1903.239,357.8809"
+       orientation="1,0"
+       id="guide3741" />
+    <sodipodi:guide
+       position="-36.761134,687.88089"
+       orientation="1,0"
+       id="guide5055" />
+    <sodipodi:guide
+       position="903.23893,117.8809"
+       orientation="0,1"
+       id="guide7175" />
+    <sodipodi:guide
+       position="303.23889,497.8809"
+       orientation="1,0"
+       id="guide8051" />
+    <sodipodi:guide
+       position="483.2389,517.8809"
+       orientation="1,0"
+       id="guide8053" />
+    <sodipodi:guide
+       position="43.238872,717.88089"
+       orientation="1,0"
+       id="guide8055" />
+    <sodipodi:guide
+       position="723.23892,497.8809"
+       orientation="1,0"
+       id="guide8057" />
+    <sodipodi:guide
+       position="903.23893,257.8809"
+       orientation="1,0"
+       id="guide8061" />
+    <sodipodi:guide
+       position="263.23889,417.8809"
+       orientation="0,1"
+       id="guide8302" />
+    <sodipodi:guide
+       position="903.23893,297.8809"
+       orientation="0,1"
+       id="guide8304" />
+    <sodipodi:guide
+       position="703.23892,297.8809"
+       orientation="0,1"
+       id="guide8306" />
+    <sodipodi:guide
+       position="723.23892,237.8809"
+       orientation="0,1"
+       id="guide8310" />
+    <sodipodi:guide
+       position="-76.761137,-2.1190983"
+       orientation="0,1"
+       id="guide8312" />
+    <sodipodi:guide
+       position="63.238873,57.880901"
+       orientation="0,1"
+       id="guide8786" />
+    <sodipodi:guide
+       position="63.238873,-2.1190983"
+       orientation="0,1"
+       id="guide8788" />
+    <sodipodi:guide
+       position="163.23888,-62.119098"
+       orientation="0,1"
+       id="guide8790" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(43.238869,-336.93896)">
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker8495-3)"
+       d="m 441.21229,1617.038 0,160"
+       id="path9790-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker8495-3-8)"
+       d="m 440.00002,1259.0464 0,160.0001"
+       id="path9790-8-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10382)"
+       d="m 440,1148.3622 0,60"
+       id="path10374"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-9"
+       width="361.65863"
+       height="60.211258"
+       x="260.36456"
+       y="1093.2806"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker8495)"
+       d="m 440,779.20429 0,160"
+       id="path9790"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314"
+       width="361.6586"
+       height="60.21125"
+       x="259.89438"
+       y="732.25653"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#138513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 937.75163,442.83606 0,160.00015"
+       id="path8149-6-9-5-7-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#148513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 857.48846,441.62553 0,160.00015"
+       id="path8149-6-9-5-7"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#158513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 778.27793,439.67816 0,160.00013"
+       id="path8149-6-9-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:#338000;fill-rule:evenodd;stroke:#168513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 299.73684,441.30779 0,160"
+       id="path8149"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#168513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 579.33054,441.52026 0,160.00011"
+       id="path8149-6-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#178513;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94509804"
+       d="m 501.17662,441.98914 0,160.00009"
+       id="path8149-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7237-9-0-3"
+       width="19.765566"
+       height="160.00005"
+       x="982.11932"
+       y="442.59729"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7237-9-0"
+       width="9.5311241"
+       height="160.00003"
+       x="620.28674"
+       y="441.4472"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7237-9"
+       width="9.5311232"
+       height="160.32896"
+       x="381.64182"
+       y="441.4472"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect7237"
+       width="60.703323"
+       height="160.57565"
+       x="60.659889"
+       y="440.97833"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1280,2072.3622 20,0"
+       id="path5001"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.50000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4474-4-0-1-6-2)"
+       d="m -39.211431,602.29186 1110.578031,0"
+       id="path4404-34-7-2-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-20.750628"
+       y="364.31067"
+       id="text4514-6-7-2-5-2"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan4516-0-6-9-5-1"
+         x="-20.750628"
+         y="364.31067"
+         style="font-size:25.00000381px">[V]</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1079.5118"
+       y="599.8974"
+       id="text4518-8-2-7-0-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan4520-5-1-55-7-1"
+         x="1079.5118"
+         y="599.8974"
+         style="font-size:25.00000381px">[ms]</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 0.65988452,600.97833 60.00000248,0 0,-160 159.999993,0 0,160 160,0 0,-160 40,0 0,160 200,0 0,-160 80,0 0,160 280,0 0,-160 39.99992,0 0,160 40.0001,0"
+       id="path7153"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="58.131836"
+       y="411.60553"
+       id="text7155"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7157"
+         x="58.131836"
+         y="411.60553">Konfigurationen</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="383.45108"
+       y="410.79736"
+       id="text7159"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7161"
+         x="383.45108"
+         y="410.79736">Aktion 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="619.99268"
+       y="411.72772"
+       id="text7163"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7165"
+         x="619.99268"
+         y="411.72772">Aktion 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="980.88574"
+       y="421.73645"
+       id="text7167"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7169"
+         x="980.88574"
+         y="421.73645">Aktion 3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="489.40659"
+       y="628.96185"
+       id="text7171"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7173"
+         x="489.40659"
+         y="628.96185">t2</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 475.65988,611.97833 5,17 -10,0 z"
+       id="path7183"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="33.266933"
+       y="627.56256"
+       id="text7171-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7173-7"
+         x="33.266933"
+         y="627.56256">t0</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 19.520231,610.57904 5.000001,17 -10,0 z"
+       id="path7183-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="303.55292"
+       y="628.25854"
+       id="text7171-7-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7173-7-6"
+         x="303.55292"
+         y="628.25854">t1</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 289.8062,611.275 5,17 -10,0 z"
+       id="path7183-8-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="849.26703"
+       y="627.56256"
+       id="text7171-7-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7173-7-3"
+         x="849.26703"
+         y="627.56256">t3</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 835.52031,610.57904 5,17 -10,0 z"
+       id="path7183-8-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.52700019;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5100-2-2-2-8-4)"
+       d="m 1.4561475,601.91327 0,-220.42105"
+       id="path4406-7-8-8-2-9"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <g
+       id="g8009">
+      <flowRoot
+         style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Arial;font-style:normal;font-weight:normal;font-size:25px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Arial;font-stretch:normal;font-variant:normal"
+         id="flowRoot8001"
+         xml:space="preserve"><flowRegion
+           id="flowRegion8003"><rect
+             y="-244.57671"
+             x="-196.76112"
+             height="660"
+             width="1540"
+             id="rect8005" /></flowRegion><flowPara
+           id="flowPara8007"></flowPara></flowRoot>    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="329.6842"
+       y="772.88849"
+       id="text8232"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8234"
+         x="329.6842"
+         y="772.88849">powerRadioDomain</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6"
+       width="361.65863"
+       height="60.211258"
+       x="683.57861"
+       y="852.68933"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="357.89474"
+       y="1012.52"
+       id="text8236"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8238"
+         x="357.89474"
+         y="1012.52">waitUntilReady</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 440.63158,942.25692 -180,59.99998 180,60 180,-60 z"
+       id="path8346"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="392.57547"
+       y="1133.7284"
+       id="text8589"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8591"
+         x="392.57547"
+         y="1133.7284">initRadio</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-9-6"
+       width="361.65866"
+       height="60.211266"
+       x="260.10141"
+       y="1211.1753"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="341.36493"
+       y="1251.9915"
+       id="text8593"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8595"
+         x="341.36493"
+         y="1251.9915">powerAuxDomain</tspan></text>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-9-6-5"
+       width="361.65869"
+       height="60.211273"
+       x="260.36459"
+       y="1575.649"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="349.68073"
+       y="1611.6757"
+       id="text8615"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8617"
+         x="349.68073"
+         y="1611.6757">turnOnRadioClk</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="312.83868"
+       y="1850.6232"
+       id="text8236-0-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8238-0-5"
+         x="312.83868"
+         y="1850.6232">waitRadioBootDone</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6-1"
+       width="361.65866"
+       height="60.211266"
+       x="681.73254"
+       y="974.0199"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="757.4176"
+       y="1013.9915"
+       id="text8637"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8639"
+         x="757.4176"
+         y="1013.9915">powerDisableCPU</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="782.25977"
+       y="891.14941"
+       id="text8641"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8643"
+         x="782.25977"
+         y="891.14941">goDeepSleep</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#marker9854)"
+       d="m 440,1072.3622 0,20"
+       id="path9846"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9968)"
+       d="m 620,1002.3622 60,0"
+       id="path9960"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-end:url(#marker10124)"
+       d="m 860,972.36219 -10e-6,-60"
+       id="path10116"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10250)"
+       d="m 861.99999,852.36219 10e-6,-20 -420,0"
+       id="path10242"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6-7"
+       width="361.65866"
+       height="60.211266"
+       x="681.99963"
+       y="1690.0579"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 440.44829,1779.1603 -180,59.9999 180,60 180,-60 z"
+       id="path8346-0"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6-1-9"
+       width="361.65869"
+       height="60.211273"
+       x="680.15356"
+       y="1811.3884"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="755.83875"
+       y="1851.3601"
+       id="text8637-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8639-7"
+         x="755.83875"
+         y="1851.3601">powerDisableCPU</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="780.68091"
+       y="1728.5179"
+       id="text8641-6"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8643-0"
+         x="780.68091"
+         y="1728.5179">goDeepSleep</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9854-8)"
+       d="m 440.74709,1913.4523 0,20.0001"
+       id="path9846-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10124-7)"
+       d="m 858.42108,1809.7307 0,-60"
+       id="path10116-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10250-6)"
+       d="m 864.42108,1689.7307 0,-20 -420,0"
+       id="path10242-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6-7-9"
+       width="361.65869"
+       height="60.211273"
+       x="683.57867"
+       y="1334.5315"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="357.89474"
+       y="1494.3622"
+       id="text8236-4-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8238-4-4"
+         x="357.89474"
+         y="1494.3622">waitUntilReady</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-6-1-9-1"
+       width="361.65872"
+       height="60.211281"
+       x="681.7326"
+       y="1455.8621"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="757.41779"
+       y="1495.8337"
+       id="text8637-0-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8639-7-0"
+         x="757.41779"
+         y="1495.8337">powerDisableCPU</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="782.25995"
+       y="1372.9916"
+       id="text8641-6-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan8643-0-0"
+         x="782.25995"
+         y="1372.9916">goDeepSleep</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9854-8-1)"
+       d="m 440.00002,1554.2043 0,20.0001"
+       id="path9846-5-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10124-7-5)"
+       d="m 860.00012,1454.2044 0,-60.0001"
+       id="path10116-1-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker10250-6-6)"
+       d="m 862.00012,1334.2044 0,-20 -420.0001,0"
+       id="path10242-1-8"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 439.579,1422.257 -180,59.9999 180,60 180,-60 z"
+       id="path8346-0-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9968-3)"
+       d="m 616.19857,1482.2401 60.00001,0"
+       id="path9960-1"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker9968-3-8)"
+       d="m 617.97956,1839.1247 60.00002,0"
+       id="path9960-1-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#0e1a0e;stroke-width:2.00000024;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect8314-9-6-5-4"
+       width="361.65872"
+       height="60.211281"
+       x="259.57513"
+       y="1935.9122"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="428"
+       y="1972.3622"
+       id="text12715"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepInFunktion.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan12717"
+         x="428"
+         y="1972.3622">...</tspan></text>
+  </g>
+</svg>
