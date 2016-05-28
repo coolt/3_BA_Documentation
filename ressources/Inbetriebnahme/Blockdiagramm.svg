@@ -14,8 +14,8 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   sodipodi:docname="Blockschaltbild.svg"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Blockdiagramm.svg"
    inkscape:export-filename="C:\Users\katrin\Desktop\OnChipMemory.png"
    inkscape:export-xdpi="150"
    inkscape:export-ydpi="150">
@@ -112,9 +112,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="462.37999"
-     inkscape:cy="793.39981"
+     inkscape:zoom="1"
+     inkscape:cx="575.73035"
+     inkscape:cy="896.02015"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -144,6 +144,10 @@
        orientation="0,1"
        position="345,780"
        id="guide5027" />
+    <sodipodi:guide
+       position="310,900.00002"
+       orientation="0,1"
+       id="guide8745" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -167,7 +171,10 @@
        x="495"
        y="222.36218"
        id="text3047"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3049"
          x="495"
@@ -180,7 +187,8 @@
        id="text4146"
        sodipodi:linespacing="125%"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"><tspan
          sodipodi:role="line"
          id="tspan4148"
          x="196"
@@ -195,10 +203,16 @@
        width="95"
        height="70"
        x="476"
-       y="187.36218" />
+       y="187.36218"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <g
        id="g3909"
-       transform="translate(56,0)">
+       transform="translate(56,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
       <text
          sodipodi:linespacing="125%"
          id="text3051"
@@ -226,51 +240,78 @@
        height="30"
        x="485"
        y="202.36218"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 501,252.36218 20,0"
        id="path3083"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 501,237.36218 20,0"
        id="path3089"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 501,242.36218 20,0"
        id="path3091"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 545,252.36218 20,0"
        id="path3087"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 545,237.36218 20,0"
        id="path3093"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 545,242.36218 20,0"
        id="path3095"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:1.00000002;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect3907"
        width="321.6673"
        height="70.16729"
        x="59.416351"
-       y="187.27853" />
+       y="187.27853"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="585"
        y="172.36218"
        id="text3914"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3916"
          x="585"
@@ -281,7 +322,10 @@
        x="405"
        y="172.36218"
        id="text3918"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3920"
          x="405"
@@ -292,7 +336,10 @@
        x="425"
        y="282.36218"
        id="text3922"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3924"
          x="425"
@@ -303,14 +350,20 @@
        x="510"
        y="282.36218"
        id="text3926"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3928"
          x="510"
          y="282.36218">V_LTS</tspan></text>
     <g
        id="g4624"
-       transform="translate(146,0)">
+       transform="translate(146,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
       <text
          sodipodi:linespacing="125%"
          id="text3035"
@@ -332,7 +385,10 @@
     </g>
     <g
        id="g3069"
-       transform="translate(74,0)">
+       transform="translate(74,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
       <text
          sodipodi:linespacing="125%"
          id="text3039"
@@ -357,26 +413,38 @@
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 222.375,217.73718 10,0"
        id="path3930"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 355,217.36218 120,0"
        id="path4649"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 570,217.36218 75,0"
        id="path4837"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="160"
        y="282.36218"
        id="text5029"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5031"
          x="160"
@@ -386,79 +454,203 @@
        d="m 300,267.36218 c 5,-5 40,-20 40,-20"
        id="path5033"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 453.99999,268.86218 c 5,-5 40,-20 40,-20"
        id="path5033-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 507.49999,267.36218 c 5,-5 40.00001,-20 40.00001,-20"
        id="path5033-8-5"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-2)"
        d="m 435,177.36218 0,30"
        id="path5269"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend-2)"
        d="m 616,178.36218 0,30"
        id="path5269-7"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 345,237.65507 20,0"
        id="path5514"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 345,242.65507 20,0"
        id="path5516"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 355,242.36218 0,10"
        id="path5518"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 345,252.36218 20,0"
        id="path5520"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 340,217.36218 15,0 0,20"
        id="path5522"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 510,232.36218 0,5"
        id="path5528"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 510,242.36218 0,10"
        id="path5530"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 555,232.36218 0,5"
        id="path5536"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 555,242.36218 0,10"
        id="path5538"
        inkscape:connector-curvature="0"
-       transform="translate(-4.9229925e-6,0)" />
+       transform="translate(-4.9229925e-6,0)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\Blockdiagramm.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       x="809"
+       y="224.36218"
+       id="text3051-2"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3053-5"
+         x="809"
+         y="224.36218">Mobile </tspan><tspan
+         sodipodi:role="line"
+         x="809"
+         y="243.11218"
+         id="tspan8750">Phone</tspan></text>
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3065-7"
+       width="85"
+       height="70"
+       x="799"
+       y="186.36218" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="58"
+       y="152.3622"
+       id="text8729"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8731"
+         x="58"
+         y="152.3622">1)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="475"
+       y="151.3622"
+       id="text8733"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8735"
+         x="475"
+         y="151.3622">2)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="650"
+       y="151.3622"
+       id="text8737"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8739"
+         x="650"
+         y="151.3622">3)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="802"
+       y="151.3622"
+       id="text8741"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8743"
+         x="802"
+         y="151.3622">4)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="754"
+       y="211.3622"
+       id="text8752"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan8754"
+         x="754"
+         y="211.3622">BLE</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:4,4;stroke-dashoffset:0"
+       d="m 730,217.36222 70,0"
+       id="path8756"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

@@ -15,7 +15,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="EnergieZusammenfassung.svg">
+   sodipodi:docname="EnergieZusammenfassung.svg"
+   inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
+   inkscape:export-xdpi="150"
+   inkscape:export-ydpi="150">
   <defs
      id="defs4">
     <marker
@@ -160,9 +163,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="796.06882"
-     inkscape:cy="-201.04137"
+     inkscape:zoom="0.7"
+     inkscape:cx="568.68505"
+     inkscape:cy="-242.42726"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -1174,21 +1177,6 @@
        d="m 601.42857,1277.5051 0,20"
        id="path4612-9-0"
        inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="814.94916"
-       y="1313.5151"
-       id="text5255-2"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5257-2"
-         x="814.94916"
-         y="1313.5151">Kommunikations-</tspan><tspan
-         sodipodi:role="line"
-         x="814.94916"
-         y="1332.2651"
-         id="tspan5283-5">gerät</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
