@@ -116,14 +116,14 @@ In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Als erstes w
 
 \subsection{Kontrollierte Energiespeicherung}
 
-Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie, genug Energie gesammelt wurde. Umgesetzt wird dies, in dem die Freigabe der Energie an eine Applikation, VSUP, erst nach dem Erreichen eines gewissen Ladezustands erfolgt. Der Ladezustand des Primärkondensator ist mit VSTS in der Abbildung \ref{em_grundprinzip}.
+Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie, genug Energie gesammelt wurde. Umgesetzt wird dies, in dem die Freigabe der Energie an eine Applikation, VSUP, erst nach dem Erreichen eines gewissen Ladezustands erfolgt. Der Ladezustand des Primärspeichers ist mit VSTS in der Abbildung \ref{em_grundprinzip}.
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
    \caption{Grundprinzip Applikationsspeisung }\label{em_grundprinzip} 
 \end{figure}
 
-Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primärkondensator STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Kondensator weiter lädt. VSUP folgt der Kondensatorspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
+Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primärspeichers STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
 
 
 \begin{figure}[ht]
@@ -131,17 +131,17 @@ Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em
    \caption{Applikationsspeisung EM8500 }\label{em_grundprinzip_em8500} 
 \end{figure}
 
-Der Primärkondensator STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das lanfristige, sichere Ausführen braucht das System ein Long Term Storage-Kondensator (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
+Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das lanfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
 VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildung \ref{energiespeisung_lts}).
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitLTS.png}
-   \caption{Sicheres Betreiben durch Long Term Storage-Kondensator}\label{energiespeisung_lts} 
+   \caption{Sicheres Betreiben durch Long Term Storage}\label{energiespeisung_lts} 
 \end{figure}
 
 Im Datenblatt des EM8500 \cite{datasheet_EM85} sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres betreiben. Die Dateien sind auf der CD abgelegt.
 
-Grundsätzlich ist zur Berechnung der Kondensatoren und den Schwellwerten zu sagen, dass der erste Schwellwert (v\_bat\_min\_lo), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
+Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (v\_bat\_min\_lo), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
@@ -167,21 +167,21 @@ Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \re
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
 
-Da der Kondensatoren STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung des Kondensatoren muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:
+Da der Primätspeicher STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung der Speicher muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:
 
 \begin{equation}
   E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster}
 \end{equation}
  
-( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.) Da aus dem Kondensatorwert und desssen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:
+( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.) Da aus dem Speicherwert in Farad und desssen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:
 
 \begin{equation}
 v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}}}
 \end{equation}
 
-Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Kondensator nicht auf 0 entlädt.
+Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Speicher nicht auf 0 entlädt.
 
-Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Abbildung  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), der Kondensatoren (VDD\_STS und VDD\_LTS)und des Harvestereingangs (VDD\_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.
+Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Abbildung  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), die Speicher (VDD\_STS und VDD\_LTS)und des Harvestereingangs (VDD\_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.
 
 EM8500 stellt zwei digitale Überwachungssignale zur Verfügung:\\ 
 Der Ausgang HRV\_LOW ist auf logisch '0', wenn die Eingangsspannung vom Harvester grösser als 0.3 V ist. Fällt diese darunter, geht HRV\_LOW auf logisch '1'.
@@ -255,7 +255,7 @@ Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wi
 
 
 \subsection{Interrupt Driven Appliacation}\label{pm_interrupt} 
-Zum Schlafen geört auch ein Aufwachen. Dies ist ein nicht-triviales Problem, lässt sich mit Interrupts lösen. In diesem Unterkapitel werden zwei Konzepte einer Interrupt Driven Applikation erklärt: fixes Aufwachen aufgrund interner Interrupts und asynchrones Aufwachen aufgrund externer Events.
+Zum Schlafen gehört auch ein Aufwachen. Dies ist ein nicht-triviales Problem, lässt sich mit Interrupts lösen. In diesem Unterkapitel werden zwei Konzepte einer Interrupt Driven Applikation erklärt: fixes Aufwachen aufgrund interner Interrupts und asynchrones Aufwachen aufgrund externer Events.
 
 \subsubsection{Aufwachen durch interne Interrupts}
 Ein System kann intern seine Signale auswerten und aufgrund kombinatorischen Logik, dem erreichen eines Schwellwerten oder dem Ablaufen eines Timers aufwachen. Solche Wakeups sind fix und unabhängig von äusseren Einflüssen. Ein System mit internen Interrupts ist determinierbar. Das heisst, der Empfang interner Interrupts ist präzis (nur 1 malig und kein Prellen) und kann über Prioritäten gut geregelt werden.
@@ -263,8 +263,8 @@ Ein System kann intern seine Signale auswerten und aufgrund kombinatorischen Log
 \subsubsection{Aufwachen durch externe Events}
 Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und schlimmstenfalls den Systemablauf aus dem Rhythmus bringen.
 
-\subsection{State Machine für Lesbarkeit}\label{pm_state_machine} 
-Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Das Aufsetzen einer State Machine kann helfen. Die Abbildung \ref{t_stateMachine} zeigt die Strukturierung von Interrupts und ihren Abhängigkeiten durch eine einfache State Machine.
+\subsection{State Machine für definierte Abläufe}\label{pm_state_machine} 
+Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Um unerwünschte Effekte zu vermeiden, kann eine State Machine implementiert werden. Diese stellt sicher, dass nur aufgrund von gewissen Signalen, ein Aktion ausgeführt wird. Alle anderen Effekte werden ignoriert. Die Abbildung \ref{t_stateMachine} zeigt die definierte Abhängigkeiten durch eine State Machine.
 
 \begin{figure}[ht]
     \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
