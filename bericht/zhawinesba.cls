@@ -97,6 +97,11 @@
 \renewcommand{\labelitemii}{$-$}
 
 
+% Typography
+% ==========
+%\let\oldpercent=\%
+%\renewcommand{\%}{\ifmmode\oldpercent\else\thinspace\oldpercent\fi}
+
 % Title page
 % ==========
 
