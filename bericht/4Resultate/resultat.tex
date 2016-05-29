@@ -150,33 +150,58 @@ Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Unter
     \label{einheiten}
 \end{figure}
 
-Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}. Zu jedem Sensor gehört eine Spinner. In den drei Spinner-Menüs stehen folgende Einheiten zur Verfügung:
- \todo{ Einheiten auflisten} 
+Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}. Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
 
-Temperatur kalibriert werden kann. 
- 
- 
-Radgrösse... 
+Die Radgrösse, sprich der Radumfang, muss einstellbar sein, da die interne Geschwindigkeitsberechnung von diesem abhängt. Da die Radgrösse nicht normiert ist, konnte kein Drop Down-Element eingebaut werden. Die Zahl wird über die Tastatur in das Feld eingegeben.
+
+Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem Sensortag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. Sensortag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
+
+\subsubsection*{Auswählbare Einheiten}
+\begin{tabbing}
+    Temperatur     \quad\= Geschwindigkeit            \quad\= Druck \\[0.8ex]
+    Celsius (C)    \> Kilometer pro Stunde (km/h)\> Pascal (haP)\\
+    Fahrenheit (F) \> Miles per hour (mph)       \> Bar (bar)\\
+    Kelvin (K)     \>                            \> Atmosph\"{a}re (atm)\\
+                   \>                      \> Pound-Force per sqare inch (psi)\\
+                   \>                      \> Millimeter Quecksilber (mmHG)\\
+\end{tabbing} 
+
   
 Die vorgenommenen Einstellungen werden über den Button "Speichern" gesichert. Danach werden die eingelesenen Sensordaten in den ausgewählten Einheiten dargestellt.
 
 \subsection{Paketverlust}
 
-Es ist wichtig zu wissen, wie viele Pakete überhaupt bei der Applikation empfangen werden. Ein bekanntes Problem ist gem. Aussage von Dario, dass die meisten Smartphones nach einer gewissen Zeit die Bluetooth Schnittstelle nicht mehr die ganze Zeit eingeschalten lassen, sondern nur noch ca. 80\thinspace\% der Zeit die Bluetooth Schnittstelle betreiben. Das bedeutet, dass der Verlust von BLE-Paketen sehr wahrscheinlich ist. Die nachfolgende Tabelle zeigt den Paketverlust bei einer Geschwindigkeit von 20 km/h.
+Sensortag sendet im Advertising Mode 3 Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
 
-\todo{tabelle einfügen}
+\subsubsection*{Paketverlust BLE-Applikation}
+\begin{tabbing}
+    Messperiode \quad\= Gesendete Pakete \quad\= Empfangene Pakete \quad\= Paketverlust\\[0.8ex]
+    1 min  \> 38   \> 35 \> 7.9\thinspace\%  \\
+    1 min  \> 37   \> 31 \> 16.2\thinspace\%  \\
+    2 min  \> 75   \> 64 \> 14.7\thinspace\%  \\
+    2 min  \> 77   \> 65 \> 15.6\thinspace\%  \\
+    5 min  \> 193   \> 168 \> 13.0\thinspace\%  \\
+    5 min  \> 190   \> 158 \> 16.8\thinspace\%  \\
+    10 min  \> 345   \> 301 \> 12.8\thinspace\%  \\
+    10 min  \> 349   \> 302 \> 13.5\thinspace\%  \\
+\end{tabbing} 
 
-
-
-
-Ein Paketverlust 10\thinspace\% bis 20\thinspace\% war nach Aussage von Dario zu erwarten, da die meisten Smartphones die Bluetooth Schnittstelle nach einer gewissen Zeit nicht mehr die ganze Zeit betreiben. Der Betrieb der Bluetooth Schnittstelle wird reduziert, damit Energie gespart werden kann. 
+Da der Advertising Mode keine sicher Verbindung ist, ist ein Paketverlust von rund 15\thinspace\% zu erwarten.
 
 
 \subsection{Korrektheit der Daten}
 
-Natürlich bringt es nicht die Daten nur zu empfangen, es musste auch überprüft werden, ob die richtigen Daten empfangen wurden. Die Daten welche mit der Applikation empfangen wurden entsprechen exakt den Daten, welche der Sniffer empfangen hat. Somit kann garantiert werden, dass keine Informationen verloren gehen oder falsch interpretiert werden. Unvollständige Daten oder falsche Daten könnten in Anzeigefehlern oder gar dem Absturz der Applikation führen.
+Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuellen Vergleich der Datenpakete im BLE-Sniffer von TI verglichen (siehe Abbildung \ref{sniffer}).  Die Daten im Sniffer entsprechen exakt den Daten, welche die Applikation empfängt. Der Inhalt der Daten wird somit unverfälscht übermittelt.
 
-\todo{fertig schreiben}
+
+\todo{aktuelles Sniffer Bild} 
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/sniffer.png} 
+    \caption{Snifferpaket Prototyp}
+    \label{sniffer}
+\end{figure}
+
 
 \todo{Video zeiger (auf CD)}
 
