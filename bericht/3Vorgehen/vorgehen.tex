@@ -112,14 +112,14 @@ Die Energieregelung des Vorgängermodells basiert auf einem hohen Schwellwert vo
 
 \subsection{Harvester-Schaltung}
 
-\texttt{%In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
 
 Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
 
-%\begin{figure}
-%    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
-%    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
-%\end{figure}
+\begin{figure}
+    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
+    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
+\end{figure}
 
 Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
 
@@ -128,36 +128,36 @@ Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit 
 \subsubsection*{Messaufbau}
 In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
 
-%\begin{figure}[h]
-%    \includegraphics[width=15cm]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
-%    \caption{Messschaltung}
-%\end{figure}
+\begin{figure}[h]
+    \includegraphics[width=15cm]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
+    \caption{Messschaltung}
+\end{figure}
 
 \subsubsection*{Resultat}
 
 Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
  
-%\begin{figure}
-%    \includegraphics[width=15cm]{3Vorgehen/imag/10uF.PNG}
-%    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
-%\end{figure}
-%
-%\begin{figure}
-%    \includegraphics[width=15cm]{3Vorgehen/imag/47uF.PNG}
-%    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
-%\end{figure}}
+\begin{figure}
+    \includegraphics[width=15cm]{3Vorgehen/imag/10uF.PNG}
+    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
+\end{figure}
+
+\begin{figure}
+    \includegraphics[width=15cm]{3Vorgehen/imag/47uF.PNG}
+    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
+\end{figure}
 
 Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
 
 
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
-%\begin{enumerate}
-%    \item Die Harvesterschaltung funktioniert nicht optimal. Die Auswirkung des zu hohen Kondensator vor Harvestereingang soll getestet werden
-%    \item Die Schaltung soll für eine Geschwindigkeit von 10 km/h ausgelegt werden
-%    \item Die Konfigurationen beim EM8500 sollen überarbeitet werden, sodass LTS genutzt wird
-%    \item Das Senden der Pakte soll der Geschwindigkeit angepasst werden
-%\end{enumerate}
+\begin{enumerate}
+    \item Die Harvesterschaltung funktioniert nicht optimal. Die Auswirkung des zu hohen Kondensator vor Harvestereingang soll getestet werden
+    \item Die Schaltung soll für eine Geschwindigkeit von 10 km/h ausgelegt werden
+    \item Die Konfigurationen beim EM8500 sollen überarbeitet werden, sodass LTS genutzt wird
+    \item Das Senden der Pakte soll der Geschwindigkeit angepasst werden
+\end{enumerate}
 
 Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die 
 
@@ -210,6 +210,7 @@ Die Umlauferfassung wird mit einem Reed-Switch ermöglicht. Der Reedswitch ist e
 Der Block Interface enthält die Verbindung zum TI-SensorTag, ein Stecker realisiert dieses Interface. Der Stecker ist bereits vom TI-SensorTag vorgegeben, es handelt sich um einen Stecker, welcher sein eigenes Gegenstück darstellt. 
 
 \subsection{Optimierung der Harvesterschaltung}
+
 % Zwei Gründe:
 %- Ives: Der Glättungskondensator wird auf 47 uF geändert. 
 %- Zu wenig Energie für 10 km/h
@@ -329,7 +330,7 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 \subsubsection{MPP einstellen}
 
 %MPP:
-%- start bei 50 \% (wir bei 40), und grobe Schritte (unten . direkt auf 60 \%, dann 67 \%). 
+%- start bei 50\thinspace\% (wir bei 40), und grobe Schritte (unten . direkt auf 60\thinspace\%, dann 67\thinspace\%). 
 %
 % 
 %\begin{table}[ht]
