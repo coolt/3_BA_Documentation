@@ -2,115 +2,96 @@
  
 Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Projektarbeit von \cite{PA_bicycle}. Die Vorgehensschritte sind in der untenstehenden Auflistung abgebildet. Sie bilden die Struktur dieses Kapitels. Die Definition der konkreten Schritte geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Dario Dünar vom Instiut of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über den aktuellen Entwicklungsstand, die offenen Fragen und die Entscheidungen.
 
-%\begin{enumerate}
-%  \item Inbetriebnahme Machbarkeitsstudie 
-      % Ergebnis: 
-      % LTs entladen, C_in falsch, kein fixes T, 10 km/h
-%  
-%  \item Hardware entwickeln
-      % Welche Probleme sollen mit HW weg: 
-%      % - C_in falsch
-%      % - 10 km/h
-      % Schema, Bauteildef mit Optimierung, Layout  
-%  
-%  \item Inbetriebnahme Prototyp
-      % (Testen weg)  Energiemessung und Optimierung, weil zu wenig.    
-%      % 2 Magnete, Reellight, besser Spule
-%      
-%  \item  Energie- und Powermanagement
-%      % Welche Probleme sollen weg: 
-      % - LTS entladen
-%      % - kein fixes T
-        % 1 Messungen Sensortag  (geht auch zu Manu)
-        % 2 Kalkulatin (mit Ziel LTS entladen und 10 km/h)
-        % 3 Einstellungen Chip mit Ziel LTS, 10 km/ mit  MPP
-        % 4 Aufgrund von Messungen -> Codeoptimierung
+\subsubsection*{Liste der Arbeitschritte}
+\label{liste} 
 
-%  \item Entwickeln einer BLE-Applikation
-%        % Aubau der App, 
-        % BLE Empfangen/Filtern,  
-        % Settings,  
-%        % Tacho
-% \end{enumerate}  
+\begin{enumerate}
+  \item Inbetriebnahme Machbarkeitsstudie  
+  \item Hardware entwickeln  
+  \item Inbetriebnahme Prototyp      
+  \item  Energy und Power Management
+  \item Entwickeln einer BLE-Applikation       
+ \end{enumerate}  
 
 Die sprachliche Unterscheidung von Energy - und Power Management entspricht der Unterscheidung zweier \glqq Management-Teilen\grqq im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff Energy Management wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff Power Managment wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
  
  
- 
- %------------------------------------------------------------------------------
  % 1---------------------------------------------------------------------------
  %------------------------------------------------------------------------------
  
- 
- 
+  
  
 \section{Inbetriebnahme Machbarkeitsstudie}\label{v_inbetriebnahme} 
-      % Ergebnis: 
-      % LTs entladen, C_in falsch, kein fixes T, 10 km/h
+
       
-Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit \cite{PA_bicycle} ist es, zu definieren, welche Funktionalitäten verbessert werden sollen. Diese Liste ist für die Hardwareimplementation und als Fokus für das Energy und Power Management wichtig. Zur Orientierung werden im ersten Unterkapitel die Funktionsblöcke und deren Aufgaben festgehalten. Danach werden die Energiepegel der einzelnen Blöcke in Unterkapitel ausgemessen und das Verhalten beurteilt. Aus der Analyse der Messdaten entsteht die in Unterkapitel 3 aufgelistete Optimierungsliste. Als letztes folgt eine kurze Vertiefung in das auffällige Verhalten des Eingangssignals. Dieser Exkurs hat Ursache in der Begegnung mit  Ives \todo{Familienname} von MicroElectronics Marin AG. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip massgeblich mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals hin. Dieses Signal wurde deshalb bei der Inbetriebnahme speziell getestet, was im letzten Unterkapitel dokumentiert ist.
+Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit \cite{PA_bicycle} ist es, zu definieren, welche Funktionalitäten verbessert werden sollen. Zur Orientierung werden im ersten Unterkapitel \ref{fb} die Funktionsblöcke und deren Aufgaben festgehalten. Danach wird das Verhalten der Vorgängermodells in Unterkapitel \ref{verhalten} ausgemessen. Aus der Analyse entsteht die in Unterkapitel \ref{optimierung} aufgelistete erste Optimierungsliste. Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives \todo{Familienname} von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im letzten Unterkapitel dokumentiert ist.
       
-\subsection{Funktionsblöcke}
+\subsection{Funktionsblöcke}\label{fb} 
 
-Der Bicycle Computer besteht aus vier Funktionsblöcken: 1) Einem Harvesterteil: in dem die Energie geerntet wird, 2) einem Energy Managment-Teil: in dem die Energie gesammelt und kontrolliert weitergeleitet wird, 3) einem Power Mangement-Teil: in dem die Energie , durch das Auslesen von Sensordaten, verarbeitet wird und aus 4) einer mobilen Applikation, die die Daten anzeigt. Die Abbildung \ref{funktionsdiagramm_bild} zeigt die Abfolge der Energiegewinnung bis zum Verbrauch in der Applikation. Die Abbildung zeigt auch, mit welchen Mitteln die Aufgaben bewerkstelligt werden. Der Harvesterschaltung folgt ein Gleichrichter und Kondensator zur Glättung der Wechselspannung. Das Energy Management basiert vor allem auf dem Chip EM8500 und den angeschlossenen zwei Kondensatoren als Speicherelementen. Die gesammelte Energie wird im Sensortag, einem Board mit 2 Prozessoren und 10 Sensoren für das Auslesen und Senden der der Sensordaten benötigt. Endkunde ist eine externe Applikation, die die Daten empfängt.
+Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters ist es Energie zu Ernten und dem nächsten Funktionsblock ( Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
 
-%\begin{figure}[ht]
-%   \includegraphics[scale=1]{3Vorgehen/imag/Blockdiagramm.png}\label{funktionsdiagramm_bild} 
-%   \caption{Funktionsblöcke Bicycle Computer}
-%\end{figure}
 
-In die Funktionsblöcke sind die vier wichtigsten Spannungsbezeichnungen eingebaut. Da diese bei der Inbetriebnahme für den Verlauf der Energiezustände wichtig sind. Ebenso ist der Ausgangskondensator nach der Havesterschaltung explizit gezeichnet, da dieser im Verlauf der Entwicklung wichtig wird. % Zur Benennung der Spannung ist vermerkt, dass sie, je nachdem von welchem Funktionsblock man die Signalbezeichnung nimmt, unterschiedlich heissen. So wird z.B. 
+\begin{figure}[ht]
+   \includegraphics[width=1\textwidth]{3Vorgehen/imag/Blockdiagramm.png}
+   \caption{Funktionsblöcke Bicycle Computer}
+   \label{funktionsdiagramm_bild} 
+\end{figure}
 
-%\begin{tabbing}
-%    Bezeichnung \quad\= Beschreibung\\[0.8ex]
-%    VHRV \> Ausgangspannung Harvesterquelle, Eingangsspannung Energy Management\\
-%    VSTS\> Spannung am STS--Kondensator (Primärspeicher)\\
-%    VLTS\> Spannung am LTS--Kondensator (Sekundärspeicher)\\
-%    VSUP\> Ausgangsspannung Energy Managment, Eingangsspannung Sensortag\\
-%\end{tabbing}   
- 
+Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
 
-\subsection{Verhalten des Vorgängermodells}
+\subsubsection*{Legende Abbildung \ref{funktionsdiagramm_bild} }
+\label{legende}
+\begin{tabbing}
+    Bezeichnung \quad\= Beschreibung\\[0.8ex]
+    V\_HRV \> Ausgangspannung Harvesterquelle, Eingangsspannung Energy Management\\
+    V\_STS\> Spannung am STS--Kondensator (Primärspeicher)\\
+    V\_LTS\> Spannung am LTS--Kondensator (Sekundärspeicher)\\
+    V\_SUP\> Ausgangsspannung Energy Managment, Eingangsspannung Sensortag\\
+    BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble} \\
+\end{tabbing}   
+\todo{Header Tabelle (Bezeichnung, Beschreibung) weg } 
+
+\subsection{Verhalten des Vorgängermodells}\label{verhalten} 
 
 Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände unterschiedlicher Komponenten des Vorgängermodells. Kanal 1 (gelb) stellt die geerntete Energie des Harvesters dar. Diese Energie wird 
 
-%\begin{figure}[ht]
-%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messungPA.png}
-%    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
-%\end{figure}
-%
-%Legende zu Abbildung \ref{spannungMachbarkeit}
-%\begin{tabbing}
-%    Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
-%    CH1\> gelb\> Spannung von Harvesterquelle\\
-%    CH2\> blau\> Spannung am STS--Kondensator\\
-%    CH3\> violet\> Spannung am LTS--Kondensator\\
-%    CH4\> grün\> Ausgangsspannung Energiemanagment\\
-%\end{tabbing}    
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messungPA.png}
+    \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
+\end{figure}
+
+Legende zu Abbildung \ref{spannungMachbarkeit}
+\begin{tabbing}
+    Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
+    CH1\> gelb\> Spannung von Harvesterquelle\\
+    CH2\> blau\> Spannung am STS--Kondensator\\
+    CH3\> violet\> Spannung am LTS--Kondensator\\
+    CH4\> grün\> Ausgangsspannung Energiemanagment\\
+\end{tabbing}    
 
 Die Energieregelung des Vorgängermodells basiert auf einem hohen Schwellwert von 3.6 V beim Primärspeicher (STS), damit genug Energie für das versenden eines BLE-Pakets entsteht (siehe Abbildung \ref{spannungMachbarkeit}). Mit einer Speicherkapazität von 470 $\mu$F beträgt, braucht es rund 25 s, bis dass der Speicher den Schwellwert erreicht.  
 
 
-\subsection{Erste Optimierungsliste}
+\subsection{Erste Optimierungsliste}\label{optimierung} 
 
-%Für das Weiterentwickeln des Vorgängermodells fielen folgende zwei Punkte auf:
-%\begin{itemize}
-%     \item Der Verlauf des Harvester-Eingangs wechselt abrupt.  
-%     \item Für das Laden des Primärspeichers von 470 $\mu$F in 25 s benötigt es eine Geschwindigkeit von mehr als 60 km/h. 
-%\end{itemize} 
-%
-%Bei der Verwendung der gesammelten Energie ergab die Inbetriebnahme zwei Verbesserungsvorschläge:
-%
-%\begin{itemize}
-%     
-%     \item Das zweite Speicherelement entlädt sich nicht. Dadurch kann seine Energie nicht
-%     \item Die Energie wird statisch nach einem fixen Zeitintervall von 10 s genutzt. Das Zeitintervall soll der Geschwindigkeit angepasst werden.  verwendet werden.
-%\end{itemize} 
-%
+Für das Weiterentwickeln des Vorgängermodells fielen folgende zwei Punkte auf:
+\begin{itemize}
+     \item Der Verlauf des Harvester-Eingangs wechselt abrupt.  
+     \item Für das Laden des Primärspeichers von 470 $\mu$F in 25 s benötigt es eine Geschwindigkeit von mehr als 60 km/h. 
+\end{itemize} 
 
+Bei der Verwendung der gesammelten Energie ergab die Inbetriebnahme zwei Verbesserungsvorschläge:
+
+\begin{itemize}
+     
+     \item Das zweite Speicherelement entlädt sich nicht. Dadurch kann seine Energie nicht
+     \item Die Energie wird statisch nach einem fixen Zeitintervall von 10 s genutzt. Das Zeitintervall soll der Geschwindigkeit angepasst werden.  verwendet werden.
+\end{itemize} 
 
 
-\subsection{Harvester-Schaltung}
+
+
+\subsection{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
 
 In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
 
@@ -172,9 +153,11 @@ Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die
 
 
 \section{Hardware entwickeln}
-% (Welche Probleme sollen mit HW weg: Schema entwickeln, Bauteildef
-%                               mit Optimeirung, Layout)  
-                               
+\todo{ Ziel der Entwicklung: Bei 10 km/h funktioniere, C Ausgang Harvester verbesern}
+\todo { Kapitel: Schema, Bauteildefinition und Optimeirung, Layout}
+\todo{ Namensklärung: V HRV = VCC}
+\todo{Messprotokolle umbenennen}
+                             
 Ein wichtiger Punkt der Arbeit ist die Miniaturisierung der bestehenden Hardware, das heisst der Aufbau aus der Machbarkeitsstudie soll auf eine Leiterplatte gebracht werden. Die Leiterplatte hat einige Vorgaben, welche im besten Fall alle eingehalten werden sollen.
 
 \begin{enumerate}
@@ -262,6 +245,7 @@ Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erf
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
+\todo{Der Testteil entfällt. Ziel des Kapitels: Energiemessung und Optimierung ( da zu wenig Energie). Konkret: 2 Magnete, Reellight, besser Spule}
 
 Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)  Es werden 3 Messstellen unterschieden siehe Abbildung \ref{EnergieMessungStellen}. In den folgenden Unterkapiteln werden die Resultate und die darauf folgenden Entwicklungsschritte kurz beschrieben:
 
@@ -285,7 +269,11 @@ Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)
 
 % 5---------------------------------------------------------------------------
 \section{Energy Management}
-
+\todo{ Probleme sollen weg: - LTS entladen, - kein fixes T}
+\todo{  1 Messungen Sensortag  (geht auch zu Manu)
+       2 Kalkulatin (mit Ziel LTS entladen und 10 km/h)
+       3 Einstellungen Chip mit Ziel LTS, 10 km/ mit  MPP
+      4 Aufgrund von Messungen -> Codeoptimierung}
 Aufgabe des Energy Managements ist es, 
 
 \subsection{Energiemessungen Sensortag}
@@ -401,7 +389,11 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 
 % 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
-
+\todo{ Kapitelstrukur: Aubau der App, 
+       BLE Empfangen/Filtern,  
+       Settings,  
+      Tacho
+}
 Mit Android Version xx.
 
 \subsection{Aufbau der App}
