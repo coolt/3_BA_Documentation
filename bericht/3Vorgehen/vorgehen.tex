@@ -18,7 +18,6 @@ Die sprachliche Unterscheidung von Energy - und Power Management entspricht der 
  
  % 1---------------------------------------------------------------------------
  %------------------------------------------------------------------------------
- 
   
  
 \section{Inbetriebnahme Machbarkeitsstudie}\label{v_inbetriebnahme} 
@@ -29,7 +28,6 @@ Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit \cite{PA_bicycle} i
 \subsection{Funktionsblöcke}\label{fb} 
 
 Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters ist es Energie zu Ernten und dem nächsten Funktionsblock ( Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
-
 
 \begin{figure}[ht]
    \includegraphics[width=1\textwidth]{3Vorgehen/imag/Blockdiagramm.png}
@@ -53,26 +51,39 @@ Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt.
 
 \subsection{Verhalten des Vorgängermodells}\label{verhalten} 
 
-Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände unterschiedlicher Komponenten des Vorgängermodells. Kanal 1 (gelb) stellt die geerntete Energie des Harvesters dar. Diese Energie wird 
+Die Inbetriebnahme bestätigte das in der Dokumentation \cite{PA_bicycle} beschriebene Verhalten. Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände zwischen den Funktionsblöcken (siehe Abbildung \ref{funktionsdiagramm_bild} und an den Speicherelementen. Die Legende zur Abbildung  \ref{spannungMachbarkeit} erklärt die Signale.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messungPA.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
 \end{figure}
 
-Legende zu Abbildung \ref{spannungMachbarkeit}
+\subsubsection*{Legende Abbildung \ref{spannungMachbarkeit} }
 \begin{tabbing}
     Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
-    CH1\> gelb\> Spannung von Harvesterquelle\\
-    CH2\> blau\> Spannung am STS--Kondensator\\
-    CH3\> violet\> Spannung am LTS--Kondensator\\
-    CH4\> grün\> Ausgangsspannung Energiemanagment\\
+    CH1\> gelb\> Spannungsverlauf V\_HRV\\
+    CH2\> blau\> Spannungsverlauf am STS--Kondensator\\
+    CH3\> violet\> Spannungsverlauf am LTS--Kondensator\\
+    CH4\> grün\> Ausgangsspannung nach Energy Management\\
+     \>  \>      Eingangsspannung Sensorttag
 \end{tabbing}    
 
-Die Energieregelung des Vorgängermodells basiert auf einem hohen Schwellwert von 3.6 V beim Primärspeicher (STS), damit genug Energie für das versenden eines BLE-Pakets entsteht (siehe Abbildung \ref{spannungMachbarkeit}). Mit einer Speicherkapazität von 470 $\mu$F beträgt, braucht es rund 25 s, bis dass der Speicher den Schwellwert erreicht.  
+Im folgenden werden die einzelnen Spannungsverläufe chronologisch der Kanalnummer nach analysiert. Kanal 1 spiegelt die Spannung am Harvesterausgang wieder (V\_HRV). Gemäss Theorie \todo{Link zu Theoriekapilte} wird am EM8500-Eingang eine regelmässiges Signal erwartet. Der Chip regelt dann die Eingangsspannung auf den MPPT. Diese Regelung sollte wie in Abbildung \todo{Abbildungsreferenz einbauen} aussehen. Das reale Signal entspricht nicht diesem Verhalten. Die Regelung ist abrupt und überspringt mehrere Spannungslevel. Der Ursache für die schlechte Regelung soll nachgegangen werden.
+
+Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der in der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorghängermodells setzt den Schwellwert für den Primärspeicher (STS) (Details zu den Schwellwerten im Theorieblock \todo{Referenz Theorie}) mit 3.6 V hoch. Der hohe Wert erklärt durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie gespeichert, für weitere 5 Datenpakete.
+
+In der Auswertung viel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit gegen 70 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (15 km/h) auch nach 30 min nicht zu erreichen. Fährt man gegen 70 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und mit drei Umdrehungen pro Sekunde, erricht man eine Geschwindgkeit von \todo{ausrechnen} km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgabe nach der Inbetriebnahme im Organisieren eines Messaufbaus. 
+\todo{ professionelle Messvorrichtung beschreiben}
+
+Kanal 3, das pinkige Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
+Die Vermutung ist, dass der eingestellte Schwellwert für den Bezug von Energie von LTS \todo{Referenz Theorie} nicht stimmt.
+
+Kanal 4, das grüne Signal, zeigt, dass \todo{fertig schreiben}
 
 
 \subsection{Erste Optimierungsliste}\label{optimierung} 
+
+\todo{ diesen Text besser und länger schreiben. Texbausteine von oben hier hin}
 
 Für das Weiterentwickeln des Vorgängermodells fielen folgende zwei Punkte auf:
 \begin{itemize}
@@ -89,11 +100,23 @@ Bei der Verwendung der gesammelten Energie ergab die Inbetriebnahme zwei Verbess
 \end{itemize} 
 
 
-
-
 \subsection{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
 
+
+Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives \todo{Familienname} von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im .... folgte.) Hier ist nun dieser erwähnte Text.
+
+Vorschlag Katrin:
+Die auffällige Regelung des Harvesterinputs wurd Ives \todo{Nachname einfügen} gezeigt. 
+
+Gemäss Ives sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+
+
 In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+
+Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
+
+\subsubsection{Ausmessen der Auswirkung des Ausgangskondensators}
+\todo{auf Messprotokoll verweisen}
 
 Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
 
@@ -101,10 +124,6 @@ Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspan
     \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
     \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
 \end{figure}
-
-Gemäss Ives \textbf{XXXXXX} von EM Microelectronics sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
-
-Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
 
 \subsubsection*{Messaufbau}
 In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
@@ -153,11 +172,18 @@ Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die
 
 
 \section{Hardware entwickeln}
-\todo{ Ziel der Entwicklung: Bei 10 km/h funktioniere, C Ausgang Harvester verbesern}
-\todo { Kapitel: Schema, Bauteildefinition und Optimeirung, Layout}
+
+Notiz: Ziel dieses Artikels gemäss Inbetriebnahme:
+- Genug Energie für BLE bei 10 km/h
+\subsection{Schema}
+\subsection{Bauteildefinition und Optimierung}
+\subsection{Layout}
+
 \todo{ Namensklärung: V HRV = VCC}
 \todo{Messprotokolle umbenennen}
-                             
+
+
+---- alter Text-----                             
 Ein wichtiger Punkt der Arbeit ist die Miniaturisierung der bestehenden Hardware, das heisst der Aufbau aus der Machbarkeitsstudie soll auf eine Leiterplatte gebracht werden. Die Leiterplatte hat einige Vorgaben, welche im besten Fall alle eingehalten werden sollen.
 
 \begin{enumerate}
@@ -193,10 +219,6 @@ Die Umlauferfassung wird mit einem Reed-Switch ermöglicht. Der Reedswitch ist e
 Der Block Interface enthält die Verbindung zum TI-SensorTag, ein Stecker realisiert dieses Interface. Der Stecker ist bereits vom TI-SensorTag vorgegeben, es handelt sich um einen Stecker, welcher sein eigenes Gegenstück darstellt. 
 
 \subsection{Optimierung der Harvesterschaltung}
-
-% Zwei Gründe:
-%- Ives: Der Glättungskondensator wird auf 47 uF geändert. 
-%- Zu wenig Energie für 10 km/h
 
 Nach dem Erfassen des Schemas wurde die Optimierung der Hardware angegangen. Die beste Optimierungsmöglichkeit und auch der kritischste Block ist die Harvesterschaltung, hier wird die Energie für die restliche Schaltung gewonnen. In mehreren Schritten wurden die einzelnen Teile der Schaltung analysiert und versucht zu optimieren.
 
@@ -245,8 +267,9 @@ Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erf
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
-\todo{Der Testteil entfällt. Ziel des Kapitels: Energiemessung und Optimierung ( da zu wenig Energie). Konkret: 2 Magnete, Reellight, besser Spule}
+Ziel des Kapitels: Ausmessen und sehen, dass zu wenig Energie. (Weglassen. Testteil). 2. Magnete nach 180 \% (Bild), Reellight bringt idee für 2 Magnete hintereinander, besser Spule verwenden
 
+--- alter Text
 Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)  Es werden 3 Messstellen unterschieden siehe Abbildung \ref{EnergieMessungStellen}. In den folgenden Unterkapiteln werden die Resultate und die darauf folgenden Entwicklungsschritte kurz beschrieben:
 
 \begin{figure}
@@ -389,12 +412,19 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 
 % 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
-\todo{ Kapitelstrukur: Aubau der App, 
-       BLE Empfangen/Filtern,  
-       Settings,  
-      Tacho
-}
+
+\subsection{Aufbau der App}
+
+\subsubsection{BLE empfangen und filtern}
+
+\subsection{Grundeinstellungen}
+
+\subsection{Tachometer einbauen}
+
+
 Mit Android Version xx.
+
+--- alter Text --- 
 
 \subsection{Aufbau der App}
 
