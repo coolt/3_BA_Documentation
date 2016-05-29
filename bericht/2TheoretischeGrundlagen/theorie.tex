@@ -1,12 +1,12 @@
 \chapter{Theoretische Grundlagen}
 Der Bicycle Computer basiert auf Energy Harvesting. Was Energie ernten bedeutet und welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln und Weiterleiten von Energie. Da die in Unterkapitel \ref{t_harvesting} gewonnene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
-Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie aufs Mal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Da bietet die Bluetooth Low Energie Technologie ideale Voraussetzungen. Das Protokoll und die Technologie werden im letzten Grundlageteil \ref{t_ble} vorgestellt.
+Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie aufs Mal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Da bietet die Bluetooth Low Energie Technologie ideale Voraussetzungen. Das Protokoll und die Technologie werden im letzten Grundlagenteil \ref{t_ble} vorgestellt.
 
 
 % 2.1-------------------------------------------------------------------
 \section{Energy Harvesting}\label{t_harvesting} 
 
-\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danch die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
+\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
 
 \subsection{Energy Harvesting Methoden}\label{harv_arten} 
@@ -92,9 +92,7 @@ Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle una
     \label{mppsolar}
 \end{figure}
 
-Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde.
-
-Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit der der Magnet an der Spule vorbeizieht, genauer dokumentiert. Denn dieser Faktor ist durch den Nutzer direkt beeinflussbar (Abbildung \ref{bild_harvester}). Über alle Messungen hinweg lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 40 - 80\thinspace\% bewegt.
+Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde. Im Kapitel \ref{ch_resultat} Resultat sind die ausgemessenen Leistungskurven des Prototypen in der Graphik \ref{mpp_resultat_harvester} abgebildet. Die Leistungskurven wurden für verschiedene Geschwindigkeiten aufgenommen und es zeit sich, dass bei der Harvesterschaltung analog zur Spule, die MPPT-Ratio wandert. Für den theoretischen Teil wurde die MPPT-Kurven des Harverster starkt geglättet und vereinfacht(siehe untenstehende Abbildung \ref{bild_harvester}). So ist der Effekt der Verschiebung des Leistungsmaximums besser ersichtlich wird. Es lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 35 - 75\thinspace\% bewegt.
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSpule.png}
@@ -302,11 +300,11 @@ Eine aktive Verbindung ist bei den meisten Sensoranwendungen auch nicht notwendi
 
 %- Aufbau
 %- Maximale Datenlänge  (auf diese verweisen in dem Vorgehen. Alle Daten können problemlos in 1 Pakete versandt werden. Mehrere Sensoren brauchen nicht mehrere Pakete.)
-Der Aufbau eines BLE Pakets ist überschaubar. Als erstes wird ein Preamble, bestehend aus abwechslenden 1 und 0, womit der Empfänger sich auf die richtige Frequenz synchronisieren kann. Diese Preamble wird auf dafür verwendet die Verstärkung des Empfängers einzustellen, dies kann sehr wichtig sein bei Signale, welche von einer grösseren Distanz versendet werden, da eine falsche Verstärkung des Signals in Fehlern resultieren kann.
+Der Aufbau eines BLE Pakets ist überschaubar. Als erstes wird ein Preamble, bestehend aus abwechselnden 1 und 0, womit der Empfänger sich auf die richtige Frequenz synchronisieren kann. Diese Preamble wird auf dafür verwendet die Verstärkung des Empfängers einzustellen, dies kann sehr wichtig sein bei Signale, welche von einer grösseren Distanz versendet werden, da eine falsche Verstärkung des Signals in Fehlern resultieren kann.
 
 Anschliessend wird die Access Address verschickt, anhand dieser Adresse kann der Empfänger die Nachricht einem ganz bestimmten Sender zuordnen und somit entscheiden, ob die Daten vom richtigen Sender kommen oder ob es eventuell nur Störungen waren, welche zufälligerweise eine Preamble dargestellt haben.
 
-Der Header enthält Informatioinen zum Aufbau der Daten, welche folgen. Es gibt sieben verschiedene Arten von Aufbauten der Daten.
+Der Header enthält Informationen zum Aufbau der Daten, welche folgen. Es gibt sieben verschiedene Arten von Aufbauten der Daten.
 \begin{itemize}
     \item ADV\_IND – general advertising indication
     \item ADV\_DIRECT\_IND – direct connection indication
