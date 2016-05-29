@@ -27,7 +27,7 @@ Ein wichtiger Aspekt ist das reelle Verhalten des Harvesters bei Belastung mit d
 
 \subsection{Energie am EM-Chipausgang}
 
-Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls
+Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
@@ -40,7 +40,7 @@ Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. 
 
 Interessant ist die Betrachtung des Wirkungsgrades des EM-Chips. In der nachfolgenden Tabelle sind die Leistungen aufgezeichnet, welche mit den aktuellen Einstellungen des EM-Chips anliegen.
 
-\subsubsection*{Tabelle Leistung und Wirkungsgrad } \todo{Tabellenwerte eintragen}
+\subsubsection*{Tabelle Leistung und Wirkungsgrad }
 \begin{tabbing}
     Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
     10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
@@ -51,16 +51,13 @@ Interessant ist die Betrachtung des Wirkungsgrades des EM-Chips. In der nachfolg
 
 Die Abbildung \ref{zsmEnergyGewinn} gibt einen Überblick, an welcher Stelle wie viel Energie vorhanden ist, bzw. zwischen welchen zwei Stellen wie viel Energie verloren ging.
 
-\begin{figure}
+\begin{figure}[ht]
     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
     \caption{Energiegewinn Zusammengefasst nach Stelle in der Schaltung}
     \label{zsmEnergyGewinn}
 \end{figure}
 
-Der Wirkungsgrad des EM8500 liegt bei 40 km/h  bei \todo{wirkungsgrad eintragen} und bei 10 km/h bei unserer Schaltung bei \todo{wirkungsgrad}.
-
-
-
+Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\% und bei 10 km/h bei 24.87\thinspace\%.
 
 
 \section{Energiemanagement}
@@ -85,11 +82,12 @@ Durch das korrekte Einstellen der Schwellwerte beim EM8500 (siehe Unterkapitel x
 Durch ein gutes Powermanagement (siehe Unterkapitel xxx) wurde es möglich, die energiestarken Aufgaben in Teilen zu erledigen. Die Abbildung xxxx zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt das Init, dann folgt das Auslesen eines Sensors, dann das Senden des Sensors. Die Aufgaben wurden aufgeteilt, weil alle drei Schritte in einem zu viel Energie verbraucht hätte, sodass VSUP zusammengebrochen wäre.
 
 \begin{figure}[ht]
-\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-\caption{Drei Arbeitspakte bis zum Senden der Daten }
+    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{Drei Arbeitspakte bis zum Senden der Daten }
+    \label{blub}
 \end{figure}
 
-%Ev.  Grossaufnahme: BLE Energieverbrauch
+\todo{ ev. Grossaufnahme: BLE Energieverbrauch}
 
 Die Abbildung \ref{resultat_E_Verbrauch_Verarbeitungsaufwand} zeigt den Energieverbrauch nach Verarbeitungsaufwand. Am wenigsten Energie benötigt das Berechnen der Geschwindigkeit über den RTC. Deutlich mehr Energie braucht das Auslesen der Sensor-Daten. Dies einerseits, weil die I2C-Kommunikation aufgebaut werden muss und weil die Sensoren eine gewisse Zeit brauchen, bis sie aktiv sind \todo{Aufwachzeit eines Sensors messen}. Die unterschiedlich verbrauchten Energiemengen entsprechen exakt den unterschiedlichen Startzeiten der Sensoren. 
 
@@ -113,15 +111,74 @@ Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am 
 \end{figure}
 
 
-\section{Applikation}
+\section{Ergebnisse BLE-Applikation}
 
-Bilder der App
+Die Applikation ist bewusst einfach aufgebaut, um den Benutzer nicht zu verwirren. Der animierte Tachometer stellt dem User die aktuelle Geschwindigkeit schnell und übersichtlich dar. Weitergehende Funktionen sind durch prägnanete Namen selbsterklärend und der User sollte keine Mühe haben, die App ohne Lesen einer Anleitung zu verstehen.
 
-Sniffer Screenshot
+\subsection{Applikationsstruktur}
 
-Beweis, dass Pakete ankommen
+Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Abbildung \ref{permission}. Sollte Bluetooth nicht aktiviert sein, wird der User gefragt, ob Bluetooth aktiviert werden darf. Sollte der User die Aktivierung ablehnen schliesst sich die Applikation sofort.
 
-ev. Video zeiger (auf CD)
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEBluetoothPermission.png} 
+    \caption{Bluetooth Permission}
+    \label{permission}
+\end{figure}
+
+Wird eine Verbund zu Bluetooth erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Sensordaten angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/APPHomeScreen.png} 
+    \caption{Startbildschirm der Applikation}
+    \label{tacho}
+\end{figure}
+
+Wählt man auf dem Startbildschirm "Sensor wählen", \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die Sensortagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes Sensortag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
+
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswählen.png} 
+    \caption{Sensortagauswahl}
+    \label{sensorauswahl}
+\end{figure}
+
+Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, in dem man den Button "Einheiten + Einstellungen" auswählt.
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEEinheitenUndEinstellungenStart.png} 
+    \caption{Einheiten und Einstellungen}
+    \label{einheiten}
+\end{figure}
+
+Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}. Zu jedem Sensor gehört eine Spinner. In den drei Spinner-Menüs stehen folgende Einheiten zur Verfügung:
+ \todo{ Einheiten auflisten} 
+
+Temperatur kalibriert werden kann. 
+ 
+ 
+Radgrösse... 
+  
+Die vorgenommenen Einstellungen werden über den Button "Speichern" gesichert. Danach werden die eingelesenen Sensordaten in den ausgewählten Einheiten dargestellt.
+
+\subsection{Paketverlust}
+
+Es ist wichtig zu wissen, wie viele Pakete überhaupt bei der Applikation empfangen werden. Ein bekanntes Problem ist gem. Aussage von Dario, dass die meisten Smartphones nach einer gewissen Zeit die Bluetooth Schnittstelle nicht mehr die ganze Zeit eingeschalten lassen, sondern nur noch ca. 80\thinspace\% der Zeit die Bluetooth Schnittstelle betreiben. Das bedeutet, dass der Verlust von BLE-Paketen sehr wahrscheinlich ist. Die nachfolgende Tabelle zeigt den Paketverlust bei einer Geschwindigkeit von 20 km/h.
+
+\todo{tabelle einfügen}
+
+
+
+
+Ein Paketverlust 10\thinspace\% bis 20\thinspace\% war nach Aussage von Dario zu erwarten, da die meisten Smartphones die Bluetooth Schnittstelle nach einer gewissen Zeit nicht mehr die ganze Zeit betreiben. Der Betrieb der Bluetooth Schnittstelle wird reduziert, damit Energie gespart werden kann. 
+
+
+\subsection{Korrektheit der Daten}
+
+Natürlich bringt es nicht die Daten nur zu empfangen, es musste auch überprüft werden, ob die richtigen Daten empfangen wurden. Die Daten welche mit der Applikation empfangen wurden entsprechen exakt den Daten, welche der Sniffer empfangen hat. Somit kann garantiert werden, dass keine Informationen verloren gehen oder falsch interpretiert werden. Unvollständige Daten oder falsche Daten könnten in Anzeigefehlern oder gar dem Absturz der Applikation führen.
+
+\todo{fertig schreiben}
+
+\todo{Video zeiger (auf CD)}
 
 
 
