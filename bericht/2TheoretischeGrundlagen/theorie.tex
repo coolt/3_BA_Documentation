@@ -73,35 +73,39 @@ Der grösste Unterschied besteht in der Art in der die Energie zur Verfügung st
 Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung. Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen.
 
 \subsubsection{Konstanter Maximum Power Point zu dynamischem}
-Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50 \%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80 \% der maximalen Spannung. Die MPPT-Ratio ist 80 \%.  Bei der Bewegungsinduktion existiert kein fixe MPPT-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.
+Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPPT-Ratio ist 80\thinspace\%.  Bei der Bewegungsinduktion existiert kein fixe MPPT-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.
 
-Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50 \%. Die Abbildung \ref{teg} zeigt, dieses unabhängige Verhalten. 
+Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt, dieses unabhängige Verhalten. 
 
 \begin{figure}[ht]
- \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}\label{teg} 
+ \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
 \caption{MPP TEG (\cite{MPP_TEG})}
+\label{teg} 
 \end{figure}
 
 
-Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80 \% liegt.
+Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80\thinspace\% liegt.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSolar.png} 
-   \caption{MPP Solarzelle (\cite{mpp_solar})}\label{mppsolar}
+    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSolar.png} 
+    \caption{MPP Solarzelle (\cite{mpp_solar})}
+    \label{mppsolar}
 \end{figure}
 
 Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde.
 
-Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit der der Magnet an der Spule vorbeizieht, genauer dokumentiert. Denn dieser Faktor ist durch den Nutzer direkt beeinflussbar (Abbildung \ref{bild_harvester}). Über alle Messungen hinweg lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 40 - 80 \% bewegt.
+Als interessanter für die Anwendung wurde der Einfluss der Geschwindigkeit, mit der der Magnet an der Spule vorbeizieht, genauer dokumentiert. Denn dieser Faktor ist durch den Nutzer direkt beeinflussbar (Abbildung \ref{bild_harvester}). Über alle Messungen hinweg lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 40 - 80\thinspace\% bewegt.
 
-\begin{figure}[ht]\label{bildspule} 
+\begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSpule.png}
    \caption{MPP Spule (\cite{MPP_Spule})}
+   \label{bildspule} 
 \end{figure}
 
-\begin{figure}[ht]\label{bild_harvester} 
+\begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPHarvester.png}
    \caption{MPP Harvester (\cite{MPP_Harv})}
+   \label{bild_harvester} 
 \end{figure}
 
 
@@ -120,7 +124,8 @@ Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendu
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
-   \caption{Grundprinzip Applikationsspeisung }\label{em_grundprinzip} 
+   \caption{Grundprinzip Applikationsspeisung }
+   \label{em_grundprinzip} 
 \end{figure}
 
 Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primärspeichers STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
@@ -128,7 +133,8 @@ Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelSTSReal.png}
-   \caption{Applikationsspeisung EM8500 }\label{em_grundprinzip_em8500} 
+   \caption{Applikationsspeisung EM8500}
+   \label{em_grundprinzip_em8500} 
 \end{figure}
 
 Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das lanfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
@@ -136,7 +142,8 @@ VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildu
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitLTS.png}
-   \caption{Sicheres Betreiben durch Long Term Storage}\label{energiespeisung_lts} 
+   \caption{Sicheres Betreiben durch Long Term Storage}
+   \label{energiespeisung_lts} 
 \end{figure}
 
 Im Datenblatt des EM8500 \cite{datasheet_EM85} sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres betreiben. Die Dateien sind auf der CD abgelegt.
@@ -145,7 +152,8 @@ Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, d
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
-   \caption{Konzept Hersteller (\cite{datasheet_EM85})}\label{energiespeisung_lts} 
+   \caption{Konzept Hersteller (\cite{datasheet_EM85})}
+   \label{energiespeisung_lts} 
 \end{figure}
 
 
@@ -157,7 +165,8 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
-    \caption{Leistungsmessung des Harvesters}\label{RegelungSpannung} 
+    \caption{Leistungsmessung des Harvesters}
+    \label{RegelungSpannung} 
 \end{figure}
 
 
@@ -204,7 +213,8 @@ Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/EM8500IO.png}
-    \caption{In- und Outputs EM8500  (\cite{datasheet_EM85}, p.11)}\label{IOEM8500} 
+    \caption{In- und Outputs EM8500  (\cite{datasheet_EM85}, p.11)}
+    \label{IOEM8500} 
 \end{figure}
 
 
@@ -242,7 +252,8 @@ Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor 
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
-    \caption{Schlafen zwischen Ausführungen}\label{sleep_Grundprinzip} 
+    \caption{Schlafen zwischen Ausführungen}
+    \label{sleep_Grundprinzip} 
 \end{figure}
 
 \subsubsection{Schlafen innerhalb einer Aktion}
@@ -250,7 +261,8 @@ Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wi
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
-    \caption{Schlafen innerhalb des Codes}\label{sleep_intern} 
+    \caption{Schlafen innerhalb des Codes}
+    \label{sleep_intern} 
 \end{figure}
 
 
@@ -268,7 +280,8 @@ Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit br
 
 \begin{figure}[ht]
     \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
-    \caption{Struktur durch State Machine}\label{t_stateMachine} 
+    \caption{Struktur durch State Machine}
+    \label{t_stateMachine} 
 \end{figure}
 
 % 2.4-------------------------------------------------------------------
