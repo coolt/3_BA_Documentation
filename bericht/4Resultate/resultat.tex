@@ -1,50 +1,65 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
+(In den Messprotokollen \todo{Auflisten der Messprotokolle} auf der CD sind diverse Energiemessungen dokumentiert.
+ 
 \section{Harvesterschaltung}
 
-\subsection{Leistungskurve Harvester}
+\subsection{Leistung am Harvesterausgang}
 
-Essentiell ist es zu wissen, wie viel Energie mit der Harvesterschaltung gewonnen werden kann. Dafür wurde die Leistungskurve des Harvesters aufgenommen. Die maximale Leistung hängt von der Geschwindigkeit ab, je höher die Geschwindigkeit, desto grösser die maximale Leistung. Bei einer Geschwindigkeit von 10 km/h kann bereits eine Leistung von ca. 25 $\mu$W generiert werden. 
-
-\begin{figure}[ht]
-\includegraphics[width=0.5\textwidth]{4Resultate/imag/ResultatLeistungGeschwindigkeit.png} 
-\caption{Maximale Leistung vs. Geschwindigkeit}
-\label{mpp_resultat_harvester}
-\end{figure}
-
-Wichtig ist auch wo der MPP liegt, da der EM-Chip versucht am Eingang eine Leistungsanpassung zu erlangen, damit die maximale Leistung von der Harvesterquelle bezogen werden kann. Dieser MPP ist jedoch je nach Geschwindigkeit an einer anderen Stelle, d.h. der MPP hängt von der Geschwindigkeit ab und das Verhältnis von Open Loop Spannung zu der Spannung des MPP ändert sich. Dieses Verhältnis kann beim EM-Chip eingestellt werden, jedoch ist der wandernde MPP ein Problem, da ein fixes Verhältnis eingestellt werden muss.
+Essentiell ist es zu wissen, wie viel Energie von der Harvesterschaltung zur Verfügung gestellt wird. Die Leistungskurve gibt Aufschluss wie viel Leistung bei verschiedenen Geschwindigkeiten gewonnen werden kann. Bei der eingetragenen Leistung handelt es sich um die maximal zur Verfügung stehende Leistung, also die Leistung im MPP. In Abbildung \ref{mpp_resultat_harvester} ist ersichtlich, dass die maximale Leistung mit erhöhen der Geschwindigkeit zunimmt.
 
 \begin{figure}[ht]
-\includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
-\caption{Leistungskurve (normalisiert) }
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/ResultatLeistungGeschwindigkeit.png} 
+    \caption{Maximale Leistung vs. Geschwindigkeit}
+    \label{mpp_resultat_harvester}
 \end{figure}
 
-
-\subsection{Harvesterausgang}
-
-Die Spannung am Harvesterausgang bzw. am Eingang des EM-Chip ist sehr kritisch, da von dieser Spannung die gewonnene Energie abhängt. Das bedeutet, dass eine schwankende oder nicht ordentlich geregelte Spannung ein Problem für die Energiegewinnung darstellt. 
-Der EM-Chip regelt den Eingang anhand der Messung der Open Loop Spannung auf ein voreingestelltes Level, was durch die Einstellung des MPPT-Ratio beeinflusst werden kann. Optimalerweise handelt es sich bei der Spannung am Eingang des EM-Chips um eine Gleichspannung, jedoch wird mit der verwendeten Harvesterquelle keine konstante Gleichspannung generiert, sondern eine Gleichspannung mit einem Rippel. Die Rippelspannung macht die Regelung sehr instabil und liefert teilweise falsche Open Loop Messresultate. 
-Entscheidend ist die Kapazität vom Kondensator C2 am Ausgang des Harvesters. Eine hohe Kapazität des Kondensators resultiert in einer geringen Rippelspannung, jedoch nicht korrekten Open Loop Messungen, da sich der Kondensator langsam auflädt. Eine geringe Kapazität des Kondensators resultiert in einer grossen Rippelspannung, jedoch in besseren Open Loop Messungen, da sich der Kondensator schnell auflädt. Somit muss abgeschätzt werden, wie man den Kondensator dimensioniert.
-Eine Kapazität von 100 $\mu$F ist gemäss den Messresultaten des Messprotokolls «hier Link einfügen» ein guter Kompromiss. Die Open Loop Messungen des EM-Chips sind sicherlich nicht richtig, jedoch ist die geregelte Spannung VCC relativ stabil. Ebenfalls liegt die geregelte Spannung über 0.3 V, was die minimale Spannung zur Energiegewinnung ist. Natürlich ist die Spannung am Eingang des EM-Chips keine konstante Gleichspannung, jedoch fluktuiert die Spannung nicht zu stark, dass die Regelung nicht funktionieren würde.
+\subsection{Verhalten des Harvesterausgangs}
+Ein wichtiger Aspekt ist das reelle Verhalten des Harvesters bei Belastung mit dem EM-Chip. Der EM-Chip regelt den Eingang, bzw. den Ausgang des Harvesters, indem der Eingangswiderstand verändert wird. Somit soll der MPP erreicht werden, damit die Leistung immer maximal ist. Die Abbildung \ref{resultat_Harvester_Spannung} zeigt den Verlauf der Spannung am Eingang des EM-Chips über längere Zeit. Die Spannung wird auf ein stabiles Level geregelt und somit kann eine relativ konstante Leistung aufgenommen werden. Weitere Messungen und Werte können aus dem Messprotokoll \todo{Name heraussuchen} entnommen werden.
 
 \begin{figure}[ht]
-\includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
-\caption{Spannung VCC bei 15 km/h }
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
+    \caption{Leistungskurve (normalisiert) }
+    \label{resultat_Harvester_Spannung}
 \end{figure}
 
-\subsection{Wirkungsgrad der Schaltung}
 
-In den Messprotokollen (xxxx) auf der CD sind diverse Energiemessungen dokumentiert. Die Abbildung \ref{zsmEnergyGewinn} gibt einen Überblick, an welcher Stelle wie viel Energie vorhanden ist, bzw. zwischen welchen zwei Stellen wie viel Energie verloren ging.
+\subsection{Energie am EM-Chipausgang}
 
-\begin{figure}\label{zsmEnergyGewinn}
-\includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
-\caption{Energiegewinn Zusammengefasst nach Stelle in der Schaltung }
+Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{Spannung VCC bei 15 km/h}
+    \label{resutat_emchip_spannung}
 \end{figure}
 
-Der Wirkungsgrad des EM8500 liegt bei 40 km\/h  bei xxx und bei 10 km\/h bei unserer Schaltung bei xxxx. 
 
-%todo\{wirkungsgrad EM8500 berechnen}. 
+\subsection{Wirkungsgrad des Prototypen}
+
+Interessant ist die Betrachtung des Wirkungsgrades des EM-Chips. In der nachfolgenden Tabelle sind die Leistungen aufgezeichnet, welche mit den aktuellen Einstellungen des EM-Chips anliegen.
+
+\subsubsection*{Tabelle Leistung und Wirkungsgrad } \todo{Tabellenwerte eintragen}
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
+    10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
+    15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
+    20 km/h> \> 114.67 $\mu$W \> 41.39  $\mu$W \> 36.09\thinspace\%  \\
+    40 km/h> \> 416.29 $\mu$W \> 170.75 $\mu$W \> 41.01\thinspace\%  \\
+\end{tabbing}   
+
+Die Abbildung \ref{zsmEnergyGewinn} gibt einen Überblick, an welcher Stelle wie viel Energie vorhanden ist, bzw. zwischen welchen zwei Stellen wie viel Energie verloren ging.
+
+\begin{figure}
+    \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
+    \caption{Energiegewinn Zusammengefasst nach Stelle in der Schaltung}
+    \label{zsmEnergyGewinn}
+\end{figure}
+
+Der Wirkungsgrad des EM8500 liegt bei 40 km/h  bei \todo{wirkungsgrad eintragen} und bei 10 km/h bei unserer Schaltung bei \todo{wirkungsgrad}.
+
+
 
 
 
@@ -55,13 +70,13 @@ Der Wirkungsgrad des EM8500 liegt bei 40 km\/h  bei xxx und bei 10 km\/h bei uns
 Durch das korrekte Einstellen der Schwellwerte beim EM8500 (siehe Unterkapitel xxx) und die korrekten Ladewerte bei den Kondensatoren (siehe Unterkaptiel xxx), ist es möglich, dass sich der LTS-Kondensator bei einer Geschwindigkeit von YYY km/h lädt (siehe Abbildung xxx). Zudem entlädt sich LTS, sobald das Sensortag am Arbeiten ist (siehe Abbildung yyyy). Beim Energiemanagement ist es somit gelungen, die Schwellwerte und Kondensatorengrössen so einzustellen, dass die Funktionalitäten des EM8500-Chips voll ausgenutzt werden können.
 
 \begin{figure}[ht]
-\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-\caption{STS und LTS laden sich}
+    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{STS und LTS laden sich}
 \end{figure}
 
 \begin{figure}[ht]
-\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-\caption{LTS liefert Energie für die Arbeitspakete}
+    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{LTS liefert Energie für die Arbeitspakete}
 \end{figure}
 
 
