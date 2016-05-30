@@ -1,9 +1,27 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-(In den Messprotokollen \todo{Auflisten der Messprotokolle} auf der CD sind diverse Energiemessungen dokumentiert.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. Ein grosser Teil waren Messungen, aufgrund denen Fehler wie auch geglückte Umsetzungen erkannt wurden. Die Messprotokolle \todo{Auflisten der Messprotokolle} finden sich auf der CD. In diesem Kapitel geht es um eine Reduktion der Entwicklung auf die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy und Power Management sowie die BLE-Applikation. Die Resultate in jeder Kategorie werden in einem Unterkapitel beschrieben.
  
 \section{Harvesterschaltung}
+
+\subsection{Der Print}
+
+Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_vorne} ist die Vorderseite abgebildet. \todo{bessere Beschreibung} Darauf befindet sich im Wesentlichen der Header als Verbindungsstecker zum Sensortag, die vier Gleichrichterdioden, der Limiter, die Spule und der EM8500. In der Abbildung \ref{print_rueckseite} befindet sich der Reed-Switch und die dreilagige Premo-Spule, mit der die Induktion erzeugt wird.
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.jpg} 
+    \caption{Print Vorderseite}
+    \label{print_vorne}
+\end{figure}
+
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.jpg} 
+    \caption{Print Rückseite}
+    \label{print_rueckseite}
+\end{figure}
+
 
 \subsection{Leistung am Harvesterausgang}
 
@@ -107,17 +125,19 @@ Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am 
 
 \begin{figure}[ht]
 \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}\label{resultat_Zsm_Energy} 
-\caption{Energieverbrauch gemäss Verarbeitungsaufwand für CPU}
+\caption{Energieverbrauch gem\"{a}ss Verarbeitungsaufwand für CPU}
 \end{figure}
 
 
 \section{Ergebnisse BLE-Applikation}
 
-Die Applikation ist bewusst einfach aufgebaut, um den Benutzer nicht zu verwirren. Der animierte Tachometer stellt dem User die aktuelle Geschwindigkeit schnell und übersichtlich dar. Weitergehende Funktionen sind durch prägnanete Namen selbsterklärend und der User sollte keine Mühe haben, die App ohne Lesen einer Anleitung zu verstehen.
+Der Aufbau des Sensortags zusammen mit dem selbst entwickelten Board wird \glqq Sensor\grqq\thinspace\ genannt. Dies, weil aus der Sicht einer Benutzerin oder eines Benutzers keine detaillierte Hardware besteht, sondern \glqq ein Sensor\grqq. Die Vereinfachung dient der Benutzerfreundlichkeit. Die Android-Applikation ist bewusst einfach aufgebaut, um die Benutzerin bzw. den Benutzer nicht zu verwirren. 
+
+Der animierte Tachometer stellt die aktuelle Geschwindigkeit schnell und übersichtlich dar. Weitergehende Funktionen sind durch prägnante Namen selbsterklärend und der User sollte keine Mühe haben, die App ohne Lesen einer Anleitung zu verstehen.
 
 \subsection{Applikationsstruktur}
 
-Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Abbildung \ref{permission}. Sollte Bluetooth nicht aktiviert sein, wird der User gefragt, ob Bluetooth aktiviert werden darf. Sollte der User die Aktivierung ablehnen schliesst sich die Applikation sofort.
+Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Abbildung \ref{permission}). Sollte Bluetooth nicht aktiviert sein, wird der User gefragt, ob Bluetooth aktiviert werden darf. Sollte der User die Aktivierung ablehnen schliesst sich die Applikation sofort.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEBluetoothPermission.png} 
@@ -133,11 +153,11 @@ Wird eine Verbund zu Bluetooth erlaubt, erscheint der Startbildschirm. Auf diese
     \label{tacho}
 \end{figure}
 
-Wählt man auf dem Startbildschirm "Sensor wählen", \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die Sensortagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes Sensortag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
+Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die Sensortagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes Sensortag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswählen.png} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
     \caption{Sensortagauswahl}
     \label{sensorauswahl}
 \end{figure}
@@ -167,7 +187,7 @@ Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei 
 \end{tabbing} 
 
   
-Die vorgenommenen Einstellungen werden über den Button "Speichern" gesichert. Danach werden die eingelesenen Sensordaten in den ausgewählten Einheiten dargestellt.
+Die vorgenommenen Einstellungen werden über den Button \glqq Speichern\grqq gesichert. Danach werden die eingelesenen Sensordaten in den ausgewählten Einheiten dargestellt.
 
 \subsection{Paketverlust}
 
