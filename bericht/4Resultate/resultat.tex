@@ -1,7 +1,7 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. Ein grosser Teil waren Messungen, aufgrund denen Fehler wie auch geglückte Umsetzungen erkannt wurden. Die Messprotokolle \todo{Auflisten der Messprotokolle} finden sich auf der CD. In diesem Kapitel geht es um eine Reduktion der Entwicklung auf die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy und Power Management sowie die BLE-Applikation. Die Resultate in jeder Kategorie werden in einem Unterkapitel beschrieben.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy und Power Management sowie die BLE-Applikation. Die Resultate jeder Kategorie werden in einem Unterkapitel beschrieben.
  
 \section{Harvesterschaltung}
 
@@ -10,49 +10,52 @@ Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. Ein grosse
 Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_vorne} ist die Vorderseite abgebildet. \todo{bessere Beschreibung} Darauf befindet sich im Wesentlichen der Header als Verbindungsstecker zum Sensortag, die vier Gleichrichterdioden, der Limiter, die Spule und der EM8500. In der Abbildung \ref{print_rueckseite} befindet sich der Reed-Switch und die dreilagige Premo-Spule, mit der die Induktion erzeugt wird.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.jpg} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
     \caption{Print Vorderseite}
     \label{print_vorne}
 \end{figure}
 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.jpg} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.png} 
     \caption{Print Rückseite}
     \label{print_rueckseite}
 \end{figure}
 
-
+\newpage  % todel
 \subsection{Leistung am Harvesterausgang}
 
-Essentiell ist es zu wissen, wie viel Energie von der Harvesterschaltung zur Verfügung gestellt wird. Die Leistungskurve gibt Aufschluss wie viel Leistung bei verschiedenen Geschwindigkeiten gewonnen werden kann. Bei der eingetragenen Leistung handelt es sich um die maximal zur Verfügung stehende Leistung, also die Leistung im MPP. In Abbildung \ref{mpp_resultat_harvester} ist ersichtlich, dass die maximale Leistung mit erhöhen der Geschwindigkeit zunimmt.
+Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei 10 km/h liegt das Leistungsmaximum bei \todo{xxx mW}, bei 15 km/h bei \todo{xxx mW}, bei 20 km/h bei\todo{xxx mW} und bei 40 km/h bei \todo{xxx mW}. Die detaillierten Angaben finden sich im Messprotokoll \todo{Name Messprotokoll}
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
+    \caption{Leistungskurve Harvesterausgang (normalisiert)}
+    \label{resultat_Harvester_Spannung}
+\end{figure}
+
+
+\newpage  % todel
+\subsection{Verhalten des Harvesterausgangs}
+
+Die Abbildung \ref{resultat_Harvester_Spannung} zeigt, das reelle Verhalten des Harvesters bei Belastung mit dem EM-Chip. Wie in beschrieben \ref{optimaleLeistung} regelt der Chip EM8500 den Eingang, bzw. den Ausgang des Harvesters, um den MPP zu erreichen. Die Abbildung \ref{resultat_Harvester_Spannung} zeigt den Verlauf der geregelten Spannung am Eingang des EM-Chips über längere Zeit. Weitere Messungen zum reelen Verhalten am EM8500-Chip-Eingang können den Messprotokoll \todo{Namen heraussuchen} entnommen werden.
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
+    \label{resutat_emchip_spannung}
+\end{figure}
+
+\newpage  % todel
+\subsection{Energie am EM-Chipausgang}
+
+Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls.
+
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/ResultatLeistungGeschwindigkeit.png} 
     \caption{Maximale Leistung vs. Geschwindigkeit}
     \label{mpp_resultat_harvester}
 \end{figure}
-
-\subsection{Verhalten des Harvesterausgangs}
-Ein wichtiger Aspekt ist das reelle Verhalten des Harvesters bei Belastung mit dem EM-Chip. Der EM-Chip regelt den Eingang, bzw. den Ausgang des Harvesters, indem der Eingangswiderstand verändert wird. Somit soll der MPP erreicht werden, damit die Leistung immer maximal ist. Die Abbildung \ref{resultat_Harvester_Spannung} zeigt den Verlauf der Spannung am Eingang des EM-Chips über längere Zeit. Die Spannung wird auf ein stabiles Level geregelt und somit kann eine relativ konstante Leistung aufgenommen werden. Weitere Messungen und Werte können aus dem Messprotokoll \todo{Name heraussuchen} entnommen werden.
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
-    \caption{Leistungskurve (normalisiert) }
-    \label{resultat_Harvester_Spannung}
-\end{figure}
-
-
-\subsection{Energie am EM-Chipausgang}
-
-Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls.
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
-    \caption{Spannung VCC bei 15 km/h}
-    \label{resutat_emchip_spannung}
-\end{figure}
-
 
 \subsection{Wirkungsgrad des Prototypen}
 
