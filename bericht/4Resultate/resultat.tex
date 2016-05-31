@@ -25,12 +25,21 @@ Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_v
 \newpage  % todel
 \subsection{Leistung am Harvesterausgang}
 
-Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei 10 km/h liegt das Leistungsmaximum bei \todo{xxx mW}, bei 15 km/h bei \todo{xxx mW}, bei 20 km/h bei\todo{xxx mW} und bei 40 km/h bei \todo{xxx mW}. Die detaillierten Angaben finden sich im Messprotokoll \todo{Name Messprotokoll}
+Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei 10 km/h liegt das Leistungsmaximum bei xxx mW, bei 15 km/h bei xxx mW, bei 20 km/h bei xxx mW und bei 40 km/h bei xxx mW. Die detaillierten Angaben finden sich im Messprotokoll xxxx \todo{Name Messprotokoll}.
+
+\subsubsection*{Tabelle Leistung Harvesterausgang}
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
+    10 km/h  \> 21.87  $\mu$W \\
+    15 km/h  \> 57.19  $\mu$W \\
+    20 km/h> \> 114.67 $\mu$W \\
+    40 km/h> \> 416.29 $\mu$W \\
+\end{tabbing}  
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
     \caption{Leistungskurve Harvesterausgang (normalisiert)}
-    \label{resultat_Harvester_Spannung}
+    \label{mpp_resultat_harvester}
 \end{figure}
 
 
@@ -39,38 +48,37 @@ Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich
 
 Die Abbildung \ref{resultat_Harvester_Spannung} zeigt, das reelle Verhalten des Harvesters bei Belastung mit dem EM-Chip. Wie in beschrieben \ref{optimaleLeistung} regelt der Chip EM8500 den Eingang, bzw. den Ausgang des Harvesters, um den MPP zu erreichen. Die Abbildung \ref{resultat_Harvester_Spannung} zeigt den Verlauf der geregelten Spannung am Eingang des EM-Chips über längere Zeit. Weitere Messungen zum reelen Verhalten am EM8500-Chip-Eingang können den Messprotokoll \todo{Namen heraussuchen} entnommen werden.
 
+
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
     \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
-    \label{resutat_emchip_spannung}
+    \label{resultat_Harvester_Spannung}
 \end{figure}
 
 \newpage  % todel
 \subsection{Energie am EM-Chipausgang}
 
-Die Energie, welche vom EM-Chip abgegeben wird, steigt mit der Geschwindigkeit. Hier wurde die Energie von einem Puls gemessen, d.h. vom Einschalten von VSUP bis zur Abschaltung von VSUP. Nach diesem Puls wird keine Energie mehr abgegeben, bis zum nächsten Puls.
+Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem Sensortag zur Verfügung steht ist:
+
+\subsubsection*{Tabelle Leistung und Wirkungsgrad }
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
+    10 km/h  \> 5.44   $\mu$W\\
+    15 km/h  \> 20.91  $\mu$W\\
+    20 km/h> \> 41.39  $\mu$W\\
+    40 km/h> \> 170.75 $\mu$W\\
+\end{tabbing}  
 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/ResultatLeistungGeschwindigkeit.png} 
     \caption{Maximale Leistung vs. Geschwindigkeit}
-    \label{mpp_resultat_harvester}
+    \label{energie_resultat_harvester}
 \end{figure}
 
 \subsection{Wirkungsgrad des Prototypen}
 
-Interessant ist die Betrachtung des Wirkungsgrades des EM-Chips. In der nachfolgenden Tabelle sind die Leistungen aufgezeichnet, welche mit den aktuellen Einstellungen des EM-Chips anliegen.
-
-\subsubsection*{Tabelle Leistung und Wirkungsgrad }
-\begin{tabbing}
-    Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
-    10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
-    15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
-    20 km/h> \> 114.67 $\mu$W \> 41.39  $\mu$W \> 36.09\thinspace\%  \\
-    40 km/h> \> 416.29 $\mu$W \> 170.75 $\mu$W \> 41.01\thinspace\%  \\
-\end{tabbing}   
-
-Die Abbildung \ref{zsmEnergyGewinn} gibt einen Überblick, an welcher Stelle wie viel Energie vorhanden ist, bzw. zwischen welchen zwei Stellen wie viel Energie verloren ging.
+Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich dargestellt (Abbildung \ref{zsmEnergyGewinn}). Die Werte beziehen sich auf die gemittelte Leistung über 10 s. Es ist u sehen, dass die Energiegewinnung bei der Harvesterschaltung mit der Geschwindigkeit deutlich schneller zunimmt, als die Energie am Ausgang des EM-Chips. 
 
 \begin{figure}[ht]
     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
@@ -78,24 +86,65 @@ Die Abbildung \ref{zsmEnergyGewinn} gibt einen Überblick, an welcher Stelle wie
     \label{zsmEnergyGewinn}
 \end{figure}
 
-Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\% und bei 10 km/h bei 24.87\thinspace\%.
+Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursache, dass trotz genug geernteter Energie, das Sensortag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit, erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad. Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
+
+\subsubsection*{Tabelle Leistung und Wirkungsgrad }
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
+    10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
+    15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
+    20 km/h \> 114.67 $\mu$W \> 41.39  $\mu$W \> 36.09\thinspace\%  \\
+    40 km/h \> 416.29 $\mu$W \> 170.75 $\mu$W \> 41.01\thinspace\%  \\
+\end{tabbing}   
 
 
-\section{Energiemanagement}
+
+\section{Energy Management}
 
 %Beim Resultat spielt das Hard- und Softwaremanagment direkt ineinander, weshalb das Ergebnisse dieser zwei Aufgaben zusammen dargestellt werden.
 
-Durch das korrekte Einstellen der Schwellwerte beim EM8500 (siehe Unterkapitel xxx) und die korrekten Ladewerte bei den Kondensatoren (siehe Unterkaptiel xxx), ist es möglich, dass sich der LTS-Kondensator bei einer Geschwindigkeit von YYY km/h lädt (siehe Abbildung xxx). Zudem entlädt sich LTS, sobald das Sensortag am Arbeiten ist (siehe Abbildung yyyy). Beim Energiemanagement ist es somit gelungen, die Schwellwerte und Kondensatorengrössen so einzustellen, dass die Funktionalitäten des EM8500-Chips voll ausgenutzt werden können.
+Das Ziel beim Energy Management ist, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird. Dies ist (siehe Abbildung \ref{LTSladet}) möglich. Die gesammelte Energie beider Kondensatoren wird für das Sender der BLE-Pakete verwendet. Die benutzten Kondensatorenwerte sind:
+
+STS = 100 $\mu$F
+
+LTS = 2200 $\mu$F
+
+Die Werte ergaben sich aus folgender Energiekalkulation
+\begin{equation}
+W=\frac{1}{2}\cdot 100 uF \cdot (3.6 - 2.2 V)^{2}=xxxxx uW\label{eq:Energie STS}
+\end{equation}
+
+\begin{equation}
+W=\frac{1}{2}\cdot 2.2 mF \cdot (3.6 - 2.2 V)^{2}=xxxxx mW\label{eq:Energie LTS}
+\end{equation}
+
+
+Dadurch sammelt STS in einer Periode von xx ms eine Enegrigemenge von \todo{finale Zeiten eintragen. Energie dafür eintragen} yyy mJ. LTS lädt in der Periode von  zz ms zusätzlich eine Energiemenge von yyy mJ. Die angereicherte Menge von tt mJ genügen, um ein xxx-Paket zu versenden.
+
+\todo{besseres Bild}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-    \caption{STS und LTS laden sich}
-\end{figure}
-
-\begin{figure}[ht]
-    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
     \caption{LTS liefert Energie für die Arbeitspakete}
+    \label{LTSladet}
 \end{figure}
+
+Gelungen ist das Laden und Entladen beider Kondensatoren durch folgende EM-Schwellwerte:
+
+\todo{correct space in table}
+% Values from V1
+\subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
+\begin{tabbing}
+    Register .............\quad\= Spannungswert \\[0.8ex]
+    v\_bat\_max\_hi       \> 3.9 V \\
+    v\_bat\_max\_lo       \> 3.8 V \\
+    v\_bat\_min\_hi\_dis  \> 3.6 V \\
+    v\_bat\_min\_hi\_con  \> 2.2 V \\
+    v\_bat\_min\_lo       \> 2.0 V \\
+    v\_appl\_max\_hi      \> 3.8 V \\
+    v\_appl\_max\_lo      \> 3.7 V \\   
+\end{tabbing}  
+
 
 
 \section{Powermanagement}
