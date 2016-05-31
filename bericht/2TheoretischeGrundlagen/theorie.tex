@@ -173,8 +173,10 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 
 
 \subsection{Booster definiert Spannung}
+\label{eingangsspannung}
 
-Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. 
+Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. Der Booster geht von einer Spannung einer DC-Spannung eine TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 Konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S.1).
+
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
 
@@ -259,6 +261,7 @@ Während der Schlafenszeit sind alle Periphierien abgeschalten und im Prozessor 
     \label{sleep_Grundprinzip} 
 \end{figure}
 
+\newpage
 \subsubsection{Schlafen innerhalb einer Aktion}
 Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode gegangen. Innerhalb des Codes dominieren die Aufwach- und Abstell-Einstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionialität eingeschalten und nach ausführen der Aktion wieder abgeschalten. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip mit UML dargestellt.
 
@@ -278,6 +281,7 @@ Ein System kann intern seine Signale auswerten und aufgrund kombinatorischen Log
 \subsubsection{Aufwachen durch externe Events}
 Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und schlimmstenfalls den Systemablauf aus dem Rhythmus bringen.
 
+\newpage
 \subsection{State Machine für definierte Abläufe}\label{pm_state_machine} 
 Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Um unerwünschte Effekte zu vermeiden, kann eine State Machine implementiert werden. Diese stellt sicher, dass nur aufgrund von gewissen Signalen, ein Aktion ausgeführt wird. Alle anderen Effekte werden ignoriert. Die Abbildung \ref{t_stateMachine} zeigt die definierte Abhängigkeiten durch eine State Machine.
 
