@@ -1,7 +1,7 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy und Power Management sowie die BLE-Applikation. Die Resultate jeder Kategorie werden in einem Unterkapitel beschrieben.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy - und Power Management sowie die BLE-Applikation. Die Resultate jeder Kategorie werden in einem Unterkapitel beschrieben.
  
 \section{Harvesterschaltung}
 
@@ -149,30 +149,49 @@ Gelungen ist das Laden und Entladen beider Kondensatoren durch folgende EM-Schwe
 
 \section{Powermanagement}
 
-Durch ein gutes Powermanagement (siehe Unterkapitel xxx) wurde es möglich, die energiestarken Aufgaben in Teilen zu erledigen. Die Abbildung xxxx zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt das Init, dann folgt das Auslesen eines Sensors, dann das Senden des Sensors. Die Aufgaben wurden aufgeteilt, weil alle drei Schritte in einem zu viel Energie verbraucht hätte, sodass VSUP zusammengebrochen wäre.
+Lange schien es so, dass die Sensoren, aufgrund des grossen Verbrauchs der I2C-Kommunikation und der langen Aufstartzeit der Sensoren, nicht per BLE bei tiefer Geschwindigkeit gesendet werden können. Eine Lösung wurde möglich, weil Aufgabenblöcke in Unterblöcke mit Schlafensezeiten eingebaut wurden. Die untenstehende Tabelle zeit die gefunden Lösung:
 
+\subsubsection*{Tabelle Energieverbrauch Aufgabenblöcke}
+\begin{tabbing}
+    Funktion ...................................................................................\quad\= Energieverbrauch \\[0.8ex]
+    Auslesen Reed Switch und Berechnen Geschwindigkeit       \> xx mW \\
+    Starten und Auslesen Drucksensor          \> xx mW \\
+    Starten und Auslesen Temperatursensor     \> xx mW \\
+    Starten und Auslesen Feuchtigkeitssensor  \> xx mW \\
+    Auslesen Statusregister per SPI           \> xx mW \\
+\end{tabbing}  
+
+
+Die Lösung ist das Aufsplitten von Aufgabenblöcken. Bei genug Energie, wird nicht ein Sensor gestartet, ausgelesen und seine Daten versendet, sondern der Sensor wird gestartet, dann geht das System schlafen, bis dass LTS voll ist. Dann folgt der nächste Aufgabe: die Werte auslesen. Es wird wieder geschlafen und beim dritten Mal genügend Energie wird das Paket versendet. Das Konzept des Schlaffens zwischen Aufgabeblöcken ist im theoretischen Teil im Unterkapitel \ref{pm_sleep} im Abschnitt \ref{schlafen_theorie} beschrieben . Die Abbildung \ref{arbeitsaufteilung} zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt die Initialisierung des Sensors, dann folgt das Auslesen der Daten und zum Schluss das Senden der Werte.
+
+\todo{Bild Arbeitsaufteilung }
 \begin{figure}[ht]
-    \includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-    \caption{Drei Arbeitspakte bis zum Senden der Daten }
-    \label{blub}
+    \includegraphics[width=0.4\textwidth]{idle.png}
+    %\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \caption{Aufteilen in drei Schritte bis zum Senden der Daten}
+    \label{arbeitsaufteilung}
 \end{figure}
 
-\todo{ ev. Grossaufnahme: BLE Energieverbrauch}
+% ev. Grossaufnahme: BLE Energieverbrauch
 
-Die Abbildung \ref{resultat_E_Verbrauch_Verarbeitungsaufwand} zeigt den Energieverbrauch nach Verarbeitungsaufwand. Am wenigsten Energie benötigt das Berechnen der Geschwindigkeit über den RTC. Deutlich mehr Energie braucht das Auslesen der Sensor-Daten. Dies einerseits, weil die I2C-Kommunikation aufgebaut werden muss und weil die Sensoren eine gewisse Zeit brauchen, bis sie aktiv sind \todo{Aufwachzeit eines Sensors messen}. Die unterschiedlich verbrauchten Energiemengen entsprechen exakt den unterschiedlichen Startzeiten der Sensoren. 
+Das Ergebnis ist in der Abbildung \ref{Sensor_Energie} graphisch dargestellt. Es zeigt sich, dass das Senden von Sensordaten \todo{Wert eintragen Tabelle und Text} xx mal mehr Energie verbrauchen, als das Senden der Geschwindigkeit. Die schlechteste Bilanz hat das Auslesen des Status Registers aus dem EM8500-Chip. In diesem Byte ist hinterlegt, welche Schwellwerte des EM8500 überschritten wurden und dient dadurch auf einfache Art dem Abbilden des aktuellen Energiezustands (siehe Unterkapitel \ref{v_energiezustand}). 
 
 \begin{figure}[ht]
-\includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchNachKommunikation.png} \label{resultat_E_Verbrauch_Verarbeitungsaufwand} 
-\caption{Energieverbrauch gemäss Verarbeitungsaufwand für CPU}
+    \includegraphics[width=0.4\textwidth]{idle.png}
+    %\includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
+    \caption{LTS liefert Energie für die Arbeitspakete}
+    \label{Sensor_Energie}
 \end{figure}
+
 
 Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am Ausgang nach dem EM8500-Chips, können (siehe Abbildung \ref{resultat_Zsm_Energy}) folgende Schlussfolgerungen gezogen werden:
 
+\todo{ genauere Angaben nach Endmessungen}
 \begin{enumerate}
-    \item bla
-    \item bla
-    \item bla
-    \item bla
+    \item Das Übermitteln der Geschwindigkeit ist ab 10 km/h möglich
+    \item Das Übermitteln aller Sensordaten (gestaffelt) ist ab xxx km/h möglich
+    \item Das Übermitteln aller Sensordaten braucht bei einer Geschwindigkeit von 10 km/h xxxx s
+    \item Das Übermitteln aller Sensordaten braucht bei 40 km/h xxx s
 \end{enumerate}
 
 \begin{figure}[ht]
@@ -181,6 +200,11 @@ Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am 
 \end{figure}
 
 
+
+
+
+
+\newpage
 \section{Ergebnisse BLE-Applikation}
 
 Der Aufbau des Sensortags zusammen mit dem selbst entwickelten Board wird \glqq Sensor\grqq\thinspace\ genannt. Dies, weil aus der Sicht einer Benutzerin oder eines Benutzers keine detaillierte Hardware besteht, sondern \glqq ein Sensor\grqq. Die Vereinfachung dient der Benutzerfreundlichkeit. Die Android-Applikation ist bewusst einfach aufgebaut, um die Benutzerin bzw. den Benutzer nicht zu verwirren. 

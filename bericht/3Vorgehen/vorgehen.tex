@@ -103,12 +103,12 @@ Bei der Verwendung der gesammelten Energie ergab die Inbetriebnahme zwei Verbess
 \subsection{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
 
 
-Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives \todo{Familienname} von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im .... folgte.) Hier ist nun dieser erwähnte Text.
+Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives Théoduloz von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im .... folgte.) Hier ist nun dieser erwähnte Text.
 
 Vorschlag Katrin:
-Die auffällige Regelung des Harvesterinputs wurd Ives \todo{Nachname einfügen} gezeigt. 
+Die auffällige Regelung des Harvesterinputs wurd Ives Théoduloz gezeigt. 
 
-Gemäss Ives sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+Gemäss Ives Théoduloz sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
 
 
 In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
@@ -293,17 +293,29 @@ Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)
 % 5---------------------------------------------------------------------------
 \section{Energy Management}
 \todo{ Probleme sollen weg: - LTS entladen, - kein fixes T}
-\todo{  1 Messungen Sensortag  (geht auch zu Manu)
-       2 Kalkulatin (mit Ziel LTS entladen und 10 km/h)
-       3 Einstellungen Chip mit Ziel LTS, 10 km/ mit  MPP
-      4 Aufgrund von Messungen -> Codeoptimierung}
-Aufgabe des Energy Managements ist es, 
 
-\subsection{Energiemessungen Sensortag}
+Die Primäraufgabe des Energy Managements ist es, dass die zur Verfügung stehende Energie bei 10 km/h genügt, zum BLE-Pakete zu versenden. Die sekundäre Aufgabe ist es, dass man erreicht, dass sich der Long Time Storage entweder nicht lädt oder aber sich auch entlädt. Ein Laden des LTS ohne Energieabgabe ist Energieverschwendung. Die zwei gestellten Aufgaben sollen durch möglichst optimale Speichergrössen und intelligente Schwellwerte erreicht werden.
+
+Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshalb stehen im ersten Unterkapitel \ref{v_messungen_sensortag} Messergebnisse, danach folgt im zweiten Unterkapitel \ref{v_e_kalkulation} die Dimensionierung der Kondensatoren und dann das Berechnen der Schwellwerte in Unterkapitel \ref{v_schwellwerte}. Als letzer Punkt werden aufgrund der Ladewerte der Kondensatoren Energiezustände definiert. Dies, weil die letzte offene Aufgabe der ersten Optimierunsliste \ref{optimierung}: Das Ersetzen des fixen Paketversendens nach 10 s dem Energiezustand angepasst werden soll. Die Vorgehensweise zur Erfüllung dieses Punktes ist im letzten Unterkapitel \ref{v_energiezustand} beschrieben. 
 
 
 
+% x.1 ------------------------
+\subsection{Energiemessungen}
+\label{v_messungen_sensortag}
+
+\subsubsection{Spule}
+
+
+\subsubsection{Sensortag}
+
+
+
+
+% x.2 ---------------------------------
 \subsection{Energiekalkulation}
+\label{v_e_kalkulation}
+
 \todo{nach Donnerstag Abend}
 %EHRV gesammelt >= BLESenden
 %Zeitkomponente
@@ -376,9 +388,37 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Daten ab. Wird nur die G
 %Konfigurationseinstellungen
 
 
+% x.3 -------------------------------------
+\subsection{Einstellen der Schwellwerte}
+\label{v_schwellwerte}
 
-% 4---------------------------------------------------------------------------
+Einstellungen Chip mit Ziel LTS für 10 km/ mit  MPP
+
+
+
+% x.4 -----------------------------------------
+\subsection{Energiezustand des Systems}
+\label{v_energiezustand}
+
+\subsubsection{Definition von Energiezuständen}
+
+Energielevels.
+
+
+\subsubsection{SPI Schnittstelle}
+
+Ziel per SPi auslesen
+
+
+
+
+
+
+ 4---------------------------------------------------------------------------
 \section{Power Management}
+
+Aufgrund von Messungen -> Codeoptimierung
+
 
 %... noch zu schreiben ....
 %Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
