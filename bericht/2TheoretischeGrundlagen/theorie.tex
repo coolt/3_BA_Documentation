@@ -139,6 +139,7 @@ Energy Management bezeichnet das der Energie in Speichern, das Regeln des Inputs
 In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 ist ein Power Management Controller für den Low Power-Bereich. Das Datenblatt des EM8500 ist der CD beigelegt.  Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings (MPPT) und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist. 
 
 \subsection{Kontrollierte Energiespeicherung}
+\label{speicher_konzept}
 
 Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Microkontroller, genug Energie in Speichern gesammelt wurde. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass für die Freigabe der Energie an eine Applikation, das Signal der Speisung der Applikation wird als VSUP bezeichnet, erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im Register v\_bat\_min\_low eingetragen werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet.
 
@@ -200,19 +201,41 @@ Direkt mit dem MPPT-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \r
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
 \label{th_energiebilanz}
 
-Da der Primärspeicher STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung der Speicher muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:
+Da der Primärspeicher STS vom Boosterausgang $V_{Booster}$ gespiesen wird, entspricht dessen Spannung dem des Boosterausgangs. $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation. 
 
 \begin{equation}
-  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster}^2
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{Booster} )^2
 \end{equation}
- 
-( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.) Da aus dem Speicherwert in Farad und dessen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:
+
+Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten v\_bat\_min\_hi\_dis (ab da wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab da hört die Speisung von V\_SUP auf). Die zwei Schwellwerte werden in der Gleichung vereinfacht als STS\_HIGH und STS\_LOW bezeichnet.
 
 \begin{equation}
-v\_bat\_min\_low^2 - V_{SUP}^2 =\frac{2\, \times \, E_{Applikation}}{C_{STS}}
+      E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}   
 \end{equation}
 
-Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Speicher nicht auf 0 entlädt.
+\begin{equation} 
+     E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
+\end{equation}
+
+Kennt man die notwendige Energie, so kann die Grösse des Kondensator $C_{STS}$ aus der notwendigen Energie berechnet werden:
+
+\begin{equation}
+  C_{STS}= \frac{ E_{Applikation}}{(V_{STS\_HIGH} )^2 - (V_{STS\_LOW} )^2}
+\end{equation}
+
+Umgekehrt argumentiert, kann man aus der Höhe der Applikationsspannung (V\_SUP bzw. $V_{STS\_LOW}$), des bekannten Energiekonsums $E_{Applikation}$ den notwendigen Schwellwert für den Primärspeicher berechnen:
+
+\begin{equation}
+(V_{STS\_HIGH}) ^2 - (V_{STS\_LOW})^2 =  \frac{2\, \times \, E_{Applikation}}{C_{STS}}
+\end{equation}
+
+
+\begin{equation}
+(v\_bat\_min\_low) ^2  =  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2
+\end{equation}
+
+
+
 
 Neben VSUP kann der EM8500 drei weitere Ausgänge freischalten: VAUX[0] bis VAUX[2] (siehe Abbildung  \ref{IOEM8500}). Vor allem aber kann per I2C oder SPI der aktuelle Spannungspegel der Regelung (VREG), die Speicher (VDD\_STS und VDD\_LTS)und des Harvestereingangs (VDD\_HRV) abgefragt werden. So kennt die Applikation jederzeit den aktuellen Energiezustand der gesammelten Energie.
 
@@ -242,6 +265,18 @@ Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
 \end{figure}
 
 
+%$\bar{E_{HRV}} \ge \bar{E_{BLE}} $
+%Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}}$].
+%
+%\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
+%\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
+%\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
+%\[t = 147 s  \]
+%
+%\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
+%\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
+%\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
+%\[t = 147 s  \]
 
 % 2.3-------------------------------------------------------
 

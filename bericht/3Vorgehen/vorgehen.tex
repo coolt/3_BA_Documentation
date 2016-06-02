@@ -305,11 +305,13 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 \todo{Name des Power Analysers}
 Die Entwicklung wird konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (Sensortag). Für die Energiemessungen konnte der Power Analyser von XXXX gebraucht werden. Dieses mächtige Messgerät misst gleichzeitig Strom, Spannung und somit die Leistung im Zeitverlauf. Mühsame Annäherungen aus eigenen KO-Messungen sind somit nicht mehr notwendig.
 In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen Reihenfolge zusammengefasst. Die Detailaufnahmen zu allen Messungen finden sich in der CD im Ordner Messungen in der Datei Energiemessungen.pdf. 
-\todo{Energiemessung_Sensortag.pdf generieren}
+\todo{Energiemessung Sensortag pdf generieren}
 
 
 \subsubsection{Erste Energiemessungen}
+\label{erst_EMessungen}
 
+\todo{Graphik kommt nicht heraus}
 \begin{figure}[ht]
     \includegraphics[scale=1]{3Vorgehen/imag/v0Send33uJ.png} 
     \caption{Minimalster Energieverbrauch: 3 BLE Pakte über Advertising Mode senden}
@@ -335,15 +337,18 @@ Bei diesen Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, d
     \label{i2c_problem}
 \end{figure}
 
+\todo{Bild erscheint nicht}
+
 Aus diesen Grund wurde die Power-Optimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel \ref{powerOptimierung} Power Management zusammengefasst. Neben dem konkreten Messen des Energieverbraus jedes Sensors auf dem Sensortag, folgt im Unterkapiteln \ref{energie senosortag}, ist auch der Energiegewinn an der Harvesterspule wichtig. Dies, weil sich in der Entwicklung des Prototypen zeigt, dass Energie durch die Hardwarschaltung selbst verloren geht. Dieses Messresultat folgt nun gleich, danach kommen die Energieergebnisse zu den Sensoren.
 
 \subsubsection{Spule}
 
-
+Bild einfügen
 
 \subsubsection{Sensortag}
 \label{energie senosortag} 
 
+Der Energieverbrauch des Sensortags wird 4-mal gemessen. Einmal mit der Minimalversion: Nur Pakete mit Geschwindigkeitsdaten senden. Dann diese Version mit den drei Senosoren, die einer nach dem anderen ausgelesen werden. Weil dazuwischen geschlafen wird, damit das System wieder genug Energie gespeichert hat, dauert diese Version xxx s \todo{Zeit eintragen}. Von jedem Sensor wird der eigene Energieverbrauch ermittelt, um einen Vergleich unter ihnen herstellen zu können.
 
 \paragraph{Nur Geschwindigkeit: Simple Harvester}
 
@@ -357,31 +362,31 @@ Aus diesen Grund wurde die Power-Optimierung innerhalb des Programms zur zentral
 
 
 
-
 % x.2 ---------------------------------
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Der Energieverbrauch hängt von der Anzahl ausgelesener Sensoren ab (siehe \ref{v_messungen_sensortag}). Für die Bestückung der Kondensatoren wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h ausgegangen. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. Hier werden die Kondensatoren berechnet.
+Der Energieverbrauch hängt von der Anzahl ausgelesener Sensoren ab (siehe \ref{v_messungen_sensortag}). Für die Bestückung der Kondensatoren wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h ausgegangen. Die Grundlagen zur Energiekalkulation $\bar{E_{HRV}} \ge \bar{E_{BLE}} $ sind im Theorieteil \ref{th_energiebilanz} abgebildet. Hier werden die Kondensatoren berechnet.
+
+\todo{Gleichungen zusammen. Berechnung konkret}
+\begin{equation}
+  C_{STS}= \frac{ E_{Applikation}}{(V_{STS\_HIGH} )^2 - (V_{STS\_LOW} )^2}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
+\end{equation}
 
 
-
-Die Energie der Quelle [$\bar{E_{HRV}} $] muss ausreichen für das Versenden der Datenpakte über Bluetooth smart [$\bar{E_{BLE}}$].
-
-\[\bar{E_{HRV}} \ge \bar{E_{BLE}}  \]
-
-
-
-\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
-\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
-\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
-\[t = 147 s  \]
-
-\[\bar{E_{HRV}} = \bar{P} * t \ge \bar{E_{BLE}}  \]
-\[\bar{P_{10km/h}} * t = 11 * 10^{-3}  \]
-\[74.4 * 10^{-6} * t = 11 * 10^{-3}   \]
-\[t = 147 s  \]
-
+\todo{Abschlusstext. Übergang}
 
 \subsubsection{MPP einstellen}
 
@@ -396,7 +401,7 @@ Das Ziel der Entwicklung ist, dass bei einer Geschwindigkeit von 10 km/h genug E
     30. März    \> 12 $\mu$W        \> 43.23\thinspace\% \\
     xx          \> xx $\mu$W        \> xx\thinspace\%\\
     resultat    \> 21.87  $\mu$W    \> 24.87\thinspace\%\\
-\end{tabbing}
+\end{tabbing}\todo{Werte}
 
 Es zeigt sich, dass das Leistungsmaximum unterhalb von 50\thinspace\% liegt. Bedauerlich ist, dass durch die Energieoptimierung sich die Stelle des Leistungsmaximums Richtung Leerlauf verschiebt. In der Umsetzung mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten).  Die Einstellungen der tieferen MPP-Ratio sind zudem gröber. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (mit einem MPP konstant bei 50\thinspace\%) und Solarzelle konzipiert ist und die MPPT-Ratio für diese zwei Anwendungen genau in diesem Range liegen. In unserem Fall ist dieser vorgegebene Range nicht ideal. Da beim energiekritischen Zustand bei 10 km/h die Ratio deutlich unter 50\thinspace\%. Die Vorgänger wählten in ihren Einstellungen eine MPPT-Ratio von 88\thinspace\%. Die Vermutung liegt nahe, dass keine Leistungskurve des Harvesters im Voraus aufgenommen wurde.
 
@@ -429,36 +434,76 @@ Im ersten Versucht wird das Register auf das Minimum (50\thinspace\%) eingestell
 \subsection{Einstellen der Schwellwerte}
 \label{v_schwellwerte}
 
-Einstellungen Chip mit Ziel LTS für 10 km/ mit  MPP
-Im Theorieteil kurz beschrieben.
+Das Konzept der Schwellwerte von VSTS und VLTS sind im Theorieteil bei der Erklärung des Speicherkonzepts des EM8500-Chips im Unterkapitel \ref{speicher_konzept} beschrieben. Das Ziel ist, dass bei 10 km/h sich LTS entlädt. Die Berechnung der Schwellwerte stammt aus dem Theorieteil \ref{th_energiebilanz}.
 
 
-\subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
+
+
+Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte überliefert. Bei der Inbetriebnahme fiel der hohe Schwellwert von v\_bat\_min\_hi\_dis auf (3.6 V), ab der erst die Applikation gespiesen wird. Den hohen Wert beruht auf dem Versuch, möglichst viel Energie vor dem Datensenden zu sammeln. Ein hoher Schnellwert verzögert die Zeit, bis zum ersten Datensenden.
+
+\subsubsection*{Konfiguration Vorgängermodell}
 \begin{tabbing}
-    Register .............\quad\= Spannungswert \\[0.8ex]
-    v\_bat\_max\_hi       \> 3.9 V \\
-    v\_bat\_max\_lo       \> 3.8 V \\
+    Register .............\quad\= Wert \\[0.8ex]
+    v\_bat\_max\_hi       \> 4.2 V \\
+    v\_bat\_max\_lo       \> 4.1 V \\
     v\_bat\_min\_hi\_dis  \> 3.6 V \\
-    v\_bat\_min\_hi\_con  \> 2.2 V \\
-    v\_bat\_min\_lo       \> 2.0 V \\
-    v\_appl\_max\_hi      \> 3.8 V \\
-    v\_appl\_max\_lo      \> 3.7 V \\   
+    v\_bat\_min\_hi\_con  \> 2.1 V \\
+    v\_bat\_min\_lo       \> 1.8 V \\
+    v\_appl\_max\_hi      \> 3.8 V \\\
+    v\_appl\_max\_lo      \> 3.7 V \\ 
+    mppt\_ratio            \> 88\thinspace\% \\
 \end{tabbing}
 
-Zeigen, dass Bat bin lo höher gehen muss.
+Nach der Energiemessungen der Version V3 des Sensortags (siehe \ref{erst_EMessungen}), in dem die Geschwindigkeit per BLE gesendet werden kann, entstanden folgende Schwellwerte:
 
-Zeigen, dass max STS genügt. Kompromiss zu 
+\subsubsection*{Erste Konfiguration aufgrund Geschwindigkeitsmessung}
+\begin{tabbing}
+    Register .............\quad\= Wert \\[0.8ex]
+    v\_bat\_max\_hi       \> 4.8 V \\
+    v\_bat\_max\_lo       \> 4.7 V \\
+    v\_bat\_min\_hi\_dis  \> 2.6 V (siehe Berechnungen unten)\\
+    v\_bat\_min\_hi\_con  \> 2.1 V \\
+    v\_bat\_min\_lo       \> 2.0 V (vorgegeben von Sensortag)\\
+    v\_appl\_max\_hi      \> 3.8 V \\\
+    v\_appl\_max\_lo      \> 3.7 V \\ 
+    mppt\_ratio            \> 50\thinspace\% (aus MPP-Kurve Harvester)\\
+\end{tabbing}
+
+Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$, wobei  $E_{Applikation}$ aus der Messung von V3 mit total 93.2 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden, und $V_SUP$ durch das Sensortag mit 2.0 vorgegeben ist. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Um auf der sicheren Seite zu sein, denn der Harvester gibt zu diesem Zeitpunkt noch nicht genug Energie ab, wurde als Berechnungsgrundlage C\_{STS} von 100 $\mu$F genommen.  So ergab sich folgender minimaler oberere Schwellwert:
+
+\begin{equation}
+(v\_bat\_min\_low) ^2  =  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2
+\end{equation}
+
+\begin{equation}
+(v\_bat\_min\_low) ^2  =  \frac{2\, \times \, 93.2, \mu J}{100 \,\mu F} + (2.0)^2
+\end{equation}
+
+\begin{equation}
+v\_bat\_min\_low  =  \sqrt{\frac{186.4}{100 } + 4} = \sqrt{5.864} = 2.42 V
+\end{equation}
+
+Alternativ kann man den laut Datenblatt vorgeschlagenen Kondensatorenwert von  47 $\mu$F. Dann ergibt sich als oberer Schwellwert  $v\_bat\_min\_low  =  \sqrt{\frac{186.4}{47 } + 4} = \sqrt{7.97} = 2.82, V$. Als erstes wird der Schwellwert auf 2.6 V gesetzt. Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
+
+\todo{Messprotokoll und Sitzungsprotokoll einfügen}
+Das Zusammensetzen der Last (Sensortag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Aus diesem Grund wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt. 
+
+Ein unerwartetes Verhalten zeigt sich bei der Implementation des Auslesen des ersten Sensors, der Drucksensor. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des Sensortags an den Harvester, riss die Spannung sofort zusammen. Innert kürzester Zeit haben sich entlädt sich der STS wie parallel zu ihm der LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie, als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
+\todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen)
+
+Durch den deutlich höheren Energieverbrauch, wird eine Power-Optimierung im Softwareteil notwendig. Es zwingt aber auch, den Schwellwert von v\_bat\_min\_hi\_dis  wieder zu erhöhen. Die finale Konfiguration ist im Resultate-Teil abgebildet.
+
 
 % x.4 -----------------------------------------
 \subsection{Energiezustand des Systems}
 \label{v_energiezustand}
 
-Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (siehe Unterkapitel \ref{optimierung}) ist das variable Anpassen des BLE-Paketsendens aufgrund des Energiezustandes. Im ersten Unterkapitel \ref{def_zustaende} wird das Einteilen des Systems in Energiezustände beschrieben, dann drei Implementierungen, wobei der letzte Ansatz im Prototyp angewendet wurde. 
+Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (siehe Unterkapitel \ref{optimierung}) ist das variable Anpassen des BLE-Paketsendens aufgrund des Energiezustandes. Im ersten Unterkapitel \ref{def_zustaende} wird das Einteilen des Systems in Energiezustände beschrieben, danach die Umsetzung in Software im Prototyp angewendet wurde. 
 
 \subsubsection{Definition von Energiezuständen}
 \label{def_zustaende} 
 
-
+\
 Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energiesystem in drei Zustände eingeteilt, die von der Geschwindigkeit abhängen:
 
 \subsubsection*{Energiezustände aufgrund der Geschwindigkeit}
@@ -473,7 +518,7 @@ Was in den eingelnen Energiezuständen gemacht wird:
 
 Bild
 
-
+\subsubsection*{Energiezustände: Umsetzung in Software}
 
 
 
