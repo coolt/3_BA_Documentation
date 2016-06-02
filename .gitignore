@@ -170,3 +170,6 @@ bericht/1Einleitung/einleitung.log
 *.aux
 bericht/ba_16_bicycle_computer.pdf
 *.aux
+bericht/2TheoretischeGrundlagen/theorie.aux
+bericht/7Anhang/anhang.aux
+*.pdf
