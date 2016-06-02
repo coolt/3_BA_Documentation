@@ -95,7 +95,7 @@ Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \
 \subsubsection{Konstanter Maximum Power Point zu dynamischem}
 \label{mpp_theorie_diff}
 
-Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPPT-Ratio ist 80\thinspace\%.  Bei der Bewegungsinduktion existiert kein fixe MPPT-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.
+Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\%.  Bei der Bewegungsinduktion existiert kein fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.
 
 Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt, dieses unabhängige Verhalten. 
 
@@ -194,21 +194,22 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 \subsection{Booster definiert Spannung}
 \label{eingangsspannung}
 
-Direkt mit dem MPP-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. Der Booster geht von einer Gleichspannung eines TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S.1).
+Direkt mit dem MPPT-Kontroller ist der Booster (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannungen von 0.3 V. Danach regelt er in Schritten von 0.3 V. Der Booster geht von einer Gleichspannung eines TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S.1).
 
 
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
+\label{th_energiebilanz}
 
 Da der Primärspeicher STS vom Boosterausgang gespiesen wird, entspricht dessen Spannung dem des geregelten Boosterausgangs. Für die Berechnung der Speicher muss der Energieverbrauch der Applikation und die Ausgangsspannung des Boosters bekannt sein:
 
 \begin{equation}
-  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster}
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, V_{Booster}^2
 \end{equation}
  
 ( $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation.) Da aus dem Speicherwert in Farad und dessen Spannung der aktuell gespeicherte Energiezustand berechnet werden kann, lässt sich der Schwellwert für das Freischalten der Ausgangs VSUP zur Speisung der Applikation berechnen:
 
 \begin{equation}
-v\_bat\_min\_low - V_{SUP} = \sqrt{\frac{2\, \times \, E_{Applikation}}{C_{STS}}}
+v\_bat\_min\_low^2 - V_{SUP}^2 =\frac{2\, \times \, E_{Applikation}}{C_{STS}}
 \end{equation}
 
 Der Grundpegel von $V_{SUP}$ muss abgezogen werden, da sich der Speicher nicht auf 0 entlädt.
