@@ -6,7 +6,7 @@ Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnel
 % 2.1-------------------------------------------------------------------
 \section{Energy Harvesting}\label{t_harvesting} 
 
-\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
+\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \todo{abstand zu klein} \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
 
 \subsection{Energy Harvesting Methoden}\label{harv_arten} 
@@ -16,10 +16,10 @@ Bekannte Methoden sind die Solarzelle, die aus der Energie der Sonnenstrahlen St
 \subsubsection{Energy Harvesting mit einer Solarzelle}\label{harv_solarzelle} 
 
 Bei der Umwandlung von Elektromagnetischen Wellen (Licht) in Strom wird eine spezielle Eigenschaft des Siliziums genutzt: Führt man Silizium Energie zu, entstehen freie Ladungsträger, bzw. Elektronen und Löcher. Um aus diesen Ladungen einen elektrischen Strom zu erzeugen, ist es nötig, die erzeugten freien Ladungsträger in unterschiedliche Richtungen zu lenken; dies geschieht durch ein internes elektrisches Feld, welches durch einen p-n-Übergang erzeugt werden kann. Auf der einen Seite sammelt sich positive, auf der anderen Seite negative Ladung an. Werden diese verbunden, entsteht ein Strom (\cite{Internet_Solarzelle2}). 
-Diese Harvestingmethode produziert ein Gleichstrom. Die Spannung am Ausgang ist konstant, da es sich um eine Stromquelle handelt \todo{stimmt das ?}. Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
+Diese Harvestingmethode produziert ein Gleichstrom. Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
 
 \subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
-TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind (aus: \cite{Internet_Waerme}). Diese Harvestingmethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
+TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind ( \cite{Journal_TEG}). Diese Harvestingmethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
 
 
 \subsection{Energy Harvesting über Bewegungsindktion}\label{harv_bewegung} 
@@ -38,7 +38,7 @@ Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magne
     \frac{d}{dt} \int A\,dB=\phi\cdot N\
 \end{equation}
 
-Verläuft der magnetische Fluss \todo{Flussdichte oder Fluss?} $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\label{Formelsenkrecht}). 
+Verläuft der magnetische Fluss $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\label{Formelsenkrecht}). 
  
 \begin{equation}
     \frac{d}{dt} \int A\,\perp\, dB=\frac{d}{dt}\int \phi\cdot N=B\cdot A\cdot N\ \label{Formelsenkrecht} 
@@ -51,9 +51,7 @@ In diesem Fall berechnet sich die induzierte Spannung in einer Spule vereinfacht
 \end{equation}
 
 Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen, eines Magneten an einer fix verankerten Spule erzeugt.
-Die produzierte Spannung hängt von drei Kriterien ab:
-
-Eine induzierte Spannung wird somit durch folgende vier Faktoren beinflusst:
+Die produzierte Spannung hängt von folgenden vier Faktoren ab:
 \begin{enumerate}
     \item die eingeschlossene Fläche $A$ der Spule    
     \item die magnetische Flussdichte des Magneten $B$ 
@@ -65,13 +63,33 @@ Diese Harvestingmethode produziert einen Wechselstrom. Ein Gleichrichter und ein
 
 
 
-\subsection{Unterschiede der Methoden}\label{harv_diff} 
+\subsection{Unterschiede Harvestermethoden}\label{harv_diff} 
 
-Der grösste Unterschied besteht in der Art in der die Energie zur Verfügung steht. 
+Unterschiede bestehen in der Art, in der die Energie zur Verfügung steht. Die nachfolgenden zwei Unterpunkte zeigen, dass zwei Differenzen auf: Punkt a verweist auf die unterschiedliche Art, in der die Energie erhältlich ist: entspricht dies einer gleichmässigen Energie, analog zum DC, oder liefert die Quelle Energie in Form von Wechselstrom? Folgt der Strom konstant oder in Pulsen? Die aufwendige Art der Energieerntung wird für den Prototoypen relevant.  Der zweite Unterschied unter den Harvestermethoden ist die Leistungskurve. An welcher Stelle zwischen Kurzschluss und liegt das Leistungsmaximum? Die unterschiedlichen Leistungsmaximas der einzelnen Harvestermethoden werden unter Punkt b zusammengefasst. Beide Unterschiede werden für die Entwicklung des Prototypen über Bewegungsinduktion relevant.
 
 \subsubsection{Gleichmässige Energie versus gepulster Energie}
 
-Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung. Wodurch kein Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung. Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen.
+Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}). Dadurch ist keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}). 
+
+\begin{figure}[ht]
+ \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
+    \caption{Gleichspannung am Ausgang eines TEG}
+    \label{dc} 
+\end{figure}
+
+\begin{figure}[ht]
+     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
+    \caption{Wechselspannung als Energieform der Bewegungsinduktion}
+    \label{ac} 
+\end{figure}
+
+\begin{figure}[ht]
+     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
+    \caption{Rippelspannung aufgrund der gepulsten Eingangsenergie}
+    \label{rippel} 
+\end{figure}
+
+
 
 \subsubsection{Konstanter Maximum Power Point zu dynamischem}
 \label{mpp_theorie_diff}
@@ -109,7 +127,7 @@ Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Beweg
    \label{bild_harvester} 
 \end{figure}
 
-
+\newpage
 % 2.2-------------------------------------------------------------------
 \section{Energy Management}\label{t_energy_management} 
 
