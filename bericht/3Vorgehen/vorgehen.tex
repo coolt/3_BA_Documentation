@@ -305,17 +305,44 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 \todo{Name des Power Analysers}
 Die Entwicklung wird konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (Sensortag). Für die Energiemessungen konnte der Power Analyser von XXXX gebraucht werden. Dieses mächtige Messgerät misst gleichzeitig Strom, Spannung und somit die Leistung im Zeitverlauf. Mühsame Annäherungen aus eigenen KO-Messungen sind somit nicht mehr notwendig.
 In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen Reihenfolge zusammengefasst. Die Detailaufnahmen zu allen Messungen finden sich in der CD im Ordner Messungen in der Datei Energiemessungen.pdf. 
-\todo{Energiemessung.pdf generieren}
+\todo{Energiemessung_Sensortag.pdf generieren}
 
 
 \subsubsection{Erste Energiemessungen}
-xx
+
+\begin{figure}[ht]
+    \includegraphics[scale=1]{3Vorgehen/imag/v0Send33uJ.png} 
+    \caption{Minimalster Energieverbrauch: 3 BLE Pakte über Advertising Mode senden}
+    \label{BLE_send}
+\end{figure}
+
+Um einen Anhaltspunkt über den Energieverbrauch des Sensortags zu erhalten, wurde 3 BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur Sensortagversion V0. Nach der Weiterentwicklung des Programms, folgte die Messung V1, in der zusätzlich die GPIO ausgelesen werden. Dies ist für das Einlesen der Reed Switch-Impulse unumgänglich und für das Einlesen der Energy States vom 8500 sinnvoll. Die Version V2, erster Versuch mehr Sleep-Time einzubauen, scheiterete am Zusammenspiel des Timings der Radio- und GPIO-Interrupts. Das Neuaufsetzen des Programms half, sodass die Version V3 power-optimiert Geschwindigkeitspakete sendet. Die untenstehende Tabell stellt die ersten Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung und der Energie zum Senden von 3 BLE Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx.
+\todo{Sitzungsprotokolle Datum einsezten}
+
+\subsubsection*{Messresultate nach Sensortag-Versionen}
+\begin{tabbing}
+    Version   \quad\= Datum     \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
+    V0        \> 10.3.16        \> unbekannt            \> 33 $\mu$J \\
+    V1        \> 16.3.16        \> 87 $\mu$J            \> 32 $\mu$J \\
+    V3        \> 22.4.16        \> 40 $\mu$J            \> 29 $\mu$J \\
+\end{tabbing}
+
+Bei diesen Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren aufgestartet sind, viel mehr Energie verbraucht, als erwartet. Der Energieverbrauch des Auslesens nur eines Sensors (erste Priorität hat laut Aufgabenstellung der Drucksensor) ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten mehr möglich ist. Die Speisung der Applikation bricht sofort zusammen (siehe Abbildung \ref{i2c_problem}).
+
+\begin{figure}[ht]
+    \includegraphics[scale=1]{3Vorgehen/imag/pic4VSUPbrichtEin.PNG} 
+    \caption{Auslesen der Sensoren reisst Energie zusammen}
+    \label{i2c_problem}
+\end{figure}
+
+Aus diesen Grund wurde die Power-Optimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel \ref{powerOptimierung} Power Management zusammengefasst. Neben dem konkreten Messen des Energieverbraus jedes Sensors auf dem Sensortag, folgt im Unterkapiteln \ref{energie senosortag}, ist auch der Energiegewinn an der Harvesterspule wichtig. Dies, weil sich in der Entwicklung des Prototypen zeigt, dass Energie durch die Hardwarschaltung selbst verloren geht. Dieses Messresultat folgt nun gleich, danach kommen die Energieergebnisse zu den Sensoren.
 
 \subsubsection{Spule}
 
 
-\subsubsection{Sensortag}
 
+\subsubsection{Sensortag}
+\label{energie senosortag} 
 
 
 \paragraph{Nur Geschwindigkeit: Simple Harvester}
@@ -455,6 +482,7 @@ Bild
 
  4---------------------------------------------------------------------------
 \section{Power Management}
+\label{powerOptimierung}
 
 Aufgrund von Messungen -> Codeoptimierung
 
