@@ -84,7 +84,7 @@ Kanal 4, das grüne Signal, zeigt, die Speisung des Sensortags. In Modell der Pr
 
 \subsection{Optimierungsliste}\label{optimierung} 
 
-%\todo{ Ev. Texbausteine von oben hier hin}
+\todo{ Ev. Texbausteine von oben hier hin}
 
 Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgaben, die in der ersten Liste der Arbeitsschritte zu Beginn des Vorgehens  beschrieben wurden. Folgende vier Punkte sollen durch den Prototypen verbessert werden: 
 
@@ -179,8 +179,8 @@ Notiz: Ziel dieses Artikels gemäss Inbetriebnahme:
 \subsection{Bauteildefinition und Optimierung}
 \subsection{Layout}
 
-%\todo{ Namensklärung: V HRV = VCC}
-%\todo{Messprotokolle umbenennen}
+\todo{ Namensklärung: V HRV = VCC}
+\todo{Messprotokolle umbenennen}
 
 
 ---- alter Text-----                             
@@ -225,12 +225,12 @@ Nach dem Erfassen des Schemas wurde die Optimierung der Hardware angegangen. Die
 \subsubsection{Optimierung der Spule}
 
 Die Spule gewinnt die Energie aus dem vorbei schnellenden Magneten, hier kann die gewonnene Energie beeinflusst werden. Eine gute Spule kann mehr Energie aus dem bewegten Magneten gewinnen, wichtig ist die Induktivität L und die Fläche A, welche die Spule hat. Eine Vorgabe war dass die Spule von der Grösse nicht merklich verändert wird, ausser man würde eine kleinere Spule finden, welche mehr Energie gewinnt. Eine Spule mit ähnlicher Fläche bzw. Grösse wurde gefunden, welche eine höhere Induktivität besitzt. Die Spule von Würth Elektronik ist sehr vielversprechend, denn die gleiche Fläche mit höherer Induktivität bedeutet mehr Energiegewinn aus dem Magneten.
-%S\todo{Hier Schlusswort von Messprotokoll einfügen}.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 \subsubsection{Optimierung des Gleichrichters}
 
 Der Gleichrichter aus dem Aufbau der Machbarkeitsstudie besteht aus vier Dioden vom Typ 1N5819, diese Dioden sind nicht für eine LowPower-Anwendung ausgelegt. Ausserdem könnte ein Gleichrichter gefunden werden, welcher in einem Gehäuse ausgeliefert wird. Wichtig ist dass der Leckstrom so gering wie möglich ist und die Schwellenspannung ebenfalls möglichst klein bleibt. 
-%\todo{Hier Schlusswort von Messprotokoll einfügen}.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 \subsubsection{Optimierung des Limiter}
 
@@ -240,7 +240,7 @@ Der Limiter ist eine Spannungbegrenzung, da die nachfolgende Schaltung nicht mit
 \subsubsection{Optimierung des Ausgangskondensators}
 
 Der Ausgangskondensator muss möglichst niedrig gehalten werden, gemäss Aussage von Yves, da ansonsten der EM8500-Chip Mühe hat den Eingang zu regeln. Trotzdem darf der Ausgangskondensator nicht zu klein dimensioniert werden, da ansonsten die Rippelspannung am Ausgang der Harvestersschaltung zu hoch ist und der EM8500-Chip ebenfalls nicht mehr richtig regeln kann.
-%\todo{Hier Schlusswort von Messprotokoll einfügen}.
+\todo{Hier Schlusswort von Messprotokoll einfügen}.
 
 
 \subsection{Bauteildefinition}
@@ -263,7 +263,7 @@ Wann immer möglich wurden die Leiterbahnen, welche zu der Harvesterschaltung ge
 \subsubsection{Ergebnis}
 
 Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erfüllt und somit kann die Leiterplatte auch für ein Praktikum verwendet werden. Die Leiterplatte ist mit sehr vielen Testpunkten ausgestattet, sowie die Möglichkeit für Strommessungen.
-%\todo{Bild Neues Layout}.
+\todo{Bild Neues Layout}.
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
@@ -313,7 +313,7 @@ In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen
 \subsubsection{Erste Energiemessungen}
 \label{erst_EMessungen}
 
-%\todo{Graphik kommt nicht heraus}
+\todo{Graphik kommt nicht heraus}
 
 \begin{figure}[ht]
     \includegraphics[scale=1]{3Vorgehen/imag/v0Send33uJ.png} 
@@ -322,7 +322,7 @@ In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen
 \end{figure}
 
 Um einen Anhaltspunkt über den Energieverbrauch des Sensortags zu erhalten, wurde 3 BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur Sensortagversion V0. Nach der Weiterentwicklung des Programms, folgte die Messung V1, in der zusätzlich die GPIO ausgelesen werden. Dies ist für das Einlesen der Reed Switch-Impulse unumgänglich und für das Einlesen der Energy States vom 8500 sinnvoll. Die Version V2, erster Versuch mehr Sleep-Time einzubauen, scheiterete am Zusammenspiel des Timings der Radio- und GPIO-Interrupts. Das Neuaufsetzen des Programms half, sodass die Version V3 power-optimiert Geschwindigkeitspakete sendet. Die untenstehende Tabell stellt die ersten Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung und der Energie zum Senden von 3 BLE Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx.
-%\todo{Sitzungsprotokolle Datum einsezten}
+\todo{Sitzungsprotokolle Datum einsezten}
 
 \subsubsection*{Messresultate nach Sensortag-Versionen}
 \begin{tabbing}
@@ -340,7 +340,7 @@ Bei diesen Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, d
     \label{i2c_problem}
 \end{figure}
 
-%\todo{Bild erscheint nicht}
+\todo{Bild erscheint nicht}
 
 Aus diesen Grund wurde die Power-Optimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel \ref{powerOptimierung} Power Management zusammengefasst. Hier die Auflistung der Energiewerte von Version V4. Bei dieser Version werden die Sensoren ausgelesen und dazwischen geht das Sensortag in den Schlafmodus, damit sich der Primärkondensator wieder laden kann. Erst nachdem alle Sensoren ausgelesen sind, wird das BLE-Paket versendet.
 
@@ -353,7 +353,7 @@ Der Energieverbrauch des Sensortags wird 4-mal gemessen. Einmal mit der Minimalv
 
 \paragraph{Nur Geschwindigkeit: Simple Harvester}
 
-%\todo{Energiemesssung OHNE Sensoren. Aber mit Warten}
+\todo{Energiemesssung OHNE Sensoren. Aber mit Warten}
 
 %\begin{figure}
 %  \includegraphics[width=1.0\textwidth]{idle.png}
@@ -398,7 +398,7 @@ Der Energieverbrauch des Sensortags wird 4-mal gemessen. Einmal mit der Minimalv
 
 Der Energieverbrauch hängt von der Anzahl ausgelesener Sensoren ab (siehe \ref{v_messungen_sensortag}). Für die Bestückung der Kondensatoren wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h ausgegangen. Die Grundlagen zur Energiekalkulation $\bar{E_{HRV}} \ge \bar{E_{BLE}} $ sind im Theorieteil \ref{th_energiebilanz} abgebildet. Hier werden die Kondensatoren berechnet.
 
-%\todo{Gleichungen zusammen. Berechnung konkret}
+\todo{Gleichungen zusammen. Berechnung konkret}
 \begin{equation}
   C_{STS}= \frac{ E_{Applikation}}{(V_{STS\_HIGH} )^2 - (V_{STS\_LOW} )^2}
 \end{equation}
@@ -420,7 +420,7 @@ Der Energieverbrauch hängt von der Anzahl ausgelesener Sensoren ab (siehe \ref{
 
 \subsubsection{MPP einstellen}
 
-%\todo{Messprotokolle eintrage}
+\todo{Messprotokolle eintrage}
 
 Das Ziel der Entwicklung ist, dass bei einer Geschwindigkeit von 10 km/h genug Enerige zum Senden eines BLE-Pakets zur Verfügung steht. Während der Entwicklung des Harvesters wurde die Leistungskurve öfters aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen nur auf diese Wert.  
 
@@ -454,7 +454,7 @@ Es zeigt sich, dass das Leistungsmaximum unterhalb von 50\thinspace\% liegt. Bed
     0x0C           \> 88\thinspace\%\\
 \end{tabbing}
 
-%\todo{Sitzungsprotokoll Datum}
+\todo{Sitzungsprotokoll Datum}
 Im ersten Versucht wird das Register auf das Minimum (50\thinspace\%) eingestellt (siehe Sitzungsprotokoll YYYY). Die Messung ergab, dass bei 10 km/h das EM-Board nicht gespiesen wird. So luden sich weder der STS noch der LTS auf. Der Grund ist, dass der optimale Leistungsbezug bei 50\thinspace\% liegt, das Leistungsmaximum aber später. So entstand beim Regeln auf den optimalen Leistungsbezug der Umstand, dass dort nur 0.2 V produziert werden. Dieser Spannungswert ist zu tief, der EM-Chip beginnt nicht zu arbeiten. Betreibt man den Harvester nicht am optimalen Punkt, sondern bei einer MPPT-Ratio von 60\thinspace\%, so wird eine Eingangsspannung von 0.3 V produziert und EM8500 beginnt zu arbeiten.
 
 
@@ -515,11 +515,11 @@ v\_bat\_min\_low  =  \sqrt{\frac{186.4}{100 } + 4} = \sqrt{5.864} = 2.42 V
 
 Alternativ kann man den laut Datenblatt vorgeschlagenen Kondensatorenwert von  47 $\mu$F. Dann ergibt sich als oberer Schwellwert  $v\_bat\_min\_low  =  \sqrt{\frac{186.4}{47 } + 4} = \sqrt{7.97} = 2.82, V$. Als erstes wird der Schwellwert auf 2.6 V gesetzt. Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
 
-%\todo{Messprotokoll und Sitzungsprotokoll einfügen}
+\todo{Messprotokoll und Sitzungsprotokoll einfügen}
 Das Zusammensetzen der Last (Sensortag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Aus diesem Grund wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt. 
 
 Ein unerwartetes Verhalten zeigt sich bei der Implementation des Auslesen des ersten Sensors, der Drucksensor. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des Sensortags an den Harvester, riss die Spannung sofort zusammen. Innert kürzester Zeit haben sich entlädt sich der STS wie parallel zu ihm der LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie, als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
-\todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen)
+\todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen}
 
 Durch den deutlich höheren Energieverbrauch, wird eine Power-Optimierung im Softwareteil notwendig. Es zwingt aber auch, den Schwellwert von v\_bat\_min\_hi\_dis  wieder zu erhöhen. Die finale Konfiguration ist im Resultate-Teil abgebildet.
 
