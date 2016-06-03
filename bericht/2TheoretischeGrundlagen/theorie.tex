@@ -286,7 +286,7 @@ Die Aufgabe des EM8500-Chip ist es, Energie zu sammeln und kontrolliert frei zu 
 
 In diesem Kapitel werden drei Konzepte zum Umsetzen eines Low Power Systems vorgestellt. Das Hauptthema ist das Schlafen zwischen allen Prozessen. Dies wird im ersten Unterkapitel beschrieben. Das Schlafen bedingt ein Aufwecken aufgrund von Ereignissen. Dadurch ergibt sich eine Interrupt Driven Applikation. Diese wird im zweiten Unterkapitel erklärt. Als letztes dient ein Design Aspekt: Durch das Einbauen einer State Machine über alle laufenden Interrupts, ist es nachfolgenden Entwicklerinnen und Entwicklern einfacher, den Code und die gegenseitigen Beeinflussungen zu verstehen. Dies wird im Unterkapitel beschrieben.
 
-Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kurz auf die verwendete Hardware eingegangen. In der Bachelorarbeit war als Microkontroller das Simple Link Sensortag von Texas Instrument vorgegeben. Der Grund für dieses Board ist, dass das Sensortag drei Anforderungen auf einem Board vereint:
+Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kurz auf die verwendete Hardware eingegangen. In der Bachelorarbeit war als Microkontroller das Simple Link TI-SensorTag von Texas Instrument vorgegeben. Der Grund für dieses Board ist, dass das TI-SensorTag drei Anforderungen auf einem Board vereint:
 
 \begin{itemize}
     \item Ein Cortex M3 dient als Haupt-Microkontroller und ist aufgrund seiner hohen, und somit schnellen, Rechenleistung und seiner Low Power-Fähigkeiten für eine Harvester-Anwendung wie der Bicycle Computer geeignet.
@@ -294,7 +294,7 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
     \item Auf dem Board sind 10 Sensoren angebunden.
 \end{itemize}
 
-Die Funktionsblöcke des Sensortags befinden sich im Anhang \ref{anhang_sensortag}.
+Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_TI-SensorTag}.
 
 \subsection{Einbauen von Schlaufmodi}\label{pm_sleep} 
 

@@ -7,7 +7,7 @@ Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem 
 
 \subsection{Der Print}
 
-Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_vorne} ist die Vorderseite abgebildet. \todo{bessere Beschreibung} Darauf befindet sich im Wesentlichen der Header als Verbindungsstecker zum Sensortag, die vier Gleichrichterdioden, der Limiter, die Spule und der EM8500. In der Abbildung \ref{print_rueckseite} befindet sich der Reed-Switch und die dreilagige Premo-Spule, mit der die Induktion erzeugt wird.
+Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_vorne} ist die Vorderseite abgebildet. \todo{bessere Beschreibung} Darauf befindet sich im Wesentlichen der Header als Verbindungsstecker zum TI-SensorTag, die vier Gleichrichterdioden, der Limiter, die Spule und der EM8500. In der Abbildung \ref{print_rueckseite} befindet sich der Reed-Switch und die dreilagige Premo-Spule, mit der die Induktion erzeugt wird.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
@@ -58,7 +58,7 @@ Die Abbildung \ref{resultat_Harvester_Spannung} zeigt, das reelle Verhalten des 
 \newpage  % todel
 \subsection{Energie am EM-Chipausgang}
 
-Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem Sensortag zur Verfügung steht ist:
+Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
 
 \subsubsection*{Tabelle Leistung und Wirkungsgrad }
 \begin{tabbing}
@@ -86,7 +86,7 @@ Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich
     \label{zsmEnergyGewinn}
 \end{figure}
 
-Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursache, dass trotz genug geernteter Energie, das Sensortag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit, erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad. Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
+Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursache, dass trotz genug geernteter Energie, das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit, erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad. Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
 
 \subsubsection*{Tabelle Leistung und Wirkungsgrad }
 \begin{tabbing}
@@ -207,7 +207,7 @@ Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am 
 \newpage
 \section{Ergebnisse BLE-Applikation}
 
-Der Aufbau des Sensortags zusammen mit dem selbst entwickelten Board wird \glqq Sensor\grqq\thinspace\ genannt. Dies, weil aus der Sicht einer Benutzerin oder eines Benutzers keine detaillierte Hardware besteht, sondern \glqq ein Sensor\grqq. Die Vereinfachung dient der Benutzerfreundlichkeit. Die Android-Applikation ist bewusst einfach aufgebaut, um die Benutzerin bzw. den Benutzer nicht zu verwirren. 
+Der Aufbau des TI-SensorTags zusammen mit dem selbst entwickelten Board wird \glqq Sensor\grqq\thinspace\ genannt. Dies, weil aus der Sicht einer Benutzerin oder eines Benutzers keine detaillierte Hardware besteht, sondern \glqq ein Sensor\grqq. Die Vereinfachung dient der Benutzerfreundlichkeit. Die Android-Applikation ist bewusst einfach aufgebaut, um die Benutzerin bzw. den Benutzer nicht zu verwirren. 
 
 Der animierte Tachometer stellt die aktuelle Geschwindigkeit schnell und übersichtlich dar. Weitergehende Funktionen sind durch prägnante Namen selbsterklärend und der User sollte keine Mühe haben, die App ohne Lesen einer Anleitung zu verstehen.
 
@@ -229,12 +229,12 @@ Wird eine Verbund zu Bluetooth erlaubt, erscheint der Startbildschirm. Auf diese
     \label{tacho}
 \end{figure}
 
-Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die Sensortagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes Sensortag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
+Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
-    \caption{Sensortagauswahl}
+    \caption{TI-SensorTagauswahl}
     \label{sensorauswahl}
 \end{figure}
 
@@ -250,7 +250,7 @@ Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe
 
 Die Radgrösse, sprich der Radumfang, muss einstellbar sein, da die interne Geschwindigkeitsberechnung von diesem abhängt. Da die Radgrösse nicht normiert ist, konnte kein Drop Down-Element eingebaut werden. Die Zahl wird über die Tastatur in das Feld eingegeben.
 
-Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem Sensortag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. Sensortag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
+Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem TI-SensorTag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. TI-SensorTag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
 
 \subsubsection*{Auswählbare Einheiten}
 \begin{tabbing}
@@ -267,7 +267,7 @@ Die vorgenommenen Einstellungen werden über den Button \glqq Speichern\grqq ges
 
 \subsection{Paketverlust}
 
-Sensortag sendet im Advertising Mode 3 Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
+TI-SensorTag sendet im Advertising Mode 3 Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
 
 \subsubsection*{Paketverlust BLE-Applikation}
 \begin{tabbing}
