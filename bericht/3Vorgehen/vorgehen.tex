@@ -172,98 +172,121 @@ Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die
 
 
 \section{Hardware entwickeln}
+Aus der Inbetriebnahme der Machbarkeitsstudie, wurden einige Punkte ersichtlich, welche mit einer neuen Leiterplatte, bzw. einer neuen Hardware verbessert werden können. Im speziellen muss die Harvesterschaltung genauer angeschaut werden und es soll versucht werden die nachfolgenden Punkte aus der Inbetriebnahme der Machbarkeitsstudie umzusetzen. 
 
-Notiz: Ziel dieses Artikels gemäss Inbetriebnahme:
-- Genug Energie für BLE bei 10 km/h
+-	Die Schaltung soll für eine Geschwindigkeit von 10 km/h ausgelegt werden
+
+Ausserdem soll die neue Leiterplatte den fliegenden Aufbau der Harvesterschaltung und den EM-Chip beherbergen. Es wird in diesem Schritt darauf verzichtet, das TI-SensorTag ebenfalls in die neue Leiterplatte zu integrieren, da die Komplexität des TI-SensorTags hoch ist und die Hardware gut in mehreren Schritten überarbeitet werden kann.
 \subsection{Schema}
+Bevor ein Leiterplattenlayout entwickelt werden kann, muss das Schema erfasst werden. Es wurden verschiedenste Vorgaben von den Dozenten vorgegeben, welche im besten Fall alle eingehalten werden. Die Grösse der Leiterplatte soll die Grösse des TI-SensorTags nicht überschreiten, alle Netze sollen mit Testpunkten ausgestattet werden, alle Anschlüsse des TI-SensorTags auf der Leiterplatte zugänglich sein und alle Testpunkte des TI-SensorTags sollen im Rastermass 2.5 mm angeordnet werden. Ausserdem sollten, falls der Platz ausreichen würde, Strommesspunkte an der Speisung des TI-SensorTags, des Longterm Storage und des Shortterm-Storage angebracht werden. Diese Vorgaben sollen die Leiterplatte für eventuelle Laborübungen der Schule verwendbar machen. Das Schema besteht im groben aus vier Teilen:
+\begin{enumerate}
+    \item Harvesterschaltung
+    \item EM-Chip inklusive zugehöriger Peripherie
+    \item Energiespeicher
+    \item Umlauferfassung
+\end{enumerate}
+
+\subsubsection{Harvesterschaltung}
+Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau realisiert, was zu einigen Problemen führen kann, da viele lange Kabel verwendet wurden und somit die Signallaufwege ziemlich lang sind. Bisher hat dies keine Probleme verursacht, doch es geht wichtige Energie in den Kabeln verloren. Ebenfalls wurde in der Inbetriebnahme bemerkt, dass die gewonnene Leistung sehr gering ist, weswegen die Schaltung in einem zweiten Schritt optimiert werden muss.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Schema_Harvester_PA.PNG}
+    \caption{Harvesterschaltung der PA15}\label{schema_harvester_pa15} 
+\end{figure}
+Die Harvesterschaltung der Abbildung ref{schema_harvester_pa15}} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne unnötig Leistung zu verschwenden.
+\subsubsection{EM-Chip}
+Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, das Schema inklusive aller Kondensatoren ist im Datenblatt zu finden. Jedoch wurden die Jumper nicht übernommen und nur einige Stecker wurden übernommen, bzw. mit eigenen Signalen ergänzt.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Schema_EM-Chip_inkl_Peripherie.PNG}
+    \caption{Schema des EM-Chips mit der benötigten Peripherie}\label{schema_em-chip_inkl_peripherie} 
+\end{figure}
+
+\subsubsection{Energiespeicher}
+Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. Dimensionierung noch nicht definitiv war und noch Tests bezüglich der Energiespeicher anstanden. Jedoch wurde im Schema jeweils ein Elko als Platzhalter verwendet, da in der Machbarkeitsstudie ebenfalls Elkos verwendet wurden, die Kapazitätswerte sind jedoch nur erste Werte, welche nur abgeschätzt wurden.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Schema_Energiespeicher.PNG}
+    \caption{Schema der Energiespeicher (Elkos sind nur Platzhalter)}\label{schema_energiespeicher} 
+\end{figure}
+
+\subsubsection{Umlauferfassung}
+Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da die Energie aus der Spule gewonnen wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein klares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reedswitch detektiert und an das TI-SensorTag weitergegeben. Ein Magnetdurchlauf erzeugt einen positiven Puls, solange der Magnet in der Reichweite des Reedswitch befindet.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Schema_Umlaufdetektion.PNG}
+    \caption{Schema Umlauferfassung}\label{schema_umlaufdetektion} 
+\end{figure}
+
 \subsection{Bauteildefinition und Optimierung}
+Nachdem klar war, welche Teile auf der Leiterplatte Platzfinden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie unnötig verloren geht. 
+Es wurden folgende Punkte angeschaut und versucht zu optimieren:
+\begin{enumerate}
+    \item die Spule
+    \item der Gleichrichter
+    \item der Limiter
+\end{enumerate}
+\subsubsection{Die Spule}
+Die Spule gewinnt die Energie aus dem an einer Speiche des Fahrrads befestigten Magneten. Eine bessere Spule könnte mehr Energie aus dem vorbei schnellenden Magneten gewinnen. Entscheidend ist das die Fläche der Spule nicht vergrössert werden darf, bestenfalls sollte eine kleinere Spule gefunden werden, welche mehr Energie gewinnt. Gemäss der Formel 2.4 ist für die gewonnene Energie vor allem die Wicklungszahl entscheidend, jedoch wird bei den Spulen meistens nur die Induktivität angegeben. Dies ist kein Problem, da die Induktivität quadratisch von der Wicklungszahl (siehe Formel x) abhängt.
+\todo{Formel einfügen (Referenz: https://home.zhaw.ch/~spma/Scripts/ET_ST/EL2/Theorie/Induktivitaet.pdf (Konsultierung am 02.06.16))}
+Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Fläche gesucht, somit können nur noch zwei Variablen sich verändern. Zum einen kann sich die Wicklungszahl verändern und zum andern kann sich die Länge der Spule verändern. Die Spule von Würth Elektronik hat eine ähnliche Fläche und eine grössere Induktivität, was auf den ersten Blick sehr vielversprechend aussieht.
+
+Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo mit der Bezeichnung 3015N 0238J 3206 hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth mit der Bezeichnung 74458308 hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit muss der Spule von Premo der Vortritt gerwährt werden. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildung \ref{messung_optimierung_spule}. Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Messung_Optimierung_Spule.PNG}
+    \caption{Links: Spannung über der Spule von Premo, Rechts: Spannung über der Spule von Würth, Geschwindigkeit 20 km/h}\label{messung_optimierung_spule} 
+\end{figure}
+
+\subsubsection{Der Gleichrichter}
+Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5819. Diese Dioden sind nicht für die LowPower-Anwendung ausgelegt, ausserdem sind die Dioden nicht ein einem Gehäuse verbaut. Wichtig ist bei dem Gleichrichter, dass die Leckströme möglichst klein sind und die Schwellenspannung sollte ebenfalls möglichst klein sein.
+
+Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet, die Erwartungen waren entsprechend hoch, da diese Dioden für LowPower-Anwendungen spezialisiert ist. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in der Abbildung \ref{messung_optimierung_gleichrichter_1} gezeigt wird.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_1.PNG}
+    \caption{Links: Gleichrichter 1N5819, Rechts: Gleichrichter aus HSMS-286P, 15 km/h}\label{messung_optimierung_gleichrichter_1} 
+\end{figure}
+Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp, der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10mVpp, dieser Unterschied ist vernachlässigbar, in Angesicht, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_2.PNG}
+    \caption{Links: Gleichrichter 1N5819, Rechts: Gleichrichter aus BAT54, 15 km/h}\label{messung_optimierung_gleichrichter_2} 
+\end{figure}
+
+\subsubsection{Der Limiter}
+Die Spannungsbegrenzung, nachfolgend der Limiter genannt, ist ein sehr krititscher Teil der Harvesterschaltung, da die Spannung am EM-Chip Eingang nicht höher als 2V sein darf, da ansonsten der EM-Chip beschädigt werden kann. Trotzdem soll möglichst wenig Energie verloren gehen, wenn die Spannungsbegrenzungsschaltung ihre Arbeit verrichtet. Bisher wurden drei Dioden in Durchlassrichtung in Serie geschalten, um die Spannung zu begrenzen.
+
+Herr Erich Ruff hat eine Spannungsbegrenzungsschaltung entwickelt, welche er uns freundlicherweise zur Verfügung stellte. Diese Schaltung wurde mit dem Limiter verglichen, welcher aus drei Dioden bestand.
+
+Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem LImiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung x zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Messung_Optimierung_Limiter.PNG}
+    \caption{Links: Dioden-Limiter, Rechts: FET-Limiter, 15 km/h}\label{messung_optimierung_limiter} 
+\end{figure}
+
 \subsection{Layout}
+Schlussendlich musste aus den optimierten Teilen des Schemas eine Leiterplatte gestaltet werden. Die meisten Footprints waren bereits in den Bibliotheken des IneS vorhanden, einige mussten neu gezeichnet werden.
+\subsubsection{Positionierung}
+Die Positionierung der einzelnen Teile kann sehr wichtig sein, da mit einer guten Positionierung bereits unnötige Leiterbahnverläufe verhindert werden können. Ebenfalls können gut positionierte Bauteile die Spannungspegel stabilisieren. Es wurde darauf geachtet die Bauteile, welche zu einem Block gehören, nahe beieinander platziert wurden, um unnötig lange Signallaufwege zu verhindern.
+
+Die Bauteile der Harvesterschaltung wurde als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
+\todo{Formel für Leiterwiderstand einfügen}
+Der Widerstand bei 10 Mil ist somit 2.4 mΩ, der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist 1.2 mΩ. Problematisch ist, dass der Block der Harvesterschaltung etwas entfernt vom Block des EM-Chips befindet, das bedeutet, die Leiterbahn mit der Speisung des EM-Chips muss mehrere Zentimeter zurücklegen. Sicherlich ist der Unterschied im Widerstand nicht sehr gross, doch die Energie, welche in der Leiterbahn verloren gehen würde, konnte so halbiert werden.
+
+Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
+
+Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet, durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht schön übereinander sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Problem beim Einbauen in ein eventuelles Gehäuse bereiten. Zu dem Stecker gehört auch die Paltzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster}} ersichtlich.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Layout_Testpunkteraster.PNG}
+    \caption{Pads der Leiterplatte, rot eingerahmt die Testpunkte des Steckers}\label{layout_testpunkteraster} 
+\end{figure}
+
+\subsubsection{Das erste Layout}
+Die erste Version der Leiterplatte war mit vielen Wünschen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet, die Testpunkte des Steckers wurden im Rastermass 2.5mm angeordnet und die Netze der Spannung nach dem Harvester, die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durch passt, besser wäre es Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33x42mm gross, was ein Milimeter breiter ist, als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, sondern über ein Kabel oder Litze mit der Leiterplatte verbunden werden können.
+
+\subsubsection{Das Redesign}
+Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die Platzierung als auch der Footprint wurden falsch umgesetzt. Der Stecker wurde nicht an der richtigen Stelle platziert, somit überlappte unsere Leiterplatte das TI-SensorTag. Beim Erstellen des Footprints des Steckers wurden die Pins vertauscht, dort wo der Pin 1 sein sollte wurde der Pin 19 platziert und umgekehrt. Dies musste korrigiert werden, damit unsere Leiterplatte direkt mit dem TI-SensorTag verbunden werden kann. Dafür wurde die Leiterplatte überarbeitet, jedoch war die Zeit zu knapp, als dass die Leiterplatte für Tests vorhanden war.
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Layout_Redesign.PNG}
+    \caption{Links: Top-Layer, Rechts: Bottom-Layer}\label{layout_redesign} 
+\end{figure}
 
 \todo{ Namensklärung: V HRV = VCC}
 \todo{Messprotokolle umbenennen}
-
-
----- alter Text-----                             
-Ein wichtiger Punkt der Arbeit ist die Miniaturisierung der bestehenden Hardware, das heisst der Aufbau aus der Machbarkeitsstudie soll auf eine Leiterplatte gebracht werden. Die Leiterplatte hat einige Vorgaben, welche im besten Fall alle eingehalten werden sollen.
-
-\begin{enumerate}
-    \item Die Leiterplatte soll nicht oder nur geringfügig grösser sein als das TI-SensorTag.
-    
-    \item Alle Netze sollen mit Testpunkten ausgestattet werden.
-    
-    \item Alle Anschlüsse vom TI-SensorTag sollen auf der Leiterplatte mit Testpunkten ausgestattet werden.
-    
-    \item Alle Testpunkte vom TI-SensorTag sollen in einem Raster von 2.54 mm angeordnet werden, damit ein Stecker kontaktiert werden kann.
-    
-\end{enumerate}
-	
-
-
-\subsection{Das Schema (oder der Stromlaufplan)}
-Als erstes musste ein Schema, auch Stromlaufplan genannt, gezeichnet werden. Das Schema wurde Blockweise erfasst, als erstes wurde die Harvesterschaltung erfasst. Das Schema wurde aus der Machbarkeitsstudie entnommen. Die Funktionsweise der Harvesterschaltung kann wieder in mehrere Teile unterteilt werden.
-
-\begin{enumerate}
-    \item Die Spule: Gewinnt Energie aus dem vorbei schnellenden Magneten.
-    
-    \item Der Gleichrichter: Erzeugt positive Pulse aus der induzierten Spannung.
-    
-    \item Der Limiter: Limitiert die Spannung auf eine fixe Spannung.
-    
-    \item Der Ausgangskondensator: Glättet die positiven Pulse aus dem Gleichrichter.
-    
-\end{enumerate}
-
-Der nächste Block ist der EM8500-Chip mit seinen Stützkondensatoren. Das Schema wurde aus dem Datenblatt entnommen. 
-Die Energiespeicher, welche in dieser Arbeit mittels Elektrolytkondensatoren dargestellt werden, sind einige der wichtigsten Elemente. Die Speicherelemente werden nicht auf der Leiterplatte Platz finden, da die meisten Elektrolytkondensatoren zu hoch sind und der Platz zwischen den Leiterplatten sehr gering ist. 
-Die Umlauferfassung wird mit einem Reed-Switch ermöglicht. Der Reedswitch ist einer der kleinsten Blöcke im Schema.
-Der Block Interface enthält die Verbindung zum TI-SensorTag, ein Stecker realisiert dieses Interface. Der Stecker ist bereits vom TI-SensorTag vorgegeben, es handelt sich um einen Stecker, welcher sein eigenes Gegenstück darstellt. 
-
-\subsection{Optimierung der Harvesterschaltung}
-
-Nach dem Erfassen des Schemas wurde die Optimierung der Hardware angegangen. Die beste Optimierungsmöglichkeit und auch der kritischste Block ist die Harvesterschaltung, hier wird die Energie für die restliche Schaltung gewonnen. In mehreren Schritten wurden die einzelnen Teile der Schaltung analysiert und versucht zu optimieren.
-
-\subsubsection{Optimierung der Spule}
-
-Die Spule gewinnt die Energie aus dem vorbei schnellenden Magneten, hier kann die gewonnene Energie beeinflusst werden. Eine gute Spule kann mehr Energie aus dem bewegten Magneten gewinnen, wichtig ist die Induktivität L und die Fläche A, welche die Spule hat. Eine Vorgabe war dass die Spule von der Grösse nicht merklich verändert wird, ausser man würde eine kleinere Spule finden, welche mehr Energie gewinnt. Eine Spule mit ähnlicher Fläche bzw. Grösse wurde gefunden, welche eine höhere Induktivität besitzt. Die Spule von Würth Elektronik ist sehr vielversprechend, denn die gleiche Fläche mit höherer Induktivität bedeutet mehr Energiegewinn aus dem Magneten.
-\todo{Hier Schlusswort von Messprotokoll einfügen}.
-
-\subsubsection{Optimierung des Gleichrichters}
-
-Der Gleichrichter aus dem Aufbau der Machbarkeitsstudie besteht aus vier Dioden vom Typ 1N5819, diese Dioden sind nicht für eine LowPower-Anwendung ausgelegt. Ausserdem könnte ein Gleichrichter gefunden werden, welcher in einem Gehäuse ausgeliefert wird. Wichtig ist dass der Leckstrom so gering wie möglich ist und die Schwellenspannung ebenfalls möglichst klein bleibt. 
-\todo{Hier Schlusswort von Messprotokoll einfügen}.
-
-\subsubsection{Optimierung des Limiter}
-
-Der Limiter ist eine Spannungbegrenzung, da die nachfolgende Schaltung nicht mit einer zu hohen Spannung betrieben werden darf. Dieser Schaltungsteil ist sehr kritisch, denn er darf nicht zu viel Energie verlieren, muss aber trotzdem die Spannung immer begrenzen. Die Spannung darf einen Pegel von 2 V nicht überschreiten, da ansonsten der EM-8500-Chip droht zerstört zu werden. 
-\todo{Hier Schlusswort von Messprotokoll einfügen}.
-
-\subsubsection{Optimierung des Ausgangskondensators}
-
-Der Ausgangskondensator muss möglichst niedrig gehalten werden, gemäss Aussage von Yves, da ansonsten der EM8500-Chip Mühe hat den Eingang zu regeln. Trotzdem darf der Ausgangskondensator nicht zu klein dimensioniert werden, da ansonsten die Rippelspannung am Ausgang der Harvestersschaltung zu hoch ist und der EM8500-Chip ebenfalls nicht mehr richtig regeln kann.
-\todo{Hier Schlusswort von Messprotokoll einfügen}.
-
-
-\subsection{Bauteildefinition}
-
-Nachdem das Schema gezeichnet wurde und die Schaltung opimiert wurde, mussten die Bauteile noch definiert werden. Es mussten die Footprints, sowie die Hersteller, Herstellerbezeichnungen, Lieferant und Lieferantenartikelnummer hinterlegt werden. Einige Footprints waren bereits in den Bibliotheken vorhanden, welche wir von Lukas erhalten haben. Fehlende Footprints wurden ergänzt, wie zum Beispiel der Footprint der Spule.
-
-
-\subsection{Das Layout}
-
-\subsubsection{Positionierung}
-Die Positionierung der Bauteile auf der Leiterplatte ist sehr wichtig, da hier schon unnötige Leiterbahnen gespart werden können bzw. die Länge von gewissen Leiterbahnen können extrem verkürzt werden.
-Wichtig ist, dass die Stüztkondensatoren bei dem EM8500-Chip so nah wie möglich am Chip platziert werden, damit die Spannungen am Chip so konstant gehalten werden können, wie nur möglich.
-Weiter sollte die Harvesterschaltung ebenfalls sehr eng beieinander platziert werden, um zu verhindern, dass durch lange Stromlaufwege bereits Leistung verloren geht. Problematisch ist, dass die Spule auf der unteren Seite der Leiterplatte platziert werden muss, somit wird die Schaltung ein auf zwei Layer aufgeteilt.
-Eine grosse Herausforderung ist die Positionierung der Testpunkte, um das Interface zum TI-SensorTag zu realisieren. Dadurch wird ein grosser Platz für die korrekte Positionierung der Testpunkte eingenommen.
-
-\subsubsection{Gestaltung der Leiterbahnen}
-
-Wann immer möglich wurden die Leiterbahnen, welche zu der Harvesterschaltung gehören, mit 20 Mil gezogen, um eine möglichst verlustfreie Leistungsübertragung zu gewährleisten. Alle anderen nicht leistungskritischen Leiterbahnen wurden mit eine Leiterbahnbreite von 10 Mil platziert, um nicht mehr Platz in Anspruch zu nehmen als nötig.
-
-\subsubsection{Ergebnis}
-
-Das Ergebnis ist eine Leiterplatte, welche alle gewünschten Spezifikationen erfüllt und somit kann die Leiterplatte auch für ein Praktikum verwendet werden. Die Leiterplatte ist mit sehr vielen Testpunkten ausgestattet, sowie die Möglichkeit für Strommessungen.
-\todo{Bild Neues Layout}.
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
@@ -603,10 +626,69 @@ Aufgrund von Messungen -> Codeoptimierung
 
 % 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
+Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwickelten Board als Sensor benannt und die Android Applikation auf dem Smartphone wird einfach als Applikation benannt.
+\subsection{Aufbau der Applikation}
+\begin{figure}
+    \includegraphics{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
+    \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
+\end{figure}
+Der Aufbau der Applikation soll Anfangs in vier Teile des Bildschirms geteilt werden. 
+Im Bereich GPS soll eine Karte angezeigt werden, ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
+Der Verlauf zeigt die Entwicklung der Geschwindigkeit über einen gewissen Zeitraum, wobei es wählbar sein soll welche Daten angezeigt werden.
+Die Geschwindigkeit soll anschaulich in einem Tachometer angezeigt werden und die Tachonadel soll im besten Fall animiert sein.
+Im Bereich der Werte sollen die aktuellen Werte in Zahlen und den entsprechenden Einheiten dargestellt werden.
+Schnell wurde klar, dass dieser Aufbau wenig Sinn macht, da die Bereiche auf einem Smartphone viel zu klein wären und nicht mehr leserlich sein würden. Darum wurde ein neues Konzept erarbeitet, welches in der Abbildung x ersichtlich ist.
 
-\subsection{Aufbau der App}
+\subsubsection{Home-Screen}
+Als erstes soll der Benutzer den sogenannten Home-Screen sehen, hier werden der Tachometer, die Werte und ein paar Buttons angezeigt. Je nach Anzahl der Funktionen sollen neue Buttons implementiert werden. So soll beispielsweise für die Sensorwahl ein Button vorhanden sein. Während der Entwicklung der Applikation wurde die Idee von einer GPS-Karte und einem Verlauf ebenfalls verworfen, da diese Funktionen aus zeitlichen Gründen nicht mehr realisierbar waren. Jedoch wäre der Home-Screen in der Lage mehr Buttons aufzunehmen, es muss nur darauf geachtet werden, dass die Anzeige der Werte nicht zu gross wird.
 
-\subsubsection{BLE empfangen und filtern}
+\subsubsection{Sensorwahl}
+Schnell wurde klar, dass die Auswahl eines spezifischen Sensors wichtig werden würde, für den Fall, dass einmal mehrere Sensoren vorhanden wären. Ein Beispiel, würde unsere Applikation bei einem Fahrradrennen eingesetzt werden, so müsste die Applikation auf dem Smartphone mit dem Sensor am Fahrrad gepaart werden. Ansonsten würde man die Daten von allen Sensoren empfangen und die Anzeige würde nicht die Daten des eigenen Sensors anzeigen.
+
+\subsubsection{Einheiten und Einstellungen}
+Es kam ebenfalls der Wunsch auf, die Einheiten der Werte, einstellbar zu machen, da die Applikation bestenfalls auch in anderen Ländern verwendet werden soll. Also wäre es optimal, wenn die Geschwindigkeit beispielsweise auch in Miles per Hour dargestellt werden könnte. Vielleicht müsste auch eine Einstellungsmöglichkeit bereitgestellt werden, damit die Temperatur kalibriert werden kann.
+
+\subsubsection{BLE-Kommunikation}
+Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation, hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, das die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, das die empfangenen Daten zu unserem Sensor gehört, müssen diese umgerechnet werden.
+
+\subsubsection{Inbetriebnahme des Codes der PA}
+Als erster Schritt wurde der Code der vorangegangenen Arbeit analysiert und die wichtigen Teile zur Bluetoothkommunikation übernommen. Es wurden folgende Funktionen aus dem Code übernommen: onStart, onActivityResult, scanLeDevice, BluetoothAdapter.LeScanCallback.
+
+Die Funktion onStart wurde in BLE_init umbenannt und der Mechanismus zum Wachhalten des Geräts wurde entfernt. Der Mechanismus wurde entfernt, da dieser nicht mehr funktionierte. Ebenfalls wurde die Funktion in die Funktion onCreate eingefügt, um den Code übersichtlicher zu gestalten und da diese Funktion nur einmalig aufgerufen werden musste.
+ 
+Die Methoden onActivityResult und scanLeDevice wurden komplett übernommen.
+
+Die Callback-Funktion des Bluetoothadapters BluetoothAdapter.LeScanCallback wurde strukturell übernommen, jedoch wurde die Codierung zur Verarbeitung der Daten entfernt.
+
+\subsubsection{Filter einbauen}
+Der nächste logische Schritt war, dass die empfangenen Daten gefiltert werden mussten. Dafür wurde folgende Struktur definiert, damit festgestellt werden kann, ob die Daten von einem unserer Sensoren versendet wurden.
+\begin{tabbing}
+   Length	\quad\= Type	\quad\= UUID 	\quad\= Package ID	\quad\= Speed	\quad\= Pressure	\quad\= Temperature	\quad\= Humidity	\quad\= Checksum   \\[0.8ex]
+   23	\> 0x03	\> 0xDEBA \> 2 bytes\> 4 bytes\> 4 bytes\> 4 bytes\> 2 bytes \\
+\end{tabbing}
+Aufgrund dieser Struktur können alle empfangenen Daten, welche nicht die definierte Länge, Typ und UUID besitzen, ignoriert werden.
+
+Wenn sichergestellt ist, dass die Daten von unserem Sensor stammen, musste noch die Adresse vom Sender gespeichert werden. Alle Adressen werden in einer Liste gespeichert, vor dem Speichern wird jedoch noch geprüft, ob die Adresse bereits in der Liste ist, falls ja wird die Adresse nicht noch einmal gespeichert.
+
+\subsubsection{Berechnung der Daten}
+Der Sensor sendet Werte, wie den Zeitunterschied zwischen zwei Magnetdurchläufen, dem Luftdruck, der Temperatur und die relative Luftfeuchtigkeit. Diese Daten müssen erst noch in die realen Werte umgerechnet werden, da alle Werte in mehreren Bytes verteilt vorliegen.
+
+Der Zeitunterschied zwischen zwei Magnetdurchläufen wird in vier Bytes dargestellt. Die ersten beiden Bytes enthalten die Anzahl Sekunden, es muss also das erste Byte um acht Bit geschoben werden und anschliessen muss das zweite Byte noch addiert werden. Folgende Formel zeigt die Umrechnung von zwei Bytewerten in eine reelle Zahl:
+\todo{Formel einfügen}
+Die erhaltene Zahl muss noch mit einem Typecast in den Datentyp float umgewandelt werden.
+
+Das dritte und vierte Byte des übermittelten Zeitunterschieds enthält die Sekundenbruchteile. Folgende Formel zeigt, wie die Bytes verrechnet werden müssen, um die korrekten Werte zu erhalten:
+\todo{Formel einfügen}
+Der erhaltene Sekundenbruchteil kann nun zu den ganzen Sekunden dazu addiert werden, um die ganze Zeit zwischen zwei Magnetdurchläufen zu erhalten.
+
+Ein Beispiel, wird also der hexadezimale Wert 0x00014000 empfangen sind das 1.25 Sekunden zwischen zwei Magnetdurchläufen.
+
+Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit geteilt werden. Jedoch befinden sich an unserem Rad zwei Magnete, deswegen darf nur der halbe Radumfang verrechnet werden. Ausserdem ist das Resultat in m/s und muss deshalb noch in km/h umgerechnet werden, was nichts anderes als eine Multiplikation mit dem Faktor 3.6 ist.
+
+Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, das erste Byte kann ignoriert werden. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl.
+\todo{Formel einfügen}
+
+
 
 \subsection{Grundeinstellungen}
 
