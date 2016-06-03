@@ -48,7 +48,7 @@ Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt.
     BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble} \\
 \end{tabbing}   
 
-%\todo{Header Tabelle (Bezeichnung, Beschreibung) weg } 
+\todo{Header Tabelle (Bezeichnung, Beschreibung) weg } 
 
 \subsection{Verhalten des Vorgängermodells}\label{verhalten} 
 
@@ -73,7 +73,7 @@ Im Folgenden werden die einzelnen Spannungsverläufe chronologisch der Kanalnumm
 
 Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der in der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch (Details zu den Schwellwerten im Kapitel Theoretische Grundlagen \ref{t_energy_management}). Der hohe Wert erklärt durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie gespeichert, für weitere 5 Datenpakete.
 
-In der Auswertung viel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit gegen 70 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (15 km/h) auch nach 30 min nicht zu erreichen. Fährt man gegen 70 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und mit drei Umdrehungen pro Sekunde, erreicht man eine Geschwindigkeit von xxx \todo{ausrechnen} km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgabe nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
+In der Auswertung viel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Inpulsen, ergibt die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgabe nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
 
 
 Kanal 3, das pinkige Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
@@ -307,7 +307,6 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 Die Entwicklung wird konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (Sensortag). Für die Energiemessungen konnte der Power Analyser von Agilent Electronic N6705B mit der Serienummer MY50000795 gebraucht werden. Dieses mächtige Messgerät misst gleichzeitig Strom, Spannung und somit die Leistung im Zeitverlauf. Mühsame Annäherungen aus eigenen KO-Messungen sind somit nicht mehr notwendig.
 In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen Reihenfolge zusammengefasst. Die Detailaufnahmen zu allen Messungen finden sich in der CD im Ordner Messungen in der Datei Energiemessungen.pdf. 
 
-\todo{Energiemessung Sensortag pdf generieren}
 
 
 \subsubsection{Erste Energiemessungen}
@@ -321,18 +320,20 @@ In diesem Unterkapitel werden die Resultate vielre Messungen in ihrer zeitlichen
     \label{BLE_send}
 \end{figure}
 
-Um einen Anhaltspunkt über den Energieverbrauch des Sensortags zu erhalten, wurde 3 BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur Sensortagversion V0. Nach der Weiterentwicklung des Programms, folgte die Messung V1, in der zusätzlich die GPIO ausgelesen werden. Dies ist für das Einlesen der Reed Switch-Impulse unumgänglich und für das Einlesen der Energy States vom 8500 sinnvoll. Die Version V2, erster Versuch mehr Sleep-Time einzubauen, scheiterete am Zusammenspiel des Timings der Radio- und GPIO-Interrupts. Das Neuaufsetzen des Programms half, sodass die Version V3 power-optimiert Geschwindigkeitspakete sendet. Die untenstehende Tabell stellt die ersten Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung und der Energie zum Senden von 3 BLE Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx.
-\todo{Sitzungsprotokolle Datum einsezten}
+Um einen Anhaltspunkt über den Energieverbrauch des Sensortags zu erhalten, wurde 3 BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur Sensortagversion V0. Nach der Weiterentwicklung des Programms, folgte die Messung V1, in der zusätzlich die GPIO ausgelesen werden. Dies ist für das Einlesen der Reed Switch-Impulse unumgänglich und für das Einlesen der Energy States vom 8500 sinnvoll. Die Version V2, erster Versuch mehr Sleep-Time einzubauen, scheiterete am Zusammenspiel des Timings der Radio- und GPIO-Interrupts. Das Neuaufsetzen des Programms half, sodass die Version V3 power-optimiert Geschwindigkeitspakete sendet. Die untenstehende Tabell stellt die ersten Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung und der Energie zum Senden von 3 BLE Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx. Die Energiemessungen im Detail sind abgelegt auf der CD gemäss der Auflistung im Anhang xxxx.
+\todo{Sitzungsprotokolle Datum einsezten, Anhanhgsbezeichnung}
 
 \subsubsection*{Messresultate nach Sensortag-Versionen}
 \begin{tabbing}
-    Version   \quad\= Datum     \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
-    V0        \> 10.3.16        \> unbekannt            \> 33 $\mu$J \\
-    V1        \> 16.3.16        \> 87 $\mu$J            \> 32 $\mu$J \\
-    V3        \> 22.4.16        \> 40 $\mu$J            \> 29 $\mu$J \\
+    Version   \quad\= Datum    \quad\= Was................................................... \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
+    V0        \> 10.3.16  \> Nur BLE Paket      \> unbekannt            \> 33 $\mu$J \\
+    V1        \> 16.3.16  \> mit Geschwindigkeit      \> 87 $\mu$J            \> 32 $\mu$J \\
+    V3        \> 22.4.16   \> Schlafmodus optimiert     \> 40 $\mu$J            \> 29 $\mu$J \\
+    V4        \> 03.6.16    \> 3 Sensore, kein Schlafmodus optimiert     \> 77 $\mu$J            \> 43 $\mu$J \\
 \end{tabbing}
 
-Bei diesen Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren aufgestartet sind, viel mehr Energie verbraucht, als erwartet. Der Energieverbrauch des Auslesens nur eines Sensors (erste Priorität hat laut Aufgabenstellung der Drucksensor) ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten mehr möglich ist. Die Speisung der Applikation bricht sofort zusammen (siehe Abbildung \ref{i2c_problem}).
+Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren aufgestartet sind, viel mehr Energie verbraucht, als erwartet. Der Energieverbrauch des Auslesens nur eines Sensors (erste Priorität hat laut Aufgabenstellung der Drucksensor) ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten mehr möglich ist. Die Speisung der Applikation bricht sofort zusammen (siehe Abbildung \ref{i2c_problem}).
+\todo{warum ht sich BLE verschlechtert?}
 
 \begin{figure}[ht]
     \includegraphics[scale=1]{3Vorgehen/imag/pic4VSUPbrichtEin.PNG} 
@@ -363,31 +364,39 @@ Der Energieverbrauch des Sensortags wird 4-mal gemessen. Einmal mit der Minimalv
 
 
 
+\paragraph{Energieverbrauch Drucksensor}
 
-\paragraph{Alle drei Sensoren nacheinander: Advanced Harvester}
+Auf dem Sensortag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet. Der Druckwert wird über I2C ausgelesen. Hier die Energiemessung des Sensors, ausgelesen mit der Sensortag Version 4, am 3. Juni 2016.
 
-\paragraph{Nur Drucksensor}
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Drucksensor.png}
+  \caption{Energieverbrauch des Drucksensors BMP 280}
+  \label{energie_drucksensor}
+\end{figure}
 
-%\begin{figure}
-%  \includegraphics[width=1.0\textwidth]{../ressources/SimpleLink/V0Sendeablauf.png}
-%  \caption{Prozessablauf V0}
-%\end{figure}
+Das Auslesen des Drucksensors verbraucht 5.753 $\mu$J.
+
+\paragraph{Energieverbrauch Temperatursensor}
+
+\todo{tempsensor daten}
+Der Temperatursensor xxx der Marke yyy verbraucht fürs Auslesen der Daten, ohne Energieoptimierung, 10.635 $\mu$J.
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/tempSensor.png}
+  \caption{Energiemessung Temperatursensor auf Sensortag}
+  \label{energie_tempsensor}
+\end{figure}
 
 
-\paragraph{Nur Temperatursensor}
+\paragraph{Energieverbrauch Feuchtigkeitssensor}
 
-%\begin{figure}
-%  \includegraphics[width=1.0\textwidth]{../ressources/SimpleLink/V0Sendeablauf.png}
-%  \caption{Prozessablauf V0}
-%\end{figure}
+Der Feuchtigkeitssensor verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
 
-
-\paragraph{Nur Feuchtigkeitssensor}
-
-%\begin{figure}
-%  \includegraphics[width=1.0\textwidth]{../ressources/SimpleLink/V0Sendeablauf.png}
-%  \caption{Prozessablauf V0}
-%\end{figure}
+\begin{figure}
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Humidity.png}
+  \caption{Energieverbrauch Feuchtigkeitssensor}
+  \label{energie_humidity}
+\end{figure}
 
 
 
