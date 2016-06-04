@@ -369,10 +369,7 @@ Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
-Ziel des Kapitels: Ausmessen und sehen, dass zu wenig Energie. (Weglassen. Testteil). 2. Magnete nach 180 \% (Bild), Reellight bringt idee für 2 Magnete hintereinander, besser Spule verwenden
-
---- alter Text
-Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)  Es werden 3 Messstellen unterschieden siehe Abbildung \ref{EnergieMessungStellen}. In den folgenden Unterkapiteln werden die Resultate und die darauf folgenden Entwicklungsschritte kurz beschrieben:
+Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}. 
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}\label{EnergieMessungStellen} 
@@ -381,16 +378,115 @@ Der entwickelte Prototyp wurde intensiv ausgemessen (siehe Messprotokolle XXXX.)
 
 \subsection{Testen der Harvesterschaltung}
 
-- Zu wenig Energie
-- Zwei Magnete
-- stärkere Spule
+\subsubsection{Leistungsverifizierung}
 
-\subsection{Ausmessen der Energie vor und nach dem Gleichrichter}
+Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
 
-\subsection{Energiemessungen nach dem EMBoard}
+\begin{tabbing}
+    Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
+    10 km/h        \> 12.87 $\mu$W  \> 43.23 \%\\
+	20 km/h        \> 43.35 $\mu$W  \> 45.51 \%\\
+	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%\\
+	\caption{Leistung des fliegenden Aufbaus}
+\end{tabbing}
 
+\begin{tabbing}
+    Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
+    10 km/h        \> 10.17 $\mu$W  \> 56.99 \%\\
+	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%\\
+	\caption{Leistung der neuen Leiterplatte}
+\end{tabbing}
 
+Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
+
+\subsubsection{Test: stärkere Spule}
+
+Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH, liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau, wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \todo{Referenz Induktivitätsformel} ist die Induktivität von der Wicklungszahl abhängig, die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
+
+\begin{tabbing}
+    Spule   \quad\= maximale Leistung    \\[0.8ex]
+    Premo 2.38 mH        \> 48.57 $\mu$W\\
+	Premo 4.77 mH        \> 66.82 $\mu$W\\
+	\caption{Leistung mit unterschiedlichen Spulen}
+\end{tabbing}
+
+Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37 \% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
+
+\begin{equation}
+	L = \mu_0 * \frac{N^2*A}{l}
+\end{equation}
+
+\begin{equation}
+	N = \sqrt{\frac{L*l}{\mu_0*A}}
+\end{equation}
+
+\begin{equation}
+	neue\,Wicklungszahl = \sqrt{2} * bisherige\,Wicklungszahl
+\end{equation}
+
+Da die Leistung direkt proportional zur induzierten Spannung ist und die induzierte Spannung direkt proportional zur Wicklungszahl ist, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41 \% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
+
+\subsubsection{Test: mehrere Magnete in Serie}
+
+Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen} ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche minim stärker sind als unsere Magnete. Unsere Magnete sind haben eine N42 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.29 – 1.32 Tesla, die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm, unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
+
+Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
+
+\begin{tabbing}
+    Konfiguration   \quad\= maximale Leistung    \\[0.8ex]
+    Spule: Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
+	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W\\
+	\caption{Leistung mit unterschiedlicher Anzahl an Magneten}
+\end{tabbing}
+
+Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden, da man dieses Prinzip wieder ins Absurde treiben könnte und das ganze Rad mit Magneten austatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch und unestätisch.
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/zweiMagneteInSerie.png}
+  \label{zweiMagneteInSerie} 
+  \caption{Rechts: Anregung der Spule mit einem Magneten, Links: Anregung der Spule mit zwei Magneten in Serie}
+\end{figure}
+
+\subsection{Ausmessen der Leistung der endgültigen Hardware}
+
+Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Es wurde sich jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung welche die Harvesterschaltung zur Verfügung stellt aufgenommen werden.
+
+\begin{tabbing}
+    Geschwindigkeit   	\quad\= maximale Leistung    \\[0.8ex]
+    10 km/h		        \> 24.77 $\mu$W\\
+	15 km/h		        \> 61.07 $\mu$W\\
+	20 km/h		        \> 116.69 $\mu$W\\
+	40 km/h		        \> 472.61 $\mu$W\\
+\end{tabbing}
+
+Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut drastisch verbessert werden. 
+
+\subsection{Ausmessen der Energieabgabe des EM8500-Chips}
+
+Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
+
+Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
+
+\begin{equation}
+	E = \frac{U^2}{R}*\Deltat
+\end{equation}
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergieEMChip15kmh.PNG}
+  \label{EnergieEMChip15kmh} 
+  \caption{rot: VCC_STS, gelb: VSUP}
+\end{figure}EnergieEMChip15kmh
+
+Die Messung ergab folgende Werte:
+
+\begin{tabbing}
+    Geschwindigkeit   	\quad\= abgegebene Energie    \\[0.8ex]
+    10 km/h		        \> 261.2 $\mu$Ws\\
+	15 km/h		        \> 267.6 $\mu$Ws\\
+	20 km/h		        \> 273.2 $\mu$Ws\\
+	40 km/h		        \> 373.2 $\mu$Ws\\
+\end{tabbing}
 
 % 5---------------------------------------------------------------------------
 \section{Energy Management}
