@@ -7,34 +7,27 @@ Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem 
 
 \subsection{Der Print}
 
-Das erste konkrete Resultat ist der fertige Print. In der Abbildung \ref{print_vorne} ist die Vorderseite abgebildet. \todo{bessere Beschreibung} Darauf befindet sich im Wesentlichen der Header als Verbindungsstecker zum TI-SensorTag, die vier Gleichrichterdioden, der Limiter, die Spule und der EM8500. In der Abbildung \ref{print_rueckseite} befindet sich der Reed-Switch und die dreilagige Premo-Spule, mit der die Induktion erzeugt wird.
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zusehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen, jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen, hier wurden die beiden Kondensatoren über Litzen angeschlossen, da die Elkos keinen Platz zwischen dem Prototypen-PCB und dem TI-SensorTag finden. 
+
+Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherrbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte vielleicht noch Platz gehabt auf der oberen Seite, jedoch muss der Reed-Switch in der Nähe der Spule paltziert werden, da hier der Magnet durchläuft.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
-    \caption{Print Vorderseite}
-    \label{print_vorne}
+    \caption{Print Ansicht von unten}
+    \label{print_rueckseite}
 \end{figure}
 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.png} 
-    \caption{Print Rückseite}
-    \label{print_rueckseite}
+    \caption{Print Ansicht von oben}
+    \label{print_vorne}
 \end{figure}
 
 \newpage  % todel
 \subsection{Leistung am Harvesterausgang}
 
-Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei 10 km/h liegt das Leistungsmaximum bei xxx mW, bei 15 km/h bei xxx mW, bei 20 km/h bei xxx mW und bei 40 km/h bei xxx mW. Die detaillierten Angaben finden sich im Messprotokoll xxxx \todo{Name Messprotokoll}.
-
-\subsubsection*{Tabelle Leistung Harvesterausgang}
-\begin{tabbing}
-    Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
-    10 km/h  \> 21.87  $\mu$W \\
-    15 km/h  \> 57.19  $\mu$W \\
-    20 km/h> \> 114.67 $\mu$W \\
-    40 km/h> \> 416.29 $\mu$W \\
-\end{tabbing}  
+Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt, problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann, es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
@@ -42,17 +35,34 @@ Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich
     \label{mpp_resultat_harvester}
 \end{figure}
 
+Die Leistung, welche der Harvester zur Verfügung stellen kann liegt bereits bei einer Geschwindigkeit von 10 km/h bei 24.77 $\mu$W. Dies ist die Durchschnittsleistung bei optimaler Belastung, es handelt sich nicht um die Spitzenleistung. Es ist ersichtlich dass die Leistung mit der steigender Geschwindigkeit zunimmt.
+
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
+    10 km/h  \> 24.77  $\mu$W \\
+    15 km/h  \> 61.07  $\mu$W \\
+    20 km/h> \> 116.69 $\mu$W \\
+    40 km/h> \> 472.61 $\mu$W \\
+\end{tabbing}  
+
+Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können diese Leistungen nur erreicht werden, wenn die Einstellung des EM8500-Chips dementsprechend eingestellt werden.
+
 
 \newpage  % todel
 \subsection{Verhalten des Harvesterausgangs}
 
-Die Abbildung \ref{resultat_Harvester_Spannung} zeigt, das reelle Verhalten des Harvesters bei Belastung mit dem EM-Chip. Wie in beschrieben \ref{optimaleLeistung} regelt der Chip EM8500 den Eingang, bzw. den Ausgang des Harvesters, um den MPP zu erreichen. Die Abbildung \ref{resultat_Harvester_Spannung} zeigt den Verlauf der geregelten Spannung am Eingang des EM-Chips über längere Zeit. Weitere Messungen zum reelen Verhalten am EM8500-Chip-Eingang können den Messprotokoll \todo{Namen heraussuchen} entnommen werden.
-
+Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil, diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC.png} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_47uF.png} 
     \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
-    \label{resultat_Harvester_Spannung}
+    \label{resultat_Harvester_Spannung_47uF}
+\end{figure}
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_100uF.png} 
+    \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
+    \label{resultat_Harvester_Spannung_100uF}
 \end{figure}
 
 \newpage  % todel
@@ -221,7 +231,7 @@ Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Ab
     \label{permission}
 \end{figure}
 
-Wird eine Verbund zu Bluetooth erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Sensordaten angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
+Wird die Aktivierung der Bluetooth-Schnittstelle erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Messwerte angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/APPHomeScreen.png} 
@@ -229,8 +239,7 @@ Wird eine Verbund zu Bluetooth erlaubt, erscheint der Startbildschirm. Auf diese
     \label{tacho}
 \end{figure}
 
-Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, \todo{ev. besser: Sensorboard wählen} erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTagadresse ab. \todo{Text: warum user das Sensor nennt. Und es dehalb so heisst und nicht Board}. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden.
-
+Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor war. Es ist natürlich klar, dass nicht der Sensor (Temperatursensor, Drucksensor, etc) auf dem TI-SensorTag an sich ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedoch ist das für einen User ohne technischen Hintergrund zu hochstehend. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden. Es muss noch überlegt werden, wie die Adresse benutzerfreundlicher gestaltet werden kann, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
@@ -248,7 +257,7 @@ Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Unter
 
 Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}. Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
 
-Die Radgrösse, sprich der Radumfang, muss einstellbar sein, da die interne Geschwindigkeitsberechnung von diesem abhängt. Da die Radgrösse nicht normiert ist, konnte kein Drop Down-Element eingebaut werden. Die Zahl wird über die Tastatur in das Feld eingegeben.
+Die Radgrösse, sprich der Radumfang, muss einstellbar sein, da die interne Geschwindigkeitsberechnung von diesem abhängt. Da die Radgrösse nicht normiert ist, konnte kein Drop Down-Element eingebaut werden. Die Zahl wird über die Tastatur in das Feld eingegeben, es können nur Zahlen eingegeben werden. Dies wurde implementiert um zu verhindern dass die Eingabe von der Applikation nicht interpretiert werden kann.
 
 Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem TI-SensorTag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. TI-SensorTag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
 
@@ -267,7 +276,7 @@ Die vorgenommenen Einstellungen werden über den Button \glqq Speichern\grqq ges
 
 \subsection{Paketverlust}
 
-TI-SensorTag sendet im Advertising Mode 3 Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
+TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
 
 \subsubsection*{Paketverlust BLE-Applikation}
 \begin{tabbing}
@@ -282,8 +291,7 @@ TI-SensorTag sendet im Advertising Mode 3 Pakete pro Sendevorgang. Gemessen wird
     10 min  \> 349   \> 302 \> 13.5\thinspace\%  \\
 \end{tabbing} 
 
-Da der Advertising Mode keine sicher Verbindung ist, ist ein Paketverlust von rund 15\thinspace\% zu erwarten.
-
+Da unsere Nutzung des Advertising Mode keine aktive Verbindung vorsieht, ist ein Paketverlust von rund 15\thinspace\% zu erwarten. Der Paketverlust ist normalerweise keine Problem, da der Empfänger bei feststellen eines Verlusts eine Aufforderung an den Sender schickt um das verlorene Paket neu zu senden. 
 
 \subsection{Korrektheit der Daten}
 
@@ -294,8 +302,14 @@ Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuell
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/sniffer.png} 
-    \caption{Snifferpaket Prototyp}
+    \caption{Empfangende Daten des Sniffers}
     \label{sniffer}
+\end{figure}
+
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/sniffer.png} 
+    \caption{Empfangene Daten der Applikation}
+    \label{applikation_daten}
 \end{figure}
 
 
