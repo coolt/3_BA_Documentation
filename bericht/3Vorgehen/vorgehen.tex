@@ -728,13 +728,13 @@ Der Sensor sendet Werte, wie den Zeitunterschied zwischen zwei Magnetdurchläufe
 
 Der Zeitunterschied zwischen zwei Magnetdurchläufen wird in vier Bytes dargestellt. Die ersten beiden Bytes enthalten die Anzahl Sekunden, es muss also das erste Byte um acht Bit geschoben werden und anschliessen muss das zweite Byte noch addiert werden. Folgende Formel zeigt die Umrechnung von zwei Bytewerten in eine reelle Zahl:
 
-\todo{Formel einfügen}
+%\todo{Formel einfügen}
 
 Die erhaltene Zahl muss noch mit einem Typecast in den Datentyp float umgewandelt werden.
 
 Das dritte und vierte Byte des übermittelten Zeitunterschieds enthält die Sekundenbruchteile. Folgende Formel zeigt, wie die Bytes verrechnet werden müssen, um die korrekten Werte zu erhalten:
 
-\todo{Formel einfügen}
+%\todo{Formel noch einfügen}
 
 Der erhaltene Sekundenbruchteil kann nun zu den ganzen Sekunden dazu addiert werden, um die ganze Zeit zwischen zwei Magnetdurchläufen zu erhalten.
 
@@ -744,7 +744,7 @@ Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit g
 
 Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, das erste Byte kann ignoriert werden. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl.
 
-\todo{Formel einfügen}
+%\todo{Formel xx einfügen}
 
 
 
@@ -754,7 +754,7 @@ Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinand
 
 \subsection{Modularer Aufbau}
 
-Die Applikationsentwicklung basiet auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation ohne Probleme möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code.
+Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation ohne Probleme möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code.
 
 
 Mit Android Version xx.
