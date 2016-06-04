@@ -856,7 +856,7 @@ Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Dru
 	h = ln(\frac{p(h)}{p_0}) * (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) * (-7991 m)
 \end{equation}
 
-Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht in °C übertragen, sondern in Tausendsteln. Das bedeutet die Temperatur, welche empfangen wird, muss zusammengesetzt und mit 1000 dividiert werden. Die Formel sieht folgendermassen aus:
+Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln. Das bedeutet die Temperatur, welche empfangen wird, muss zusammengesetzt und mit 1000 dividiert werden. Die Formel sieht folgendermassen aus:
 
 \begin{equation}
 	T = (float)((byte_1 << 8) + byte_0) * 0.001
@@ -915,15 +915,15 @@ Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werd
 
 Es wurde der Enumeration drei Elemente hinzugefügt, welche alle einen Faktor, einen Offset und einen String mit der geschriebenen Einheit enthalten. Anhand dieser Enumeration kann der Faktor und der Offset einfach zugänglich gemacht werden. 
 
-- Referenz Temperaturumrechnung: http://www.umrechnung.org/masseinheiten-temperatur-celsius-fahrenheit-kelvin/celsius-fahrenheit-umrechnung.htm (Konsultation am 22.04.16)
-- Referenz Druckumrechnung: http://www.dolder-ing.ch/wissen/Einheiten/Tab_Druckumr/Tab-Druckumrechn-Gebrf.htm (Konsultation am 22.04.16)
-- Referenz Geschwindkeitsumrechnung: http://www.convertworld.com/de/geschwindigkeit/knoten.html (Konsultation am 22.04.16)
+- Referenz Temperaturumrechnung: %http://www.umrechnung.org/masseinheiten-temperatur-celsius-fahrenheit-kelvin/celsius-fahrenheit-umrechnung.htm (Konsultation am 22.04.16)
+- Referenz Druckumrechnung: %http://www.dolder-ing.ch/wissen/Einheiten/Tab_Druckumr/Tab-Druckumrechn-Gebrf.htm (Konsultation am 22.04.16)
+- Referenz Geschwindkeitsumrechnung: %http://www.convertworld.com/de/geschwindigkeit/knoten.html (Konsultation am 22.04.16)
 
 Die Enumerationen wurden anschliessend verwendet um die aktuelle Einstellung der Einheiten abzuspeichern. Da die Einstellung der Einheiten nun gespeichert werden konnte, musste diese Einstellung dem User zugänglich gemacht werden.
 
 Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten, einen EditText für die Eingabe des Radumfangs und ein EditText für die Kalibrierung der Temperatur zur Verfügung stellt. Die eingestellten Einheiten und die eingetragenen Werte werden über den Speichern-Button an die Haupt-Activity zurückgegeben. In der onActivityResult Methode in der Haupt-Activity werden die aktuellen Einstellungen empfangen und abgespeichert und anschliessend zur Darstellung der Werte verwendet. Erst bei der Anzeige der Werte, werden die eingestellten Faktoren und Summanden der Enumerationen verwendet.
 
-Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte, bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen, die zuvor abgespeicherten Werte an. Ein Beispiel, wenn man in der Activity den Spinner für die Temperatur auf "Fahrenheit (°F)" einstellt und diese Einstellung abspeichert. Die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung "Fahrenheit (°F)" angezeigt, da diese Einstellung zuvor abgespeichert wurde.
+Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte, bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen, die zuvor abgespeicherten Werte an. Ein Beispiel, wenn man in der Activity den Spinner für die Temperatur auf "Fahrenheit ($^\circ$F)" einstellt und diese Einstellung abspeichert. Die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung "Fahrenheit ($^\circ$F)" angezeigt, da diese Einstellung zuvor abgespeichert wurde.
 
 \begin{figure}[ht]
     \includegraphics{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
@@ -947,11 +947,11 @@ Bereits in der PA von Manuel König wurde mit der Anzeige von Bitmaps experiment
 
 Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
 
-\begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/tachometer.bmp}
-    \caption{Tachometer ohne Tachonadel}
-	\label{tachometer} 
-\end{figure}
+%\begin{figure}[ht]
+%    \includegraphics{3Vorgehen/imag/tachometer.png}
+%    \caption{Tachometer ohne Tachonadel}
+%	\label{tachometer} 
+%\end{figure}
 
 Das Bild konnte mit folgender Funktion eingelesen werden:
 
@@ -984,11 +984,11 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit der Breite von einem Pixel animiert. Die Tachonadel kann als ein Vektor angesehen werden, der im Ursprung gedreht und anschliessend verschoben wurde. Die X- bzw. Y-Koordinaten im Bild konnten folgendermassen berechnet werden:
 
 \begin{equation}
-	x = \frac{Breite des Tachometers}{2} + Länge der Tachonadel * \cos(Winkel der Tachonadel)
+	x = \frac{Breite\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel * \cos(Winkel\, der\, Tachonadel)
 \end{equation}
 
 \begin{equation}
-	y = \frac{Höhe des Tachometers}{2} + Länge der Tachonadel * \sin(Winkel der Tachonadel)
+	y = \frac{H\ddot{o}he\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel * \sin(Winkel\, der\, Tachonadel)
 \end{equation}
 
 Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite von nur einem Pixel nicht leicht auf einem hochauflösenden Display, wie dem Display des Samsung Galaxy S7, zu erkennen ist.
