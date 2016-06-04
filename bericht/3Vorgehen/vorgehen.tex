@@ -382,21 +382,24 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
 
 Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
+\todo{caption error}
 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 12.87 $\mu$W  \> 43.23 \%\\
 	20 km/h        \> 43.35 $\mu$W  \> 45.51 \%\\
 	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%\\
-	\caption{Leistung des fliegenden Aufbaus}
-\end{tabbing}
+	
+\end{tabbing}%\caption{Leistung des fliegenden Aufbaus}
+
+\todo{caption error}
 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 10.17 $\mu$W  \> 56.99 \%\\
 	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%\\
-	\caption{Leistung der neuen Leiterplatte}
-\end{tabbing}
+	
+\end{tabbing} %\caption{Leistung der neuen Leiterplatte}
 
 Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
 
@@ -408,8 +411,8 @@ Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen
     Spule   \quad\= maximale Leistung    \\[0.8ex]
     Premo 2.38 mH        \> 48.57 $\mu$W\\
 	Premo 4.77 mH        \> 66.82 $\mu$W\\
-	\caption{Leistung mit unterschiedlichen Spulen}
-\end{tabbing}
+	
+\end{tabbing} %\caption{Leistung mit unterschiedlichen Spulen}
 
 Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37 \% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
 
@@ -429,24 +432,26 @@ Da die Leistung direkt proportional zur induzierten Spannung ist und die induzie
 
 \subsubsection{Test: mehrere Magnete in Serie}
 
-Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen} ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche minim stärker sind als unsere Magnete. Unsere Magnete sind haben eine N42 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.29 – 1.32 Tesla, die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm, unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
+Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen} ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche wenig stärker sind als unsere Magnete. Unsere Magnete sind haben eine N42 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.29 – 1.32 Tesla, die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm, unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
 
 Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
 
 \begin{tabbing}
     Konfiguration   \quad\= maximale Leistung    \\[0.8ex]
     Spule: Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
-	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W\\
-	\caption{Leistung mit unterschiedlicher Anzahl an Magneten}
-\end{tabbing}
+	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W\\	
+\end{tabbing} %\caption{Leistung mit unterschiedlicher Anzahl an Magneten}
 
-Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden, da man dieses Prinzip wieder ins Absurde treiben könnte und das ganze Rad mit Magneten austatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch und unestätisch.
+\todo{caption error}
+
+Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden, da man dieses Prinzip wieder ins Absurde treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch und unästhetisch.
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/zweiMagneteInSerie.png}
   \label{zweiMagneteInSerie} 
   \caption{Rechts: Anregung der Spule mit einem Magneten, Links: Anregung der Spule mit zwei Magneten in Serie}
 \end{figure}
+
 
 \subsection{Ausmessen der Leistung der endgültigen Hardware}
 
@@ -460,7 +465,7 @@ Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, d
 	40 km/h		        \> 472.61 $\mu$W\\
 \end{tabbing}
 
-Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut drastisch verbessert werden. 
+Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlich verbessert werden. 
 
 \subsection{Ausmessen der Energieabgabe des EM8500-Chips}
 
@@ -469,14 +474,15 @@ Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stel
 Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
 
 \begin{equation}
-	E = \frac{U^2}{R}*\Deltat
+	E = \frac{U^2}{R}  *t % \Delta t
 \end{equation}
+\todo{Gleichung: delta t einbauen}
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergieEMChip15kmh.PNG}
   \label{EnergieEMChip15kmh} 
-  \caption{rot: VCC_STS, gelb: VSUP}
-\end{figure}EnergieEMChip15kmh
+  \caption{rot: VCC\_STS, gelb: VSUP}
+\end{figure}
 
 Die Messung ergab folgende Werte:
 
@@ -604,33 +610,36 @@ Der Feuchtigkeitssensor verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_hu
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Der Energieverbrauch hängt von der Anzahl ausgelesener Sensoren ab (siehe \ref{v_messungen_sensortag}). Für die Bestückung der Kondensatoren wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h ausgegangen. Die Grundlagen zur Energiekalkulation $\bar{E_{HRV}} \ge \bar{E_{BLE}} $ sind im Theorieteil \ref{th_energiebilanz} abgebildet. Hier werden die Kondensatoren berechnet.
-
-\todo{Gleichungen zusammen. Berechnung konkret}
-\begin{equation}
-  C_{STS}= \frac{ E_{Applikation}}{(V_{STS\_HIGH} )^2 - (V_{STS\_LOW} )^2}
-\end{equation}
+Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
 
 \begin{equation}
-  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
-\end{equation}
-
-\begin{equation}
-  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
-\end{equation}
-
-\begin{equation}
-  C_{STS}= \frac{ E_{Applikation}}{(3.6 V )^2 - (2.1 V)^2}
+  E_{Applikation} = 77, \mu J + 5 \mu J + 43 \mu J = 125 \mu J
 \end{equation}
 
 
-\todo{Abschlusstext. Übergang}
+\begin{equation}
+  C_{STS}= \frac{2,\times, 125 \mu J}{(2.7)^2 - (2.1)^2}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= \frac{ 250 \mu J}{7.29 - 4.41}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= \frac{ 250 \mu J}{2.88}
+\end{equation}
+
+\begin{equation}
+  C_{STS}= 86.8 \mu F
+\end{equation}
+
+Der Wert wird aufgerundet auf 100 $\mu$ F, um genügend Energie zu haben.
 
 \subsubsection{MPP einstellen}
 
 \todo{Messprotokolle eintrage}
 
-Das Ziel der Entwicklung ist, dass bei einer Geschwindigkeit von 10 km/h genug Enerige zum Senden eines BLE-Pakets zur Verfügung steht. Während der Entwicklung des Harvesters wurde die Leistungskurve öfters aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen nur auf diese Wert.  
+Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum.  
 
  
 \subsubsection*{MPP-Ratio bei 10 km/h gemäss Messprotokollen}
@@ -639,9 +648,11 @@ Das Ziel der Entwicklung ist, dass bei einer Geschwindigkeit von 10 km/h genug E
     30. März    \> 12 $\mu$W        \> 43.23\thinspace\% \\
     xx          \> xx $\mu$W        \> xx\thinspace\%\\
     resultat    \> 21.87  $\mu$W    \> 24.87\thinspace\%\\
-\end{tabbing}\todo{Werte}
+\end{tabbing}
 
-Es zeigt sich, dass das Leistungsmaximum unterhalb von 50\thinspace\% liegt. Bedauerlich ist, dass durch die Energieoptimierung sich die Stelle des Leistungsmaximums Richtung Leerlauf verschiebt. In der Umsetzung mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten).  Die Einstellungen der tieferen MPP-Ratio sind zudem gröber. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (mit einem MPP konstant bei 50\thinspace\%) und Solarzelle konzipiert ist und die MPPT-Ratio für diese zwei Anwendungen genau in diesem Range liegen. In unserem Fall ist dieser vorgegebene Range nicht ideal. Da beim energiekritischen Zustand bei 10 km/h die Ratio deutlich unter 50\thinspace\%. Die Vorgänger wählten in ihren Einstellungen eine MPPT-Ratio von 88\thinspace\%. Die Vermutung liegt nahe, dass keine Leistungskurve des Harvesters im Voraus aufgenommen wurde.
+\todo{Werte}
+
+Wie dokumentiert, liegt das Leistungsmaximum unterhalb von 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzelle konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
 
 
 \subsubsection*{MPPT-Ratio Einstellungen EM8500}
@@ -663,7 +674,6 @@ Es zeigt sich, dass das Leistungsmaximum unterhalb von 50\thinspace\% liegt. Bed
 \end{tabbing}
 
 \todo{Sitzungsprotokoll Datum}
-Im ersten Versucht wird das Register auf das Minimum (50\thinspace\%) eingestellt (siehe Sitzungsprotokoll YYYY). Die Messung ergab, dass bei 10 km/h das EM-Board nicht gespiesen wird. So luden sich weder der STS noch der LTS auf. Der Grund ist, dass der optimale Leistungsbezug bei 50\thinspace\% liegt, das Leistungsmaximum aber später. So entstand beim Regeln auf den optimalen Leistungsbezug der Umstand, dass dort nur 0.2 V produziert werden. Dieser Spannungswert ist zu tief, der EM-Chip beginnt nicht zu arbeiten. Betreibt man den Harvester nicht am optimalen Punkt, sondern bei einer MPPT-Ratio von 60\thinspace\%, so wird eine Eingangsspannung von 0.3 V produziert und EM8500 beginnt zu arbeiten.
 
 
 
@@ -675,9 +685,7 @@ Im ersten Versucht wird das Register auf das Minimum (50\thinspace\%) eingestell
 Das Konzept der Schwellwerte von VSTS und VLTS sind im Theorieteil bei der Erklärung des Speicherkonzepts des EM8500-Chips im Unterkapitel \ref{speicher_konzept} beschrieben. Das Ziel ist, dass bei 10 km/h sich LTS entlädt. Die Berechnung der Schwellwerte stammt aus dem Theorieteil \ref{th_energiebilanz}.
 
 
-
-
-Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte überliefert. Bei der Inbetriebnahme fiel der hohe Schwellwert von v\_bat\_min\_hi\_dis auf (3.6 V), ab der erst die Applikation gespiesen wird. Den hohen Wert beruht auf dem Versuch, möglichst viel Energie vor dem Datensenden zu sammeln. Ein hoher Schnellwert verzögert die Zeit, bis zum ersten Datensenden.
+Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte überliefert. Bei der Inbetriebnahme fiel der hohe Schwellwert von v\_bat\_min\_hi\_dis auf (3.6 V), ab der erst die Applikation gespiesen wird. Den hohen Wert beruht auf dem Versuch, möglichst viel Energie vor dem Datensenden zu sammeln. Ein hoher Schnellwert verzögert die Zeit, bis zum ersten Datensenden. Die Vorgänger wählten in ihren Einstellungen eine MPPT-Ratio von 88\thinspace\%. Die Vermutung liegt nahe, dass keine Leistungskurve des Harvesters im Voraus aufgenommen wurde.
 
 \subsubsection*{Konfiguration Vorgängermodell}
 \begin{tabbing}
@@ -707,24 +715,26 @@ Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{erst_EMes
     mppt\_ratio            \> 50\thinspace\% (aus MPP-Kurve Harvester)\\
 \end{tabbing}
 
-Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$, wobei  $E_{Applikation}$ aus der Messung von V3 mit total 93.2 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden, und $V_SUP$ durch das TI-SensorTag mit 2.0 vorgegeben ist. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Um auf der sicheren Seite zu sein, denn der Harvester gibt zu diesem Zeitpunkt noch nicht genug Energie ab, wurde als Berechnungsgrundlage C\_{STS} von 100 $\mu$F genommen.  So ergab sich folgender minimaler oberere Schwellwert:
+Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$, wobei  $E_{Applikation}$ aus der Messung von V4 mit total 125 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden. Als Kondensatorwert für STS wird 100 $\mu$F genommen. So ergibt sich folgender minimaler oberere Schwellwert:
 
 \begin{equation}
 (v\_bat\_min\_low) ^2  =  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2
 \end{equation}
 
 \begin{equation}
-(v\_bat\_min\_low) ^2  =  \frac{2\, \times \, 93.2, \mu J}{100 \,\mu F} + (2.0)^2
+(v\_bat\_min\_low) ^2  =  \frac{2\, \times \, 125, \mu J}{100 \,\mu F} + (2.0)^2
 \end{equation}
 
 \begin{equation}
-v\_bat\_min\_low  =  \sqrt{\frac{186.4}{100 } + 4} = \sqrt{5.864} = 2.42 V
+v\_bat\_min\_low  =  \sqrt{\frac{250}{100 } + 4} = \sqrt{6.5} = 2.55 V
 \end{equation}
 
-Alternativ kann man den laut Datenblatt vorgeschlagenen Kondensatorenwert von  47 $\mu$F. Dann ergibt sich als oberer Schwellwert  $v\_bat\_min\_low  =  \sqrt{\frac{186.4}{47 } + 4} = \sqrt{7.97} = 2.82, V$. Als erstes wird der Schwellwert auf 2.6 V gesetzt. Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
+Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
 
 \todo{Messprotokoll und Sitzungsprotokoll einfügen}
-Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Aus diesem Grund wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt. 
+Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Aus diesem Grund wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
+
+%Im ersten Versucht wird das Register auf das Minimum (50\thinspace\%) eingestellt (siehe Sitzungsprotokoll YYYY). Die Messung ergab, dass bei 10 km/h das EM-Board nicht gespiesen wird. So luden sich weder der STS noch der LTS auf. Der Grund ist, dass der optimale Leistungsbezug bei 50\thinspace\% liegt, das Leistungsmaximum aber später. So entstand beim Regeln auf den optimalen Leistungsbezug der Umstand, dass dort nur 0.2 V produziert werden. Dieser Spannungswert ist zu tief, der EM-Chip beginnt nicht zu arbeiten. Betreibt man den Harvester nicht am optimalen Punkt, sondern bei einer MPPT-Ratio von 60\thinspace\%, so wird eine Eingangsspannung von 0.3 V produziert und EM8500 beginnt zu arbeiten. 
 
 Ein unerwartetes Verhalten zeigt sich bei der Implementation des Auslesen des ersten Sensors, der Drucksensor. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an den Harvester, riss die Spannung sofort zusammen. Innert kürzester Zeit haben sich entlädt sich der STS wie parallel zu ihm der LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie, als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
 \todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen}
@@ -844,7 +854,7 @@ void go\_to\_standby()\{
 	    SysCtrlSetRechargeBeforePowerDown(XOSC\_IN\_HIGH\_POWER\_MODE);   \linebreak     
 	    SysCtrlAonSync(); \linebreak
                 \linebreak
-} \linebreak
+\} 
 	    
 
 \subsubsection{Abschalt-Prozedur}
@@ -860,7 +870,7 @@ void go\_to\_deep\_sleep()\{
 	    SysCtrlAdjustRechargeAfterPowerDown();\linebreak
 	    SysCtrlAonSync(); \linebreak
                 \linebreak
-} \linebreak
+\} \linebreak
 
 
 \subsubsection{Sleep Time-Übersicht bei Version V4}
