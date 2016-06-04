@@ -143,6 +143,7 @@ In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 i
 
 Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Microkontroller, genug Energie in Speichern gesammelt wurde. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass für die Freigabe der Energie an eine Applikation, das Signal der Speisung der Applikation wird als VSUP bezeichnet, erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im Register v\_bat\_min\_low eingetragen werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet.
 
+\todo{Graphik falsch: VSUP auf batminlow. vsts geht auf v bat min hi dis}
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
    \caption{Grundprinzip Applikationsspeisung }

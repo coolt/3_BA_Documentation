@@ -226,10 +226,11 @@ Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. D
 Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da die Energie aus der Spule gewonnen wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein klares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reedswitch detektiert und an das TI-SensorTag weitergegeben. Ein Magnetdurchlauf erzeugt einen positiven Puls, solange der Magnet in der Reichweite des Reedswitch befindet.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Schema_Umlaufdetektion.png}
+    \includegraphics[width=0.1\textwidth]{3Vorgehen/imag/Schema_Umlaufdetektion.png}
     \caption{Schema Umlauferfassung}\label{schema_umlaufdetektion} 
 \end{figure}
 
+\newpage
 \subsection{Bauteildefinition und Optimierung}
 
 Nachdem klar war, welche Teile auf der Leiterplatte Platzfinden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie unnötig verloren geht. 
@@ -407,7 +408,7 @@ Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeig
     \label{i2c_problem}
 \end{figure}
 
-\todo{Bild erscheint nicht}
+
 
 Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel (\ref{powerOptimierung} Power Management) zusammengefasst. Bei der Version V4 zeigt sich, dass die Funktion BLE-Send, zu der auch das Einlesen der Sensordaten gehört, ein Zuwachs von 50 \% an Energiebedarf bewirkt. 
 
@@ -604,27 +605,49 @@ Durch den deutlich höheren Energieverbrauch, wird eine Power-Optimierung im Sof
 \subsection{Energiezustand des Systems}
 \label{v_energiezustand}
 
-Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (siehe Unterkapitel \ref{optimierung}) ist das variable Anpassen des BLE-Paketsendens aufgrund des Energiezustandes. Im ersten Unterkapitel \ref{def_zustaende} wird das Einteilen des Systems in Energiezustände beschrieben, danach die Umsetzung in Software im Prototyp angewendet wurde. 
+Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (siehe Unterkapitel \ref{optimierung}) ist das variable Anpassen des BLE-Paketsendens aufgrund des Energiezustandes. Im ersten Unterkapitel \ref{def_zustaende} wird das Einteilen des Systems in Energiezustände beschrieben. %, danach die Umsetzung wie in Software das Auslesen und Verarbeiten der Energiezustände angewendet wird. 
+
+\todo{Umsetzung in Software ev. dazu}
 
 \subsubsection{Definition von Energiezuständen}
 \label{def_zustaende} 
 
-\
-Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, wird das Energiesystem in drei Zustände eingeteilt, die von der Geschwindigkeit abhängen:
+Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, werden die Energiezustände aufgrund der Fahrgeschwindigkeit definiert. Welche Aufgaben in welchem Energiezustand getan werden, folgt in den Abbildungen \ref{LOW_ENER}, \ref{MID_ENER} und \ref{HIGH_ENER},direkt nach der Definition der Zustände. 
 
 \subsubsection*{Energiezustände aufgrund der Geschwindigkeit}
 \begin{tabbing}
-   0 - 15 km/h      \quad\= LOW\_ENERGY   \\[0.8ex]
-   15 - 25 km/h      \> MIDDLE\_ENERGY \\
-   $>$ als 25 km/h   \> HIGH\_ENERGY\\
+   Geschwindigkeit .............\quad\= Systemzustand\\[0.8ex]
+   0 - 15 km/h        \> LOW\_ENERGY\\
+   15 - 20 km/h       \> MIDDLE\_ENERGY\\
+   $>$ als 20 km/h    \> HIGH\_ENERGY\\
     
 \end{tabbing}
 
-Was in den eingelnen Energiezuständen gemacht wird:
+Bei wenig Energie lädt sich nur der STS. Erreicht er den Schwellwert für die Speisung der Applikation, so erhält TI-SensorTag Spannung. Die Reed-Impulse werden ausgelesen, der zweite Prozessor für das Senden der BLE-Pakete gestartet und die Daten übertragen. Bei wenig Energie verbrauchen diese drei Aktionen alle zur Verfügung stehende Energie. Denn LTS hat sich nicht geladen. Die Energie genügt nicht für weitere Aktionen.
 
-Bild
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/LOW_ENERGY.png}
+  \caption{Aktionen bei LOW ENERGIE}
+  \label{LOW_ENER}
+\end{figure}
 
-\subsubsection*{Energiezustände: Umsetzung in Software}
+Bei etwas mehr Energie befindet sich das System in einem Zwischenzustand (Abbildung \ref{MID_ENER}). Zu jeder Geschwindigkeitsmessung wird ein Sensor ausgelesen. Im Idealfall unterstützt LTS die Stabilität. Wenn nicht, schaltet V\_SUP bei zu wenig Energie ab.
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/MIDDLE_ENERGY.png}
+  \caption{Aktionen bei MIDDLE ENERGIE}
+  \label{MID_ENER}
+\end{figure}
+
+Im hohen Energiezustand wird mit jedem Geschwindigkeitspaket die aktualisierten Werte der drei Sensoren mitübertragen. 
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/HIGH_ENERGY.png}
+  \caption{Aktionen bei HIGH ENERGIE}
+  \label{HIGH_ENER}
+\end{figure}
+
+%\subsubsection*{Energiezustände umgesetzt in Software}
 
 
 
@@ -635,29 +658,43 @@ Bild
 \section{Power Management}
 \label{powerOptimierung}
 
-Aufgrund von Messungen -> Codeoptimierung
+Die Verwendung des TI-SensorTags wurde zur Herausforderung. Im ersten Unterkapitel wird beschrieben, warum die Code-Beispiele von Texas Instrument für den Bicycle Computer nicht verwendet werden können und was dies für die Entwicklung der Applikation bedeutet. In nächsten Unterkapitel xxx ....
+
+\todo{Einleitung fertig}
 
 
-%... noch zu schreiben ....
-%Üblicherweise wird das RTOS-Betriebssystem von TI für Low Power Applikationen benutzt. 
+
+\subsection{Programmieren ohne RTOS}
+
+Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie, im $\mu$J-Bereich zur Verfügung steht, und die minimale RTOS-Anwendung, die auf TI-SensorTag vorinstalliert ist, Energie von xxJ benötigt, sind Programmlösungen ohne RTOS notwendig. Die Funktionen der Software werden deshalb von Grund auf aufgesetzt. Die Verwendung zur mitgelieferten TI-SensortTag Library ist unabdingbar, da das Memory Mapping nur über die Library zugänglich ist. 
+
+\todo{Energiemessung RTOS}
+
+Das Erschwert die Softwareentwicklung durch folgende drei Punkte
+
+\begin{enumerate}
+    \item Es bestehen keine Codebeispiele ohne RTOS. Weder für das Power-Handling, wie die CPU oder eine Peripherie zum Schlafen schicken, noch zur Initalisierung des Systems, dem Auslesen der Sensoren, der Kommunikation per I2C oder SPI, noch zum Verwenden der Timer.
+    \item Die mitgelieferte Library von Texas Instruments ist enorm. Die Library baut auf impliziten Bezügen für ein optimiertes RTOS auf. Interrupts werden z. B. nicht direkt verarbeitet, sondern gehen über eine der zwei Event Fabric mit diversen Subscribers (\cite{Sensortag_Manual}, S. 238ff) komplex abgehandelt. In der Library sind predefined Funktionen für das RTOS implementiert. Der Versuch, diese predefinierten Funktionen zu verstehen, scheitert an der Komplexität der Library und dem RTOS-Fokus. Durch try and error können Abläufe rekonstruiert werden.
+   \item Hat man durch try and error ein lauffähiges Programm entwickelt, ist dies oft nicht lanfristig sicher. Die ist, weil eine gute Dokumentation fehlt. Durch das Einbauen neuer Anforderungen, wie z. B. die Verwendung einer neuen Power Domain oder eines neuen Interrupts, kann das System ungewollt beeinflussen. Jede Erneuerung in der SensorTag-Version verusachte deshalb Nebeneffekte. Der Fortschritt im Programmieren bleibt trotz Klarheit der Umsetzung harzig.
+\end{enumerate}
+
+\subsection{PowerDomains beim SensorTag}
 
 
-%(Die Low-Power Programmbeispiele von TI basieren auf RTOS, ebenso die Dokumentation zu Low Power Applikationen, was zu viel Energie verbraucht (korrekt, wie belegen?). )
+
+Problem: So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) Zu lange warten: braucht Energie.
+
+Sleep konkret: Power Banks abschalten:\\
+Power Domains zeigen
+
+Schwierigkeit Interrupt and Events !!
+
+Bild: Energie-Langzeitmessung BLE versenden\\
+Beschriften mit aktiv und standby modus
 
 
-%Problem: So gehört zu jedem Aufwecken einer Peripherie, der Parallele Schlafmodus, bis dass die Peripherie gestartet ist. (Dies gilt auch für die Sensoren.) Zu lange warten: braucht Energie.
-%
-%Sleep konkret: Power Banks abschalten:\\
-%Power Domains zeigen
-%
-%Schwierigkeit Interrupt and Events !!
-%
-%Bild: Energie-Langzeitmessung BLE versenden\\
-%Beschriften mit aktiv und standby modus
-%
-%
-%Gearbeitet wird mit einem Cortex M3 von TI.\\ 
-%Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
+Gearbeitet wird mit einem Cortex M3 von TI.\\ 
+Grundsätzlich basieren die Bsp. auf RTOS. Wenige für PowerManagement. Das Powermanagement ohne Betriessystem. Wir verwenden dies, weil (gemäss Erfahrungswerte Praxis) mit Betriebsystem mehr Energie braucht).
 
 
 \begin{figure}
@@ -667,16 +704,34 @@ Aufgrund von Messungen -> Codeoptimierung
 
 
 
+\subsection{Sensoren auslesen}
+
+aktivieren
+
+warten
+
+xxx
+
+
+
+
+\subsection{Schlafen erzwingen}
+
+Aufgrund der Energiemessungen wird klar, dass die 
+
 
 % 5 ---------------------------------------------------------------------------
 \section{Applikationsentwicklung}
 Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwickelten Board als Sensor benannt und die Android Applikation auf dem Smartphone wird einfach als Applikation benannt.
 
 \subsection{Aufbau der Applikation}
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
-    \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
-\end{figure}
+
+Bild einfügen
+
+%\begin{figure}[ht]
+%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
+%    \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
+%\end{figure}
 
 Der Aufbau der Applikation soll Anfangs in vier Teile des Bildschirms geteilt werden. 
 Im Bereich GPS soll eine Karte angezeigt werden, ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
