@@ -808,12 +808,11 @@ Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwick
 
 \subsection{Aufbau der Applikation}
 
-Bild einfügen
 
-%\begin{figure}[ht]
-%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
-%    \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
-%\end{figure}
+\begin{figure}[ht]
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
+    \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
+\end{figure}
 
 Der Aufbau der Applikation soll Anfangs in vier Teile des Bildschirms geteilt werden. 
 Im Bereich GPS soll eine Karte angezeigt werden, ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
@@ -920,6 +919,7 @@ Der letzte Wert, welcher vom Sensor versendet wird, ist die relative Luftfeuchti
 
 Als nächstes wurde die Aufgabe in Angriff genommen, die Applikation als User einstellen zu können. Es musste genau überlegt werden, welche Einstellungen ein User machen darf und welche dem Programmierer, bzw. der Applikation überlassen werden.
 
+
 \subsubsection{Adressauswahl}
 
 Die Adressauswahl, oder auch Sensorwahl, wurde bald ein Bedürfnis, da der User die Applikation mit seinem eigenen Sensor paaren können sollte. Es sollte sichergestellt werden, dass die Applikation nach der Sensorwahl nur noch Daten von dem gewählten Sensor anzeigt und die Daten der anderen Sensoren ignoriert werden. Die Adressen von Sensoren in der Nähe sollten aber weiterhin gespeichert werden, damit man gegebenenfalls auch einen anderen Sensor auswählen konnte.
@@ -927,7 +927,7 @@ Die Adressauswahl, oder auch Sensorwahl, wurde bald ein Bedürfnis, da der User 
 Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur übereinstimmen soll die Adresse gespeichert werden. Dafür wurde folgende Funktion entwickelt:
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_saveAdress.png}
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/app_saveAdress.png}
     \caption{Sourcecode saveAdress}
 	\label{app_saveAdress} 
 \end{figure}
@@ -937,7 +937,7 @@ Der adressCounter wird mit dem Wert -1 initialisiert, werden die ersten Daten mi
 Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies genauso behandelt, als ob der Sensor die richtige Adresse hat.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_checkAdress.png}
+    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/app_checkAdress.png}
     \caption{Sourcecode checkAdress}
 	\label{app_checkAdress} 
 \end{figure}
@@ -945,17 +945,19 @@ Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete übe
 Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird eine neue Activity erstellt. Die neue Activity ist eine List-Activity, das bedeutet es wird eine Liste von möglichen Adressen angezeigt, welche mit einem Klick auf die gewünschte Adresse ausgewählt wird. Anschliessend wird die ausgewählte Adresse an die Haupt-Activity zurückgegeben. In Abbildung \ref{BLEadressauswahl} ist die List-Activity zu sehen, welche eine Adresse zur Auswahl hat. Damit die ausgewählte Adresse von der Haupt-Activity überhaupt empfangen werden kann musste die List-Activity mit den auszuwählenden Adressen mit folgendem Befehl gestartet werden: startActivityForResult. Die gestartete Activity kann somit ein Resultat, also die ausgewählte Adresse zurückgeben und die Haupt-Activity kann diese in der Funktion onActivityResult empfangen und abspeichern. Die genaue Ausführung der Übergabe der Adressen, sowie die Rückgabe der ausgewählten Adresse kann dem Quellcode entnommen werden.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/BLEAdresseAuswaehlen.png}
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/BLEAdresseAuswaehlen.png}
     \caption{Adressauswahl mit nur einer Adresse}
 	\label{BLEadressauswahl} 
 \end{figure}
+
+
 
 \subsubsection{Einheiten}
 
 Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert, die Enumeration für die Temperatur sieht folgendermassen aus:
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_tempSetting.png}
+    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/app_tempSetting.png}
     \caption{Sourcecode Enumeration}
 	\label{app_tempSetting} 
 \end{figure}
@@ -973,10 +975,12 @@ Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten,
 Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte, bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen, die zuvor abgespeicherten Werte an. Ein Beispiel, wenn man in der Activity den Spinner für die Temperatur auf "Fahrenheit ($^\circ$F)" einstellt und diese Einstellung abspeichert. Die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung "Fahrenheit ($^\circ$F)" angezeigt, da diese Einstellung zuvor abgespeichert wurde.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
     \caption{Bildschirm der Einheiteneinstellung}
 	\label{BLEEinheitenUndEinstellungenStart} 
 \end{figure}
+
+\todo{Bild erscheint nicht}
 
 \subsubsection{Kalibrierung}
 
@@ -994,16 +998,17 @@ Bereits in der PA von Manuel König wurde mit der Anzeige von Bitmaps experiment
 
 Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
 
-%\begin{figure}[ht]
-%    \includegraphics{3Vorgehen/imag/tachometer.png}
-%    \caption{Tachometer ohne Tachonadel}
-%	\label{tachometer} 
-%\end{figure}
+\todo{bild war gelöscht. ist es richtig hier?}
+\begin{figure}[ht]
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/tachometer.png}
+    \caption{Tachometer ohne Tachonadel}
+	\label{tachometer} 
+\end{figure}
 
 Das Bild konnte mit folgender Funktion eingelesen werden:
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_getPixel.png}
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_getPixel.png}
     \caption{Sourcecode getPixel}
 	\label{app_getPixel} 
 \end{figure}
@@ -1015,7 +1020,7 @@ Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Ar
 Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. Wichtig ist dabei, dass die richtige Konfiguration ausgewählt wurde, da ansonsten das Bitmap falsch oder gar nicht angezeigt werden konnte.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_createBitmap.png}
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_createBitmap.png}
     \caption{Sourcecode createBitmap}
 	\label{app_createBitmap} 
 \end{figure}
@@ -1023,7 +1028,7 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 \subsubsection{Mathematik der Tachonadel}
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/app_drawNeedle.png}
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
     \caption{Sourcecode Mathematik des Zeigers}
 	\label{app_drawNeedle} 
 \end{figure}
@@ -1053,7 +1058,7 @@ Die Betrachtungsweise, dass die Tachonadel ein Vektor ist musste angepasst werde
 Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachometers ergänzt werden. Die Koordinaten jedes Pixels der Tachonadel konnten nun berechnet werden und wurden anschliessend mit dem Farbwert für Rot in dem Integer-Array überschrieben.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/tachometer_mit_nadel.png}
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/tachometer_mit_nadel.png}
     \caption{Tachometer mit animierter Nadel}
 	\label{tachometer_mit_nadel} 
 \end{figure}
