@@ -102,55 +102,90 @@ Im Resultatsteil Kapitel \ref{ch_resultat} werden die Fortschritte in diesen vie
 
 \subsection{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
 
+Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, einer zu grossen Kapazität am Eingang des EM-Chips, hingewiesen. Laut seiner Aussage sollte der Kondensator am Eingang des EM-Chips, bzw. dem Ausgang des Harvesters am besten kleiner sein als 4.7 $\mu$F. Bisher wurde im Aufbau der Machbarkeitsstudie ein Kondensator mit 470 $\mu$F verwendet, Herr Ivex Théoduloz meinte, dass dieser Kondensator viel zu gross sei und dass die Regelung am Eingang des EM-Chips möglicherweise nicht richtig funktionieren würde. Daher wurde dieses Problem näher untersucht und in mehreren Schritten optimiert.
 
-Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives Théoduloz von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im 
-
-??????  .... folgte.) Hier ist nun dieser erwähnte Text.
-
-Vorschlag Katrin:
-Die auffällige Regelung des Harvesterinputs wurd Ives Théoduloz gezeigt. 
-
-Gemäss Ives Théoduloz sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
-
-
-In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
-
-Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
-
-\subsubsection{Ausmessen der Auswirkung des Ausgangskondensators}
-\todo{auf Messprotokoll verweisen}
-
-Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch annehmbar war. Die Rippelspannung bei dem bestehenden Kondensator von 470 $\mu$F beträgt ca. 10 mVpp. Die Rippelspannung bei einer Kapazität von 47 $\mu$F beträgt bereits ca. 40 mVpp, jedoch ist die Rippelspannung noch in einem Bereich der annehmbar scheint. Bei einer Kapazität von 10 $\mu$F liegt die Rippelspannung von ca. 500 mVpp, dies ist nicht mehr akzeptabel. Die Abbildung \ref{47uF_mit_Limiter_AC} veranschaulicht die Rippelspannung von einem Kondensator mit 47 $\mu$F, die Abbildung \ref{10uF_mit_Limiter_DC} zeigt die Rippelspannung über einem Kondensator von 10 $\mu$F.
 
 \begin{figure}[ht]
-    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
-    \caption{Rippelspannung bei Glättung mit 470 $\mu$F Kondensator}\label{kond470uF} 
-\end{figure}
-
-\subsubsection*{Messaufbau}
-In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
-
-\begin{figure}[h7]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
-    \caption{Messschaltung}
-\end{figure}
-
-\subsubsection*{Resultat}
-
-Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
- 
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/10uF.PNG}
-    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
+    \includegraphics{3Vorgehen/imag/47uF_mit_Limiter_AC.PNG}
+    \caption{Rippelspannung über dem 47 $\mu$F Kondensator}
+	\label{47uF_mit_Limiter_AC} 
 \end{figure}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/47uF.PNG}
-    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
+    \includegraphics{3Vorgehen/imag/10uF_mit_Limiter_DC.PNG}
+    \caption{Rippelspannung über dem 10 $\mu$F Kondensator}
+	\label{10uF_mit_Limiter_DC} 
 \end{figure}
 
-Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
+Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips kein konstantes Spannungslevel (siehe Abbildung x) erhält. 
 
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
+    \caption{Spannung am EM8500-Eingang über einem 47 $\mu$F Kondensator}
+	\label{VCC_47uF_15kmh_Periode} 
+\end{figure}
+
+Problematisch ist, dass die Spannung wiederholt unter die 0.3 V Grenze fällt, bei einer Spannung von 0.3 V kann keine Energie gespeichert werden. Die Regelung am Eingang des EM-Chips kommt mit der anliegenden Rippelspannung nicht klar. Die Rippelspannung muss verringert werden, bzw. die Kapazität am Ausgang des Harvesters muss erhöht werden. 
+
+Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessung keine korrekten Messwerte erhält. Sobald die Last vom Harvesterausgang abgehängt wird, steigt die Spannung über dem Kondensator, jedoch wird die Open Loop Spannung bei einer grossen Kapazität nicht erreicht, da die Zeit, bis der Kondensator komplett geladen ist, sehr gross ist. Jedoch bedeutet eine niedrige Kapazität, dass die Rippelspannung relativ hoch ist und je nach Zeitpunkt der Open Loop Messung eine andere Spannung am Kondensator ergibt und die Spannung am Kondensator steigt bei jeder Messung auf ein anderes Spannungslevel.
+
+Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Der Kondensator sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open Loop Messung keine richtigen Werte liefert. Der Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
+    \caption{Spannung am EM8500-Eingang über einem 100 $\mu$F Kondensator}
+	\label{VCC_100uF_15kmh_Periode} 
+\end{figure}
+
+%Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives Théoduloz von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im 
+%
+%??????  .... folgte.) Hier ist nun dieser erwähnte Text.
+%
+%Vorschlag Katrin:
+%Die auffällige Regelung des Harvesterinputs wurd Ives Théoduloz gezeigt. 
+%
+%Gemäss Ives Théoduloz sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
+%
+%
+%In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
+%
+%Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
+%
+%\subsubsection{Ausmessen der Auswirkung des Ausgangskondensators}
+%\todo{auf Messprotokoll verweisen}
+%
+%Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
+%
+%\begin{figure}[ht]
+%    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
+%    \caption{Rippelspannung bei Glättung mit 470 $\mu$F %Kondensator}\label{kond470uF} 
+%\end{figure}
+%
+%\subsubsection*{Messaufbau}
+%In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
+%
+%\begin{figure}[h7]
+%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
+%    \caption{Messschaltung}
+%\end{figure}
+%
+%\subsubsection*{Resultat}
+%
+%Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
+% 
+%\begin{figure}[ht]
+%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/10uF.PNG}
+%    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
+%\end{figure}
+%
+%\begin{figure}[ht]
+%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/47uF.PNG}
+%    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
+%\end{figure}
+%
+%Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
+%
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
 \begin{enumerate}
@@ -783,13 +818,17 @@ Der Sensor sendet Werte, wie den Zeitunterschied zwischen zwei Magnetdurchläufe
 
 Der Zeitunterschied zwischen zwei Magnetdurchläufen wird in vier Bytes dargestellt. Die ersten beiden Bytes enthalten die Anzahl Sekunden, es muss also das erste Byte um acht Bit geschoben werden und anschliessen muss das zweite Byte noch addiert werden. Folgende Formel zeigt die Umrechnung von zwei Bytewerten in eine reelle Zahl:
 
-%\todo{Formel einfügen}
+\begin{equation}
+	t = ((byte_0 << 8) + byte_1)
+\end{equation}
 
 Die erhaltene Zahl muss noch mit einem Typecast in den Datentyp float umgewandelt werden.
 
 Das dritte und vierte Byte des übermittelten Zeitunterschieds enthält die Sekundenbruchteile. Folgende Formel zeigt, wie die Bytes verrechnet werden müssen, um die korrekten Werte zu erhalten:
 
-%\todo{Formel noch einfügen}
+\begin{equation}
+	t = \frac{((byte_2 << 8) + byte_3)}{2^{16}}
+\end{equation}
 
 Der erhaltene Sekundenbruchteil kann nun zu den ganzen Sekunden dazu addiert werden, um die ganze Zeit zwischen zwei Magnetdurchläufen zu erhalten.
 
@@ -799,38 +838,182 @@ Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit g
 
 Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, das erste Byte kann ignoriert werden. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl.
 
-%\todo{Formel xx einfügen}
+\begin{equation}
+	p = (float)((byte_2 << 16) + (byte_1 << 8) + byte_0) * 0.01
+\end{equation}
+
+Die barometrische Höhenformel zeigt die Abhängigkeit des Druckes von der aktuellen Höhe.
+
+\begin{equation}
+	p(h) = p_0 * e^{-\frac{h}{7991 m}}
+\end{equation}
+
+- Referenz: Buch "Mathematik für Ingenieure und Naturwissenschaftler Band 1, 12. Auflage, Lothar Papula, Seite 284
+
+Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Druck berechnen lässt.
+
+\begin{equation}
+	h = ln(\frac{p(h)}{p_0}) * (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) * (-7991 m)
+\end{equation}
+
+Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht in °C übertragen, sondern in Tausendsteln. Das bedeutet die Temperatur, welche empfangen wird, muss zusammengesetzt und mit 1000 dividiert werden. Die Formel sieht folgendermassen aus:
+
+\begin{equation}
+	T = (float)((byte_1 << 8) + byte_0) * 0.001
+\end{equation}
+
+Der letzte Wert, welcher vom Sensor versendet wird, ist die relative Luftfeuchtigkeit. Die Formel zur Berechnung der relativen Luftfeuchtigkeit sieht folgendermassen aus:
+
+\begin{equation}
+	H = (float)(byte_3 << 24) + (byte_2 << 16) + (byte_1 << 8) + byte_0
+\end{equation}
 
 
+\subsection{Einstellungsmöglichkeiten}
 
-\subsection{Grundeinstellungen}
+Als nächstes wurde die Aufgabe in Angriff genommen, die Applikation als User einstellen zu können. Es musste genau überlegt werden, welche Einstellungen ein User machen darf und welche dem Programmierer, bzw. der Applikation überlassen werden.
 
-\subsection{Tachometer einbauen}
+\subsubsection{Adressauswahl}
+
+Die Adressauswahl, oder auch Sensorwahl, wurde bald ein Bedürfnis, da der User die Applikation mit seinem eigenen Sensor paaren können sollte. Es sollte sichergestellt werden, dass die Applikation nach der Sensorwahl nur noch Daten von dem gewählten Sensor anzeigt und die Daten der anderen Sensoren ignoriert werden. Die Adressen von Sensoren in der Nähe sollten aber weiterhin gespeichert werden, damit man gegebenenfalls auch einen anderen Sensor auswählen konnte.
+
+Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur übereinstimmen soll die Adresse gespeichert werden. Dafür wurde folgende Funktion entwickelt:
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_saveAdress.png}
+    \caption{Sourcecode saveAdress}
+	\label{app_saveAdress} 
+\end{figure}
+
+Der adressCounter wird mit dem Wert -1 initialisiert, werden die ersten Daten mit der vorgegeben Struktur empfangen wird die Funktion automatisch die Adresse in der adressList an der Stelle 0 speichern. Werten erneut Daten von einem unserer Sensoren empfangen wird zuerst geprüft, ob die Adresse bereits ein Teil der adressList ist, falls die Adresse noch nicht in der Liste enthalten ist, wird der Index, bzw. der adressCounter, erhöht und die Adresse in der Liste gespeichert.
+
+Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies genauso behandelt, als ob der Sensor die richtige Adresse hat.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_checkAdress.png}
+    \caption{Sourcecode checkAdress}
+	\label{app_checkAdress} 
+\end{figure}
+
+Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird eine neue Activity erstellt. Die neue Activity ist eine List-Activity, das bedeutet es wird eine Liste von möglichen Adressen angezeigt, welche mit einem Klick auf die gewünschte Adresse ausgewählt wird. Anschliessend wird die ausgewählte Adresse an die Haupt-Activity zurückgegeben. In Abbildung \ref{BLEadressauswahl} ist die List-Activity zu sehen, welche eine Adresse zur Auswahl hat. Damit die ausgewählte Adresse von der Haupt-Activity überhaupt empfangen werden kann musste die List-Activity mit den auszuwählenden Adressen mit folgendem Befehl gestartet werden: startActivityForResult. Die gestartete Activity kann somit ein Resultat, also die ausgewählte Adresse zurückgeben und die Haupt-Activity kann diese in der Funktion onActivityResult empfangen und abspeichern. Die genaue Ausführung der Übergabe der Adressen, sowie die Rückgabe der ausgewählten Adresse kann dem Quellcode entnommen werden.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/BLEAdresseAuswaehlen.png}
+    \caption{Adressauswahl mit nur einer Adresse}
+	\label{BLEadressauswahl} 
+\end{figure}
+
+\subsubsection{Einheiten}
+
+Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert, die Enumeration für die Temperatur sieht folgendermassen aus:
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_tempSetting.png}
+    \caption{Sourcecode Enumeration}
+	\label{app_tempSetting} 
+\end{figure}
+
+Es wurde der Enumeration drei Elemente hinzugefügt, welche alle einen Faktor, einen Offset und einen String mit der geschriebenen Einheit enthalten. Anhand dieser Enumeration kann der Faktor und der Offset einfach zugänglich gemacht werden. 
+
+- Referenz Temperaturumrechnung: http://www.umrechnung.org/masseinheiten-temperatur-celsius-fahrenheit-kelvin/celsius-fahrenheit-umrechnung.htm (Konsultation am 22.04.16)
+- Referenz Druckumrechnung: http://www.dolder-ing.ch/wissen/Einheiten/Tab_Druckumr/Tab-Druckumrechn-Gebrf.htm (Konsultation am 22.04.16)
+- Referenz Geschwindkeitsumrechnung: http://www.convertworld.com/de/geschwindigkeit/knoten.html (Konsultation am 22.04.16)
+
+Die Enumerationen wurden anschliessend verwendet um die aktuelle Einstellung der Einheiten abzuspeichern. Da die Einstellung der Einheiten nun gespeichert werden konnte, musste diese Einstellung dem User zugänglich gemacht werden.
+
+Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten, einen EditText für die Eingabe des Radumfangs und ein EditText für die Kalibrierung der Temperatur zur Verfügung stellt. Die eingestellten Einheiten und die eingetragenen Werte werden über den Speichern-Button an die Haupt-Activity zurückgegeben. In der onActivityResult Methode in der Haupt-Activity werden die aktuellen Einstellungen empfangen und abgespeichert und anschliessend zur Darstellung der Werte verwendet. Erst bei der Anzeige der Werte, werden die eingestellten Faktoren und Summanden der Enumerationen verwendet.
+
+Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte, bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen, die zuvor abgespeicherten Werte an. Ein Beispiel, wenn man in der Activity den Spinner für die Temperatur auf "Fahrenheit (°F)" einstellt und diese Einstellung abspeichert. Die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung "Fahrenheit (°F)" angezeigt, da diese Einstellung zuvor abgespeichert wurde.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
+    \caption{Bildschirm der Einheiteneinstellung}
+	\label{BLEEinheitenUndEinstellungenStart} 
+\end{figure}
+
+\subsubsection{Kalibrierung}
+
+Während der Entwicklung wurde festgestellt, dass der Wert der Temperatur von der Referenztemperatur abweicht. Aus diesem Grund wurde eine Möglichkeit zur Kalibrierung der Temperatur geschaffen.
+
+Die Kalibrierungsmöglichkeit befindet sich in der gleichen Activity, wie die Einstellungen der Einheiten und der Eingabemöglichkeit für den Radumfang. Wird bei dem Textfeld ein Wert eingegeben, so wird diese Temperatur an die Haupt-Activity zurückgegeben. Die Referenztemperatur wird gespeichert und beim Empfang der nächsten Daten, wird die automatisch ein Offset berechnet. Dieser Offset fliesst automatisch in die Berechnung der Temperatur ein.
+
+\subsection{Animierter Tachometer}
+
+Eine interessante Aufgabe war die Realisierung eines animierten Tachometers, da diese Funktion dem User der Applikation sofort ins Auge stechen würde. Diese Funktion würde die ansonsten relativ triste Aufmachung der Applikation aufwerten. Es sollte ein Tachometer entwickelt werden, welches eine animierte Tachonadel hat, die die aktuelle Geschwindigkeit anzeigt.
+
+\subsubsection{Funktionsweise}
+
+Bereits in der PA von Manuel König wurde mit der Anzeige von Bitmaps experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
+
+Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/tachometer.bmp}
+    \caption{Tachometer ohne Tachonadel}
+	\label{tachometer} 
+\end{figure}
+
+Das Bild konnte mit folgender Funktion eingelesen werden:
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_getPixel.png}
+    \caption{Sourcecode getPixel}
+	\label{app_getPixel} 
+\end{figure}
+
+Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im Array stellen den Farbwert des jeweiligen Pixels dar. Diese Farbwerte können nun verändert werden. Als erstes wurde das ganze Bild gespiegelt, da es noch falsch herum ist, heisst der rote Bereich des Tachometers soll auf der rechten Seite angezeigt werden.
+
+Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt genauer beschrieben.
+
+Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. Wichtig ist dabei, dass die richtige Konfiguration ausgewählt wurde, da ansonsten das Bitmap falsch oder gar nicht angezeigt werden konnte.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_createBitmap.png}
+    \caption{Sourcecode createBitmap}
+	\label{app_createBitmap} 
+\end{figure}
+
+\subsubsection{Mathematik der Tachonadel}
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/app_drawNeedle.png}
+    \caption{Sourcecode Mathematik des Zeigers}
+	\label{app_drawNeedle} 
+\end{figure}
+
+Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit der Breite von einem Pixel animiert. Die Tachonadel kann als ein Vektor angesehen werden, der im Ursprung gedreht und anschliessend verschoben wurde. Die X- bzw. Y-Koordinaten im Bild konnten folgendermassen berechnet werden:
+
+\begin{equation}
+	x = \frac{Breite des Tachometers}{2} + Länge der Tachonadel * \cos(Winkel der Tachonadel)
+\end{equation}
+
+\begin{equation}
+	y = \frac{Höhe des Tachometers}{2} + Länge der Tachonadel * \sin(Winkel der Tachonadel)
+\end{equation}
+
+Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite von nur einem Pixel nicht leicht auf einem hochauflösenden Display, wie dem Display des Samsung Galaxy S7, zu erkennen ist.
+
+Die Betrachtungsweise, dass die Tachonadel ein Vektor ist musste angepasst werden. Jeder einzelne Pixel hatte einen Ortsvektor der angepasst werden musste. Nachfolgende Formel zur Berechnung der Koordinaten nach einer Drehung des Vektors konnte angewendet werden.
+
+\begin{equation}
+	x_neu = x_aktuell * \cos(\alpha) - y_aktuell * \sin(\alpha)
+\end{equation}
+
+\begin{equation}
+	y_neu = x_aktuell * \sin(\alpha) + y_aktuell * \cos(\alpha)
+\end{equation}
+
+Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachometers ergänzt werden. Die Koordinaten jedes Pixels der Tachonadel konnten nun berechnet werden und wurden anschliessend mit dem Farbwert für Rot in dem Integer-Array überschrieben.
+
+\begin{figure}[ht]
+    \includegraphics{3Vorgehen/imag/tachometer_mit_nadel.png}
+    \caption{Tachometer mit animierter Nadel}
+	\label{tachometer_mit_nadel} 
+\end{figure}
 
 \subsection{Modularer Aufbau}
 
-Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation ohne Probleme möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code.
-
-
-Mit Android Version xx.
-
---- alter Text --- 
-
-\subsection{Aufbau der App}
-
-Welche Aktion zu welchem Display gehört (Überblick Gesamtsystem)
-
-
-\subsection{Implementierte Aktionen}
-Geräteauswahl
-Kalibrierung
-Geschwindigkeitsberechnung
-Sensordaten ausgeben (was mit welcher Genauigkeit)
-
-\subsection{BLE Empfangen}
-
-Aufbau des Datenpakets: 
-LEN, UUID, ...
+Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation ohne Probleme möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind, in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code.
 
 
 
