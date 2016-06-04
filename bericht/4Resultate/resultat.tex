@@ -66,6 +66,7 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 \end{figure}
 
 \newpage  % todel
+
 \subsection{Energie am EM-Chipausgang}
 
 Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
@@ -111,55 +112,108 @@ Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschw
 
 \section{Energy Management}
 
-%Beim Resultat spielt das Hard- und Softwaremanagment direkt ineinander, weshalb das Ergebnisse dieser zwei Aufgaben zusammen dargestellt werden.
+Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH ENERGY beschrieben (\ref{v_energiezustand}). Die folgenden Abbildungen im Unterkapitel \ref{tiefes_v} zeigen diese Verhalten. Zuerst wird das Verhalten bei LOW und MIDDLE ENERGY beschrieben. Da interessiert die Ladezeit, bis dass wieder ein Paket gesendet wird. Bei beiden Zuständen kann sich der LTS nicht laden, da das Senden der Pakete alle Energie verbraucht. Erst bei höherer Energie, kann das Ladeverhalten von LTS angeschaut werden. Diese Abbildungen sind im Unterkapitel \ref{res_entladen}. Im letzten Unterkapitel stehen die finalen Schwellwerte und Kondensatorenwerte, auf denen diese Messresultate basieren.
 
-Das Ziel beim Energy Management ist, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird. Dies ist (siehe Abbildung \ref{LTSladet}) möglich. Die gesammelte Energie beider Kondensatoren wird für das Sender der BLE-Pakete verwendet. Die benutzten Kondensatorenwerte sind:
+\subsection{Verhalten bei tiefen und mittleren Geschwindigkeiten}
+\label{tiefes_v}
+
+
+Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Das violette Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Speisung der Drucksensor geweckt wird  und bei der zweiten Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_3.PNG}
+    \caption{Senden von Paketen bei 9 - 10 km/h}
+    \label{paket_100kmh}
+\end{figure}
+
+Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16kmh}). Die Fahrerin bzw. der Fahrer erhält alle 20 s einen aktuellen Wert. Trügerisch in diesem Bild ist, dass LTS bereits geladen ist. Dies entsteht nicht durch 16 km/h, sondern entstand durch vorangehende Messungen mit höheren Geschwindigkeiten. Auf die Ladezeit des STS hat dies keine Auswirkung.
+
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic2.PNG}
+    \caption{Senden von Paketen bei 16 km/h}
+    \label{paket_16kmh}
+\end{figure}
+
+Bei 40 km/h werden rund 15 BLE-Pakete mit gesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird, für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
+
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic4.PNG}
+    \caption{Senden von vielen Paketen bei 40 km/h}
+    \label{paket_40kmh}
+\end{figure}
+
+
+\subsection{Laden und Entladen des LTS}
+\label{res_entladen}
+%v\_bat\_min\_
+
+Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \todo{Link}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/LTS_Ladeschwelle.PNG}
+    \caption{Einschalten von LTS nach Schwellwert von 3.7 V}
+    \label{lts_ein}
+\end{figure}
+
+Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt, ohne Sleep-optimierung, ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_5.PNG}
+    \caption{VSUP wird konstant gespiesen. LTS lädt sich}
+    \label{vsup_konstant}
+\end{figure}
+
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/STS_LTS_connect.PNG}
+    \caption{Connedted Mode der zwei Speicher}
+    \label{connected_mode}
+\end{figure}
+
+Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, sich V\_SUP sich halten kann und beide sich wieder parallel laden. 
+\begin{figure}[ht]
+   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic1.PNG}
+    \caption{Paralleles Entladen der Kondensatoren}
+    \label{parallel_entladen}
+\end{figure}
+
+Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4, die Sensoren zu viel Energie verbrauchen und V\_SUP die Energie vernichtet. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstiertbar. Auszugehen ist, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
+
+
+
+
+\todo{correct space in table}
+% Values from V1
+\subsection{Verwendete Werte}
+\label{werte}
+
+Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt.
 
 STS = 100 $\mu$F
 
 LTS = 2200 $\mu$F
 
-Die Werte ergaben sich aus folgender Energiekalkulation
-\begin{equation}
-W=\frac{1}{2}\cdot 100 uF \cdot (3.6 - 2.2 V)^{2}=xxxxx uW\label{eq:Energie STS}
-\end{equation}
 
-\begin{equation}
-W=\frac{1}{2}\cdot 2.2 mF \cdot (3.6 - 2.2 V)^{2}=xxxxx mW\label{eq:Energie LTS}
-\end{equation}
-
-
-Dadurch sammelt STS in einer Periode von xx ms eine Enegrigemenge von \todo{finale Zeiten eintragen. Energie dafür eintragen} yyy mJ. LTS lädt in der Periode von  zz ms zusätzlich eine Energiemenge von yyy mJ. Die angereicherte Menge von tt mJ genügen, um ein xxx-Paket zu versenden.
-
-\todo{besseres Bild}
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
-    \caption{LTS liefert Energie für die Arbeitspakete}
-    \label{LTSladet}
-\end{figure}
-
-Gelungen ist das Laden und Entladen beider Kondensatoren durch folgende EM-Schwellwerte:
-
-\todo{correct space in table}
-% Values from V1
 \subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
 \begin{tabbing}
     Register .............\quad\= Spannungswert \\[0.8ex]
-    v\_bat\_max\_hi       \> 3.9 V \\
-    v\_bat\_max\_lo       \> 3.8 V \\
+    v\_bat\_max\_hi       \> 3.8 V \\
+    v\_bat\_max\_lo       \> 3.7 V \\
     v\_bat\_min\_hi\_dis  \> 3.6 V \\
     v\_bat\_min\_hi\_con  \> 2.2 V \\
-    v\_bat\_min\_lo       \> 2.0 V \\
+    v\_bat\_min\_lo       \> 2.1 V \\
     v\_appl\_max\_hi      \> 3.8 V \\
     v\_appl\_max\_lo      \> 3.7 V \\   
 \end{tabbing}  
 
-\todo{bat mi ni low wird höher}
+
 
 \section{Powermanagement}
 
-Lange schien es so, dass die Sensoren, aufgrund des grossen Verbrauchs der I2C-Kommunikation und der langen Aufstartzeit der Sensoren, nicht per BLE bei tiefer Geschwindigkeit gesendet werden können. Eine Lösung wurde möglich, weil Aufgabenblöcke in Unterblöcke mit Schlafensezeiten eingebaut wurden. Die untenstehende Tabelle zeit die gefunden Lösung:
+TEXT NOCH NICHT FERTIG
+
+%Lange schien es so, dass die Sensoren, aufgrund des grossen Verbrauchs der I2C-Kommunikation und der langen Aufstartzeit der Sensoren, nicht per BLE bei tiefer Geschwindigkeit gesendet werden können. Eine Lösung wurde möglich, weil Aufgabenblöcke in Unterblöcke mit Schlafensezeiten eingebaut wurden. Die untenstehende Tabelle zeit die gefunden Lösung:
 
 \subsubsection*{Tabelle Energieverbrauch Aufgabenblöcke}
 \begin{tabbing}
