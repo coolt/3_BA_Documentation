@@ -1,37 +1,52 @@
 \chapter{Diskussion}
 
-Bespricht die erzielten Ergebnisse bezüglich ihrer Erwartbarkeit, Aussagekraft und Relevanz
+Am Ende der Arbeit stand ein lauffähiger Prototyp zur Verfügung, welcher einige Verbesserungen zur Verfügung hatte. Die Leistungsgewinnung wurde optimiert, der Aufbau minimiert und auf eine Leiterplatte gebracht, das Energiemanagement auf die Fahrt mit 10 km/h opimiert, die Messung der Daten, sowie die Übertragung wurde überarbeitet und eine benutzerfreundliche, optisch ansprechende Applikation wurde entwickelt. Die Resultate sind grösstenteils mathematisch und technisch erklärbar, nur die Funktionsweise des EM8500-Chips, sowie des TI-SensorTags war teilweise nicht erwartungsgemäss, jedoch befindet sich der EM8500-Chip noch in der Entwicklung und das TI-SensorTag wurde nicht mit dem vorgesehenen RTOS verwendet.
 
-Interpretation und Validierung der Resultate
+Damit an der Arbeit weiter gearbeitet werden kann, egal ob von dem bestehenden Team oder von anderen Studenten oder Technikern, wurde bereits während der Arbeit darauf geachtet alle Programme modular aufzubauen und best möglich zu kommentieren. Die Leiterplatte wurde ebenfalls in mehrere Bereiche aufgeteilt, welche seperat überarbeitet werden können und die Konfiguration des EM8500-Chips wurde sehr genau dokumentiert.
 
-Rückblick auf Aufgabenstellung, erreicht bzw. nicht erreicht
-\todo{ bei App: wenn mehrere unserer Geräte im Raum, dann sie voneinander unterscheiden}
-Legt dar, wie an die Resultate (konkret vom Industriepartner oder weiteren
-Forschungsarbeiten; allgemein) angeschlossen werden kann; legt dar, welche Chancen die
-Resultate bieten
+Die Aufgabenstellung wurde in allen Minimalanforderungen erreicht und es konnten noch optionale Aufgaben umgesetzt werden.
 
+In der Zukunft könnte die Leiterplatte weiter optimiert werden, damit es nur noch eine Leiterplatte gibt, also das TI-SensorTag ebenfalls auf die Leiterplatte integriert wird. Die Schaltung kann weiter optimiert werden, damit noch mehr Energie gewonnen werden kann. Die Applikation kann durch ihren modularen Aufbau mit weiteren Funktionen bestückt werden, wie zum Beispiel einer GPS-Karte, Aufzeichnung und Auswertung der Daten zur Verbesserung der Trainingsresultate. Die Benutzeroberfläche könnte grafisch noch verbessert werden, die momentane Benutzeroberfläche ist sehr einfach gestaltet, sie ist ansprechend, aber noch nicht perfekt. Die Firmware des TI-SensorTag kann ebenfalls noch verbessert werden, die Sensoren können nur mit einem grossen Energieaufwand ausgelesen werden und der ganze Sourcecode müsste noch leserlicher gemacht werden, jedoch beeinflusst dies immer wieder die Funktionalität. Bei der Neugestaltung muss darauf geachtet werden, dass die Funktionalität zu jeder Zeit gegeben ist. Das Energiemanagment kann dahin gehend verbessert werden, dass es dynamischer gestaltet wird, für verschiedene Geschwindigkeiten sollen verschiedene Profile erarbeitet werden.
 
-Es ist machbar.
-Stellen zum Optimieren definieren
+\subsection{Reflexion von Herr Manuel König}
+Die Arbeit war sehr interessant, jedoch gab es mehrer Punkte die erarbeitet werden mussten, welche im vorherein nicht absehbar waren. Anfangs war die Meinung, dass es sich hauptsächlich um eine Softwarearbeit handelt, welche ein wenig Hardwareprobleme beinhaltet. Die Optimiertung der Hardware war sehr komplex und ich hätte gerne noch mehr Zeit für die Optimierung aufgewendet, jedoch hätten wir dann die Ziele nicht mehr erreicht. Die Arbeit im Team war sehr lösungsorientiert, es wurde nie ein Schuldiger für ein Problem gesucht, sondern immer Lösungsvorschläge generiert. Die verschiedenen Arbeitsweisen waren interessant zu beobachten, jedoch war es nie ein Problem dass unterschiedlich gearbeitete wurde. Die Teamarbeit war sehr angenehm und ich würde jederzeit wieder mit Frau Katrin Bächli zusammen arbeiten.
 
-
-Reflexion Katrin:
-
-EM8500 I2C geht nicht richtig.
-Kein RTOS bebrauchen
-Code von Ines chaotisch
-Super Unterstützung.
-
-Reflexion Manu:
+\subsection{Reflexion von Frau Katrin Bächli}
 
 
-
-
-
-Dank:
-
-Ives The.... 
-Leiterplattenhersteller
+%Bespricht die erzielten Ergebnisse bezüglich ihrer Erwartbarkeit, Aussagekraft und Relevanz
+%
+%Interpretation und Validierung der Resultate
+%
+%Rückblick auf Aufgabenstellung, erreicht bzw. nicht erreicht
+%\todo{ bei App: wenn mehrere unserer Geräte im Raum, dann sie voneinander unterscheiden}
+%Legt dar, wie an die Resultate (konkret vom Industriepartner oder weiteren
+%Forschungsarbeiten; allgemein) angeschlossen werden kann; legt dar, welche Chancen die
+%Resultate bieten
+%
+%
+%Es ist machbar.
+%Stellen zum Optimieren definieren
+%
+%
+%Reflexion Katrin:
+%
+%EM8500 I2C geht nicht richtig.
+%Kein RTOS bebrauchen
+%Code von Ines chaotisch
+%Super Unterstützung.
+%
+%Reflexion Manu:
+%
+%
+%
+%
+%
+%
+%Dank:
+%
+%Ives The.... 
+%Leiterplattenhersteller
 
 
 
