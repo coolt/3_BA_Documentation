@@ -252,38 +252,35 @@ Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets 
 \end{tabbing} 
 
 
-/////////////////
+
+%Die Lösung ist das Aufsplitten von Aufgabenblöcken. Bei genug Energie, wird nicht ein Sensor gestartet, ausgelesen und seine Daten versendet, sondern der Sensor wird gestartet, dann geht das System schlafen, bis dass LTS voll ist. Dann folgt der nächste Aufgabe: die Werte auslesen. Es wird wieder geschlafen und beim dritten Mal genügend Energie wird das Paket versendet. Das Konzept des Schlaffens zwischen Aufgabeblöcken ist im theoretischen Teil im Unterkapitel \ref{pm_sleep} im Abschnitt \ref{schlafen_theorie} beschrieben . Die Abbildung \ref{arbeitsaufteilung} zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt die Initialisierung des Sensors, dann folgt das Auslesen der Daten und zum Schluss das Senden der Werte.
+%
+%\todo{Bild Arbeitsaufteilung }
+%\begin{figure}[ht]
+%    \includegraphics[width=0.4\textwidth]{idle.png}
+%    %\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
+%    \caption{Aufteilen in drei Schritte bis zum Senden der Daten}
+%    \label{arbeitsaufteilung}
+%\end{figure}
+%
+%% ev. Grossaufnahme: BLE Energieverbrauch
+%
+%Das Ergebnis ist in der Abbildung \ref{Sensor_Energie} graphisch dargestellt. Es zeigt sich, dass das Senden von Sensordaten \todo{Wert eintragen Tabelle und Text} xx mal mehr Energie verbrauchen, als das Senden der Geschwindigkeit. Die schlechteste Bilanz hat das Auslesen des Status Registers aus dem EM8500-Chip. In diesem Byte ist hinterlegt, welche Schwellwerte des EM8500 überschritten wurden und dient dadurch auf einfache Art dem Abbilden des aktuellen Energiezustands (siehe Unterkapitel \ref{v_energiezustand}). 
+%
+%\begin{figure}[ht]
+%    \includegraphics[width=0.4\textwidth]{idle.png}
+%    %\includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
+%    \caption{LTS liefert Energie für die Arbeitspakete}
+%    \label{Sensor_Energie}
+%\end{figure}
+%
 
 
-Die Lösung ist das Aufsplitten von Aufgabenblöcken. Bei genug Energie, wird nicht ein Sensor gestartet, ausgelesen und seine Daten versendet, sondern der Sensor wird gestartet, dann geht das System schlafen, bis dass LTS voll ist. Dann folgt der nächste Aufgabe: die Werte auslesen. Es wird wieder geschlafen und beim dritten Mal genügend Energie wird das Paket versendet. Das Konzept des Schlaffens zwischen Aufgabeblöcken ist im theoretischen Teil im Unterkapitel \ref{pm_sleep} im Abschnitt \ref{schlafen_theorie} beschrieben . Die Abbildung \ref{arbeitsaufteilung} zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt die Initialisierung des Sensors, dann folgt das Auslesen der Daten und zum Schluss das Senden der Werte.
-
-\todo{Bild Arbeitsaufteilung }
-\begin{figure}[ht]
-    \includegraphics[width=0.4\textwidth]{idle.png}
-    %\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-    \caption{Aufteilen in drei Schritte bis zum Senden der Daten}
-    \label{arbeitsaufteilung}
-\end{figure}
-
-% ev. Grossaufnahme: BLE Energieverbrauch
-
-Das Ergebnis ist in der Abbildung \ref{Sensor_Energie} graphisch dargestellt. Es zeigt sich, dass das Senden von Sensordaten \todo{Wert eintragen Tabelle und Text} xx mal mehr Energie verbrauchen, als das Senden der Geschwindigkeit. Die schlechteste Bilanz hat das Auslesen des Status Registers aus dem EM8500-Chip. In diesem Byte ist hinterlegt, welche Schwellwerte des EM8500 überschritten wurden und dient dadurch auf einfache Art dem Abbilden des aktuellen Energiezustands (siehe Unterkapitel \ref{v_energiezustand}). 
-
-\begin{figure}[ht]
-    \includegraphics[width=0.4\textwidth]{idle.png}
-    %\includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
-    \caption{LTS liefert Energie für die Arbeitspakete}
-    \label{Sensor_Energie}
-\end{figure}
-
-
-
-
-////////////////////////
 
 Folgende Resultate werden mit dem produzierten Prototyp erzeugt:
 
 \todo{ genauere Angaben nach Endmessungen}
+
 \begin{enumerate}
     \item Das Übermitteln der Geschwindigkeit ist ab 10 km/h möglich
     \item Das Übermitteln aller Sensordaten (gestaffelt) ist ab xxx km/h möglich
@@ -292,7 +289,8 @@ Folgende Resultate werden mit dem produzierten Prototyp erzeugt:
 \end{enumerate}
 
 
-
+Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Sockelbetrag zum Starten des Systems. Der Short Time Storage muss zuerst auf die Höhe des Schwellwerts zur Speisung der Applikatin geladen werden. Dies bedeutet einen einmaligen Energieaufwand von 220 $\mu$J. Die Kondensatoren des TI-SensorTags müssen zu Beginn ebenfalls geladen werden. Dies sind weitere 63.2 $\mu$J. Zudem braucht die Initialisierung und das Refreshen zusammen in den ersten 10 s 90 $\mu$J. Zusammen ergibt dies einen Grundenergieverbrauch ab Start von 373.3 $\mu$J. Dies ist bei einer Geschwindikeit von 10 km/h erst nach xxx s möglich.
+\todo{Zeit bei 10km/h eintragen. Abschlusssatz besser}
 
 
 
