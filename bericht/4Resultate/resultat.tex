@@ -1,15 +1,15 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Diese teilen sich in die bekannten Kategorien Harvester, Energy - und Power Management sowie die BLE-Applikation. Die Resultate jeder Kategorie werden in einem Unterkapitel beschrieben.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Beim Harvester geht es um den produzierten Print, die Leistungsfähigkeit der Schaltung, und die Qualität des Signals am Harvesterausgang. Beim Energy Management wird die Leistungsabgabe nach der Regelung dokumentiert, und die Wirkung der Schwellwerte auf die Kondensatoren STS und LTS und auf die Speisung V\_SUP. Beim Power Management wird der finale Stand an Schlafzyklen zusammengestellt und bei der BLE-Applikation das User Interface gezeigt.
  
 \section{Harvesterschaltung}
 
 \subsection{Der Print}
 
-Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zusehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen, jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen, hier wurden die beiden Kondensatoren über Litzen angeschlossen, da die Elkos keinen Platz zwischen dem Prototypen-PCB und dem TI-SensorTag finden. 
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zusehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen, jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen, hier wurden die beiden Kondensatoren über Litzen angeschlossen, da die ElKos keinen Platz zwischen dem Prototypen-PCB und dem TI-SensorTag finden. 
 
-Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherrbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte vielleicht noch Platz gehabt auf der oberen Seite, jedoch muss der Reed-Switch in der Nähe der Spule paltziert werden, da hier der Magnet durchläuft.
+Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte vielleicht noch Platz gehabt auf der oberen Seite, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
@@ -24,7 +24,7 @@ Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehe
     \label{print_vorne}
 \end{figure}
 
-\newpage  % todel
+\newpage  
 \subsection{Leistung am Harvesterausgang}
 
 Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt, problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann, es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
@@ -41,8 +41,8 @@ Die Leistung, welche der Harvester zur Verfügung stellen kann liegt bereits bei
     Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
     10 km/h  \> 24.77  $\mu$W \\
     15 km/h  \> 61.07  $\mu$W \\
-    20 km/h> \> 116.69 $\mu$W \\
-    40 km/h> \> 472.61 $\mu$W \\
+    20 km/h \> 116.69 $\mu$W \\
+    40 km/h \> 472.61 $\mu$W \\
 \end{tabbing}  
 
 Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können diese Leistungen nur erreicht werden, wenn die Einstellung des EM8500-Chips dementsprechend eingestellt werden.
@@ -71,7 +71,8 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 
 Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
 
-\subsubsection*{Tabelle Leistung und Wirkungsgrad }
+\subsubsection*{Tabelle Leistung EM-8500 Ausgang}
+\label{res_em_aus}
 \begin{tabbing}
     Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
     10 km/h  \> 5.44   $\mu$W\\
@@ -147,7 +148,6 @@ Bei 40 km/h werden rund 15 BLE-Pakete mit gesendet, bis dass V\_STS (gelb) unter
 
 \subsection{Laden und Entladen des LTS}
 \label{res_entladen}
-%v\_bat\_min\_
 
 Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \todo{Link}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
 
@@ -191,8 +191,7 @@ Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das 
 Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt.
 
 STS = 100 $\mu$F
-
-LTS = 2200 $\mu$F
+LTS = 3300 $\mu$F
 
 
 \subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
@@ -211,19 +210,49 @@ LTS = 2200 $\mu$F
 
 \section{Powermanagement}
 
-TEXT NOCH NICHT FERTIG
+Bei der Entwicklung werden die Energiewerte für die gemessen. Diese werden in der untenstehenden Abbildung \ref{r_bild_e_zusammenfassung} zusammen mit der Energielieferung am EM8500-Chip zusammengestellt. Diese Abbildung fasst zusammen, bei welchen Geschwindigkeit nach welcher Zeit, welche Daten gesendet werden. 
 
-%Lange schien es so, dass die Sensoren, aufgrund des grossen Verbrauchs der I2C-Kommunikation und der langen Aufstartzeit der Sensoren, nicht per BLE bei tiefer Geschwindigkeit gesendet werden können. Eine Lösung wurde möglich, weil Aufgabenblöcke in Unterblöcke mit Schlafensezeiten eingebaut wurden. Die untenstehende Tabelle zeit die gefunden Lösung:
+\subsection{Zusammenfassung Energieaufwand pro Aufgabe}
 
-\subsubsection*{Tabelle Energieverbrauch Aufgabenblöcke}
+Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte am EM8500-Ausgang (siehe Tabelle \ref{resultat_Zsm_Energy}) aufgerechnet als Energiewert nach 10 s. Die Umrechnung zum Energiewert stehen in der Tabelle Unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}, da die Werte in der Abbildung nicht präzis abgelesen werden können. Auf der y-Achse sind die Minimalwerte für das Senden eines BLE-Pakets dieses Typs eingetragen. In der zweiten Tabelle unterhalb der Abbildung \ref{r_bild_e_zusammenfassung} sind die eingetragenen Werte eingetragen. Bei den Eingetragenen Werte für eine Zeitdauer von 10 s wird neben dem Verbrauch für das Starten der Sensoren oder das Auslesen der Werte und Senden des Paketes auch die Initialsisierung und die Refresh-Energie-Summe für 10 s als Sockelbetrag (hellgrau) dazuaddiert. Die Werte beziehen sich auf die Tabelle der Energiemessungen der Version V4 des TI-SensorTags (\ref{erst_EMessungen}).
+
+\todo{Refreshzyklus einbauen in Messungen}
+
+
+
+
+\begin{figure}[ht]
+     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}\label{resultat_Zsm_Energy} 
+     \caption{Energieverbrauch gem\"{a}ss Verarbeitungsaufwand für CPU}
+     \label{r_bild_e_zusammenfassung}
+\end{figure}
+
+
+ 
+
+\subsubsection*{Energieabgabe an Sensortag innerhalb 10 s}
+\begin{tabbing}
+    Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
+    10 km/h  \> 54.4   $\mu$J\\
+    15 km/h  \> 209.1  $\mu$J\\
+    20 km/h> \> 413.9  $\mu$J\\
+    40 km/h> \> 1707.5 $\mu$J\\
+\end{tabbing}  
+
+\subsubsection*{Tabelle Energieverbrauch nach Aufgabenblöcken}
 \begin{tabbing}
     Funktion ...................................................................................\quad\= Energieverbrauch \\[0.8ex]
-    Auslesen Reed Switch und Berechnen Geschwindigkeit       \> xx mW \\
-    Starten und Auslesen Drucksensor          \> xx mW \\
-    Starten und Auslesen Temperatursensor     \> xx mW \\
-    Starten und Auslesen Feuchtigkeitssensor  \> xx mW \\
-    Auslesen Statusregister per SPI           \> xx mW \\
-\end{tabbing}  
+    Initialisierung                               \> 77 $\mu$J \\
+    Refreshzyklen innerhalb 10 s                  \> 13 $\mu$J \\
+    Geschwindigkeit und BLE-Paket                 \> 32 $\mu$J \\
+    Starten Drucksensor                           \> 5.7 $\mu$J \\
+    Starten Temperatursensor                      \> 10.6 $\mu$J \\
+    Starten Feuchtigkeitssensor                   \> 6.3 $\mu$J \\
+    Geschwindigkeit, Auslesen Sensor und BLE-Paket \> 43 $\mu$J \\
+\end{tabbing} 
+
+
+/////////////////
 
 
 Die Lösung ist das Aufsplitten von Aufgabenblöcken. Bei genug Energie, wird nicht ein Sensor gestartet, ausgelesen und seine Daten versendet, sondern der Sensor wird gestartet, dann geht das System schlafen, bis dass LTS voll ist. Dann folgt der nächste Aufgabe: die Werte auslesen. Es wird wieder geschlafen und beim dritten Mal genügend Energie wird das Paket versendet. Das Konzept des Schlaffens zwischen Aufgabeblöcken ist im theoretischen Teil im Unterkapitel \ref{pm_sleep} im Abschnitt \ref{schlafen_theorie} beschrieben . Die Abbildung \ref{arbeitsaufteilung} zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt die Initialisierung des Sensors, dann folgt das Auslesen der Daten und zum Schluss das Senden der Werte.
@@ -248,7 +277,11 @@ Das Ergebnis ist in der Abbildung \ref{Sensor_Energie} graphisch dargestellt. Es
 \end{figure}
 
 
-Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am Ausgang nach dem EM8500-Chips, können (siehe Abbildung \ref{resultat_Zsm_Energy}) folgende Schlussfolgerungen gezogen werden:
+
+
+////////////////////////
+
+Folgende Resultate werden mit dem produzierten Prototyp erzeugt:
 
 \todo{ genauere Angaben nach Endmessungen}
 \begin{enumerate}
@@ -258,10 +291,7 @@ Kombiniert man den Energieverbrauch mit der zur Verfügung stehenden Energie am 
     \item Das Übermitteln aller Sensordaten braucht bei 40 km/h xxx s
 \end{enumerate}
 
-\begin{figure}[ht]
-\includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}\label{resultat_Zsm_Energy} 
-\caption{Energieverbrauch gem\"{a}ss Verarbeitungsaufwand für CPU}
-\end{figure}
+
 
 
 

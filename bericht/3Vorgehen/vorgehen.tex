@@ -557,24 +557,43 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 Als Überblick über den konkreten Energieverbrauch bei der Version V4 folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren.
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Drucksensor.png}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Ueberblick.png}
+  \caption{Überblick Energieverbrauch mit Refreshzylken}
+  \label{energie_ueberblick}
+\end{figure}
+
+\newpage
+\begin{figure}[ht]
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Init.png}
   \caption{Energieverbrauch für Initialisierung}
   \label{energie_init}
 \end{figure}
 
+
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Drucksensor.png}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Senden.png}
   \caption{Energieverbrauch senden eines BLE-Paketes mit Sensordaten}
   \label{energie_senden}
 \end{figure}
 
+\newpage
+\begin{figure}[ht]
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Refresh.png}
+  \caption{Energieverbrauch Refreshzykus}
+  \label{energie_refresh}
+\end{figure}
+
+Für die Initialisierung werden 77.38 $\mu$J verbraucht (Abbildung \ref{energie_init}), für das Senden eines BLE-Paketes 43.4 $\mu$J (Abbildung \ref{energie_senden}) und für einen Refreshzyklus $1.4\mu$J (Abbildung \ref{energie_refresh}). Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak.
+
+\todo{Zeit des BLE-Sendens korrket eintragen. Auch in Graphik}
+\todo{Graphiken falsch! Werte überprüfen}
 
 \paragraph{Energieverbrauch Starten des Drucksensors}
 
 Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet. Weil der Drucksensor lange \todo{Zeit einfügen} braucht, um zu starten, wird dieser Vorgang in eine eigene Funktion ausgelagert. Hier die Energiemessung des Startvorgangs des Sensors, ausgelesen mit der TI-SensorTag Version 4, am 3. Juni 2016. Die Version V4 ist noch nicht vollständig power-optimiert.
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Drucksensor.png}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Drucksensor.png}
   \caption{Energieverbrauch des Drucksensors BMP 280}
   \label{energie_drucksensor}
 \end{figure}
@@ -587,7 +606,7 @@ Das Starten des Drucksensors verbraucht 5.753 $\mu$J.
 Der Temperatursensor xxx der Marke yyy verbraucht fürs Auslesen der Daten, ohne Energieoptimierung, 10.635 $\mu$J.
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/tempSensor.png}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/tempSensor.png}
   \caption{Energiemessung Temperatursensor auf TI-SensorTag}
   \label{energie_tempsensor}
 \end{figure}
@@ -598,12 +617,13 @@ Der Temperatursensor xxx der Marke yyy verbraucht fürs Auslesen der Daten, ohne
 Der Feuchtigkeitssensor verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
 
 \begin{figure}
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Humidity.png}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Humidity.png}
   \caption{Energieverbrauch Feuchtigkeitssensor}
   \label{energie_humidity}
 \end{figure}
 
 
+\newpage
 
 
 % x.2 ---------------------------------
