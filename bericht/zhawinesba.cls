@@ -17,6 +17,8 @@
 \usepackage{tocloft} % for cftaddtitleline
 \usepackage{todonotes}
 
+\usepackage[fleqn]{amsmath} % for multiline equations, [left aligned]
+
 % Page
 % ====
 
@@ -57,7 +59,7 @@
 %\makeatother
 
 \setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{3}
 
 % Paragraphs and text
 % ===================
@@ -84,7 +86,6 @@
 %    \@startlot{lot}%
 %}
 
-
 % Lists
 % =====
 % dashes instead of bullets for the lists
@@ -96,6 +97,11 @@
 \renewcommand{\labelitemi}{$-$}
 \renewcommand{\labelitemii}{$-$}
 
+
+% Equations
+% =========
+
+\setlength{\mathindent}{0pt} % no indent in fleqn amsmath equations
 
 % Typography
 % ==========

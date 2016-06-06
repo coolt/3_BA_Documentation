@@ -50,18 +50,13 @@ Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt.
     BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble} \\
 \end{tabbing}   
 
-\todo{Header Tabelle (Bezeichnung, Beschreibung) weg } 
-
 \subsection{Verhalten des Vorgängermodells}\label{verhalten} 
 
 Die Inbetriebnahme bestätigte das in der Dokumentation \cite{PA_bicycle} beschriebene Verhalten. Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände zwischen den Funktionsblöcken (siehe Abbildung \ref{funktionsdiagramm_bild} und an den Speicherelementen. Die Legende zur Abbildung  \ref{spannungMachbarkeit} erklärt die Signale.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messungPA.png}
+    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/messungPA.png}
     \caption{Spannungswerte Modell der Machbarkeitsstudie}\label{spannungMachbarkeit} 
-\end{figure}
-
-\subsubsection*{Legende Abbildung \ref{spannungMachbarkeit} }
 \begin{tabbing}
     Channel\quad\= Farbe\quad\= Beschreibung\\[0.8ex]
     CH1\> gelb\> Spannungsverlauf V\_HRV\\
@@ -70,6 +65,7 @@ Die Inbetriebnahme bestätigte das in der Dokumentation \cite{PA_bicycle} beschr
     CH4\> grün\> Ausgangsspannung nach Energy Management\\
      \>  \>      Eingangsspannung Sensorttag
 \end{tabbing}    
+\end{figure}
 
 Im Folgenden werden die einzelnen Spannungsverläufe chronologisch der Kanalnummer nach analysiert. Kanal 1 spiegelt die Spannung am Harvesterausgang wieder (V\_HRV). Gemäss Theorie \ref{eingangsspannung} bzw. gemäss Datenblatt des EM8500 ist der EM8500-Chip für ein DC-Signal ausgelegt. Er geht von einem regelmässigen Eingangssignal aus und regelt die Spannung auf den MPPT. Diese Regelung sollte wie in Abbildung \ref{RegelungSpannung} aussehen. Das reale Signal entspricht nicht diesem Verhalten. Die Regelung ist abrupt und überspringt mehrere Spannungslevel. Der Ursache für die schlechte Regelung soll nachgegangen werden.
 
@@ -107,21 +103,22 @@ Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, eine
 Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch annehmbar war. Die Rippelspannung bei dem bestehenden Kondensator von 470 $\mu$F beträgt ca. 10 mVpp. Die Rippelspannung bei einer Kapazität von 47 $\mu$F beträgt bereits ca. 40 mVpp, jedoch ist die Rippelspannung noch in einem Bereich der annehmbar scheint. Bei einer Kapazität von 10 $\mu$F liegt die Rippelspannung von ca. 500 mVpp, dies ist nicht mehr akzeptabel. Die Abbildung \ref{47uF_mit_Limiter_AC} veranschaulicht die Rippelspannung von einem Kondensator mit 47 $\mu$F, die Abbildung \ref{10uF_mit_Limiter_DC} zeigt die Rippelspannung über einem Kondensator von 10 $\mu$F.
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/47uF_mit_Limiter_AC.PNG}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/47uF_mit_Limiter_AC.PNG}
     \caption{Rippelspannung über dem 47 $\mu$F Kondensator}
 	\label{47uF_mit_Limiter_AC} 
-\end{figure}
-
-\begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/10uF_mit_Limiter_DC.PNG}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/10uF_mit_Limiter_DC.PNG}
     \caption{Rippelspannung über dem 10 $\mu$F Kondensator}
 	\label{10uF_mit_Limiter_DC} 
+ \end{minipage}
 \end{figure}
 
 Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips kein konstantes Spannungslevel (siehe Abbildung x) erhält. 
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
+    \includegraphics[width=0.45\textwidth]{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
     \caption{Spannung am EM8500-Eingang über einem 47 $\mu$F Kondensator}
 	\label{VCC_47uF_15kmh_Periode} 
 \end{figure}
@@ -133,59 +130,11 @@ Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessun
 Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Der Kondensator sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open Loop Messung keine richtigen Werte liefert. Der Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
 
 \begin{figure}[ht]
-    \includegraphics{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
+    \includegraphics[width=0.45\textwidth]{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
     \caption{Spannung am EM8500-Eingang über einem 100 $\mu$F Kondensator}
 	\label{VCC_100uF_15kmh_Periode} 
 \end{figure}
 
-%Text aus Einleitung: Für Argumentation. (Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives Théoduloz von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssingals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im 
-%
-%??????  .... folgte.) Hier ist nun dieser erwähnte Text.
-%
-%Vorschlag Katrin:
-%Die auffällige Regelung des Harvesterinputs wurd Ives Théoduloz gezeigt. 
-%
-%Gemäss Ives Théoduloz sollten Kondensatoren der Harvesterschaltung im Bereich von 4.7 $\mu$F liegen, sodass die Energiemanagementschaltung ordnungsgemäss funktioniert.  
-%
-%
-%In der Machbarkeitsstudie ist nach dem Gleichrichter ein Kondensator von 470 $\mu$F nachgeschaltet. Dieser glättet die Spannungspulse nach dem Gleichrichter zu einer DC-ähnlichen Spannung mit Rippeln.
-%
-%Aus diesem Grund wird die Rippelspannung am Ausgangs der Harvesterschaltung mit kleineren Kondensatoren gemessen. Das Messprotokoll befindet sich im Anhang.
-%
-%\subsubsection{Ausmessen der Auswirkung des Ausgangskondensators}
-%\todo{auf Messprotokoll verweisen}
-%
-%Mit einem Kondensator von 470 $\mu$F wird die Ausgangsspannung der Harvesterspannung fast rippelfrei. Die Rippelspannung beträgt 3.2 mV (siehe Abbildung \ref{kond470uF}).
-%
-%\begin{figure}[ht]
-%    \includegraphics[width=15cm]{3Vorgehen/imag/470uF.PNG}
-%    \caption{Rippelspannung bei Glättung mit 470 $\mu$F %Kondensator}\label{kond470uF} 
-%\end{figure}
-%
-%\subsubsection*{Messaufbau}
-%In der gegebenen Harvesterschaltung wird am Kondensator die Spannung mit einem Kathodenstrahloszilloskop (KO) gemesssen. Ausgehend vom bestehenden Kondensator (470 $ \mu $F), werden danach Elektrolytkondensatoren (Elko) mit den Werten 100 $\mu F $F, 47 $\mu$F und 10 $\mu$F gemessen.
-%
-%\begin{figure}[h7]
-%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/messschaltungHarvesterschaltung.jpg}
-%    \caption{Messschaltung}
-%\end{figure}
-%
-%\subsubsection*{Resultat}
-%
-%Die Rippelspannung erhöht sich wie erwartet. Vpp beträgt bei 100 uF \textbf{xx} mV, bei 47 uF 28.8 mV (siehe Abbildung \ref{kond47uF}) und bei 10 uF 320 mV (Abbildung \ref{kond10uF}).
-% 
-%\begin{figure}[ht]
-%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/10uF.PNG}
-%    \caption{Rippelspannung mit 10 uF Kondensator}\label{kond10uF} 
-%\end{figure}
-%
-%\begin{figure}[ht]
-%    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/47uF.PNG}
-%    \caption{Rippelspannung mit 47 uFKondensator}\label{kond47uF} 
-%\end{figure}
-%
-%Nach Rücksprache mit einem Entwickler des EM8500-Chips wird der zu hohe Kondensator vor dem Harvester-Eingang als Ursache vermutet. Laut Datenblatt sollte dieser 4.7 $\mu$F, damit der Booster mit eingebautem MPPT ideal regeln kann.
-%
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
 \begin{enumerate}
@@ -242,7 +191,7 @@ Die Harvesterschaltung der Abbildung\ref{schema_harvester_pa15} wurde im Rahmen 
 Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, das Schema inklusive aller Kondensatoren ist im Datenblatt zu finden. Jedoch wurden die Jumper nicht übernommen und nur einige Stecker wurden übernommen, bzw. mit eigenen Signalen ergänzt.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Schema_EM-Chip_inkl_Peripherie.png}
+    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Schema_EM-Chip_inkl_Peripherie.png}
     \caption{Schema des EM-Chips mit der benötigten Peripherie}\label{schema_em-chip_inkl_peripherie} 
 \end{figure}
 
@@ -251,7 +200,7 @@ Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, 
 Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. Dimensionierung noch nicht definitiv war und noch Tests bezüglich der Energiespeicher anstanden. Jedoch wurde im Schema jeweils ein Elko als Platzhalter verwendet, da in der Machbarkeitsstudie ebenfalls Elkos verwendet wurden, die Kapazitätswerte sind jedoch nur erste Werte, welche nur abgeschätzt wurden.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Schema_Energiespeicher.png}
+    \includegraphics[width=0.3\textwidth]{3Vorgehen/imag/Schema_Energiespeicher.png}
     \caption{Schema der Energiespeicher (Elkos sind nur Platzhalter)}
     \label{schema_energiespeicher} 
 \end{figure}
@@ -265,7 +214,6 @@ Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da d
     \caption{Schema Umlauferfassung}\label{schema_umlaufdetektion} 
 \end{figure}
 
-\newpage
 \subsection{Bauteildefinition und Optimierung}
 
 Nachdem klar war, welche Teile auf der Leiterplatte Platzfinden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie unnötig verloren geht. 
@@ -282,7 +230,7 @@ Es wurden folgende Punkte angeschaut und versucht zu optimieren:
 Die Spule gewinnt die Energie aus dem an einer Speiche des Fahrrads befestigten Magneten. Eine bessere Spule könnte mehr Energie aus dem vorbei schnellenden Magneten gewinnen. Entscheidend ist das die Fläche der Spule nicht vergrössert werden darf, bestenfalls sollte eine kleinere Spule gefunden werden, welche mehr Energie gewinnt. Gemäss der Formel 2.4 ist für die gewonnene Energie vor allem die Wicklungszahl entscheidend, jedoch wird bei den Spulen meistens nur die Induktivität angegeben. Dies ist kein Problem, da die Induktivität quadratisch von der Wicklungszahl (siehe Formel \cite{equ_inductivity}) abhängt.
 
 \begin{equation}
-	L = \mu_0 * \frac{N^2*A}{l}
+	L = \mu_0 \times \frac{N^2\times A}{l}
 \end{equation}
 
 Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Fläche gesucht, somit können nur noch zwei Variablen sich verändern. Zum einen kann sich die Wicklungszahl verändern und zum andern kann sich die Länge der Spule verändern. Die Spule von Würth Elektronik hat eine ähnliche Fläche und eine grössere Induktivität, was auf den ersten Blick sehr vielversprechend aussieht.
@@ -290,9 +238,15 @@ Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Flä
 Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo mit der Bezeichnung 3015N 0238J 3206 hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth mit der Bezeichnung 74458308 hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit muss der Spule von Premo der Vortritt gerwährt werden. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildung \ref{messung_optimierung_spule}. Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule.png}
-    \caption{Links: Spannung über der Spule von Premo, Rechts: Spannung über der Spule von Würth, Geschwindigkeit 20 km/h}               
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule_links.png}
+    \caption{Spannung über der Spule von Premo}               
     \label{messung_optimierung_spule} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule_rechts.png}
+    \caption{Spannung über der Spule von Würth, Geschwindigkeit 20 km/h}               
+ \end{minipage}
 \end{figure}
 
 \subsubsection{Der Gleichrichter}
@@ -302,17 +256,29 @@ Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5
 Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet, die Erwartungen waren entsprechend hoch, da diese Dioden für LowPower-Anwendungen spezialisiert ist. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in der Abbildung \ref{messung_optimierung_gleichrichter_1} gezeigt wird.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_1.png}
-    \caption{Links: Gleichrichter 1N5819, Rechts: Gleichrichter aus HSMS-286P, 15 km/h}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_1_links.png}
+    \caption{Gleichrichter 1N5819}
     \label{messung_optimierung_gleichrichter_1} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_1_rechts.png}
+    \caption{Gleichrichter aus HSMS-286P, 15 km/h}
+ \end{minipage}
 \end{figure}
 
 Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp, der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10mVpp, dieser Unterschied ist vernachlässigbar, in Angesicht, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_2.png}
-    \caption{Links: Gleichrichter 1N5819, Rechts: Gleichrichter aus BAT54, 15 km/h}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_2_links.png}
+    \caption{Gleichrichter 1N5819}
     \label{messung_optimierung_gleichrichter_2} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_2_rechts.png}
+    \caption{Gleichrichter aus BAT54, 15 km/h}
+ \end{minipage}
 \end{figure}
 
 \subsubsection{Der Limiter}
@@ -324,8 +290,15 @@ Herr Erich Ruff hat eine Spannungsbegrenzungsschaltung entwickelt, welche er uns
 Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem LImiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung x zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Messung_Optimierung_Limiter.png}
-    \caption{Links: Dioden-Limiter, Rechts: FET-Limiter, 15 km/h}\label{messung_optimierung_limiter} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Limiter_links.png}
+    \caption{Links: Dioden-Limiter}
+    \label{messung_optimierung_limiter} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Limiter_rechts.png}
+    \caption{Rechts: FET-Limiter, 15 km/h}
+ \end{minipage}
 \end{figure}
 
 \subsection{Layout}
@@ -339,7 +312,7 @@ Die Positionierung der einzelnen Teile kann sehr wichtig sein, da mit einer gute
 Die Bauteile der Harvesterschaltung wurde als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn (\cite{eqn_res_leiter}) möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
 
 \begin{equation}
-	R = \rho * \frac{l}{A}
+	R = \rho \times \frac{l}{A}
 \end{equation}
 
 Der Widerstand bei 10 Mil ist somit 2.4 m$\Omega$, 
@@ -351,7 +324,7 @@ Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensat
 Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet, durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht schön übereinander sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Problem beim Einbauen in ein eventuelles Gehäuse bereiten. Zu dem Stecker gehört auch die Paltzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
     \caption{Pads der Leiterplatte, rot eingerahmt die Testpunkte des Steckers}\label{layout_testpunkteraster} 
 \end{figure}
 
@@ -364,8 +337,15 @@ Die erste Version der Leiterplatte war mit vielen Wünschen der Betreuer ausgest
 Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die Platzierung als auch der Footprint wurden falsch umgesetzt. Der Stecker wurde nicht an der richtigen Stelle platziert, somit überlappte unsere Leiterplatte das TI-SensorTag. Beim Erstellen des Footprints des Steckers wurden die Pins vertauscht, dort wo der Pin 1 sein sollte wurde der Pin 19 platziert und umgekehrt. Dies musste korrigiert werden, damit unsere Leiterplatte direkt mit dem TI-SensorTag verbunden werden kann. Dafür wurde die Leiterplatte überarbeitet, jedoch war die Zeit zu knapp, als dass die Leiterplatte für Tests vorhanden war.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Layout_Redesign.png}
-    \caption{Links: Top-Layer, Rechts: Bottom-Layer}\label{layout_redesign} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Layout_Redesign_links.png}
+    \caption{Top-Layer}
+    \label{layout_redesign} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Layout_Redesign_rechts.png}
+    \caption{Bottom-Layer}
+ \end{minipage}
 \end{figure}
 
 \todo{ Namensklärung: V HRV = VCC}
@@ -386,24 +366,20 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
 
 Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
-\todo{caption error}
-
+\captionof{table}{Leistung des fliegenden Aufbaus}\label{tab:leistung_fliegenden-aufbaus} 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 12.87 $\mu$W  \> 43.23 \%\\
 	20 km/h        \> 43.35 $\mu$W  \> 45.51 \%\\
-	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%\\
-	
-\end{tabbing}%\caption{Leistung des fliegenden Aufbaus}
+	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%
+\end{tabbing}
 
-\todo{caption error}
-
+\captionof{table}{Leistung der neuen Leiterplatte}\label{tab:leistung_neuen_leiterplatte} 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 10.17 $\mu$W  \> 56.99 \%\\
-	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%\\
-	
-\end{tabbing} %\caption{Leistung der neuen Leiterplatte}
+	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%
+\end{tabbing}
 
 Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
 
@@ -411,25 +387,26 @@ Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliege
 
 Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH, liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau, wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig, die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
+\captionof{table}{Leistung mit unterschiedlichen Spulen}
 \begin{tabbing}
-    Spule.................   \quad\= maximale Leistung    \\[0.8ex]
+    Spule\hspace{2cm}   \quad\= maximale Leistung    \\[0.8ex]
     Premo 2.38 mH        \> 48.57 $\mu$W\\
 	Premo 4.77 mH        \> 66.82 $\mu$W\\
 	
-\end{tabbing} %\caption{Leistung mit unterschiedlichen Spulen}
+\end{tabbing}
 
 Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37 \% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
 
 \begin{equation}
-	L = \mu_0 * \frac{N^2*A}{l}
+	L = \mu_0 \times \frac{N^2\times A}{l}
 \end{equation}
 
 \begin{equation}
-	N = \sqrt{\frac{L*l}{\mu_0*A}}
+	N = \sqrt{\frac{L\times l}{\mu_0\times A}}
 \end{equation}
 
 \begin{equation}
-	neue\,Wicklungszahl = \sqrt{2} * bisherige\,Wicklungszahl
+	neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
 \end{equation}
 
 Da die Leistung direkt proportional zur induzierten Spannung ist und die induzierte Spannung direkt proportional zur Wicklungszahl ist, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41 \% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
@@ -440,20 +417,25 @@ Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma
 
 Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
 
+\captionof{table}{Leistung mit unterschiedlicher Anzahl an Magneten}
 \begin{tabbing}
-    Konfiguration................................   \quad\= maximale Leistung    \\[0.8ex]
+    Konfiguration\hphantom{4.77 mH, 3 Magnete in Serie (Reelight)}   \quad\= maximale Leistung    \\[0.8ex]
     Spule: Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
-	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W\\	
-\end{tabbing} %\caption{Leistung mit unterschiedlicher Anzahl an Magneten}
-
-\todo{caption error}
+	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
+\end{tabbing}
 
 Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden, da man dieses Prinzip wieder ins Absurde treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch und unästhetisch.
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/zweiMagneteInSerie.png}
+ \begin{minipage}[t]{0.5\textwidth}
+  \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/zweiMagneteInSerie_links.png}
+  \caption{Anregung der Spule mit einem Magneten}
   \label{zweiMagneteInSerie} 
-  \caption{Rechts: Anregung der Spule mit einem Magneten, Links: Anregung der Spule mit zwei Magneten in Serie}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+  \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/zweiMagneteInSerie_rechts.png}
+  \caption{Anregung der Spule mit zwei Magneten in Serie}
+ \end{minipage}
 \end{figure}
 
 
@@ -461,6 +443,7 @@ Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wi
 
 Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Es wurde sich jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung welche die Harvesterschaltung zur Verfügung stellt aufgenommen werden.
 
+\captionof{table}{TODO}
 \begin{tabbing}
     Geschwindigkeit   	\quad\= maximale Leistung    \\[0.8ex]
     10 km/h		        \> 24.77 $\mu$W\\
@@ -478,18 +461,18 @@ Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stel
 Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
 
 \begin{equation}
-	E = \frac{U^2}{R}  *t % \Delta t
+	E = \frac{U^2}{R}  \times \Delta t
 \end{equation}
-\todo{Gleichung: delta t einbauen}
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergieEMChip15kmh.PNG}
+  \includegraphics[width=0.80\textwidth]{3Vorgehen/imag/EnergieEMChip15kmh.PNG}
   \label{EnergieEMChip15kmh} 
   \caption{rot: VCC\_STS, gelb: VSUP}
 \end{figure}
 
-Die Messung ergab folgende Werte:
+\todo{caption of tabbing}
 
+\captionof{table}{Messresultate \ldots{}}
 \begin{tabbing}
     Geschwindigkeit   	\quad\= abgegebene Energie    \\[0.8ex]
     10 km/h		        \> 261.2 $\mu$Ws\\
@@ -520,7 +503,7 @@ In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen. M
 \label{erst_EMessungen}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/v0Send33uJ.png} 
+    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/v0Send33uJ.png} 
     \caption{Minimalster Energieverbrauch: 3 BLE Pakte über Advertising Mode senden}
     \label{BLE_send}
 \end{figure}
@@ -531,15 +514,17 @@ Die untenstehende Tabell stellt dieEnergieresultate dar. Unterschieden wird zwis
 
 \todo{Sitzungsprotokolle Datum einsezten, Anhanhgsbezeichnung}
 
-\subsubsection*{Messresultate nach TI-SensorTag-Versionen}
+\begin{minipage}{\textwidth}
+\captionof{table}{Messresultate nach TI-SensorTag-Versionen}
 \begin{tabbing}
-    Version   \quad\= Datum    \quad\= Was................................................... \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
+    Version   \quad\= Datum    \quad\= Aufgabe\hphantom{re, kein Schlafmodus optimiert} \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
     V0        \> 10.3.16  \> Nur BLE Paket      \> unbekannt            \> 33 $\mu$J \\
     V1        \> 16.3.16  \> mit Geschwindigkeit      \> 87 $\mu$J            \> 32 $\mu$J \\
     V3        \> 22.4.16   \> Schlafmodus optimiert     \> 40 $\mu$J            \> 29 $\mu$J \\
     V4        \> 03.6.16    \> 3 Sensore, kein Schlafmodus optimiert     \> 77 $\mu$J            \> 43 $\mu$J \\
     V5        \> ongoing    \> 3 Sensore mit optimiertem Schlafmodus     \> 77 $\mu$J            \> 43 $\mu$J \\
 \end{tabbing}
+\end{minipage}
 
 Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren gestartet sind,  mehr Energie verbraucht, als erwartet. Der Energieverbrauch für das Auslesens eines Sensors ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten möglich ist. Die Speisung der Applikation bricht zusammen (siehe Abbildung \ref{i2c_problem}).
 
@@ -560,82 +545,86 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 
 Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
 
+\clearpage
 
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Ueberblick.png}
+\begin{figure}[p]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Ueberblick.png}
   \caption{Überblick Energieverbrauch mit Refreshzylken}
   \label{energie_ueberblick}
-\end{figure}
-
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Energie_Laden_Kondensatoren_Sensortag.png}
+ 
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Energie_Laden_Kondensatoren_Sensortag.png}
   \caption{Einmaliges Aufladen der Kondensatoren TI-SensorTag}
   \label{energie_kondensatoren_sensortag}
 \end{figure}
 
+\clearpage
 
-
-\newpage
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Refresh.png}
+\begin{figure}[p]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Refresh.png}
   \caption{Energieverbrauch Refreshzykus}
   \label{energie_refresh}
-\end{figure}
 
-\newpage
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Init.png}
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Init.png}
   \caption{Energieverbrauch für Initialisierung}
   \label{energie_init}
 \end{figure}
 
+\clearpage
 
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Senden.png}
+\begin{figure}[p]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Senden.png}
   \caption{Energieverbrauch senden eines BLE-Paketes mit Sensordaten}
   \label{energie_senden}
 \end{figure}
 
+%\vspace{\fill}
+
+\clearpage
 
 Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-Sensortag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden})- bei der Zeitmarke von 2.07 s - 43.44 $\mu$J verbraucht werden.
 
 
-\paragraph{Energieverbrauch Starten des Drucksensors}
+\subsubsection*{Energieverbrauch Starten des Drucksensors}
 
 Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet. Bei der Zeitmarke 1.34 s wird der Sensor gestartet. Die Abbildung \ref{energie_drucksensor} dokumentiert einen Energieverbrauch von 5.753 $\mu$J zum Starten des Sensors.
 
 \begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Drucksensor.png}
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Drucksensor.png}
   \caption{Energieverbrauch des Drucksensors BMP 280}
   \label{energie_drucksensor}
 \end{figure}
 
-\paragraph{Energieverbrauch beim Starten des Temperatursensor}
+\clearpage
+
+\subsubsection*{Energieverbrauch beim Starten des Temperatursensor}
 
 \todo{tempsensor daten}
 Der Temperatursensor xxx der Marke yyy verbraucht für das Starten 10.635 $\mu$J. Dies findet bei der Zeitmarke t = 1.54 s statt.
 
 \begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/tempSensor.png}
+  \includegraphics[width=0.7\textwidth]{3Vorgehen/imag/tempSensor.png}
   \caption{Energiemessung Temperatursensor auf TI-SensorTag}
   \label{energie_tempsensor}
 \end{figure}
 
-
-\paragraph{Energieverbrauch Feuchtigkeitssensor}
+\subsubsection*{Energieverbrauch Feuchtigkeitssensor}
 
 Der Feuchtigkeitssensor xxx der Marke yyy verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
 
-\begin{figure}
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Humidity.png}
+\begin{figure}[ht]
+  \includegraphics[width=0.7\textwidth]{3Vorgehen/imag/Humidity.png}
   \caption{Energieverbrauch Feuchtigkeitssensor}
   \label{energie_humidity}
 \end{figure}
 
+\enlargethispage*{15cm}
+
+\clearpage
+
 Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildung \ref{energie_zsm} der Verbrauch aller Aktionen nebeneinander aufgelistet. Es wird deutlich, dass die Initialisierung und das notwendige Refresehen des Speichers zusammen (die Balken sind violett)  fast gleich viel Energie brauchen, wie das Senden zweier BLE-Pakete mit Sensorwerten. Aus diesem Grund hat erste Priorität beim Power Management, dass die Speisung V\_SUP nicht abstellt. Denn wenn bei der Datenverarbeitung zu viel Energie verbraucht wird und dadurch die Kondensatoren unter den minimalen Schwellwert fallen, stellt die Speisung ab. Jedes Mal wenn die Speisung unterbrochen wird, ist eine neue Initialisierung notwendig. Diese verbraucht unnötig viel Energie.
 
-\begin{figure}
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Energy_pro_Aufgabe.png}
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Energy_pro_Aufgabe.png}
   \caption{Energieverbrauch pro Aufgabe}
   \label{energie_zsm}
 \end{figure}
@@ -647,9 +636,6 @@ Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildu
 
 
 
-
-
-\newpage
 
 
 % x.2 ---------------------------------
@@ -836,11 +822,7 @@ Im hohen Energiezustand wird mit jedem Geschwindigkeitspaket die aktualisierten 
 %\subsubsection*{Energiezustände umgesetzt in Software}
 
 
-
-
-
-
- 4---------------------------------------------------------------------------
+% 4 ---------------------------------------------------------------------------
 \section{Power Management}
 \label{powerOptimierung}
 
@@ -883,40 +865,38 @@ Einfach zu implementieren sind ganze Schalfzyklen nach einem Funktionsblock. Ist
 \subsubsection{Stand By-Prozedur}
 \label{vorbereiten}
 
-\todo{als Code markieren, Einrückungen falsch}
 Bevor der Prozessor schalfen geht, muss das Recharge Intervall aufgesetzt werden. Während der Prozessor schläft, bleiben Takte der Always On (AON) Power Domain wach wie auch Interrupts dieser Domaine. Zusätzlich werden die Registereinstellungen über das Recharge Intervall am Leben erhalten. 
  
-void go\_to\_standby()\{ 
-                \linebreak 
-	    powerDisableXtal(); \linebreak 
-	    powerDisableRFC(); \linebreak
-	    OSCHfSourceSwitch();                    // activates lower clock \linebreak
-	    powerDisableAuxForceOn(); \linebreak
-	    powerEnableMcuPdReq(); \linebreak
-	    powerDisableCache(); \linebreak
-	    powerDisableCacheRetention(); \linebreak
-	            \linebreak
-	    // calculate next recharge time \linebreak
-	    SysCtrlSetRechargeBeforePowerDown(XOSC\_IN\_HIGH\_POWER\_MODE);   \linebreak     
-	    SysCtrlAonSync(); \linebreak
-                \linebreak
-\} 
+\small\begin{verbatim}
+void go_to_standby(){ 
+    powerDisableXtal();
+    powerDisableRFC();
+    OSCHfSourceSwitch(); // activates lower clock
+    powerDisableAuxForceOn();
+    powerEnableMcuPdReq();
+    powerDisableCache();
+    powerDisableCacheRetention();
+
+    // calculate next recharge time
+    SysCtrlSetRechargeBeforePowerDown(XOSC_IN_HIGH_POWER_MODE);
+    SysCtrlAonSync();
+} 
+\end{verbatim}\normalsize
 	    
 
 \subsubsection{Abschalt-Prozedur}
 \label{ausschalten}
 
-\todo{als Code markieren}
 
-void go\_to\_deep\_sleep()\{ 
-        \linebreak         
-	    powerDisableCPU();\linebreak
-	    PRCMDeepSleep();\linebreak
-	    SysCtrlAonUpdate();\linebreak
-	    SysCtrlAdjustRechargeAfterPowerDown();\linebreak
-	    SysCtrlAonSync(); \linebreak
-                \linebreak
-\} \linebreak
+\small\begin{verbatim}
+void go_to_deep_sleep(){ 
+    powerDisableCPU();
+    PRCMDeepSleep();
+    SysCtrlAonUpdate();
+    SysCtrlAdjustRechargeAfterPowerDown();
+    SysCtrlAonSync();
+}
+\end{verbatim}\normalsize
 
 
 \subsubsection{Sleep Time-Übersicht bei Version V4}
@@ -962,7 +942,7 @@ Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwick
 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.PNG}
+    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Aufbau_Applikation_erste_Version.png}
     \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
 \end{figure}
 
@@ -1037,13 +1017,13 @@ Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit g
 Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, das erste Byte kann ignoriert werden. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl.
 
 \begin{equation}
-	p = (float)((byte_2 << 16) + (byte_1 << 8) + byte_0) * 0.01
+	p = (float)((byte_2 << 16) + (byte_1 << 8) + byte_0) \times 0.01
 \end{equation}
 
 Die barometrische Höhenformel zeigt die Abhängigkeit des Druckes von der aktuellen Höhe.
 
 \begin{equation}
-	p(h) = p_0 * e^{-\frac{h}{7991 m}}
+	p(h) = p_0 \times e^{-\frac{h}{7991 m}}
 \end{equation}
 
 - Referenz: Buch "Mathematik für Ingenieure und Naturwissenschaftler Band 1, 12. Auflage, Lothar Papula, Seite 284
@@ -1051,13 +1031,13 @@ Die barometrische Höhenformel zeigt die Abhängigkeit des Druckes von der aktue
 Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Druck berechnen lässt.
 
 \begin{equation}
-	h = ln(\frac{p(h)}{p_0}) * (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) * (-7991 m)
+	h = ln(\frac{p(h)}{p_0}) \times (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) \times (-7991 m)
 \end{equation}
 
 Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln. Das bedeutet die Temperatur, welche empfangen wird, muss zusammengesetzt und mit 1000 dividiert werden. Die Formel sieht folgendermassen aus:
 
 \begin{equation}
-	T = (float)((byte_1 << 8) + byte_0) * 0.001
+	T = (float)((byte_1 << 8) + byte_0) \times 0.001
 \end{equation}
 
 Der letzte Wert, welcher vom Sensor versendet wird, ist die relative Luftfeuchtigkeit. Die Formel zur Berechnung der relativen Luftfeuchtigkeit sieht folgendermassen aus:
@@ -1079,7 +1059,7 @@ Die Adressauswahl, oder auch Sensorwahl, wurde bald ein Bedürfnis, da der User 
 Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur übereinstimmen soll die Adresse gespeichert werden. Dafür wurde folgende Funktion entwickelt:
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/app_saveAdress.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_saveAdress.png}
     \caption{Sourcecode saveAdress}
 	\label{app_saveAdress} 
 \end{figure}
@@ -1089,7 +1069,7 @@ Der adressCounter wird mit dem Wert -1 initialisiert, werden die ersten Daten mi
 Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies genauso behandelt, als ob der Sensor die richtige Adresse hat.
 
 \begin{figure}[ht]
-    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/app_checkAdress.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_checkAdress.png}
     \caption{Sourcecode checkAdress}
 	\label{app_checkAdress} 
 \end{figure}
@@ -1109,7 +1089,7 @@ Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird
 Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert, die Enumeration für die Temperatur sieht folgendermassen aus:
 
 \begin{figure}[ht]
-    \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/app_tempSetting.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_tempSetting.png}
     \caption{Sourcecode Enumeration}
 	\label{app_tempSetting} 
 \end{figure}
@@ -1172,7 +1152,7 @@ Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Ar
 Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. Wichtig ist dabei, dass die richtige Konfiguration ausgewählt wurde, da ansonsten das Bitmap falsch oder gar nicht angezeigt werden konnte.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_createBitmap.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_createBitmap.png}
     \caption{Sourcecode createBitmap}
 	\label{app_createBitmap} 
 \end{figure}
@@ -1180,7 +1160,7 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 \subsubsection{Mathematik der Tachonadel}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
+    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
     \caption{Sourcecode Mathematik des Zeigers}
 	\label{app_drawNeedle} 
 \end{figure}
@@ -1188,11 +1168,11 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit der Breite von einem Pixel animiert. Die Tachonadel kann als ein Vektor angesehen werden, der im Ursprung gedreht und anschliessend verschoben wurde. Die X- bzw. Y-Koordinaten im Bild konnten folgendermassen berechnet werden:
 
 \begin{equation}
-	x = \frac{Breite\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel * \cos(Winkel\, der\, Tachonadel)
+	x = \frac{Breite\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel \times \cos(Winkel\, der\, Tachonadel)
 \end{equation}
 
 \begin{equation}
-	y = \frac{H\ddot{o}he\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel * \sin(Winkel\, der\, Tachonadel)
+	y = \frac{H\ddot{o}he\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel \times \sin(Winkel\, der\, Tachonadel)
 \end{equation}
 
 Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite von nur einem Pixel nicht leicht auf einem hochauflösenden Display, wie dem Display des Samsung Galaxy S7, zu erkennen ist.
@@ -1200,11 +1180,11 @@ Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite 
 Die Betrachtungsweise, dass die Tachonadel ein Vektor ist musste angepasst werden. Jeder einzelne Pixel hatte einen Ortsvektor der angepasst werden musste. Nachfolgende Formel zur Berechnung der Koordinaten nach einer Drehung des Vektors konnte angewendet werden.
 
 \begin{equation}
-	x_neu = x_aktuell * \cos(\alpha) - y_aktuell * \sin(\alpha)
+	x_neu = x_aktuell \times \cos(\alpha) - y_aktuell \times \sin(\alpha)
 \end{equation}
 
 \begin{equation}
-	y_neu = x_aktuell * \sin(\alpha) + y_aktuell * \cos(\alpha)
+	y_neu = x_aktuell \times \sin(\alpha) + y_aktuell \times \cos(\alpha)
 \end{equation}
 
 Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachometers ergänzt werden. Die Koordinaten jedes Pixels der Tachonadel konnten nun berechnet werden und wurden anschliessend mit dem Farbwert für Rot in dem Integer-Array überschrieben.
