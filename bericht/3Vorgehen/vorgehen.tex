@@ -372,7 +372,7 @@ Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die
 Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}. 
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}\label{EnergieMessungStellen} 
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               \label{EnergieMessungStellen} 
   \caption{Messstellen am Prototypen}
 \end{figure}
 
@@ -408,7 +408,7 @@ Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliege
 Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH, liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau, wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \todo{Referenz Induktivitätsformel} ist die Induktivität von der Wicklungszahl abhängig, die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
 \begin{tabbing}
-    Spule   \quad\= maximale Leistung    \\[0.8ex]
+    Spule.................   \quad\= maximale Leistung    \\[0.8ex]
     Premo 2.38 mH        \> 48.57 $\mu$W\\
 	Premo 4.77 mH        \> 66.82 $\mu$W\\
 	
@@ -437,7 +437,7 @@ Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma
 Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
 
 \begin{tabbing}
-    Konfiguration   \quad\= maximale Leistung    \\[0.8ex]
+    Konfiguration................................   \quad\= maximale Leistung    \\[0.8ex]
     Spule: Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
 	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W\\	
 \end{tabbing} %\caption{Leistung mit unterschiedlicher Anzahl an Magneten}
@@ -554,12 +554,28 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 \subsubsection{Resultate Energieverbrauch TI-SensorTag Applikation V4}
 \label{energie senosortag} 
 
-Als Überblick über den konkreten Energieverbrauch bei der Version V4 folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren.
+Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
+
 
 \begin{figure}[ht]
   \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Ueberblick.png}
   \caption{Überblick Energieverbrauch mit Refreshzylken}
   \label{energie_ueberblick}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Energie_Laden_Kondensatoren_Sensortag.png}
+  \caption{Einmaliges Aufladen der Kondensatoren TI-SensorTag}
+  \label{energie_kondensatoren_sensortag}
+\end{figure}
+
+
+
+\newpage
+\begin{figure}[ht]
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Refresh.png}
+  \caption{Energieverbrauch Refreshzykus}
+  \label{energie_refresh}
 \end{figure}
 
 \newpage
@@ -576,21 +592,13 @@ Als Überblick über den konkreten Energieverbrauch bei der Version V4 folgt exe
   \label{energie_senden}
 \end{figure}
 
-\newpage
-\begin{figure}[ht]
-  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Refresh.png}
-  \caption{Energieverbrauch Refreshzykus}
-  \label{energie_refresh}
-\end{figure}
 
-Für die Initialisierung werden 77.38 $\mu$J verbraucht (Abbildung \ref{energie_init}), für das Senden eines BLE-Paketes 43.4 $\mu$J (Abbildung \ref{energie_senden}) und für einen Refreshzyklus $1.4\mu$J (Abbildung \ref{energie_refresh}). Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak.
+Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-Sensortag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden})- bei der Zeitmarke von 2.07 s - 43.44 $\mu$J verbraucht werden.
 
-\todo{Zeit des BLE-Sendens korrket eintragen. Auch in Graphik}
-\todo{Graphiken falsch! Werte überprüfen}
 
 \paragraph{Energieverbrauch Starten des Drucksensors}
 
-Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet. Weil der Drucksensor lange \todo{Zeit einfügen} braucht, um zu starten, wird dieser Vorgang in eine eigene Funktion ausgelagert. Hier die Energiemessung des Startvorgangs des Sensors, ausgelesen mit der TI-SensorTag Version 4, am 3. Juni 2016. Die Version V4 ist noch nicht vollständig power-optimiert.
+Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet. Bei der Zeitmarke 1.34 s wird der Sensor gestartet. Die Abbildung \ref{energie_drucksensor} dokumentiert einen Energieverbrauch von 5.753 $\mu$J zum Starten des Sensors.
 
 \begin{figure}[ht]
   \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Drucksensor.png}
@@ -598,12 +606,10 @@ Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet.
   \label{energie_drucksensor}
 \end{figure}
 
-Das Starten des Drucksensors verbraucht 5.753 $\mu$J.
-
 \paragraph{Energieverbrauch beim Starten des Temperatursensor}
 
 \todo{tempsensor daten}
-Der Temperatursensor xxx der Marke yyy verbraucht fürs Auslesen der Daten, ohne Energieoptimierung, 10.635 $\mu$J.
+Der Temperatursensor xxx der Marke yyy verbraucht für das Starten 10.635 $\mu$J. Dies findet bei der Zeitmarke t = 1.54 s statt.
 
 \begin{figure}[ht]
   \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/tempSensor.png}
@@ -614,13 +620,29 @@ Der Temperatursensor xxx der Marke yyy verbraucht fürs Auslesen der Daten, ohne
 
 \paragraph{Energieverbrauch Feuchtigkeitssensor}
 
-Der Feuchtigkeitssensor verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
+Der Feuchtigkeitssensor xxx der Marke yyy verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
 
 \begin{figure}
   \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Humidity.png}
   \caption{Energieverbrauch Feuchtigkeitssensor}
   \label{energie_humidity}
 \end{figure}
+
+Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildung \ref{energie_zsm} der Verbrauch aller Aktionen nebeneinander aufgelistet. Es wird deutlich, dass die Initialisierung und das notwendige Refresehen des Speichers zusammen (die Balken sind violett)  fast gleich viel Energie brauchen, wie das Senden zweier BLE-Pakete mit Sensorwerten. Aus diesem Grund hat erste Priorität beim Power Management, dass die Speisung V\_SUP nicht abstellt. Denn wenn bei der Datenverarbeitung zu viel Energie verbraucht wird und dadurch die Kondensatoren unter den minimalen Schwellwert fallen, stellt die Speisung ab. Jedes Mal wenn die Speisung unterbrochen wird, ist eine neue Initialisierung notwendig. Diese verbraucht unnötig viel Energie.
+
+\begin{figure}
+  \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/Energy_pro_Aufgabe.png}
+  \caption{Energieverbrauch pro Aufgabe}
+  \label{energie_zsm}
+\end{figure}
+
+
+
+
+
+
+
+
 
 
 \newpage

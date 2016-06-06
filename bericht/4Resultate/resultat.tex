@@ -208,16 +208,15 @@ LTS = 3300 $\mu$F
 
 
 
-\section{Powermanagement}
+\section{Power Management}
 
 Bei der Entwicklung werden die Energiewerte für die gemessen. Diese werden in der untenstehenden Abbildung \ref{r_bild_e_zusammenfassung} zusammen mit der Energielieferung am EM8500-Chip zusammengestellt. Diese Abbildung fasst zusammen, bei welchen Geschwindigkeit nach welcher Zeit, welche Daten gesendet werden. 
 
-\subsection{Zusammenfassung Energieaufwand pro Aufgabe}
+\subsection{Energieaufwand pro Aufgabe}
 
-Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte am EM8500-Ausgang (siehe Tabelle \ref{resultat_Zsm_Energy}) aufgerechnet als Energiewert nach 10 s. Die Umrechnung zum Energiewert stehen in der Tabelle Unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}, da die Werte in der Abbildung nicht präzis abgelesen werden können. Auf der y-Achse sind die Minimalwerte für das Senden eines BLE-Pakets dieses Typs eingetragen. In der zweiten Tabelle unterhalb der Abbildung \ref{r_bild_e_zusammenfassung} sind die eingetragenen Werte eingetragen. Bei den Eingetragenen Werte für eine Zeitdauer von 10 s wird neben dem Verbrauch für das Starten der Sensoren oder das Auslesen der Werte und Senden des Paketes auch die Initialsisierung und die Refresh-Energie-Summe für 10 s als Sockelbetrag (hellgrau) dazuaddiert. Die Werte beziehen sich auf die Tabelle der Energiemessungen der Version V4 des TI-SensorTags (\ref{erst_EMessungen}).
+Als Zusammenfassung des Energieverbrauchs dokumentiert die Abbildung \ref{energie_zsm} den Energieverbrauch für das Senden von Daten ab dem ungeladenen Zustand der Speicher. Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte am EM8500-Ausgang (siehe Tabelle \ref{resultat_Zsm_Energy}) aufgerechnet als Energiewert nach 10 s und der Addition des Sockelbetrags, für das einmalige Aufladen von STS auf den Schwellwert von v\_bat\_min\_lo mit 2.1 V. Die Umrechnung zum Energiewert stehen in der Tabelle Unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}, da die Werte aus der Abbildung nicht präzis abgelesen werden können und die Berechnung des Sockelbetraqs von xxxxx $\mu$J in der untenstehenden Gleichung.
 
-\todo{Refreshzyklus einbauen in Messungen}
-
+Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets mit und ohne Sensordaten eingetragen. Die Initialisierung und das Refreshen sind als violetter Sockelbetrag eingetragen. Auf diesen wird das Berechnen bzw. Auslesend der Daten und das Versenden, grauer Balken, dazuaddiert. Die Werte beziehen sich auf die Tabelle der Energiemessungen der Version V4 des TI-SensorTags (\ref{erst_EMessungen}). Die zweite Tabelle unterhalb der Abbildung \ref{r_bild_e_zusammenfassung} zeigt die Berechnung der Balken.
 
 
 
@@ -228,27 +227,28 @@ Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte a
 \end{figure}
 
 
- 
-
-\subsubsection*{Energieabgabe an Sensortag innerhalb 10 s}
+\subsubsection*{Energie Sensortag in 10 s}
 \begin{tabbing}
-    Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
-    10 km/h  \> 54.4   $\mu$J\\
-    15 km/h  \> 209.1  $\mu$J\\
-    20 km/h> \> 413.9  $\mu$J\\
-    40 km/h> \> 1707.5 $\mu$J\\
+    Geschwindigkeit \quad\= Energieabgabe EM8500\_out  \quad\= mit Sockelbeitrag STS\\[0.8ex]
+    10 km/h      \> 54.4   $\mu$J        \> 274.9  $\mu$J\\
+    15 km/h      \> 209.1  $\mu$J        \> 429.6  $\mu$J\\
+    20 km/h>     \> 413.9  $\mu$J        \> 634.4  $\mu$J\\
+    40 km/h>     \> 1707.5 $\mu$J        \> 1928.0 $\mu$J\\
 \end{tabbing}  
 
-\subsubsection*{Tabelle Energieverbrauch nach Aufgabenblöcken}
+\begin{equation}
+  E_{Laden STS}= 100, \mu F \times \frac{1}{2}\, (2.1)^2 = 100, \mu F \times \frac{1}{2}\, 4.41 = 220.5, \mu F
+\end{equation}
+
+
+\subsubsection*{Tabelle Energieverbrauch nach Aufgaben}
 \begin{tabbing}
-    Funktion ...................................................................................\quad\= Energieverbrauch \\[0.8ex]
-    Initialisierung                               \> 77 $\mu$J \\
-    Refreshzyklen innerhalb 10 s                  \> 13 $\mu$J \\
-    Geschwindigkeit und BLE-Paket                 \> 32 $\mu$J \\
-    Starten Drucksensor                           \> 5.7 $\mu$J \\
-    Starten Temperatursensor                      \> 10.6 $\mu$J \\
-    Starten Feuchtigkeitssensor                   \> 6.3 $\mu$J \\
-    Geschwindigkeit, Auslesen Sensor und BLE-Paket \> 43 $\mu$J \\
+    Funktionsblöcke ...................................................................................\quad\= Energieverbrauch \\[0.8ex]
+    Einmaliges Laden der Kondensatoren auf TI-SensorTag        \> 63.2 $\mu$J\\
+    Initialisierung + Refresh-Zyklen                           \> 77 $\mu$J + 13 $\mu$J = 90 $\mu$J\\
+    Neustart = Laden Kondensatoren + Init + Refreshen          \> 63.2 $\mu$J + 90 $\mu$J = 153.2 $\mu$J\\
+    Neustart + Geschwindigkeit und BLE-Paket                   \> 90 $\mu$J + 33 $\mu$J = 123 $\mu$J\\
+    Neustart + Druck + Geschwindigkeit und Daten mit BLE-Paket \> 90 $\mu$J + 5 $\mu$J+ 43 $\mu$J = 138 $\mu$J\\
 \end{tabbing} 
 
 

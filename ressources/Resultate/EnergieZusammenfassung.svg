@@ -177,9 +177,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.9899495"
-     inkscape:cx="386.97056"
-     inkscape:cy="168.80236"
+     inkscape:zoom="1.4"
+     inkscape:cx="475.12461"
+     inkscape:cy="-226.24821"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -195,7 +195,7 @@
        type="xygrid"
        id="grid3336" />
     <sodipodi:guide
-       position="210,760.00002"
+       position="245,-440.00001"
        orientation="1,0"
        id="guide3616" />
     <sodipodi:guide
@@ -251,9 +251,29 @@
        orientation="1,0"
        id="guide3712" />
     <sodipodi:guide
-       position="40,330.00001"
+       position="30,490.00001"
        orientation="1,0"
        id="guide4041" />
+    <sodipodi:guide
+       position="80.000001,450.00001"
+       orientation="1,0"
+       id="guide5278" />
+    <sodipodi:guide
+       position="1080,380.00001"
+       orientation="1,0"
+       id="guide5396" />
+    <sodipodi:guide
+       position="170,-100"
+       orientation="0,1"
+       id="guide5460" />
+    <sodipodi:guide
+       position="130,-430.00001"
+       orientation="0,1"
+       id="guide5490" />
+    <sodipodi:guide
+       position="770.00001,-300.00001"
+       orientation="1,0"
+       id="guide5509" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -271,6 +291,115 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#4d4d4d;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5515"
+       width="705"
+       height="5"
+       x="65"
+       y="1462.3622" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5513"
+       width="705"
+       height="10"
+       x="65"
+       y="1467.3622" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5511"
+       width="705"
+       height="15"
+       x="65"
+       y="1477.3622" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#1d7c22;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 63.030458,1492.8673 80.000002,0 70,-10 80,-30 80,-40 320,-260 70,-70"
+       id="path5464"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g5098"
+       transform="translate(-3.0304577,2.5253813)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <rect
+         y="809.86475"
+         x="908.79132"
+         height="20.497425"
+         width="20"
+         id="rect5732"
+         style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="635.75439"
+         x="908.79132"
+         height="174.35028"
+         width="20"
+         id="rect5726-9-2-9"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g5094"
+       transform="translate(0,2.1428571)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <rect
+         y="794.20483"
+         x="747.18719"
+         height="36.157341"
+         width="20"
+         id="rect5730"
+         style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="619.79498"
+         x="747.18719"
+         height="174.35028"
+         width="20"
+         id="rect5726-9-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <g
+       id="g5090"
+       transform="translate(0,2)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <rect
+         y="802.88647"
+         x="587.28571"
+         height="26.761391"
+         width="20"
+         id="rect5728"
+         style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="630.70874"
+         x="587.38"
+         height="174.35028"
+         width="20"
+         id="rect5726-9"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5726"
+       width="20"
+       height="119.80205"
+       x="435.85715"
+       y="711.84583"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5726-90"
+       width="20"
+       height="306.94492"
+       x="134.8317"
+       y="525.42883"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -469,107 +598,137 @@
          id="tspan4674"
          x="662.14288"
          y="-289.06638">E_Harvester</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="80.546082"
-       y="611.90466"
-       id="text4420-5"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4422-8"
-         x="80.546082"
-         y="611.90466">[uJ]</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="75.953659"
-       y="570.47974"
-       id="text4428-9"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         x="75.953659"
-         y="570.47974"
-         id="tspan4432-6">benötigte Energy</tspan><tspan
-         sodipodi:role="line"
-         x="75.953659"
-         y="589.22974"
-         id="tspan5780">pro Aufgabe</tspan></text>
+    <g
+       id="g5371"
+       transform="translate(-56,-94)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <text
+         sodipodi:linespacing="125%"
+         id="text4420-5"
+         y="611.90466"
+         x="78.546082"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="611.90466"
+           x="78.546082"
+           id="tspan4422-8"
+           sodipodi:role="line">[uJ]</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4428-9"
+         y="594.05115"
+         x="80.096519"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan5780"
+           y="594.05115"
+           x="80.096519"
+           sodipodi:role="line">Energy</tspan></text>
+    </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 288.57142,821.79077 0,20"
+       d="m 596.57142,821.79077 0,20"
        id="path4542-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 138.57143,821.79077 0,20"
+       d="m 446.57143,821.79077 0,20"
        id="path4546-6"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 448.57142,821.79077 0,20"
+       d="m 756.57142,821.79077 0,20"
        id="path4608-3"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 608.57143,821.79077 0,20"
+       d="m 916.57143,821.79077 0,20"
        id="path4612-9"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="270"
+       x="578"
        y="859.64789"
        id="text5297"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
-         id="tspan5299"
-         x="270"
-         y="859.64789">Druck-</tspan><tspan
+         x="578"
+         y="859.64789"
+         id="tspan5301">Druck</tspan><tspan
          sodipodi:role="line"
-         x="270"
+         x="578"
          y="878.39789"
-         id="tspan5301">sensor</tspan></text>
+         id="tspan5264">senden</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="417.85715"
+       x="725.85718"
        y="856.07648"
        id="text5303"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
-         id="tspan5305"
-         x="417.85715"
-         y="856.07648">Temperatur-</tspan><tspan
+         x="725.85718"
+         y="856.07648"
+         id="tspan5307">Temperatur</tspan><tspan
          sodipodi:role="line"
-         x="417.85715"
+         x="725.85718"
          y="874.82648"
-         id="tspan5307">sensor</tspan></text>
+         id="tspan5260">senden</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="582.85712"
+       x="890.85712"
        y="856.79077"
        id="text5309"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
-         id="tspan5311"
-         x="582.85712"
-         y="856.79077">Feuchtigkeits-</tspan><tspan
+         x="890.85712"
+         y="856.79077"
+         id="tspan5313">Feuchtigkeit</tspan><tspan
          sodipodi:role="line"
-         x="582.85712"
+         x="890.85712"
          y="875.54077"
-         id="tspan5313">sensor</tspan></text>
+         id="tspan5256">senden</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 607.85713,821.07648 0,20"
+       d="m 915.85713,821.07648 0,20"
        id="path4608-3-4"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5353);stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 60,832.3622 621.01349,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker5353)"
+       d="m 60,832.3622 940.7997,0"
        id="path5345"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5353-4)"
        d="m 60,333.07649 750,0"
@@ -578,45 +737,24 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyGewinnNachStelle.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5726"
-       width="20"
-       height="119.80205"
-       x="127.85714"
-       y="709.84583" />
-    <rect
-       style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5728"
-       width="20"
-       height="26.761391"
-       x="279.28571"
-       y="802.88647" />
-    <rect
-       style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5730"
-       width="20"
-       height="36.157341"
-       x="440"
-       y="794.20483" />
-    <rect
-       style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5732"
-       width="20"
-       height="20.497425"
-       x="600"
-       y="809.86475" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="87.142853"
+       x="395.14285"
        y="859.64789"
        id="text5782"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5784"
-         x="87.142853"
-         y="859.64789">Geschwindigkeit</tspan></text>
+         x="395.14285"
+         y="859.64789">Geschwindigkeit</tspan><tspan
+         sodipodi:role="line"
+         x="395.14285"
+         y="878.39789"
+         id="tspan5266">senden</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -829,60 +967,6 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="270.85715"
-       y="1523.3622"
-       id="text5297-5"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5299-2"
-         x="270.85715"
-         y="1523.3622">Druck-</tspan><tspan
-         sodipodi:role="line"
-         x="270.85715"
-         y="1542.1122"
-         id="tspan5301-0">sensor</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="418.71426"
-       y="1519.7908"
-       id="text5303-2"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5305-4"
-         x="418.71426"
-         y="1519.7908">Temperatur-</tspan><tspan
-         sodipodi:role="line"
-         x="418.71426"
-         y="1538.5408"
-         id="tspan5307-4">sensor</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="583.71423"
-       y="1520.505"
-       id="text5309-9"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5311-7"
-         x="583.71423"
-         y="1520.505">Feuchtigkeits-</tspan><tspan
-         sodipodi:role="line"
-         x="583.71423"
-         y="1539.255"
-         id="tspan5313-1">sensor</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 608.71427,1484.7908 0,20"
@@ -899,51 +983,11 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5726-7"
-       width="20"
-       height="40"
-       x="128.71429"
-       y="1453.3622"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5728-8"
-       width="20"
-       height="150"
-       x="280.14285"
-       y="1343.3622"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5730-9"
-       width="20"
-       height="120"
-       x="440.85715"
-       y="1374.0764"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5732-1"
-       width="20"
-       height="170"
-       x="600.85712"
-       y="1324.0764"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="711.28644"
-       y="1324.1005"
+       x="731.02026"
+       y="1137.6001"
        id="text4682-0"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
@@ -951,13 +995,13 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4684-8"
-         x="711.28644"
-         y="1324.1005">E_Sensortag nach 10 s</tspan></text>
+         x="731.02026"
+         y="1137.6001">E_Sensortag nach 10 s</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#00ccff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="684.26727"
-       y="1093.8466"
+       x="1682.298"
+       y="1156.4761"
        id="text4682-0-4"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
@@ -965,13 +1009,13 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4684-8-8"
-         x="684.26727"
-         y="1093.8466">E_Sensortag nach 20 s</tspan></text>
+         x="1682.298"
+         y="1156.4761">E_Sensortag nach 20 s</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#37c871;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="683.56311"
-       y="1070.1008"
+       x="1625.0253"
+       y="1053.9384"
        id="text4682-0-4-4"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
@@ -979,8 +1023,8 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4684-8-8-5"
-         x="683.56311"
-         y="1070.1008"
+         x="1625.0253"
+         y="1053.9384"
          style="fill:#008080">E_Sensortag nach 30 s</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#157e17;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1342,16 +1386,19 @@
          style="fill:#0000ff;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4598-8);stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 58.571429,833.7908 0,-273.70096"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4598-8)"
+       d="m 58.571429,833.7908 0,-317.69413"
        id="path3730-2"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 67.142858,793.7908 -20,0"
        id="path4686-3"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1359,7 +1406,7 @@
        d="m 67.142858,753.7908 -20,0"
        id="path4688-2"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1367,7 +1414,7 @@
        d="m 67.142858,713.7908 -20,0"
        id="path4690-6"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1375,7 +1422,7 @@
        d="m 67.142858,673.79081 -20,0"
        id="path4692-3"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1383,50 +1430,68 @@
        d="m 67.142858,633.79081 -20,0"
        id="path4694-5"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 52.571429,813.7908 10,0"
        id="path3577-0"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 52.571429,773.7908 10,0"
        id="path3579-6"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 52.571429,733.7908 10,0"
        id="path3581-3"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 53.285715,693.7908 10,0"
        id="path3577-2-2"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 53.285715,653.7908 10,0"
        id="path3579-2-2"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 53.285715,613.7908 10,0"
        id="path3581-2-3"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 68.571429,593.0765 -20,0"
        id="path4686-19-8-8"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4598-85)"
-       d="m 66.571429,1493.5051 0,-480"
+       d="m 64.571429,1493.5051 0,-480"
        id="path3730-0"
        inkscape:connector-curvature="0" />
     <path
@@ -1589,20 +1654,9 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyNachOrtenInSchaltung.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="13"
-       y="1098.5051"
-       id="text4701-7"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4703-2"
-         x="13"
-         y="1098.5051">4000</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5353-1)"
-       d="m 63.714286,1490.9336 750.000004,0"
+       d="m 63.714286,1492.9336 750.000004,0"
        id="path5345-7"
        inkscape:connector-curvature="0"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
@@ -1665,7 +1719,7 @@
     </g>
     <g
        id="g5690"
-       transform="translate(-873.82256,-5.0710669)"
+       transform="translate(619.18289,-245.48737)"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150">
@@ -1703,47 +1757,37 @@
          id="path3545-1-9-6"
          style="fill:#008080;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
-    <g
-       id="g5702"
-       transform="translate(-602.15244,140.4112)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150">
-      <ellipse
-         ry="4.6734314"
-         rx="4.3162885"
-         cy="1175.9952"
-         cx="1293.1996"
-         id="path3545-1-5-5-6"
-         style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <g
-         id="g5697">
-        <ellipse
-           style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path3545-1-0-4"
-           cx="813.19952"
-           cy="1345.7096"
-           rx="4.3162885"
-           ry="4.6734314" />
-        <ellipse
-           style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path3545-1-7-9-7"
-           cx="893.91382"
-           cy="1335.9952"
-           rx="4.3162885"
-           ry="4.6734314" />
-        <ellipse
-           style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="path3545-1-9-6-8"
-           cx="973.19952"
-           cy="1306.7096"
-           rx="4.3162885"
-           ry="4.6734314" />
-      </g>
-    </g>
+    <ellipse
+       style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3545-1-5-5-6"
+       cx="690.33282"
+       cy="1153.5493"
+       rx="4.3162885"
+       ry="4.6734314" />
+    <ellipse
+       style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3545-1-0-4"
+       cx="209.61852"
+       cy="1482.4065"
+       rx="4.3162885"
+       ry="4.6734314" />
+    <ellipse
+       style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3545-1-7-9-7"
+       cx="288.90424"
+       cy="1452.1207"
+       rx="4.3162885"
+       ry="4.6734314" />
+    <ellipse
+       style="fill:#008000;fill-opacity:1;stroke:#0c0c18;stroke-width:0.22456558;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path3545-1-9-6-8"
+       cx="370.33282"
+       cy="1412.1208"
+       rx="4.3162885"
+       ry="4.6734314" />
     <g
        id="g5683"
-       transform="translate(-432.8442,-736.0756)"
+       transform="translate(1054.1003,-911.84214)"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\EnergyVerbrauchZusammenfassung.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150">
@@ -1820,7 +1864,10 @@
        x="23.030458"
        y="800.44342"
        id="text4013"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4015"
          x="23.030458"
@@ -1831,7 +1878,10 @@
        x="26.060915"
        y="762.36218"
        id="text4017"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4019"
          x="26.060915"
@@ -1842,7 +1892,10 @@
        x="22.142857"
        y="722.36218"
        id="text4021"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4023"
          x="22.142857"
@@ -1853,7 +1906,10 @@
        x="22.857143"
        y="681.64789"
        id="text4025"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4027"
          x="22.857143"
@@ -1864,7 +1920,10 @@
        x="22.857143"
        y="643.07648"
        id="text4029"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4031"
          x="22.857143"
@@ -1875,46 +1934,249 @@
        x="23.571428"
        y="602.36218"
        id="text4033"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan4035"
          x="23.571428"
          y="602.36218">60</tspan></text>
     <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5726-9"
+       style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5726-90-0"
        width="20"
-       height="174.35028"
-       x="279.38004"
-       y="630.70874" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5726-9-2"
-       width="20"
-       height="174.35028"
-       x="439.18719"
-       y="619.79498" />
-    <rect
-       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5726-9-2-9"
-       width="20"
-       height="174.35028"
-       x="600.79132"
-       y="635.75439" />
+       height="56.230621"
+       x="284.33429"
+       y="775.63806"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 295.57142,821.79077 0,20"
+       id="path4542-8-3"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 145.57143,821.79077 0,20"
+       id="path4546-6-4"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5246"
+       style="fill:black;stroke:none;stroke-opacity:1;stroke-width:1px;stroke-linejoin:miter;stroke-linecap:butt;fill-opacity:1;font-family:Arial;font-style:normal;font-weight:normal;font-size:15px;line-height:125%;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Arial;font-stretch:normal;font-variant:normal"><flowRegion
+         id="flowRegion5248"><rect
+           id="rect5250"
+           width="10"
+           height="20"
+           x="950"
+           y="852.36218" /></flowRegion><flowPara
+         id="flowPara5252"></flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="120"
+       y="872.36218"
+       id="text5268"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5270"
+         x="120"
+         y="872.36218">Initialisierung</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="695.75122"
+       x="250"
+       y="872.36218"
+       id="text5272"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5274"
+         x="250"
+         y="872.36218">Refreshzyklen</tspan><tspan
+         sodipodi:role="line"
+         x="250"
+         y="891.11218"
+         id="tspan5276">(innerhalb 10 s)</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 68.571433,552.36224 -20,0"
+       id="path4694-5-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 54.714283,572.36223 10,0"
+       id="path3579-2-2-5"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 54.714283,532.36223 10,0"
+       id="path3581-2-3-6"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="23.571428"
+       y="561.64789"
+       id="text5367"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5369"
+         x="23.571428"
+         y="561.64789">70</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="1026"
        y="832.36218"
-       id="text4092"
+       id="text5380"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5382"
+         x="1026"
+         y="832.36218">Aufgabe</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="893.92859"
+       y="512.39795"
+       id="text5384"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5386"
+         x="893.92859"
+         y="512.39795">Nach Spannungsunterbruch</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="965.89288"
+       y="547.36218"
+       id="text5388"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5390"
+         x="965.89288"
+         y="547.36218">Sensor aktivieren</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="892.85718"
+       y="582.36218"
+       id="text5392"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan5394"
+         x="892.85718"
+         y="582.36218">Daten auslesen und Senden</tspan></text>
+    <rect
+       style="fill:#666666;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5728-1"
+       width="20"
+       height="20.154249"
+       x="870.32141"
+       y="527.20795"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5726-9-9"
+       width="20"
+       height="20.778852"
+       x="869.88"
+       y="561.99438"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#800080;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5728-1-1"
+       width="20"
+       height="21.047106"
+       x="869.78564"
+       y="491.67221"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\4Resultate\imag\Energy_pro_Aufgabe.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="16.428572"
+       y="1259.505"
+       id="text5444"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan4094"
-         x="695.75122"
-         y="832.36218">Inhalt</tspan><tspan
+         id="tspan5446"
+         x="16.428572"
+         y="1259.505">1200</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="16.428572"
+       y="1220.2194"
+       id="text5448"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="695.75122"
-         y="851.11218"
-         id="tspan4096">BLE-Paket</tspan></text>
+         id="tspan5450"
+         x="16.428572"
+         y="1220.2194">1400</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="18.571428"
+       y="1177.3622"
+       id="text5452"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5454"
+         x="18.571428"
+         y="1177.3622">1600</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="17.142857"
+       y="1139.505"
+       id="text5456"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5458"
+         x="17.142857"
+         y="1139.505">1800</tspan></text>
   </g>
 </svg>
