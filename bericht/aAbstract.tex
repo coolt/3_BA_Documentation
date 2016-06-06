@@ -1,4 +1,11 @@
 \chapter{Abstract}
 
-bbbb
+Internet of things, the possibility to exchange data between devices, should be made accessible for bicycle user. The mobile device is powerd by the bicycle at atleast 10km/h and send data throught Bluetooth Low Energy (BLE). The task is based on a feasibility study, witch solves the energy management through the chip EM8500. The SensorTag of Texas Instruments Simple Link series is responsible for sending the data. This board contains a wirless MCU and a low power Cortex M3.
 
+The goal of the task the development of a miniaturised board, witch should not be bigger then the used TI-SensorTag, the adjustment of energystorage, energy management and the power friendliness of the code. The finished product contains the hardware and a user friendly android application. This includes the adjustment of the sensors and a tachometer, which shows the current speed.
+
+At the start the feasibility study was developed. The feasibility study version sends at a speeds from 45km/h.
+
+After improvement to the energy harvesting, which allows 20 $\mu$W at 10km/h. The energy management of the EM8500-Chip and the firmaware of the TI-SensorTag are completely rewritten. The threshold of the energy management is based on the MPP of the harvester and the goal to send constant BLE-data at 10km/h. The firmware of the TI-SensorTag uses sleep functions to reduce the energy requirements.
+
+The prototype is a configurable BLE-application, which sends speed, pressure, temperature and air moister data at a two minute interval at atleast 10km/h. From 20km/h onward the data is send every  20seconds and over 45km/h the data is send constantly.
