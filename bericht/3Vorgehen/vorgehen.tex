@@ -336,9 +336,11 @@ Schlussendlich musste aus den optimierten Teilen des Schemas eine Leiterplatte g
 
 Die Positionierung der einzelnen Teile kann sehr wichtig sein, da mit einer guten Positionierung bereits unnötige Leiterbahnverläufe verhindert werden können. Ebenfalls können gut positionierte Bauteile die Spannungspegel stabilisieren. Es wurde darauf geachtet die Bauteile, welche zu einem Block gehören, nahe beieinander platziert wurden, um unnötig lange Signallaufwege zu verhindern.
 
-Die Bauteile der Harvesterschaltung wurde als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
+Die Bauteile der Harvesterschaltung wurde als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn (\cite{eqn_res_leiter}) möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
 
-\todo{Formel für Leiterwiderstand einfügen}
+\begin{equation}
+	R = \rho * \frac{l}{A}
+\end{equation}
 
 Der Widerstand bei 10 Mil ist somit 2.4 m$\Omega$, 
 der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist 1.2 m$\Omega$. 
