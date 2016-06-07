@@ -38,7 +38,7 @@ Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magne
     \frac{d}{dt} \int A\,dB=\phi\cdot N\
 \end{equation}
 
-Verläuft der magnetische Fluss $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\label{Formelsenkrecht}). 
+Verläuft der magnetische Fluss $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\ref{Formelsenkrecht}). 
  
 \begin{equation}
     \frac{d}{dt} \int A\,\perp\, dB=\frac{d}{dt}\int \phi\cdot N=B\cdot A\cdot N\ \label{Formelsenkrecht} 
@@ -133,7 +133,7 @@ Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Beweg
 % 2.2-------------------------------------------------------------------
 \section{Energy Management}\label{t_energy_management} 
 
-Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$J-Bereich. Um diese für eine Applikation zu verwenden, müssen die geringen Energieportionen summiert werden. Sind Energiemengen im mJ-Bereich verfügbar, kann die Energie kontrolliert freigegeben werden.\todo{Überprüfen, ob mJ notwendig sind, oder ob uJ genügen}
+Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$J-Bereich. Um diese für eine Applikation zu verwenden, müssen die geringen Energieportionen summiert werden. Sind Energiemengen im höheren $\mu$J-Bereich verfügbar, kann die Energie kontrolliert freigegeben werden. 
 
 Energy Management bezeichnet das der Energie in Speichern, das Regeln des Inputs, damit die maximale Leistung aus der Quelle bezogen werden kann, das Aufwärtswandeln von Spannung oder Strom auf den geforderten Wert und die kontrollierte Freigabe.
 
@@ -174,7 +174,7 @@ VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildu
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
    \caption{Konzept Hersteller (\cite{datasheet_EM85})}
-   \label{energiespeisung_lts} 
+   \label{konzept_levels_em} 
  \end{minipage}
 \end{figure}
 
@@ -297,7 +297,7 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
     \item Auf dem Board sind 10 Sensoren angebunden.
 \end{itemize}
 
-Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_TI-SensorTag}.
+Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_sensortag}.
 
 \subsection{Einbauen von Schlaufmodi}\label{pm_sleep} 
 
@@ -368,6 +368,7 @@ Der Aufbau eines BLE Pakets ist überschaubar. Als erstes wird ein Preamble, bes
 Anschliessend wird die Access Address verschickt, anhand dieser Adresse kann der Empfänger die Nachricht einem ganz bestimmten Sender zuordnen und somit entscheiden, ob die Daten vom richtigen Sender kommen oder ob es eventuell nur Störungen waren, welche zufälligerweise eine Preamble dargestellt haben.
 
 Der Header enthält Informationen zum Aufbau der Daten, welche folgen. Es gibt sieben verschiedene Arten von Aufbauten der Daten.
+
 \begin{itemize}
     \item ADV\_IND – general advertising indication
     \item ADV\_DIRECT\_IND – direct connection indication

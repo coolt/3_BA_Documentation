@@ -378,9 +378,12 @@ Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die
 Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}. 
 
 \begin{figure}[ht]
-  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               \label{EnergieMessungStellen} 
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               
   \caption{Messstellen am Prototypen}
+  \label{EnergieMessungStellen} 
 \end{figure}
+
+\todo{Fehler: \Label without caption}
 
 \subsection{Testen der Harvesterschaltung}
 
@@ -388,7 +391,8 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
 
 Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
-\captionof{table}{Leistung des fliegenden Aufbaus}\label{tab:leistung_fliegenden-aufbaus} 
+\captionof{table}{Leistung des fliegenden Aufbaus}
+\label{tab:leistung_fliegenden-aufbaus} 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 12.87 $\mu$W  \> 43.23 \%\\
@@ -396,7 +400,8 @@ Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um di
 	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%
 \end{tabbing}
 
-\captionof{table}{Leistung der neuen Leiterplatte}\label{tab:leistung_neuen_leiterplatte} 
+\captionof{table}{Leistung der neuen Leiterplatte}
+\label{tab:leistung_neuen_leiterplatte} 
 \begin{tabbing}
     Geschwindigkeit   \quad\= maximale Leistung    \quad\= MPP-Ratio\\[0.8ex]
     10 km/h        \> 10.17 $\mu$W  \> 56.99 \%\\
@@ -565,7 +570,7 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 
 
 \subsubsection{Resultate Energieverbrauch TI-SensorTag Applikation V4}
-\label{energie senosortag} 
+\label{energie_sensortag} 
 
 Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
 
