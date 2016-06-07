@@ -646,27 +646,27 @@ Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildu
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
+Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Das einmalige Laden der Kondensatoren des TI-SensorTags verbraucht 63 $\mu$ J, die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
 
 \begin{equation}
-  E_{Applikation} = 77, \mu J + 5 \mu J + 43 \mu J = 125 \mu J
+  E_{Applikation} = 63, \mu J + 77, \mu J + 5 \mu J + 43 \mu J = 188 \mu J
 \end{equation}
 
 
 \begin{equation}
-  C_{STS}= \frac{2,\times, 125 \mu J}{(2.7)^2 - (2.1)^2}
+  C_{STS}= \frac{2,\times, 188 \mu J}{3^2 - (2.1)^2}
 \end{equation}
 
 \begin{equation}
-  C_{STS}= \frac{ 250 \mu J}{7.29 - 4.41}
+  C_{STS}= \frac{ 376 \mu J}{9 - 4.41}
 \end{equation}
 
 \begin{equation}
-  C_{STS}= \frac{ 250 \mu J}{2.88}
+  C_{STS}= \frac{ 376 \mu J}{4.59}
 \end{equation}
 
 \begin{equation}
-  C_{STS}= 86.8 \mu F
+  C_{STS}= 81.9 \mu F
 \end{equation}
 
 Der Wert wird aufgerundet auf 100 $\mu$ F, um genügend Energie zu haben.
