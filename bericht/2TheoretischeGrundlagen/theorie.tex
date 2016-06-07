@@ -1,12 +1,13 @@
 \chapter{Theoretische Grundlagen}
-Der Bicycle Computer basiert auf Energy Harvesting. Was Energie ernten bedeutet und welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln und Weiterleiten von Energie. Da die in Unterkapitel \ref{t_harvesting} gewonnene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
+
+Der Bicycle Computer basiert auf Energy Harvesting, was Energie ernten bedeutet. Welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln und Weiterleiten von Energie. Da die in Unterkapitel \ref{t_harvesting} beschriebene, gewonnene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
 Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie aufs Mal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Da bietet die Bluetooth Low Energie Technologie ideale Voraussetzungen. Das Protokoll und die Technologie werden im letzten Grundlagenteil \ref{t_ble} vorgestellt.
 
 
 % 2.1-------------------------------------------------------------------
 \section{Energy Harvesting}\label{t_harvesting} 
 
-\glqq Mit Energy Harvesting ... wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld elektronischer Geräte für deren Betrieb bezeichnet.\grqq \todo{Abstand zu klein} \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
+\glqq Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.\grqq \todo{Abstand zu klein} \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
 
 \subsection{Energy Harvesting Methoden}\label{harv_arten} 
@@ -17,6 +18,8 @@ Bekannte Methoden sind die Solarzelle, die aus der Energie der Sonnenstrahlen St
 
 Bei der Umwandlung von Elektromagnetischen Wellen (Licht) in Strom wird eine spezielle Eigenschaft des Siliziums genutzt: Führt man Silizium Energie zu, entstehen freie Ladungsträger, bzw. Elektronen und Löcher. Um aus diesen Ladungen einen elektrischen Strom zu erzeugen, ist es nötig, die erzeugten freien Ladungsträger in unterschiedliche Richtungen zu lenken; dies geschieht durch ein internes elektrisches Feld, welches durch einen p-n-Übergang erzeugt werden kann. Auf der einen Seite sammelt sich positive, auf der anderen Seite negative Ladung an. Werden diese verbunden, entsteht ein Strom (\cite{Internet_Solarzelle2}). 
 Diese Harvestermethode produziert ein Gleichstrom. Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
+
+\todo{Solarstrom macht schule: Zitatfehler. Kein Jahr}
 
 \subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
 TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind ( \cite{Journal_TEG}). Diese Harvestermethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
@@ -31,7 +34,7 @@ Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wi
     U_{ind}=-\frac{d}{dt}\intop A\,dB \ \label{Formel_induzSpannung} 
 \end{equation}
 
-Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magnetischen Fluss $\phi$. Hat die Spule mehrere Wicklungen $N$, so verstärkt sich der magnetische Fluss proportional. 
+Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magnetischen Fluss $\phi$. Hat die Spule mehrere Wicklungen $N$, so steigt die durchflossene Fläche und mehr Spannung wird induziert. 
 
  
 \begin{equation}
@@ -50,13 +53,15 @@ In diesem Fall berechnet sich die induzierte Spannung in einer Spule vereinfacht
     U_{ind}= - N \cdot A \cdot B
 \end{equation}
 
+\todo{Bild einfügen}
+
 Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen, eines Magneten an einer fix verankerten Spule erzeugt.
 Die produzierte Spannung hängt von folgenden vier Faktoren ab:
 \begin{enumerate}
     \item die eingeschlossene Fläche $A$ der Spule    
     \item die magnetische Flussdichte des Magneten $B$ 
     \item die Anzahl Windungen $N$ der Spule und
-    \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche Einfluss auf $dt$ hat
+    \item die Bewegungsgeschwindigkeit $v$ des Magneten, welche die Dauer der zeitlichen Veränderung $dt$ bestimmt
 \end{enumerate}
 
 Diese Harvestergmethode produziert einen Wechselstrom. Ein Gleichrichter und einen Kondensator zur Glättung der Rippelspannung ist nach der Energiegewinnung notwendig. Die Leistung der produzierten Spannung geht vom $\mu$W-Bereich bis zu für die Industrie optimierten Anlagen mit Leistung MW-Bereich wie z. B. durch Drehstrom-Generatoren.
@@ -65,22 +70,31 @@ Diese Harvestergmethode produziert einen Wechselstrom. Ein Gleichrichter und ein
 
 \subsection{Unterschiede Harvestermethoden}\label{harv_diff} 
 
-Unterschiede bestehen in der Art, in der die Energie zur Verfügung steht. Die nachfolgenden zwei Unterpunkte zeigen, dass zwei Differenzen auf: Punkt a verweist auf die unterschiedliche Art, in der die Energie erhältlich ist: entspricht dies einer gleichmässigen Energie, analog zum DC, oder liefert die Quelle Energie in Form von Wechselstrom? Folgt der Strom konstant oder in Pulsen? Die aufwendige Art der Energieerntung wird für den Prototypen relevant.  Der zweite Unterschied unter den Harvestermethoden ist die Leistungskurve. An welcher Stelle zwischen Kurzschluss und liegt das Leistungsmaximum? Die unterschiedlichen Leistungsmaxima der einzelnen Harvestermethoden werden unter Punkt b zusammengefasst. Beide Unterschiede werden für die Entwicklung des Prototypen über Bewegungsinduktion relevant.
+\todo{Satz unverständlich!! neu schreiben. Siehe Notizen Alexey}
+Unterschiede bestehen in der Art, in der die Energie zur Verfügung steht. Die nachfolgenden zwei Unterpunkte zeigen, dass zwei Differenzen auf: 
+
+Punkt a verweist auf die unterschiedliche Art, in der die Energie erhältlich ist:
+
+entspricht dies einer gleichmässigen Energie, analog zum DC, oder liefert die Quelle Energie in Form von Wechselstrom? Folgt der Strom konstant oder in Pulsen?
+
+Die aufwendige Art \todo{unklar} der Energieerntung wird für den Prototypen relevant.  Der zweite Unterschied unter den Harvestermethoden ist die Leistungskurve. An welcher Stelle zwischen Kurzschluss \todo{unklar} und liegt das Leistungsmaximum? Die unterschiedlichen Leistungsmaxima der einzelnen Harvestermethoden werden unter Punkt b zusammengefasst. Beide Unterschiede werden für die Entwicklung des Prototypen über Bewegungsinduktion relevant.
 
 \subsubsection{Gleichmässige Energie versus gepulster Energie}
 
 \todo{Messprotokolle}
-Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}). Dadurch ist keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll xxxx). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}, aus Messsprotokoll xxxx). 
+Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}). Dadurch ist keine Gleichrichterschaltung und Glättung notwendig. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll \todo{Link} xxxx). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. \todo{kommender Satz umschreiben} Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: 
+
+Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}, aus Messsprotokoll xxxx). 
 
 \begin{figure}[ht]
  \begin{minipage}{0.5\textwidth}
  \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/Solarstrom.PNG}
-    \caption{Gleichspannung am Ausgang eines TEG}
+    \caption{Theoretische Abbbildung einer Gleichspannung am Ausgang eines TEG}
     \label{dc} 
  \end{minipage}
  \begin{minipage}{0.5\textwidth}
      \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/acPremospule.PNG}
-    \caption{Wechselspannung als Energieform der Bewegungsinduktion}
+    \caption{Wechselspannung bei Bewegungsinduktion}
     \label{ac} 
  \end{minipage}
 \end{figure}
@@ -96,7 +110,7 @@ Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \
 \subsubsection{Konstanter Maximum Power Point (MPP)zu dynamischem MPP}
 \label{mpp_theorie_diff}
 
-Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\%.  Bei der Bewegungsinduktion existiert kein fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala hin und her.
+Die drei Harvester unterscheiden sich in ihrer Leistungskurve. \todo{ Erklärung der Leistungskurve} \todo{Erklären, was Leistungsmaximum ist} Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala. Die MPPT-Ratio beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\%.  Bei der Bewegungsinduktion existiert kein fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala.
 
 Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt, dieses unabhängige Verhalten. 
 
@@ -135,14 +149,14 @@ Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Beweg
 
 Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$J-Bereich. Um diese für eine Applikation zu verwenden, müssen die geringen Energieportionen summiert werden. Sind Energiemengen im höheren $\mu$J-Bereich verfügbar, kann die Energie kontrolliert freigegeben werden. 
 
-Energy Management bezeichnet das der Energie in Speichern, das Regeln des Inputs, damit die maximale Leistung aus der Quelle bezogen werden kann, das Aufwärtswandeln von Spannung oder Strom auf den geforderten Wert und die kontrollierte Freigabe.
+Energy Management bezeichnet das Sammeln von Energie in Speichern, das Regeln des Eingangssignals auf das Leistungsmaximum und das Aufwärtswandeln von Spannung oder Strom auf einen geforderten Wert sowie die kontrollierte Freigabe der gesammelten Energie.
 
 In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 ist ein Power Management Controller für den Low Power-Bereich. Das Datenblatt des EM8500 ist der CD beigelegt.  Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings (MPPT) und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist. 
 
 \subsection{Kontrollierte Energiespeicherung}
 \label{speicher_konzept}
 
-Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Microkontroller, genug Energie in Speichern gesammelt wurde. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass für die Freigabe der Energie an eine Applikation, das Signal der Speisung der Applikation wird als VSUP bezeichnet, erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im Register v\_bat\_min\_low eingetragen werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet.
+Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Microkontroller, genug Energie in Speichern gesammelt wurde. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass für die Freigabe der Energie an eine Applikation, das Signal der Speisung der Applikation wird als VSUP bezeichnet, erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im Register v\_bat\_min\_low eingetragen werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet.
 
 \todo{Graphik falsch: VSUP auf batminlow. vsts geht auf v bat min hi dis}
 \begin{figure}[ht]
