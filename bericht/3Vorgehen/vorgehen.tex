@@ -38,6 +38,7 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
 
 Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
 
+\todo{Legende an Bild binden. korrekter SensorTag Name}
 \subsubsection*{Legende Abbildung \ref{funktionsdiagramm_bild}}
 \label{legende}
 
@@ -115,12 +116,19 @@ Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch
  \end{minipage}
 \end{figure}
 
-Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips kein konstantes Spannungslevel (siehe Abbildung x) erhält. 
+Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips kein konstantes Spannungslevel (siehe Abbildung \ref{VCC_47uF_15kmh_Periode}) erhält. 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.45\textwidth]{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
-    \caption{Spannung am EM8500-Eingang über einem 47 $\mu$F Kondensator}
-	\label{VCC_47uF_15kmh_Periode} 
+   \begin{minipage}[t]{0.5\textwidth}
+     \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
+     \caption{Spannung am EM8500-Eingang über einem 47 $\mu$F Kondensator}
+	 \label{VCC_47uF_15kmh_Periode}
+  \end{minipage}
+  \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
+    \caption{Spannung am EM8500-Eingang über einem 100 $\mu$F Kondensator}
+	\label{VCC_100uF_15kmh_Periode}
+  \end{minipage} 
 \end{figure}
 
 Problematisch ist, dass die Spannung wiederholt unter die 0.3 V Grenze fällt, bei einer Spannung von 0.3 V kann keine Energie gespeichert werden. Die Regelung am Eingang des EM-Chips kommt mit der anliegenden Rippelspannung nicht klar. Die Rippelspannung muss verringert werden, bzw. die Kapazität am Ausgang des Harvesters muss erhöht werden. 
@@ -129,11 +137,7 @@ Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessun
 
 Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Der Kondensator sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open Loop Messung keine richtigen Werte liefert. Der Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
 
-\begin{figure}[ht]
-    \includegraphics[width=0.45\textwidth]{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
-    \caption{Spannung am EM8500-Eingang über einem 100 $\mu$F Kondensator}
-	\label{VCC_100uF_15kmh_Periode} 
-\end{figure}
+
 
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
@@ -826,46 +830,65 @@ Im hohen Energiezustand wird mit jedem Geschwindigkeitspaket die aktualisierten 
 \section{Power Management}
 \label{powerOptimierung}
 
-Die Verwendung des TI-SensorTags wurde zur Herausforderung. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, warum die Code-Beispiele von Texas Instrument für den Bicycle Computer nicht verwendet werden können und was dies für die Entwicklung der Applikation bedeutet. In nächsten Unterkapitel \ref{PowerDomains} wird das selektive Ausschalten der Peripherie erklärt und in den letzten zwei Unterkapitel die Umsetzung, wie Schlafenszeiten zwischen den Funktionen eingebaut werden \ref{sleep_funktion} oder wie Funktionen zwischendurch zum Schlafen gezwungen werden (\ref{sleep_while}).
+Das Power Management wird mit dem TI-SensorTags umgesetzt. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, auf welche Bibliotheken und Hilfen man von Texas Instruments zurückgreifen kann. In nächsten Unterkapitel \ref{PowerDomains} wird das Ausschalten der der Bauteile auf dem MCU erklärt und im letzten zwei Unterkapitel die Umsetzung, wie Schlafenszeiten zwischen den Funktionen eingebaut werden \ref{sleep_funktion}.
+ %oder wie Funktionen zwischendurch zum Schlafen gezwungen werden (\ref{sleep_while}).
 
 
 
-\subsection{Programmieren ohne RTOS}
+\subsection{Programmieren für Low Power Applikation im Adevertising Mode}
 \label{keinROTS}
 
-Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie, im $\mu$J-Bereich zur Verfügung steht, und die minimale RTOS-Anwendung, die auf TI-SensorTag vorinstalliert ist, Energie von xxJ benötigt, sind Programmlösungen ohne RTOS notwendig. Die Funktionen der Software werden deshalb von Grund auf aufgesetzt. Die Verwendung zur mitgelieferten TI-SensortTag Library ist unabdingbar, da das Memory Mapping nur über die Library zugänglich ist. 
-
-\todo{Energiemessung RTOS}
-
-Das Erschwert die Softwareentwicklung durch folgende drei Punkte
+Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie, im $\mu$J-Bereich zur Verfügung steht, startet die Applikation im Advertising Mode. Diese braucht weniger Energie als der Connected Mode und der Overhead eines Betriebsystems (RTOS) und der Initialisierung des BLE-Stacks sind nicht notwendig. Der Nachteil dieser schlanken Programmierung ist, dass die TI-SensorTag Beispiele ausschliesslich auf RTOS aufbauen, und somit nicht 1:1 übernommen werden können. Für nachkommende Entwicklerinnen und Entwickler sind zwei Vorzüge und zwei Nachteile aus dieser Wahl festgehalten:
 
 \begin{enumerate}
-    \item Es bestehen keine Codebeispiele ohne RTOS. Weder für das Power-Handling, wie die CPU oder eine Peripherie zum Schlafen schicken, noch zur Initalisierung des Systems, dem Auslesen der Sensoren, der Kommunikation per I2C oder SPI, noch zum Verwenden der Timer.
-    \item Der Umfang mitgelieferte Library von Texas Instruments (cc26xxware/driverLib) ist enorm. Die Library baut auf impliziten Bezügen für ein optimiertes RTOS auf. Interrupts werden z. B. nicht direkt verarbeitet, sondern gehen über eine der zwei Event Fabric mit diversen Subscribers (\cite{Sensortag_Manual}, S. 238ff) komplex abgehandelt. In der Library sind predefined Funktionen für das RTOS implementiert. Der Versuch, diese predefinierten Funktionen zu verstehen, scheitert an der Komplexität der Library und dem RTOS-Fokus. Durch try and error können Abläufe rekonstruiert werden.
-   \item Hat man durch try and error ein lauffähiges Programm entwickelt, ist dies oft nicht lanfristig sicher. Die ist, weil eine gute Dokumentation fehlt. Durch das Einbauen neuer Anforderungen, wie z. B. die Verwendung einer neuen Power Domain oder eines neuen Interrupts, kann das System ungewollt beeinflussen. Jede Erneuerung in der SensorTag-Version verusachte deshalb Nebeneffekte. Der Fortschritt im Programmieren bleibt trotz Klarheit der Umsetzung harzig.
+    \item    Sehr schlanker Code entsteht. Die Register werden direkt gesetzt und die Funktionsaufrufe sind sehr schnell.
+    \item  Nur das Minimum wird ausgeführt. Der Code wird übersichtlich.    
+    \item Der Umfang der Library von Texas Instruments (cc26xxware/driverLib) ist gross und komplex. Der Versuch, die Abhängigkeiten zu verstehen, ist nicht immer einfach.
+   \item Eine gute Dokumentation fehlt oder sie bezieht sich auf RTOS. Unerwünschte Nebeneffekte treten auf.
 \end{enumerate}
 
 \subsection{Power Domains beim TI-SensorTag}
 \label{PowerDomains}
 
-In der Library des TI-SensorTags spielt das Ein- und Ausschalten der 10 Power Domains eine zentrale Rolle (siehe cc26xxware/sys\_ctrl.h, cc26xxware/pwr\_ctrl.h, cc26xxware/prcm.h). Die Abbildung \ref{a_supply} im Anhang \ref{anhang_sensortag_supply} zeigt, die 10 Power Domains. Das TI-SensorTag unterscheidet zwischen drei Always On (AON) Power Domains und CPU, MCU, RFCORE und weiteren Power Domains. Die zweite Abbildung \ref{a_powerdomain} im Anhang \ref{anhang_sensortag_PowerDomain} zeigt die Verstrickung unter den Power Domains. Ausser den zwei generellen Bildern und dem Beschreiben der Registerbits im PRCM-Register ist zu Power Domains nichts dokumentiert (siehe Technical Manual Kapitel 6 Power, Reset, and Clock Management \cite{Sensortag_Manual}, S. 412 - 473).
+Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten Power Domains eine zentrale Rolle. Das TI-SensorTag unterscheidet 10 Power Domains. Ein Überblick  ist in der Abbildung  \ref{supply_syst} abgebildet. Das Konzept der Verbrauchsoptimierung besteht im Abschalten unnötigen Peripherie- und Prozessorteilen. Nur absolut notwendigen Prozesse laufen weiter. Der Teil, der nicht abstellt wird AON (Always On) genannt. Zu dieser Domain gehört ein Clock, ein Timer, gewisse Interrupts und Schnittstellen. Im Anhang \ref{anhang_sensortag_PowerDomain} ist in der Abbildung \ref{a_powerdomain} detailliert dargestellt, wie die einzelnen Power Domains sich beim Ausschalten verhalten. So braucht z.B. das RAM und die GPIO ein \textit{rentention}. Beim RAM bedeutet dies eine Speicherauffrischung, bei der GPIO eine Kontrolle der Pinzustände.
 
-Wie im oberen Unterkapitel erwähnt, gehen die Entwickler vom Gebrauch des RTOS und den dazugehörenden Funktionen aus. Die Entwickler nehmen der Programmiererin bzw. dem Programmierer die Hintergrundsarbeit ab. Sie kümmerten sich durch das Aufsetzen der Library um die Abhängigkeiten unter den Power Domains. 
+%ährend der Prozessor schläft, bleiben Takte der Always On (AON) Power Domain wach wie auch Interrupts dieser Domain. 
 
-Die tieferen Abhängigkeiten viel das erste Mal beim Aufsetzen der Interrupts zum Einlesen des Reed-Switches über die GPIO auf. Vor dem Aktivieren der GPIO-Power Domain funktionierte der interne RTC einwandfrei. Auf Tastendruck konnte nach dem Ablauf der eingestellten Zeit ein BLE-Paket versendet werden. Nachdem der GPIO-Interrupt aktiviert ist, funktioniert der RTC nicht mehr. Nachlesen im Technical Manual ergaben, dass das TI-Sensortag über die Interrupts eine Event Fabric mit zwei Unterabteilungen eingebaut hat. Das Koordinierte Ein- und Ausschalten dieser zusätzlichen Struktur wird nun behandelt. Nach dem dieses Zusammenspiel funktioniert, stellt sich heraus, dass bei schnellen Reed-Switch-Impulsen, ein Problem im Zusammenspiel mit dem Radio-Aufwachen entsteht. Und so weiter und so fort. In den Sitzungsprotokollen xxx  sind die entstandenen Herausforderungen dokumentiert. Die letzte, bis zur Abgabe der Bachelorarbeit noch nicht gelöste Aufgabe, ist das Forcieren des Schlafen während dem Aufstarten eine Sensors. 
+% sind die zeigt, die 10 Power Domains. Das TI-SensorTag unterscheidet zwischen drei Always On (AON) Power Domains und CPU, MCU, RFCORE und weiteren Power Domains. Die zweite Abbildung \ref{a_powerdomain} im Anhang \ref{anhang_sensortag_PowerDomain} zeigt die Verstrickung unter den Power Domains. Ausser den zwei generellen Bildern und dem Beschreiben der Registerbits im PRCM-Register ist zu Power Domains nichts dokumentiert (siehe Technical Manual Kapitel 6 Power, Reset, and Clock Management \cite{Sensortag_Manual}, S. 412 - 473).
 
-Die von aussen nicht einfach durchschaubaren Abhängigkeiten sind der Grund, dass in der TI-Sensortag Version V3 die Power-Optimierung besser war, als dann in der Version V4. Teilweise muss, damit eine Peripherie wie z. B. I2C läuft, mehrere Domains eingeschalten werden. Wenn die Funktionalität läuft, wird versucht, die aktive Zeit zu verkürzen.
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/powerdomain_1.png}
+  \caption{Supply System TI-SensorTag}
+  \label{supply_syst}
+\end{figure}
+
+%Wie im oberen Unterkapitel erwähnt, gehen die Entwickler vom Gebrauch des RTOS und den dazugehörenden Funktionen aus. Die Entwickler nehmen der Programmiererin bzw. dem Programmierer die Hintergrundsarbeit ab. Sie kümmerten sich durch das Aufsetzen der Library um die Abhängigkeiten unter den Power Domains. 
+
+In den nachfolgenden zwei Codebeispielen \ref{vorbereiten} und \ref{ausschalten} wird das Ein- und Ausstellen exemplarisch dargestellt. %Dass die Power Domains teilweise für zwei   
+%Im Anhang \ref{anhang_sensortag_PowerDomain} ist die Abhängigkeit unter den Power Domains sichtbar. 
+%Die tieferen Abhängigkeiten viel das erste Mal beim Aufsetzen der Interrupts zum Einlesen des Reed-Switches über die GPIO auf. Vor dem Aktivieren der GPIO-Power Domain funktionierte der interne RTC einwandfrei. Auf Tastendruck konnte nach dem Ablauf der eingestellten Zeit ein BLE-Paket versendet werden. Nachdem der GPIO-Interrupt aktiviert ist, funktioniert der RTC nicht mehr. Nachlesen im Technical Manual ergaben, dass das TI-Sensortag über die Interrupts eine Event Fabric mit zwei Unterabteilungen eingebaut hat. Das Koordinierte Ein- und Ausschalten dieser zusätzlichen Struktur wird nun behandelt. Nach dem dieses Zusammenspiel funktioniert, stellt sich heraus, dass bei schnellen Reed-Switch-Impulsen, ein Problem im Zusammenspiel mit dem Radio-Aufwachen entsteht. Und so weiter und so fort. In den Sitzungsprotokollen xxx  sind die entstandenen Herausforderungen dokumentiert. Die letzte, bis zur Abgabe der Bachelorarbeit noch nicht gelöste Aufgabe, ist das Forcieren des Schlafen während dem Aufstarten eine Sensors. 
+
+%Die von aussen nicht einfach durchschaubaren Abhängigkeiten sind der Grund, dass in der TI-Sensortag Version V3 die Power-Optimierung besser war, als dann in der Version V4. Teilweise muss, damit eine Peripherie wie z. B. I2C läuft, mehrere Domains eingeschalten werden. Wenn die Funktionalität läuft, wird versucht, die aktive Zeit zu verkürzen.
+
 
 
 \subsection{Schlafenszeiten zwischen Funktionen}
 \label{sleep_funktion}
 
-Einfach zu implementieren sind ganze Schalfzyklen nach einem Funktionsblock. Ist eine Aufgabe getätigt, wie z. B. das Starten einer Clock Domain der AON oder das Starten eines Sensors, kann das System schalfen gehen. Dieses Prozedere funktioniert einwandfrei und sicher. Das System wacht aufgrund eines Interrupts wieder auf. Nachfolgend sind die zwei Hauptfunktionen: Vorbereiten zum Stand By (\ref{vorbereiten}) und Ausschalten des Hauptprozessors (\ref{ausschalten}) abgebildet.
+In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen xxx  xxx xx \todo{LInks}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung zeigt der implementierte Codeablauf der TI-SensorTag Version V4.
+
+\begin{figure}[ht]
+  \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/schlafen_funktionen.png}
+  \caption{Schalfenszeiten zwischen Aktionen einbauen}
+  \label{warten_zw_bloecken}
+\end{figure}
+
+Ist eine Aufgabe getätigt, wie z. B. das Starten eines Sensors, kann das System schlafen gehen. Dieses Prozedere funktioniert einwandfrei und sicher. Das System wacht aufgrund eines Interrupts wieder auf. Nachfolgend sind die zwei Hauptfunktionen: Vorbereiten zum Stand By (\ref{vorbereiten}) und ausschalten des Hauptprozessors (\ref{ausschalten}) abgebildet.
 
 \subsubsection{Stand By-Prozedur}
 \label{vorbereiten}
 
-Bevor der Prozessor schalfen geht, muss das Recharge Intervall aufgesetzt werden. Während der Prozessor schläft, bleiben Takte der Always On (AON) Power Domain wach wie auch Interrupts dieser Domaine. Zusätzlich werden die Registereinstellungen über das Recharge Intervall am Leben erhalten. 
+Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer veranlasst werden. Der Christal-Oszillator wird abgeschaltet, das Radio-Modul ebenfalls, dann wird ein niedriger Takt eingestellt und unnötige Periphierie-Speisung weggenommen. Dem Prozessor wird erlaubt,seine notwendigen Register zu refreshen und das Cache wird abgeschaltet. Wobei ein Refresh-Zyklus aktiviert wird.
  
 \small\begin{verbatim}
 void go_to_standby(){ 
@@ -920,15 +943,17 @@ Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zäh
    31 - 32 km/h          \> 50                \> 11 s\\    
 \end{tabbing}
 
+Das Setzen der Schlafenszeit ist ein einer globalen Variable gespeichert. Abhängig von der Geschwindigkeit, wird das Schlafensintervall (das Counter-Maximum) angepasst.
 
-\todo{Bezug zu Resultaten Messungen: Lesen braucht nicht viel Energie}
+
+
+%\todo{Bezug zu Resultaten Messungen: Lesen braucht nicht viel Energie}
 
 %In der Abbildung xxx \todo{Referenz} zeigt den Energieverbrauch vom einlesen von 3 Sensoren und erst dann dem Senden der Daten. Diese Energiewerte entsprechen diesem Konzept: Als energieverschleisende Aufgaben sind der Start der Sensoren taxiert. Deshalb geht nach jedem Starten das System schlafen, sodass sich STS wieder lädt. Sind einmal alle Sensoren wach, wird als letzte energieintensive Aktion, das Senden des BLE-Paketes mit den Sensorwerten getan. Es zeigt sich in der Energiemessung des BLE-Sendens, dass das Auslesen der Sensoren $\mu$J \todo{genaue Zahl} bedarf. Die Energiefresser sind der Startprozess. Dies ergab das Debuggen. Die Sensoren geben im ms-Bereich einen Reed Error zurück. Es bedufte einer While-Schlaufe, die den Sensor so lange abfragt, bis er keinen Reed-Error ausgibt. Ist er einmal gestartet, bleiben die Werte korrekt, auch wenn das System zwischenzeitlich einschläft. Es ist die Warte-Schlafe, die zu viel Energie verbraucht.
 	    
 
 %\subsection{Schlafenszeiten erzwingen beim Aufwachen der Sensoren}
 %\label{sleep_while}
-
 
 
 
