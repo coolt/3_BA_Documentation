@@ -5,11 +5,13 @@ Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem 
  
 \section{Harvesterschaltung}
 
+Nachfolgend werden die Resultate, der Harvesterschaltung beschrieben. Die Energie, welche die Harvesterschaltung zur Verfügung stellt liegt im $\mu$J-Bereich, das nachfolgende Energymanagement muss mit dieser Energie arbeiten können.
+
 \subsection{Der Print}
 
-Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zusehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen, jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen, hier wurden die beiden Kondensatoren über Litzen angeschlossen, da die ElKos keinen Platz zwischen dem Prototypen-PCB und dem TI-SensorTag finden. 
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Kondensatoren über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
 
-Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte vielleicht noch Platz gehabt auf der oberen Seite, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
+Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
@@ -26,7 +28,7 @@ Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehe
 
 \subsection{Leistung am Harvesterausgang}
 
-Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt, problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann, es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
+Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt. Problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann. Es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
@@ -34,9 +36,10 @@ Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich
     \label{mpp_resultat_harvester}
 \end{figure}
 
-Die Leistung, welche der Harvester zur Verfügung stellen kann liegt bereits bei einer Geschwindigkeit von 10 km/h bei 24.77 $\mu$W. Dies ist die Durchschnittsleistung bei optimaler Belastung, es handelt sich nicht um die Spitzenleistung. Es ist ersichtlich dass die Leistung mit der steigender Geschwindigkeit zunimmt.
+Die Leistung, welche der Harvester zur Verfügung stellen kann, liegt bereits bei einer Geschwindigkeit von 10 km/h bei 24.77 $\mu$W. Dies ist die Durchschnittsleistung bei optimaler Belastung. Es handelt sich nicht um die Spitzenleistung. In der Tabelle \ref{leistungHarvester} ist es ersichtlich, dass die Leistung mit der steigender Geschwindigkeit zunimmt.
 
 \begin{tabbing}
+\label{leistungHarvester}
     Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
     10 km/h  \> 24.77  $\mu$W \\
     15 km/h  \> 61.07  $\mu$W \\
@@ -49,7 +52,7 @@ Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können di
 
 \subsection{Verhalten des Harvesterausgangs}
 
-Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil, diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
+Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_47uF.PNG} 
@@ -87,7 +90,7 @@ Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die
 
 \subsection{Wirkungsgrad des Prototypen}
 
-Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich dargestellt (Abbildung \ref{zsmEnergyGewinn}). Die Werte beziehen sich auf die gemittelte Leistung über 10 s. Es ist zu sehen, dass die Energiegewinnung bei der Harvesterschaltung mit der Geschwindigkeit deutlich schneller zunimmt, als die Energie am Ausgang des EM-Chips. 
+Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich dargestellt (Abbildung \ref{zsmEnergyGewinn}). Die Werte beziehen sich auf die gemittelte Leistung über 10 s. Es ist zu sehen, dass die Energiegewinnung bei der Harvesterschaltung mit der Geschwindigkeit deutlich schneller zunimmt als die Energie am Ausgang des EM-Chips. 
 
 \begin{figure}[ht]
     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
@@ -95,10 +98,11 @@ Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich
     \label{zsmEnergyGewinn}
 \end{figure}
 
-Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursache, dass trotz genug geernteter Energie, das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit, erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad. Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
+Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursachen, dass trotz genug geernteter Energie das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad (siehe Tabelle \ref{wirkungsgrad_emchip}). Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
 
 \subsubsection*{Tabelle Leistung und Wirkungsgrad }
 \begin{tabbing}
+\label{wirkungsgrad_emchip}
     Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
     10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
     15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
@@ -110,17 +114,17 @@ Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschw
 
 \section{Energy Management}
 
-Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH ENERGY beschrieben (\ref{v_energiezustand}). Die folgenden Abbildungen im Unterkapitel \ref{tiefes_v} zeigen diese Verhalten. Zuerst wird das Verhalten bei LOW und MIDDLE ENERGY beschrieben. Da interessiert die Ladezeit, bis dass wieder ein Paket gesendet wird. Bei beiden Zuständen kann sich der LTS nicht laden, da das Senden der Pakete alle Energie verbraucht. Erst bei höherer Energie, kann das Ladeverhalten von LTS angeschaut werden. Diese Abbildungen sind im Unterkapitel \ref{res_entladen}. Im letzten Unterkapitel stehen die finalen Schwellwerte und Kondensatorenwerte, auf denen diese Messresultate basieren.
+Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH ENERGY beschrieben (\ref{v_energiezustand}). Die folgenden Abbildungen im Unterkapitel \ref{tiefes_v} zeigen diese Verhalten. Zuerst wird das Verhalten bei LOW und MIDDLE ENERGY beschrieben. Da interessiert die Ladezeit bis dass wieder ein Paket gesendet wird. Bei beiden Zuständen kann sich der LTS nicht laden, da das Senden über BLE alle Energie verbraucht. Erst bei höherer Energie kann das Ladeverhalten von LTS angeschaut werden. Diese Abbildungen sind im Unterkapitel \ref{res_entladen}. Im letzten Unterkapitel stehen die finalen Schwellwerte und Kondensatorenwerte, auf denen diese Messresultate basieren.
 
 \subsection{Verhalten bei tiefen und mittleren Geschwindigkeiten}
 \label{tiefes_v}
 
 
-Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Das violette Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Speisung der Drucksensor geweckt wird  und bei der zweiten Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
+Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_3.PNG}
-    \caption{Senden von Paketen bei 9 - 10 km/h}
+    \caption{Senden von Paketen bei 9 - 10 km/h; rot: V_SUP, gelb: V_STS}
     \label{paket_100kmh}
 \end{figure}
 
@@ -129,11 +133,11 @@ Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16k
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic2.PNG}
-    \caption{Senden von Paketen bei 16 km/h}
+    \caption{Senden von Paketen bei 16 km/h; rot: V_SUP, gelb: V_STS, blau: V_LTS}
     \label{paket_16kmh}
 \end{figure}
 
-Bei 40 km/h werden rund 15 BLE-Pakete mit gesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird, für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
+Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird und zwar für für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
 
 
 \begin{figure}[ht]
@@ -154,11 +158,11 @@ Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Ve
     \label{lts_ein}
 \end{figure}
 
-Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt, ohne Sleep-optimierung, ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
+Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_5.PNG}
-    \caption{VSUP wird konstant gespiesen. LTS lädt sich}
+    \caption{VSUP wird konstant gespiesen. LTS lädt sich.}
     \label{vsup_konstant}
 \end{figure}
 
@@ -168,14 +172,15 @@ Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fa
     \label{connected_mode}
 \end{figure}
 
-Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, sich V\_SUP sich halten kann und beide sich wieder parallel laden. 
+Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
+
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic1.PNG}
     \caption{Paralleles Entladen der Kondensatoren}
     \label{parallel_entladen}
 \end{figure}
 
-Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4, die Sensoren zu viel Energie verbrauchen und V\_SUP die Energie vernichtet. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstiertbar. Auszugehen ist, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
+Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4 die Sensoren zu viel Energie verbrauchen und V\_SUP abfällt. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstrierbar. Auszugehen ist, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
 
 
 
@@ -185,7 +190,7 @@ Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das 
 \subsection{Verwendete Werte}
 \label{werte}
 
-Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt.
+Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt:
 
 STS = 100 $\mu$F
 LTS = 3300 $\mu$F
@@ -193,7 +198,7 @@ LTS = 3300 $\mu$F
 
 \subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
 \begin{tabbing}
-    Register .............\quad\= Spannungswert \\[0.8ex]
+    Register \quad\= Spannungswert \\[0.8ex]
     v\_bat\_max\_hi       \> 3.8 V \\
     v\_bat\_max\_lo       \> 3.7 V \\
     v\_bat\_min\_hi\_dis  \> 3.6 V \\
@@ -240,7 +245,7 @@ Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets 
 
 \subsubsection*{Tabelle Energieverbrauch nach Aufgaben}
 \begin{tabbing}
-    Funktionsblöcke ...................................................................................\quad\= Energieverbrauch \\[0.8ex]
+    Funktionsblöcke \quad\= Energieverbrauch \\[0.8ex]
     Einmaliges Laden der Kondensatoren auf TI-SensorTag        \> 63.2 $\mu$J\\
     Initialisierung + Refresh-Zyklen                           \> 77 $\mu$J + 13 $\mu$J = 90 $\mu$J\\
     Neustart = Laden Kondensatoren + Init + Refreshen          \> 63.2 $\mu$J + 90 $\mu$J = 153.2 $\mu$J\\
@@ -317,7 +322,7 @@ Wird die Aktivierung der Bluetooth-Schnittstelle erlaubt, erscheint der Startbil
     \label{tacho}
 \end{figure}
 
-Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor war. Es ist natürlich klar, dass nicht der Sensor (Temperatursensor, Drucksensor, etc) auf dem TI-SensorTag an sich ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedoch ist das für einen User ohne technischen Hintergrund zu hochstehend. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden. Es muss noch überlegt werden, wie die Adresse benutzerfreundlicher gestaltet werden kann, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
+Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor war. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
@@ -325,7 +330,7 @@ Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, erscheint ein neue
     \label{sensorauswahl}
 \end{figure}
 
-Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, in dem man den Button "Einheiten + Einstellungen" auswählt.
+Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, indem man den Button \glqq Einheiten + Einstellungen \grqq auswählt.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEEinheitenUndEinstellungenStart.png} 
@@ -333,9 +338,9 @@ Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Unter
     \label{einheiten}
 \end{figure}
 
-Die Applikation stellt reiche Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}. Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
+Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
 
-Die Radgrösse, sprich der Radumfang, muss einstellbar sein, da die interne Geschwindigkeitsberechnung von diesem abhängt. Da die Radgrösse nicht normiert ist, konnte kein Drop Down-Element eingebaut werden. Die Zahl wird über die Tastatur in das Feld eingegeben, es können nur Zahlen eingegeben werden. Dies wurde implementiert um zu verhindern dass die Eingabe von der Applikation nicht interpretiert werden kann.
+Die Zahl des Radumfangs kann über die Tastatur in das Feld eingegeben, es können nur Zahlen eingegeben werden. Dies wurde implementiert, um zu verhindern, dass die Eingabe von der Applikation nicht interpretiert werden kann.
 
 Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem TI-SensorTag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. TI-SensorTag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
 
@@ -369,8 +374,6 @@ TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen w
     10 min  \> 349   \> 302 \> 13.5\thinspace\%  \\
 \end{tabbing} 
 
-Da unsere Nutzung des Advertising Mode keine aktive Verbindung vorsieht, ist ein Paketverlust von rund 15\thinspace\% zu erwarten. Der Paketverlust ist normalerweise keine Problem, da der Empfänger bei feststellen eines Verlusts eine Aufforderung an den Sender schickt um das verlorene Paket neu zu senden. 
-
 \subsection{Korrektheit der Daten}
 
 Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuellen Vergleich der Datenpakete im BLE-Sniffer von TI verglichen (siehe Abbildung \ref{sniffer}).  Die Daten im Sniffer entsprechen exakt den Daten, welche die Applikation empfängt. Der Inhalt der Daten wird somit unverfälscht übermittelt.
@@ -385,7 +388,7 @@ Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuell
 \end{figure}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/sniffer.png} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/app_alle.png} 
     \caption{Empfangene Daten der Applikation}
     \label{applikation_daten}
 \end{figure}
