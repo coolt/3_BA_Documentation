@@ -1,27 +1,26 @@
 \chapter{Abstract}
 
 The exchange of data between devices - commonly referred to as
-"Internet of things" - should be made accessible to cyclists. The
+\glqq Internet of things\grqq - should be made accessible to cyclists. The
 mobile device should start to work at a cycling speed of 10km/h,
 transmitting data through the Bluetooth Low Energy (BLE) protocol. The
-task is based on a feasibility study, witch solves the energy
-management through the chip EM8500. A "SensorTag" - available on Texas
+task is based on a feasibility study which handles the energy
+management through the chip EM8500. A \glqq SensorTag\grqq - available on Texas
 Instruments Simple Link devices - is responsible for sending the data.
 This board contains a wireless MCU and a low power Cortex M3.
 
 The goal of the task was the development of a miniaturised board, which
-should not be bigger then the utilized TI-SensorTag while adjusting the
+should not be bigger than the utilized TI-SensorTag while adjusting the
 energy storage, energy management and the power consumption of the
 code. The finished product contains the hardware and a user friendly
-Android application. The "app" allows adjusting the sensor readouts and
-displays a tachometer and a speedometer showing the current speed
-(which is based on the radius of the wheel).
+Android application. The \glqq app\grqq allows adjusting the sensor readouts and
+displays a tachometer and a speedometer showing the current speed, which is based on the radius of the wheel).
 
-At the start a feasibility study was conducted. The feasibility study
-version showed promise with the enough energy being produced at speeds
+At the start, a feasibility study was conducted. The feasibility study
+version showed promise for enough energy being produced at speeds
 over 45km/h.
 
-After improving the energy harvesting we were able to generate 20
+After improving the energy harvest we were able to generate 20
 $\mu$W at 10km/h. The energy management of the EM8500-Chip and the
 firmware of the TI-SensorTag were then completely rewritten. The
 threshold of the energy management is based on the MPP of the harvester
@@ -31,5 +30,5 @@ requirements.
 
 The prototype is a configurable BLE-application, which sends speed,
 pressure, temperature and air moisture data in two minute intervals at
-10km/h. From 20km/h onward the data is sent every 20 seconds and over
+10km/h. From 20km/h onward, the data is sent every 20 seconds and over
 45km/h the data is sent continuously.
