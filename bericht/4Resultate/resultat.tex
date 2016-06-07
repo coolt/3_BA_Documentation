@@ -24,7 +24,6 @@ Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehe
     \label{print_vorne}
 \end{figure}
 
-\newpage  
 \subsection{Leistung am Harvesterausgang}
 
 Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt, problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann, es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
@@ -48,13 +47,12 @@ Die Leistung, welche der Harvester zur Verfügung stellen kann liegt bereits bei
 Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können diese Leistungen nur erreicht werden, wenn die Einstellung des EM8500-Chips dementsprechend eingestellt werden.
 
 
-\newpage  % todel
 \subsection{Verhalten des Harvesterausgangs}
 
 Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil, diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_47uF.png} 
+    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_47uF.PNG} 
     \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
     \label{resultat_Harvester_Spannung_47uF}
 \end{figure}
@@ -65,7 +63,6 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
     \label{resultat_Harvester_Spannung_100uF}
 \end{figure}
 
-\newpage  % todel
 
 \subsection{Energie am EM-Chipausgang}
 
@@ -296,7 +293,6 @@ Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Socke
 
 
 
-\newpage
 \section{Ergebnisse BLE-Applikation}
 
 Der Aufbau des TI-SensorTags zusammen mit dem selbst entwickelten Board wird \glqq Sensor\grqq\thinspace\ genannt. Dies, weil aus der Sicht einer Benutzerin oder eines Benutzers keine detaillierte Hardware besteht, sondern \glqq ein Sensor\grqq. Die Vereinfachung dient der Benutzerfreundlichkeit. Die Android-Applikation ist bewusst einfach aufgebaut, um die Benutzerin bzw. den Benutzer nicht zu verwirren. 

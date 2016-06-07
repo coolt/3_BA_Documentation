@@ -73,19 +73,20 @@ Unterschiede bestehen in der Art, in der die Energie zur Verfügung steht. Die n
 Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}). Dadurch ist keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll xxxx). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}, aus Messsprotokoll xxxx). 
 
 \begin{figure}[ht]
- \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/Solarstrom.PNG}
+ \begin{minipage}{0.5\textwidth}
+ \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/Solarstrom.PNG}
     \caption{Gleichspannung am Ausgang eines TEG}
     \label{dc} 
-\end{figure}
-
-\begin{figure}[ht]
-     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/acPremospule.PNG}
+ \end{minipage}
+ \begin{minipage}{0.5\textwidth}
+     \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/acPremospule.PNG}
     \caption{Wechselspannung als Energieform der Bewegungsinduktion}
     \label{ac} 
+ \end{minipage}
 \end{figure}
 
 \begin{figure}[ht]
-     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/Rippel.PNG}
+     \includegraphics[width=0.45\textwidth]{2TheoretischeGrundlagen/imag/Rippel.PNG}
     \caption{Rippelspannung aufgrund der gepulsten Eingangsenergie}
     \label{rippel} 
 \end{figure}
@@ -100,35 +101,35 @@ Die drei Harvester unterscheiden sich in ihrer Leistungskurve. Das Leistungsmaxi
 Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt, dieses unabhängige Verhalten. 
 
 \begin{figure}[ht]
- \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
+ \begin{minipage}[t]{0.5\textwidth}
+ \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/MPPTEG.png}
 \caption{MPP TEG (\cite{MPP_TEG})}
 \label{teg} 
-\end{figure}
-
-
-Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80\thinspace\% liegt.
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSolar.png} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/MPPSolar.png} 
     \caption{MPP Solarzelle (\cite{mpp_solar})}
     \label{mppsolar}
+ \end{minipage}
 \end{figure}
+
+Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80\thinspace\% liegt.
 
 Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde. Im Kapitel \ref{ch_resultat} Resultat sind die ausgemessenen Leistungskurven des Prototypen in der Graphik \ref{mpp_resultat_harvester} abgebildet. Die Leistungskurven wurden für verschiedene Geschwindigkeiten aufgenommen und es zeit sich, dass bei der Harvesterschaltung analog zur Spule, die MPPT-Ratio wandert. Für den theoretischen Teil wurde die MPPT-Kurven des Harverster starkt geglättet und vereinfacht(siehe untenstehende Abbildung \ref{bild_harvester}). So ist der Effekt der Verschiebung des Leistungsmaximums besser ersichtlich wird. Es lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 35 - 75\thinspace\% bewegt.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPSpule.png}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/MPPSpule.png}
    \caption{MPP Spule (\cite{MPP_Spule})}
    \label{bildspule} 
-\end{figure}
-
-\begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/MPPharvesterTheorie.png}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/MPPharvesterTheorie.png}
    \caption{MPP Harvester (\cite{MPP_Harv})}
    \label{bild_harvester} 
+ \end{minipage}
 \end{figure}
 
-\newpage
 % 2.2-------------------------------------------------------------------
 \section{Energy Management}\label{t_energy_management} 
 
@@ -145,39 +146,41 @@ Bei einer Low Power Harvesting Applikation ist wesentlich, dass vor der Verwendu
 
 \todo{Graphik falsch: VSUP auf batminlow. vsts geht auf v bat min hi dis}
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
    \caption{Grundprinzip Applikationsspeisung }
    \label{em_grundprinzip} 
-\end{figure}
-
-Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primärspeichers STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
-
-
-\begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelSTSReal.png}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelSTSReal.png}
    \caption{Applikationsspeisung EM8500}
    \label{em_grundprinzip_em8500} 
+ \end{minipage}
 \end{figure}
+
+Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speichers STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
+
+
 
 Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
 VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildung \ref{energiespeisung_lts}).
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/levelMitLTS.png}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelMitLTS.png}
    \caption{Sicheres Betreiben durch Long Term Storage}
    \label{energiespeisung_lts} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+   \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
+   \caption{Konzept Hersteller (\cite{datasheet_EM85})}
+   \label{energiespeisung_lts} 
+ \end{minipage}
 \end{figure}
 
 Im Datenblatt des EM8500 (siehe \cite{datasheet_EM85}) sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres betreiben. Die Dateien sind auf der CD abgelegt.
 
 Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (v\_bat\_min\_lo), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
-
-\begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
-   \caption{Konzept Hersteller (\cite{datasheet_EM85})}
-   \label{energiespeisung_lts} 
-\end{figure}
-
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 \label{optimaleLeistung}
@@ -210,13 +213,12 @@ Da der Primärspeicher STS vom Boosterausgang $V_{Booster}$ gespiesen wird, ents
 
 Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten v\_bat\_min\_hi\_dis (ab da wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab da hört die Speisung von V\_SUP auf). Die zwei Schwellwerte werden in der Gleichung vereinfacht als STS\_HIGH und STS\_LOW bezeichnet.
 
-\begin{equation}
-      E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}   
-\end{equation}
-
-\begin{equation} 
-     E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
-\end{equation}
+\begin{flalign}\label{eq:e-high-e-low}
+E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
+                &= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
+\end{flalign}
+%\eqref{eq:e-high-e-low} % with brackets
+%\ref{eq:e-high-e-low} % look ma no  brackets
 
 Kennt man die notwendige Energie, so kann die Grösse des Kondensator $C_{STS}$ aus der notwendigen Energie berechnet werden:
 
@@ -317,7 +319,6 @@ Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (
     \label{sleep_Grundprinzip} 
 \end{figure}
 
-\newpage
 \subsubsection{Schlafen innerhalb einer Aktion}
 Bei einer Applikation im $\mu$ - oder mW-Bereich wird bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode gegangen. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionalität eingeschaltet und nach ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip mit UML dargestellt.
 
@@ -337,15 +338,14 @@ Ein System kann intern seine Signale auswerten und aufgrund kombinatorischen Log
 \subsubsection{Aufwachen durch externe Events}
 Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und schlimmstenfalls den Systemablauf aus dem Rhythmus bringen.
 
-\newpage
-\subsection{State Machine für definierte Abläufe}\label{pm_state_machine} 
-Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Um unerwünschte Effekte zu vermeiden, kann eine State Machine implementiert werden. Diese stellt sicher, dass nur aufgrund von gewissen Signalen, ein Aktion ausgeführt wird. Alle anderen Effekte werden ignoriert. Die Abbildung \ref{t_stateMachine} zeigt die definierte Abhängigkeiten durch eine State Machine.
-
-\begin{figure}[ht]
-    \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
-    \caption{Struktur durch State Machine}
-    \label{t_stateMachine} 
-\end{figure}
+%\subsection{State Machine für definierte Abläufe}\label{pm_state_machine} 
+%Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Um unerwünschte Effekte zu vermeiden, kann eine State Machine implementiert werden. Diese stellt sicher, dass nur aufgrund von gewissen Signalen, ein Aktion ausgeführt wird. Alle anderen Effekte werden ignoriert. Die Abbildung \ref{t_stateMachine} zeigt die definierte Abhängigkeiten durch eine State Machine.
+%
+%\begin{figure}[ht]
+%    \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
+%    \caption{Struktur durch State Machine}
+%    \label{t_stateMachine} 
+%\end{figure}
 
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
