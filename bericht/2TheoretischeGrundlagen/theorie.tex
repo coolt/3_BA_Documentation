@@ -1,6 +1,6 @@
 \chapter{Theoretische Grundlagen}
 
-Der Bicycle Computer basiert auf Energy Harvesting, was Energie ernten bedeutet. Welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln (engl. to accumulate) und Weiterleiten (engl. to manage) von Energie. Da die in Unterkapitel \ref{t_harvesting} beschriebene, gewonnene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
+Der Bicycle Computer basiert auf Energy Harvesting, was Energie ernten bedeutet. Welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln (engl. to accumulate) und Weiterleiten (engl. to manage) von Energie. Da die im Unterkapitel \ref{t_harvesting} beschriebene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
 Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie aufs Mal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Bluetooth-Low-Energie-Technologie ist der Ansatz, der in dieser Arbeit verwendet wird. Das Protokoll und die Technologie werden im letzten Grundlagenteil \ref{t_ble} vorgestellt.
 
 
@@ -387,9 +387,9 @@ Eine aktive Verbindung ist bei den meisten Sensoranwendungen auch nicht notwendi
 
 \subsection{BLE Pakete}
 
-Der Aufbau eines BLE Pakets ist überschaubar. Als erstes wird ein Preamble gesendet, bestehend aus abwechselnden 1 und 0, womit der Empfänger sich auf die richtige Frequenz synchronisieren kann. Diese Preamble wird auch dafür verwendet, die Verstärkung des Empfängers einzustellen. Dies kann sehr wichtig sein bei Signalen, welche von einer grösseren Distanz versendet werden, da eine falsche Verstärkung des Signals in Fehlern resultieren kann.
+Der Aufbau eines BLE Pakets ist in Abbildung \ref{ble_paket}. Als erstes wird ein Preamble gesendet, bestehend aus abwechselnden 1 und 0, womit der Empfänger sich auf die richtige Frequenz synchronisieren kann. Diese Preamble wird auch dafür verwendet, die Verstärkung des Empfängers einzustellen. Dies kann sehr wichtig sein bei Signalen, welche von einer grösseren Distanz versendet werden, da eine falsche Verstärkung des Signals in Fehlern resultieren kann.
 
-Anschliessend wird die Access Address verschickt, anhand dieser Adresse kann der Empfänger die Nachricht einem ganz bestimmten Sender zuordnen und somit entscheiden, ob die Daten vom richtigen Sender kommen oder ob es eventuell nur Störungen waren, welche zufälligerweise eine Preamble dargestellt haben.
+Anschliessend wird die Access Address verschickt, anhand dieser Adresse kann der Empfänger die Nachricht einem ganz bestimmten Sender zuordnen und somit entscheiden, ob die Daten vom richtigen Sender kommen.
 
 Der Header enthält Informationen zum Aufbau der Daten, welche folgen. Es gibt sieben verschiedene Arten von Aufbauten der Daten.
 
