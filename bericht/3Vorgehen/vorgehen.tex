@@ -14,7 +14,7 @@ Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Pro
   \item Entwickeln einer BLE-Applikation       
  \end{enumerate}  
 
-Die sprachliche Unterscheidung von Energy - und Power Management entspricht der Unterscheidung zweier \glqq Management-Teilen\grqq\medskip im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff Energy Management wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff Power Management wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
+Die sprachliche Unterscheidung von Energy - und Power-Management entspricht der Unterscheidung zweier \glqq Management-Teile\grqq\medskip im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff \glqq Energy Management \grqq wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff \glqq Power Management \grqq wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
  
  
  % 1---------------------------------------------------------------------------
@@ -24,11 +24,11 @@ Die sprachliche Unterscheidung von Energy - und Power Management entspricht der 
 \section{Inbetriebnahme Machbarkeitsstudie}\label{v_inbetriebnahme} 
 
       
-Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit \cite{PA_bicycle} ist es, zu definieren, welche Funktionalitäten verbessert werden sollen. Zur Orientierung werden im ersten Unterkapitel \ref{fb} die Funktionsblöcke und deren Aufgaben festgehalten. Danach wird das Verhalten der Vorgängermodells in Unterkapitel \ref{verhalten} ausgemessen. Aus der Analyse entsteht die in Unterkapitel \ref{optimierung} aufgelistete erste Optimierungsliste. Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}. Dieser Exkurs hat Ursache in der Begegnung mit  Ives Théoduloz von EM MicroElectronic. Er entwickelte den in dieser Arbeit verwendete EM8500-Chip mit und wies uns auf den auffälligen Signalverlauf des Harvester-Eingangssignals (siehe Abbildung \ref{spannungMachbarkeit}) hin. Dieses Signal wurde deshalb bei der Inbetriebnahme eigens getestet, was im letzten Unterkapitel dokumentiert ist.
+Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit von \cite{PA_bicycle} ist es, zu definieren, welche Funktionalitäten verbessert werden sollen. Zur Orientierung werden im ersten Unterkapitel \ref{fb} die Funktionsblöcke und deren Aufgaben festgehalten. Danach wird das Verhalten des Vorgängermodells in Unterkapitel \ref{verhalten} ausgemessen. Aus der Analyse entsteht die in Unterkapitel \ref{optimierung} aufgelistete erste Optimierungsliste. Als letztes folgt eine Vertiefung in das auffällige Verhalten des Eingangssignals in Unterkapitel \ref{auffaellig}.
       
 \subsection{Funktionsblöcke}\label{fb} 
 
-Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters ist es Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
+Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe \grqq 1) \glqq in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
 
 %\begin{minipage}{\textwidth}
 %\captionof{table}{Messresultate nach TI-SensorTag-Versionen}
@@ -59,7 +59,7 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
 \captionof{table}{Legende Abbildung \ref{funktionsdiagramm_bild}}
     \begin{tabbing}
         Bezeichnung \quad\= Beschreibung\\[0.8ex]
-        V\_HRV \> Ausgangspannung Harvesterquelle, Eingangsspannung Energy Management\\
+        V\_HRV \> Ausgangsspannung Harvesterquelle, Eingangsspannung Energy Management\\
         V\_STS\> Spannung am STS--Kondensator (Primärspeicher)\\
         V\_LTS\> Spannung am LTS--Kondensator (Sekundärspeicher)\\
         V\_SUP\> Ausgangsspannung Energy Managment, Eingangsspannung Sensortag\\
@@ -67,13 +67,13 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
     \end{tabbing} 
 \end{minipage}
 
-Den Funktionsblöcke sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
+Den Funktionsblöcken sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
 
   
 
 \subsection{Verhalten des Vorgängermodells}\label{verhalten} 
 
-Die Inbetriebnahme bestätigte das in der Dokumentation \cite{PA_bicycle} beschriebene Verhalten. Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände zwischen den Funktionsblöcken (siehe Abbildung \ref{funktionsdiagramm_bild} und an den Speicherelementen. Die Legende zur Abbildung  \ref{spannungMachbarkeit} erklärt die Signale.
+Die Inbetriebnahme bestätigte das in der Dokumentation von \cite{PA_bicycle} beschriebene Verhalten. Die Abbildung \ref{spannungMachbarkeit} zeigt den zeitlichen Verlauf der Energiestände zwischen den Funktionsblöcken (siehe Abbildung \ref{funktionsdiagramm_bild}) und an den Speicherelementen. Die Legende zur Abbildung  \ref{spannungMachbarkeit} erklärt die Signale.
 
 \begin{figure}[ht]
     \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/messungPA.png}
@@ -90,15 +90,15 @@ Die Inbetriebnahme bestätigte das in der Dokumentation \cite{PA_bicycle} beschr
 
 Im Folgenden werden die einzelnen Spannungsverläufe chronologisch der Kanalnummer nach analysiert. Kanal 1 spiegelt die Spannung am Harvesterausgang wieder (V\_HRV). Gemäss Theorie \ref{eingangsspannung} bzw. gemäss Datenblatt des EM8500 ist der EM8500-Chip für ein DC-Signal ausgelegt. Er geht von einem regelmässigen Eingangssignal aus und regelt die Spannung auf den MPPT. Diese Regelung sollte wie in Abbildung \ref{RegelungSpannung} aussehen. Das reale Signal entspricht nicht diesem Verhalten. Die Regelung ist abrupt und überspringt mehrere Spannungslevel. Der Ursache für die schlechte Regelung soll nachgegangen werden.
 
-Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der in der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch (Details zu den Schwellwerten im Kapitel Theoretische Grundlagen \ref{t_energy_management}). Der hohe Wert erklärt durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie gespeichert, für weitere 5 Datenpakete.
+Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch (Details zu den Schwellwerten im Kapitel Theoretische Grundlagen \ref{t_energy_management}). Der hohe Wert erklärt sich durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie für weitere 5 Datenpakete gespeichert.
 
-In der Auswertung viel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Inpulsen, ergibt die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgabe nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
+In der Auswertung fiel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit von 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Inpulsen, ergibt sich die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgaben nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
 
 
-Kanal 3, das pinkige Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
+Kanal 3, das rosa Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
 Die Vermutung ist, dass der eingestellte Schwellwert für den Bezug von Energie von LTS \ref{energiespeisung_lts} nicht stimmt.
 
-Kanal 4, das grüne Signal, zeigt, die Speisung des Sensortags. In Modell der Projektarbeit steuert der Microkontroller des Sensortags den Verbraucht. Alle 10 s wacht das System auf, bezieht Energie vom EM8500-Ausgang für das Senden eines Paketes und geht dann wieder schlafen. Das Aufwachintervall ist fix.
+Kanal 4, das grüne Signal zeigt, die Speisung des Sensortags. Im Modell der Projektarbeit steuert der Microkontroller des Sensortags den Verbrauch. Alle 10 s wacht das System auf, bezieht Energie vom EM8500-Ausgang für das Senden eines Paketes und geht dann wieder schlafen. Das Aufwachintervall ist fix.
 
 
 \subsection{Optimierungsliste}\label{optimierung} 
@@ -107,7 +107,7 @@ Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgabe
 
 \begin{itemize}
      \item Der Verlauf des Harvester-Eingangs wechselt abrupt. Der Eingang soll besser geregelt werden. 
-     \item Das Laden des Primärspeichers von 470 $\mu$F in 25 s benötigt es eine Geschwindigkeit von mehr als 60 km/h.  Die Harvesterschaltung soll so weiterentwickelt werden, dass bei 10 km/h genug Energie zum Senden von BLE-Paketen besteht.    
+     \item Für das Laden des Primärspeichers von 470 $\mu$F in 25 s benötigt es eine Geschwindigkeit von mehr als 60 km/h.  Die Harvesterschaltung soll so weiterentwickelt werden, dass bei 10 km/h genug Energie zum Senden von BLE-Paketen besteht.    
      \item Das zweite Speicherelement, der LTS, entlädt sich nicht. Dadurch kann seine Energie nicht verwendet werden. Die Schwellwerte am EM8500 und ev. die Kondensatorenwerte sollen so angepasst werden, dass sich der zweite Kondensator entlädt
      \item Die Energie wird statisch nach einem fixen Zeitintervall von 10 s genutzt. Das Zeitintervall soll der Geschwindigkeit angepasst werden. Bei höherer Geschwindigkeit soll das Intervall kürzer werden.
 \end{itemize} 
@@ -117,9 +117,9 @@ Im Resultatsteil Kapitel \ref{ch_resultat} werden die Fortschritte in diesen vie
 
 \subsection*{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
 
-Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, einer zu grossen Kapazität am Eingang des EM-Chips, hingewiesen. Laut seiner Aussage sollte der Kondensator am Eingang des EM-Chips, bzw. dem Ausgang des Harvesters am besten kleiner sein als 4.7 $\mu$F. Bisher wurde im Aufbau der Machbarkeitsstudie ein Kondensator mit 470 $\mu$F verwendet, Herr Ivex Théoduloz meinte, dass dieser Kondensator viel zu gross sei und dass die Regelung am Eingang des EM-Chips möglicherweise nicht richtig funktionieren würde. Daher wurde dieses Problem näher untersucht und in mehreren Schritten optimiert.
+Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, einer zu grossen Kapazität am Eingang des EM-Chips, hingewiesen. Laut seiner Aussage sollte der Kondensator am Eingang des EM-Chips, bzw. dem Ausgang des Harvesters am besten kleiner sein als 4.7 $\mu$F. Bisher wurde im Aufbau der Machbarkeitsstudie ein Kondensator mit 470 $\mu$F verwendet. Herr Ivex Théoduloz meinte, dass dieser Kondensator viel zu gross sei und dass die Regelung am Eingang des EM-Chips möglicherweise nicht richtig funktionieren würde. Daher wurde dieses Problem näher untersucht und in mehreren Schritten optimiert.
 
-Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch annehmbar war. Die Rippelspannung bei dem bestehenden Kondensator von 470 $\mu$F beträgt ca. 10 mVpp. Die Rippelspannung bei einer Kapazität von 47 $\mu$F beträgt bereits ca. 40 mVpp, jedoch ist die Rippelspannung noch in einem Bereich der annehmbar scheint. Bei einer Kapazität von 10 $\mu$F liegt die Rippelspannung von ca. 500 mVpp, dies ist nicht mehr akzeptabel. Die Abbildung \ref{47uF_mit_Limiter_AC} veranschaulicht die Rippelspannung von einem Kondensator mit 47 $\mu$F, die Abbildung \ref{10uF_mit_Limiter_DC} zeigt die Rippelspannung über einem Kondensator von 10 $\mu$F.
+Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch annehmbar war. Die Rippelspannung bei dem bestehenden Kondensator von 470 $\mu$F beträgt ca. 10 mVpp. Die Rippelspannung bei einer Kapazität von 47 $\mu$F beträgt bereits ca. 40 mVpp, jedoch ist die Rippelspannung noch in einem Bereich der annehmbar scheint. Bei einer Kapazität von 10 $\mu$F liegt die Rippelspannung bei ca. 500 mVpp. Die Abbildung \ref{47uF_mit_Limiter_AC} veranschaulicht die Rippelspannung von einem Kondensator mit 47 $\mu$F, die Abbildung \ref{10uF_mit_Limiter_DC} zeigt die Rippelspannung über einem Kondensator von 10 $\mu$F.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -134,7 +134,7 @@ Im ersten Schritt wurde der Kondensator verkleinert, bis die Rippelspannung noch
  \end{minipage}
 \end{figure}
 
-Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips kein konstantes Spannungslevel (siehe Abbildung \ref{VCC_47uF_15kmh_Periode}) erhält. 
+Jedoch muss auch ein Blick auf die Spannung am Harvesterausgang geworfen werden, wenn dieser Ausgang mit dem EM-Chip belastet wird. Es kann beobachtet werden, dass der Eingang des EM-Chips ein fluktuierendes Spannungslevel (siehe Abbildung \ref{VCC_47uF_15kmh_Periode}) erhält. 
 
 \begin{figure}[ht]
    \begin{minipage}[t]{0.5\textwidth}
@@ -149,7 +149,7 @@ Jedoch muss auch kritischer Blick auf die Spannung am Harvesterausgang geworfen 
   \end{minipage} 
 \end{figure}
 
-Problematisch ist, dass die Spannung wiederholt unter die 0.3 V Grenze fällt, bei einer Spannung von 0.3 V kann keine Energie gespeichert werden. Die Regelung am Eingang des EM-Chips kommt mit der anliegenden Rippelspannung nicht klar. Die Rippelspannung muss verringert werden, bzw. die Kapazität am Ausgang des Harvesters muss erhöht werden. 
+Problematisch ist, dass die Spannung am Eingang des EM8500-Chip wiederholt unter die 0.3 V Grenze fällt, bei einer Spannung von 0.3 V kann keine Energie gespeichert werden. Die Regelung am Eingang des EM-Chips kann mit der anliegenden Rippelspannung nicht richtig arbeiten. Die Rippelspannung muss verringert werden, bzw. die Kapazität am Ausgang des Harvesters muss erhöht werden. 
 
 Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessung keine korrekten Messwerte erhält. Sobald die Last vom Harvesterausgang abgehängt wird, steigt die Spannung über dem Kondensator, jedoch wird die Open Loop Spannung bei einer grossen Kapazität nicht erreicht, da die Zeit, bis der Kondensator komplett geladen ist, sehr gross ist. Jedoch bedeutet eine niedrige Kapazität, dass die Rippelspannung relativ hoch ist und je nach Zeitpunkt der Open Loop Messung eine andere Spannung am Kondensator ergibt und die Spannung am Kondensator steigt bei jeder Messung auf ein anderes Spannungslevel.
 
@@ -166,7 +166,7 @@ Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Pr
     \item Das Senden der Pakte soll der Geschwindigkeit angepasst werden
 \end{enumerate}
 
-Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die 
+Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die Entwicklung des Energymanagements und der Firmware für das TI-SensorTag.
 
 
 
@@ -180,15 +180,25 @@ Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die
 
 \section{Hardware entwickeln}
 
-Aus der Inbetriebnahme der Machbarkeitsstudie, wurden einige Punkte ersichtlich, welche mit einer neuen Leiterplatte, bzw. einer neuen Hardware verbessert werden können. Im speziellen muss die Harvesterschaltung genauer angeschaut werden und es soll versucht werden die nachfolgenden Punkte aus der Inbetriebnahme der Machbarkeitsstudie umzusetzen. 
+Aus der Inbetriebnahme der Machbarkeitsstudie wurden einige Punkte ersichtlich, welche mit einer neuen Leiterplatte, bzw. einer neuen Hardware verbessert werden können. Im speziellen muss die Harvesterschaltung genauer angeschaut werden und es soll versucht werden, die nachfolgenden Punkte aus der Inbetriebnahme der Machbarkeitsstudie umzusetzen. 
 
 \textit{Die Schaltung soll für eine Geschwindigkeit von 10 km/h ausgelegt werden.}
 
-Ausserdem soll die neue Leiterplatte den fliegenden Aufbau der Harvesterschaltung und den EM-Chip beherbergen. Es wird in diesem Schritt darauf verzichtet, das TI-SensorTag ebenfalls in die neue Leiterplatte zu integrieren, da die Komplexität des TI-SensorTags hoch ist und die Hardware gut in mehreren Schritten überarbeitet werden kann.
+Ausserdem soll die neue Leiterplatte den fliegenden Aufbau der Harvesterschaltung und den EM-Chip beherbergen. Es wird in diesem Schritt darauf verzichtet, das TI-SensorTag ebenfalls in die neue Leiterplatte zu integrieren, die Hardware kann gut in mehreren Schritten überarbeitet werden.
 
-\subsection{Schema}
+\subsection{Das Schema}
 
-Bevor ein Leiterplattenlayout entwickelt werden kann, muss das Schema erfasst werden. Es wurden verschiedenste Vorgaben von den Dozenten vorgegeben, welche im besten Fall alle eingehalten werden. Die Grösse der Leiterplatte soll die Grösse des TI-SensorTags nicht überschreiten, alle Netze sollen mit Testpunkten ausgestattet werden, alle Anschlüsse des TI-SensorTags auf der Leiterplatte zugänglich sein und alle Testpunkte des TI-SensorTags sollen im Rastermass 2.5 mm angeordnet werden. Ausserdem sollten, falls der Platz ausreichen würde, Strommesspunkte an der Speisung des TI-SensorTags, des Longterm Storage und des Shortterm-Storage angebracht werden. Diese Vorgaben sollen die Leiterplatte für eventuelle Laborübungen der Schule verwendbar machen. Das Schema besteht im groben aus vier Teilen:
+Bevor ein Leiterplattenlayout entwickelt werden kann, muss das Schema gezeichnet werden. Es wurden verschiedenste Vorgaben von den Dozenten vorgegeben, welche im besten Fall alle eingehalten werden. 
+
+\begin{enumerate}
+    \item Die Grösse der Leiterplatte soll die Grösse des TI-SensorTags nicht überschreiten.
+    \item Alle Netze sollen mit Testpunkten ausgestattet werden.
+    \item Alle Anschlüsse des TI-SensorTags auf der Leiterplatte zugänglich sein.
+    \item Alle Testpunkte des TI-SensorTags sollen im Rastermass 2.5 mm angeordnet werden.
+	\item Strommesspunkte sollen an der Speisung des TI-SensorTags, des Longterm Storage und des Shortterm Storage angebracht werden. (optional)
+\end{enumerate}
+
+Diese Vorgaben sollen die Leiterplatte für eventuelle Laborübungen der Schule verwendbar machen. Das Schema besteht in den Grundzügen aus vier Teilen:
 
 \begin{enumerate}
     \item Harvesterschaltung
@@ -198,7 +208,7 @@ Bevor ein Leiterplattenlayout entwickelt werden kann, muss das Schema erfasst we
 \end{enumerate}
 
 \subsubsection{Harvesterschaltung}
-Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau realisiert, was zu einigen Problemen führen kann, da viele lange Kabel verwendet wurden und somit die Signallaufwege ziemlich lang sind. Bisher hat dies keine Probleme verursacht, doch es geht wichtige Energie in den Kabeln verloren. Ebenfalls wurde in der Inbetriebnahme bemerkt, dass die gewonnene Leistung sehr gering ist, weswegen die Schaltung in einem zweiten Schritt optimiert werden muss.
+Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau realisiert, was zu einigen Problemen führen kann, da viele lange Kabel verwendet wurden und somit die Signallaufwege lang sind. Bisher hat dies keine Probleme verursacht, doch es geht wichtige Energie in den Kabeln verloren. Ebenfalls wurde in der Inbetriebnahme bemerkt, dass die gewonnene Leistung sehr gering ist, weswegen die Schaltung in einem zweiten Schritt optimiert werden muss.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/Schema_Harvester_PA.png}
@@ -206,7 +216,7 @@ Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau rea
     \label{schema_harvester_pa15} 
 \end{figure}
 
-Die Harvesterschaltung der Abbildung\ref{schema_harvester_pa15} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne unnötig Leistung zu verschwenden.
+Die Harvesterschaltung der Abbildung \ref{schema_harvester_pa15} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne unnötig Leistung zu verschwenden.
 
 \subsubsection{EM-Chip}
 
@@ -219,7 +229,8 @@ Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, 
 
 \subsubsection{Energiespeicher}
 
-Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. Dimensionierung noch nicht definitiv war und noch Tests bezüglich der Energiespeicher anstanden. Jedoch wurde im Schema jeweils ein Elko als Platzhalter verwendet, da in der Machbarkeitsstudie ebenfalls Elkos verwendet wurden, die Kapazitätswerte sind jedoch nur erste Werte, welche nur abgeschätzt wurden.
+Die Energiespeicher waren zum Zeitpunkt der Entwicklung der Hardware noch nicht definiert. Als Platzhalten wurden zwei Elektrolytkondensatoren mit den Werten aus der Machbarkeitsstudie eingefügt. 
+%Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. Dimensionierung noch nicht definitiv war und noch Tests bezüglich der Energiespeicher anstanden. Jedoch wurde im Schema jeweils ein Elko als Platzhalter verwendet, da in der Machbarkeitsstudie ebenfalls Elkos verwendet wurden, die Kapazitätswerte sind jedoch nur erste Werte, welche nur abgeschätzt wurden.
 
 \begin{figure}[ht]
     \includegraphics[width=0.3\textwidth]{3Vorgehen/imag/Schema_Energiespeicher.png}
@@ -229,7 +240,7 @@ Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. D
 
 \subsubsection{Umlauferfassung}
 
-Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da die Energie aus der Spule gewonnen wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein klares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reedswitch detektiert und an das TI-SensorTag weitergegeben. Ein Magnetdurchlauf erzeugt einen positiven Puls, solange der Magnet in der Reichweite des Reedswitch befindet.
+Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da bei der Energiegewinnung mit der Spule, das Signal gleichgerichtet wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein verwertbares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reedswitch detektiert und an das TI-SensorTag weitergegeben. Ein Magnetdurchlauf erzeugt einen positiven Puls, solange sich der Magnet in der Reichweite des Reedswitch befindet.
 
 \begin{figure}[ht]
     \includegraphics[width=0.1\textwidth]{3Vorgehen/imag/Schema_Umlaufdetektion.png}
@@ -238,7 +249,7 @@ Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da d
 
 \subsection{Bauteildefinition und Optimierung}
 
-Nachdem klar war, welche Teile auf der Leiterplatte Platzfinden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie unnötig verloren geht. 
+Nachdem klar war, welche Teile auf der Leiterplatte Platz finden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es, bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie verloren geht. 
 Es wurden folgende Punkte angeschaut und versucht zu optimieren:
 
 \begin{enumerate}
@@ -249,20 +260,20 @@ Es wurden folgende Punkte angeschaut und versucht zu optimieren:
 
 \subsubsection{Die Spule}
 
-Die Spule gewinnt die Energie aus dem an einer Speiche des Fahrrads befestigten Magneten. Eine bessere Spule könnte mehr Energie aus dem vorbei schnellenden Magneten gewinnen. Entscheidend ist das die Fläche der Spule nicht vergrössert werden darf, bestenfalls sollte eine kleinere Spule gefunden werden, welche mehr Energie gewinnt. Gemäss der Formel 2.4 ist für die gewonnene Energie vor allem die Wicklungszahl entscheidend, jedoch wird bei den Spulen meistens nur die Induktivität angegeben. Dies ist kein Problem, da die Induktivität quadratisch von der Wicklungszahl (siehe Formel \cite{equ_inductivity}) abhängt.
+Die Spule gewinnt die Energie aus dem an einer Speiche des Fahrrads befestigten Magneten. Eine stärkere Spule könnte mehr Energie aus dem vorbei schnellenden Magneten gewinnen. Entscheidend ist das die Fläche der Spule nicht vergrössert werden darf, bestenfalls sollte eine kleinere Spule gefunden werden, welche mehr Energie gewinnt. Gemäss der Formel 2.4 ist für die gewonnene Energie vor allem die Wicklungszahl entscheidend, jedoch wird bei den Spulen meistens nur die Induktivität angegeben. Die Induktivität hängt quadratisch von der Wicklungszahl und linear von der Fläche (siehe Formel \cite{equ_inductivity}) ab.
 
 \begin{equation}
 	L = \mu_0 \times \frac{N^2\times A}{l}
 \end{equation}
 
-Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Fläche gesucht, somit können nur noch zwei Variablen sich verändern. Zum einen kann sich die Wicklungszahl verändern und zum andern kann sich die Länge der Spule verändern. Die Spule von Würth Elektronik hat eine ähnliche Fläche und eine grössere Induktivität, was auf den ersten Blick sehr vielversprechend aussieht.
+Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Fläche gesucht, somit können nur noch zwei Variablen sich verändern. Zum einen kann sich die Wicklungszahl verändern und zum andern kann sich die Länge der Spule verändern. Die Spule von Würth Elektronik mit der Bezeichnung 74458308 hat eine ähnliche Fläche und eine grössere Induktivität, was auf den ersten Blick sehr vielversprechend aussieht.
 
-Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo mit der Bezeichnung 3015N 0238J 3206 hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth mit der Bezeichnung 74458308 hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit muss der Spule von Premo der Vortritt gerwährt werden. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildung \ref{messung_optimierung_spule}. Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
+Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo mit der Bezeichnung 3015N 0238J 3206, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit muss der Spule von Premo der Vortritt gerwährt werden. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildung \ref{messung_optimierung_spule}). Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule_links.png}
-    \caption{Spannung über der Spule von Premo}               
+    \caption{Spannung über der Spule von Premo, Geschwindigkeit 20 km/h}               
     \label{messung_optimierung_spule} 
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
@@ -273,9 +284,9 @@ Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule v
 
 \subsubsection{Der Gleichrichter}
 
-Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5819. Diese Dioden sind nicht für die LowPower-Anwendung ausgelegt, ausserdem sind die Dioden nicht ein einem Gehäuse verbaut. Wichtig ist bei dem Gleichrichter, dass die Leckströme möglichst klein sind und die Schwellenspannung sollte ebenfalls möglichst klein sein.
+Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5819. Diese Dioden sind nicht für die LowPower-Anwendung ausgelegt, ausserdem sind die Dioden nicht in einem Gehäuse verbaut. Wichtig ist bei dem Gleichrichter, dass die Leckströme möglichst klein sind und die Schwellenspannung sollte ebenfalls möglichst klein sein, damit wenig Energie verbraucht wird.
 
-Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet, die Erwartungen waren entsprechend hoch, da diese Dioden für LowPower-Anwendungen spezialisiert ist. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in der Abbildung \ref{messung_optimierung_gleichrichter_1} gezeigt wird.
+Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet. Die Erwartungen waren entsprechend hoch, da diese Dioden für LowPower-Anwendungen spezialisiert sind. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in der Abbildung \ref{messung_optimierung_gleichrichter_1} gezeigt wird.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -289,7 +300,7 @@ Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet
  \end{minipage}
 \end{figure}
 
-Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp, der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10mVpp, dieser Unterschied ist vernachlässigbar, in Angesicht, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
+Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp. Der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10mVpp. Dieser Unterschied ist vernachlässigbar, in Angesicht dessen, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -329,21 +340,20 @@ Schlussendlich musste aus den optimierten Teilen des Schemas eine Leiterplatte g
 
 \subsubsection{Positionierung}
 
-Die Positionierung der einzelnen Teile kann sehr wichtig sein, da mit einer guten Positionierung bereits unnötige Leiterbahnverläufe verhindert werden können. Ebenfalls können gut positionierte Bauteile die Spannungspegel stabilisieren. Es wurde darauf geachtet die Bauteile, welche zu einem Block gehören, nahe beieinander platziert wurden, um unnötig lange Signallaufwege zu verhindern.
+Die Positionierung der einzelnen Teile kann sehr wichtig sein, da mit einer guten Positionierung bereits unnötige Leiterbahnverläufe verhindert werden können. Ebenfalls können gut positionierte Bauteile die Spannungspegel stabilisieren. Es wurde darauf geachtet, dass die Bauteile, welche zu einem Block gehören, nahe beieinander zu platzieren, um unnötig lange Signallaufwege zu verhindern.
 
-Die Bauteile der Harvesterschaltung wurde als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn (\cite{eqn_res_leiter}) möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
+Die Bauteile der Harvesterschaltung wurden als Block so nahe wie möglich beieinander platziert und wo immer möglich wurden die Speisungsleitungen mit 20 Mil gezogen, damit der Widerstand der Leiterbahn (\cite{eqn_res_leiter}) möglichst klein gehalten wurde. Der Leiterwiderstand konnte so minimiert werden, was verhindert, dass die Energie in den Leiterbahnen verschwendet wird.
 
 \begin{equation}
 	R = \rho \times \frac{l}{A}
 \end{equation}
 
-Der Widerstand bei 10 Mil ist somit 2.4 m$\Omega$, 
-der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist 1.2 m$\Omega$. 
-Problematisch ist, dass der Block der Harvesterschaltung etwas entfernt vom Block des EM-Chips befindet, das bedeutet, die Leiterbahn mit der Speisung des EM-Chips muss mehrere Zentimeter zurücklegen. Sicherlich ist der Unterschied im Widerstand nicht sehr gross, doch die Energie, welche in der Leiterbahn verloren gehen würde, konnte so halbiert werden.
+Der Widerstand bei 10 Mil ist somit ca. 1.9 m$\Omega$ pro Meter, 
+der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist ca. 1.0 m$\Omega$ pro Meter. Problematisch ist, dass sich der Block der Harvesterschaltung etwas entfernt vom Block des EM-Chips befindet. Das bedeutet, dass die Leiterbahn mit der Speisung des EM-Chips mehrere Zentimeter zurücklegen muss. Sicherlich ist der Unterschied im Widerstand nicht sehr gross, doch die Energie, welche in der Leiterbahn verloren gehen würde, konnte so halbiert werden.
 
 Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
 
-Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet, durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht schön übereinander sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Problem beim Einbauen in ein eventuelles Gehäuse bereiten. Zu dem Stecker gehört auch die Paltzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
+Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Paltzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
@@ -352,30 +362,48 @@ Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Le
 
 \subsubsection{Das erste Layout}
 
-Die erste Version der Leiterplatte war mit vielen Wünschen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet, die Testpunkte des Steckers wurden im Rastermass 2.5mm angeordnet und die Netze der Spannung nach dem Harvester, die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durch passt, besser wäre es Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33x42mm gross, was ein Milimeter breiter ist, als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, sondern über ein Kabel oder Litze mit der Leiterplatte verbunden werden können.
+Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5mm angeordnet und die Netze der Spannung nach dem Harvester. Die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33x42mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
 
 \subsubsection{Das Redesign}
 
-Ein grosser Fehler wurde in der Umsetzung des Steckers begangen, denn sowohl die Platzierung als auch der Footprint wurden falsch umgesetzt. Der Stecker wurde nicht an der richtigen Stelle platziert, somit überlappte unsere Leiterplatte das TI-SensorTag. Beim Erstellen des Footprints des Steckers wurden die Pins vertauscht, dort wo der Pin 1 sein sollte wurde der Pin 19 platziert und umgekehrt. Dies musste korrigiert werden, damit unsere Leiterplatte direkt mit dem TI-SensorTag verbunden werden kann. Dafür wurde die Leiterplatte überarbeitet, jedoch war die Zeit zu knapp, als dass die Leiterplatte für Tests vorhanden war.
+Das Layout wurde von Herr Olivier Rion begutachtet. Seine Kritikpunkte werden nachfolgend aufgelistet:
 
-\begin{figure}[ht]
- \begin{minipage}[t]{0.5\textwidth}
-    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Layout_Redesign_links.png}
-    \caption{Top-Layer}
-    \label{layout_redesign} 
- \end{minipage}
- \begin{minipage}[t]{0.5\textwidth}
-    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Layout_Redesign_rechts.png}
-    \caption{Bottom-Layer}
- \end{minipage}
-\end{figure}
+Kritikpunkte am Schema:
+\begin{enumerate}
+    \item VCC sollte in Pfeil sein: Das Symbol für VCC und generell alle Speisungen sollten als Pfeil im Schema dargestellt werden.
+    \item Generell für eine erste Version sind viele TP gut.
+    \item Auf dem Schema fehlt noch ein Symbol für die GND Pads für den KO: Auf dem Top-Layer des Layouts wurde eine Fläche von Lötstopplack freigestellt, dies sollte auf dem Schema verzeichnet werden.
+	\item Die freien Pins auf X1 sollten mit IO angeschlossen sein: Die nicht verwendeten Pins vom EM8500-Chips sollten mit dem Stecker X1 verbunden werden, jedoch ist das problematisch, da eine direkte Verbindung zum Mikroprozessor Energie verbrauchen kann, solange der Mikroprozessor nicht gestartet ist.
+	\item Unten links auf dem Schema fehlt die Versionen, die Beschreibung, usw.
+	\item Eine kleine Beschreibung beim Harvester wäre gut, z.B. Prinzip mit T1, Spannungsregulierung usw.: Eine Beschreibung hilft die Schaltung schneller zu verstehen, dass macht eine Übergabe an die nachfolgenden Studenten einfacher.
+\end{enumerate}
+
+Kritikpunkte am PCB:
+\begin{enumerate}
+    \item Die Grenze vom Print sollte mit Mechanical und keepOutLayer gemacht werden.
+    \item Loch oben links: Die Leiterbahnen sind zu nah um die Löcher platziert, es sollte ein keepOutLayer um die Löcher platziert werden.
+    \item Die Leiterbahnen sollten immer in Gruppen platziert werden.
+	\item GND kann Kontakt mit den Schraubenköpfen haben: Es muss sichergestellt werden, dass die Schraube keinen Kontakt mit den Leitungen hat und dass die Flächen nicht unter dem Schraubenkopf platziert werden. 
+\end{enumerate}
+
+Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlichen Gründen noch nicht umgesetzt werden. Neben den Kritikpunkten von Herr Rion wurden während der Arbeit noch weitere Kritikpunkte ersichtlich.
+
+\begin{enumerate}
+    \item Die Testpunkte auf der Leiterplatte müssen neu platziert werden, dass sie Teilweise auf der Unterseite nicht angelötet werden können, da die Spule sie verdeckt. 
+    \item Die Abstände zwischen den Testpunkten müssen vergrössert werden, damit eine KO-Sonde gut daran befestigt werden kann ohne einen Kurzschluss zu verursachen.
+    \item Der Footprint vom Stecker X1 muss überarbeitet werden, da dieser falsch erfasst wurde.
+	\item Die Position des Steckers X1 muss verändert werden, da die Position nicht mit dem Gegenstück des TI-SensorTags übereinstimmt.
+	\item Die Netze VCC_STS, VCC_LTS und VREG dürfen nicht mit dem Stecker X1 verbunden werden, da die Energie über diese Anschlüsse verloren geht.
+\end{enumerate}
+
+Die Punkte c bis e, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messung mit der ersten Version der Leiterplatte durchgeführt.
 
 \todo{ Namensklärung: V HRV = VCC}
 \todo{Messprotokolle umbenennen}
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
-Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}. 
+Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}). 
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               
@@ -412,7 +440,7 @@ Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliege
 
 \subsubsection{Test: stärkere Spule}
 
-Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH, liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau, wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig, die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
+Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
 \captionof{table}{Leistung mit unterschiedlichen Spulen}
 \begin{tabbing}
@@ -436,11 +464,11 @@ Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivit�
 	neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
 \end{equation}
 
-Da die Leistung direkt proportional zur induzierten Spannung ist und die induzierte Spannung direkt proportional zur Wicklungszahl ist, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41 \% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
+Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannung von der Wicklungszahl abhängt, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41 \% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
 
 \subsubsection{Test: mehrere Magnete in Serie}
 
-Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen} ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche wenig stärker sind als unsere Magnete. Unsere Magnete sind haben eine N42 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.29 – 1.32 Tesla, die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm, unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
+Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
 
 Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
 
@@ -451,7 +479,7 @@ Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die 
 	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
 \end{tabbing}
 
-Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden, da man dieses Prinzip wieder ins Absurde treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch und unästhetisch.
+Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -468,7 +496,7 @@ Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren, wi
 
 \subsection{Ausmessen der Leistung der endgültigen Hardware}
 
-Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Es wurde sich jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung welche die Harvesterschaltung zur Verfügung stellt aufgenommen werden.
+Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
 
 %\begin{minipage}{\textwidth}
 
@@ -487,7 +515,7 @@ Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlic
 
 Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
 
-Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
+Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand, messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war, konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
 
 \begin{equation}
 	E = \frac{U^2}{R}  \times \Delta t
@@ -513,7 +541,7 @@ Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche
 % 5---------------------------------------------------------------------------
 \section{Energy Management}
 
-Das Ziel des Energy Managements ist es, dass die zur Verfügung stehende Energie bei 10 km/h genügt, um BLE-Pakete zu versenden. Die sekundäre Aufgabe ist es, dass sich der Long Time Storage lädt und entlädt. Ein Laden des LTS ohne Energieabgabe ist Energieverschwendung. Die zwei gestellten Aufgaben sollen durch möglichst optimale Speichergrössen und intelligente Schwellwerte erreicht werden.
+Das Ziel des Energy Managements ist es, dass die zur Verfügung stehende Energie bei 10 km/h genügt, um BLE-Pakete zu versenden. Die sekundäre Aufgabe ist es, dass sich der Long Time Storage lädt und entlädt. Ein Laden des LTS ohne dass die Energie im LTS verwertet werden kann ist Energieverschwendung. Die zwei gestellten Aufgaben sollen durch möglichst optimale Speichergrössen und intelligente Schwellwerte erreicht werden.
 
 Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshalb stehen als erstes im Unterkapitel \ref{v_messungen_sensortag} die Energie-Messergebnisse, danach folgt im zweiten Unterkapitel \ref{v_e_kalkulation} die Dimensionierung der Kondensatoren und dann das Berechnen der Schwellwerte in Unterkapitel \ref{v_schwellwerte}. Als letzer Punkt werden die Energiezustände innerhalb des Bicycle Computers definiert. Dies, weil die letzte offene Aufgabe der Optimierunsliste (\ref{optimierung}) das Senden nach 10 s dem Energiezustand angepasst werden soll.
 
@@ -523,9 +551,9 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 \label{v_messungen_sensortag}
 
 
-Die Entwicklung ist konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (TI-SensorTag). Für die Energiemessungen wird der Power Analyser von Agilent Electronic N6705B mit der Serienummer MY50000795 gebraucht. Dieses mächtige Messgerät misst gleichzeitig Strom, Spannung und Leistung im Zeitverlauf. Mühsame Annäherungen aus en KO-Messungen sind nicht mehr notwendig.
+Die Entwicklung ist konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (TI-SensorTag). Für die Energiemessungen wird der Power Analyser von Agilent Electronic N6705B mit der Serienummer MY50000795 gebraucht. Dieses Messgerät misst gleichzeitig Strom, Spannung und Leistung im Zeitverlauf. Annäherungen aus den KO-Messungen sind nicht mehr notwendig.
 
-In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen. Mehr Messgraphiken und Erklärungen sind in der Datei \todo{referenz} abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
+In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen dargestellt. Mehr Messgraphiken und Erklärungen sind in der Datei \todo{referenz} abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
 
 
 \subsubsection{Überblick Energiemessungen}
@@ -537,9 +565,9 @@ In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen. M
     \label{BLE_send}
 \end{figure}
 
-Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTagversion V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheiteret am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete. 
+Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTagversion V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheitert am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete. 
 
-Die untenstehende Tabell stellt dieEnergieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx. 
+Die untenstehende Tabelle stellt dieEnergieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx. 
 
 \todo{Sitzungsprotokolle Datum einsezten, Anhanhgsbezeichnung}
 
@@ -555,7 +583,7 @@ Die untenstehende Tabell stellt dieEnergieresultate dar. Unterschieden wird zwis
 \end{tabbing}
 \end{minipage}
 
-Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren gestartet sind,  mehr Energie verbraucht, als erwartet. Der Energieverbrauch für das Auslesens eines Sensors ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten möglich ist. Die Speisung der Applikation bricht zusammen (siehe Abbildung \ref{i2c_problem}).
+Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeigt sich, dass das Auslesen der Sensoren über I2C und das Warten, bis dass die Sensoren gestartet sind,  mehr Energie verbraucht als erwartet. Der Energieverbrauch für das Auslesens eines Sensors ist ohne Optimierungsmassnahmen so gross, dass kein Senden der Daten möglich ist. Die Speisung der Applikation bricht zusammen (siehe Abbildung \ref{i2c_problem}).
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/pic4VSUPbrichtEin.PNG} 
@@ -572,7 +600,7 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 \subsubsection{Resultate Energieverbrauch TI-SensorTag Applikation V4}
 \label{energie_sensortag} 
 
-Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden})und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
+Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden}) und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
 
 \clearpage
 
@@ -664,7 +692,7 @@ Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildu
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, einer Geschwindigkeit von 10 km/h und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Das einmalige Laden der Kondensatoren des TI-SensorTags verbraucht 63 $\mu$ J, die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
+Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, also einer Geschwindigkeit von 10 km/h, und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Das einmalige Laden der Kondensatoren des TI-SensorTags verbraucht 63 $\mu$ J, die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
 
 %\begin{flalign}\label{eq:e-high-e-low}
 %E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
@@ -703,7 +731,7 @@ Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (si
 
 \todo{Werte}
 
-Wie dokumentiert, liegt das Leistungsmaximum unterhalb von 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzelle konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
+Wie dokumentiert, liegt das Leistungsmaximum unterhalb von 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
 
 \begin{minipage}{\textwidth}
     \captionof{table}{MPPT-Ratio Einstellungen EM8500}
@@ -733,12 +761,12 @@ Wie dokumentiert, liegt das Leistungsmaximum unterhalb von 50\thinspace\%. In de
 
 Das Konzept der Schwellwerte von VSTS und VLTS sind im Theorieteil bei der Erklärung des Speicherkonzepts des EM8500-Chips im Unterkapitel \ref{speicher_konzept} beschrieben. Das Ziel ist, dass bei 10 km/h sich LTS entlädt. Die Berechnung der Schwellwerte stammt aus dem Theorieteil \ref{th_energiebilanz}.
 
-Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte überliefert. Bei der Inbetriebnahme fiel der hohe Schwellwert von v\_bat\_min\_hi\_dis auf (3.6 V), ab der erst die Applikation gespiesen wird. Den hohen Wert beruht auf dem Versuch, möglichst viel Energie vor dem Datensenden zu sammeln. Ein hoher Schnellwert verzögert die Zeit, bis zum ersten Datensenden. Die Vorgänger wählten in ihren Einstellungen eine MPPT-Ratio von 88\thinspace\%. Die Vermutung liegt nahe, dass keine Leistungskurve des Harvesters im Voraus aufgenommen wurde.
+Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte überliefert. Bei der Inbetriebnahme fiel der hohe Schwellwert von v\_bat\_min\_hi\_dis auf (3.6 V), ab der erst die Applikation gespiesen wird. Der hohe Wert beruht auf dem Versuch, möglichst viel Energie vor dem Datensenden zu sammeln. Ein hoher Schnellwert verzögert die Zeit bis zum ersten Datensenden. Die Vorgänger wählten in ihren Einstellungen eine MPPT-Ratio von 88\thinspace\%. Die Vermutung liegt nahe, dass keine Leistungskurve des Harvesters im Voraus aufgenommen wurde.
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Konfiguration Vorgängermodell}
     \begin{tabbing}
-    Register .............\quad\= Wert \\[0.8ex]
+    Register \quad\= Wert \\[0.8ex]
     v\_bat\_max\_hi       \> 4.2 V \\
     v\_bat\_max\_lo       \> 4.1 V \\
     v\_bat\_min\_hi\_dis  \> 3.6 V \\
@@ -755,7 +783,7 @@ Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{erst_EMes
 \begin{minipage}{\textwidth}
     \captionof{table}{Konfiguration aufgrund Geschwindigkeitsmessung}
     \begin{tabbing}
-    Register .............\quad\= Wert \\[0.8ex]
+    Register \quad\= Wert \\[0.8ex]
     v\_bat\_max\_hi       \> 4.8 V \\
     v\_bat\_max\_lo       \> 4.7 V \\
     v\_bat\_min\_hi\_dis  \> 2.8 V (siehe Berechnungen unten)\\
@@ -767,7 +795,7 @@ Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{erst_EMes
     \end{tabbing}
 \end{minipage}
 
-Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$ \todo{Referenz Theorie}, wobei  $E_{Applikation}$ aus der Messung von V4 mit total 188 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden. Als Kondensatorwert für STS wird 100 $\mu$F genommen. So ergibt sich folgender minimaler oberere Schwellwert:
+Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$ \todo{Referenz Theorie}, wobei  $E_{Applikation}$ aus der Messung von V4 mit total 188 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden. Als Kondensatorwert für STS wird 100 $\mu$F genommen. So ergibt sich folgender minimaler oberer Schwellwert:
 
 \begin{flalign}\label{eq:bat_min_low_schwellwert}
     (v\_bat\_min\_low) ^2  &=  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2\\
@@ -779,13 +807,13 @@ Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird
 
 \todo{Messprotokoll und Sitzungsprotokoll einfügen}
 
-Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Aus diesem Grund wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
+Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Um eine Minimalspannung von 0.3 V bei niedrigen Geschwindigkeit zu garantieren wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
 
-Ein unerwartetes Verhalten zeigt sich bei der Implementation des Auslesen des ersten Sensors, der Drucksensor. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an den Harvester, riss die Spannung sofort zusammen. Innert kürzester Zeit haben sich entlädt sich der STS wie parallel zu ihm der LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie, als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
+Ein unerwartetes Verhalten des Drucksensors zeigt sich bei der Implementation des Auslesen. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an die Harvesterschaltung, riss die Spannung sofort zusammen. Innert kürzester Zeit entlädt sich der STS sowie der parallel geschaltene LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
 
 \todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen}
 
-Durch den deutlich höheren Energieverbrauch, wird eine Power-Optimierung im Softwareteil notwendig. Es zwingt aber auch, den Schwellwert von v\_bat\_min\_hi\_dis  wieder zu erhöhen. Die finale Konfiguration ist im Resultate-Teil abgebildet.
+Durch den deutlich höheren Energieverbrauch wird eine Power-Optimierung im Softwareteil notwendig. Es zwingt aber auch dazu, den Schwellwert von v\_bat\_min\_hi\_dis  wieder zu erhöhen. Die finale Konfiguration ist im Resultate-Teil abgebildet.
 
 
 % x.4 -----------------------------------------
@@ -799,12 +827,12 @@ Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (
 \subsubsection*{Definition von Energiezuständen}
 \label{def_zustaende} 
 
-Da die produzierter Energie von der Fahrgeschwindigkeit abhängt, werden die Energiezustände aufgrund der Fahrgeschwindigkeit definiert. Welche Aufgaben in welchem Energiezustand getan werden, folgt in den Abbildungen \ref{LOW_ENER}, \ref{MID_ENER} und \ref{HIGH_ENER},direkt nach der Definition der Zustände. 
+Da die produzierte Energie von der Fahrgeschwindigkeit abhängt, werden die Energiezustände aufgrund der Fahrgeschwindigkeit definiert. Welche Aufgaben in welchem Energiezustand getan werden, folgt in den Abbildungen \ref{LOW_ENER}, \ref{MID_ENER} und \ref{HIGH_ENER}, direkt nach der Definition der Zustände. 
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Energiezustände aufgrund der Geschwindigkeit}
     \begin{tabbing}
-       Geschwindigkeit .............\quad\= Systemzustand\\[0.8ex]
+       Geschwindigkeit\quad\= Systemzustand\\[0.8ex]
        0 - 15 km/h        \> LOW\_ENERGY\\
        15 - 20 km/h       \> MIDDLE\_ENERGY\\
        $>$ als 20 km/h    \> HIGH\_ENERGY\\    
@@ -848,7 +876,7 @@ Das Power Management wird mit dem TI-SensorTags umgesetzt. Im ersten Unterkapite
 \subsection{Programmieren für Low Power Applikation im Adevertising Mode}
 \label{keinROTS}
 
-Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie, im $\mu$J-Bereich zur Verfügung steht, startet die Applikation im Advertising Mode. Diese braucht weniger Energie als der Connected Mode und der Overhead eines Betriebsystems (RTOS) und der Initialisierung des BLE-Stacks sind nicht notwendig. Der Nachteil dieser schlanken Programmierung ist, dass die TI-SensorTag Beispiele ausschliesslich auf RTOS aufbauen, und somit nicht 1:1 übernommen werden können. Für nachkommende Entwicklerinnen und Entwickler sind zwei Vorzüge und zwei Nachteile aus dieser Wahl festgehalten:
+Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie im $\mu$J-Bereich zur Verfügung steht, startet die Applikation im Advertising Mode. Diese braucht weniger Energie als der Connected Mode und der Overhead eines Betriebsystems (RTOS) und der Initialisierung des BLE-Stacks sind nicht notwendig. Der Nachteil dieser schlanken Programmierung ist, dass die TI-SensorTag Beispiele ausschliesslich auf RTOS aufbauen, und somit nicht 1:1 übernommen werden können. Für nachkommende Entwicklerinnen und Entwickler sind zwei Vorzüge und zwei Nachteile aus dieser Wahl festgehalten:
 
 \begin{minipage}{1\textwidth}
     \begin{enumerate}
@@ -926,7 +954,7 @@ void go_to_deep_sleep(){
 
 \subsubsection{Sleep Time-Übersicht bei Version V4}
 	    
-Bei den ersten Messungen von Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet wird \todo{Link}. Das Senden wird möglich, in dem zwischen einzelnen Aufgaben geschlafen wird. Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sensors und das Senden der Daten. Diese zwei Aufgaben werden getrennt und dazwischen geht das System schlafen (siehe vereinfacht dargestellt in der Abbildung \ref{schnarch}).
+Bei den ersten Messungen von Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet wird \todo{Link}. Das Senden wird möglich, indem zwischen einzelnen Aufgaben geschlafen wird. Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sensors und das Senden der Daten. Diese zwei Aufgaben werden getrennt und dazwischen geht das System schlafen (siehe vereinfacht dargestellt in der Abbildung \ref{schnarch}).
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/HIGH_ENERGY.png}
@@ -940,7 +968,7 @@ Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zäh
 \begin{minipage}{\textwidth}
     \captionof{table}{Zählerstände für Schlafenszeit}
     \begin{tabbing}
-   Geschwindigkeit ......\quad\= Counter-Wert  \quad\= Ladezeit STS\\[0.8ex]
+   Geschwindigkeit \quad\= Counter-Wert  \quad\= Ladezeit STS\\[0.8ex]
    13 - 16 km/h          \> 100               \> 80 s\\
    20 km/h               \> 50                \> 17 s\\
    31 - 32 km/h          \> 50                \> 11 s\\    
@@ -965,28 +993,28 @@ Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwick
     \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
 \end{figure}
 
-Der Aufbau der Applikation soll Anfangs in vier Teile des Bildschirms geteilt werden. 
-Im Bereich GPS soll eine Karte angezeigt werden, ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
+Der Aufbau der Applikation sollte am Anfang in vier Teile des Bildschirms geteilt werden. 
+Im Bereich GPS soll eine Karte angezeigt werden. Ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
 Der Verlauf zeigt die Entwicklung der Geschwindigkeit über einen gewissen Zeitraum, wobei es wählbar sein soll welche Daten angezeigt werden.
 Die Geschwindigkeit soll anschaulich in einem Tachometer angezeigt werden und die Tachonadel soll im besten Fall animiert sein.
 Im Bereich der Werte sollen die aktuellen Werte in Zahlen und den entsprechenden Einheiten dargestellt werden.
-Schnell wurde klar, dass dieser Aufbau wenig Sinn macht, da die Bereiche auf einem Smartphone viel zu klein wären und nicht mehr leserlich sein würden. Darum wurde ein neues Konzept erarbeitet, welches in der Abbildung x ersichtlich ist.
+Schnell wurde klar, dass dieser Aufbau wenig Sinn macht, da die Bereiche auf einem Smartphone viel zu klein wären und nicht mehr leserlich sein würden. Darum wurden die Teile des Bildschirms als einzelne Activities geplant, somit wäre der ganze Bildschirm als Anzeige für jede einzelne Aufgabe vorhanden.
 
 \subsubsection{Home-Screen}
 
-Als erstes soll der Benutzer den sogenannten Home-Screen sehen, hier werden der Tachometer, die Werte und ein paar Buttons angezeigt. Je nach Anzahl der Funktionen sollen neue Buttons implementiert werden. So soll beispielsweise für die Sensorwahl ein Button vorhanden sein. Während der Entwicklung der Applikation wurde die Idee von einer GPS-Karte und einem Verlauf ebenfalls verworfen, da diese Funktionen aus zeitlichen Gründen nicht mehr realisierbar waren. Jedoch wäre der Home-Screen in der Lage mehr Buttons aufzunehmen, es muss nur darauf geachtet werden, dass die Anzeige der Werte nicht zu gross wird.
+Als erstes soll der Benutzer den sogenannten Home-Screen sehen, hier werden der Tachometer, die Werte und Buttons zur Bedienung angezeigt. Je nach Anzahl der Funktionen sollen neue Buttons implementiert werden. So soll beispielsweise für die Sensorwahl ein Button vorhanden sein. Während der Entwicklung der Applikation wurde die Idee von einer GPS-Karte und einem Verlauf verworfen, da diese Funktionen aus zeitlichen Gründen nicht mehr realisierbar waren.
 
 \subsubsection{Sensorwahl}
 
-Schnell wurde klar, dass die Auswahl eines spezifischen Sensors wichtig werden würde, für den Fall, dass einmal mehrere Sensoren vorhanden wären. Ein Beispiel, würde unsere Applikation bei einem Fahrradrennen eingesetzt werden, so müsste die Applikation auf dem Smartphone mit dem Sensor am Fahrrad gepaart werden. Ansonsten würde man die Daten von allen Sensoren empfangen und die Anzeige würde nicht die Daten des eigenen Sensors anzeigen.
+Schnell wurde klar, dass die Auswahl eines spezifischen Sensors wichtig werden würde, für den Fall, dass einmal mehrere Sensoren vorhanden wären. Ein Beispiel: Würde unsere Applikation bei einem Fahrradrennen eingesetzt werden, so müsste die Applikation auf dem Smartphone mit dem Sensor am Fahrrad gepaart werden. Ansonsten würde man die Daten von allen Sensoren empfangen und die Anzeige würde nicht die Daten des eigenen Sensors anzeigen.
 
 \subsubsection{Einheiten und Einstellungen}
 
-Es kam ebenfalls der Wunsch auf, die Einheiten der Werte, einstellbar zu machen, da die Applikation bestenfalls auch in anderen Ländern verwendet werden soll. Also wäre es optimal, wenn die Geschwindigkeit beispielsweise auch in Miles per Hour dargestellt werden könnte. Vielleicht müsste auch eine Einstellungsmöglichkeit bereitgestellt werden, damit die Temperatur kalibriert werden kann.
+Es kam ebenfalls der Wunsch auf, die Einheiten der Werte einstellbar zu machen, da die Applikation bestenfalls auch in anderen Ländern verwendet werden soll. Also wäre es optimal, wenn die Geschwindigkeit beispielsweise auch in Miles per Hour dargestellt werden könnte. Es müsste eine Einstellungsmöglichkeit bereitgestellt werden, damit die Temperatur kalibriert werden kann.
 
 \subsubsection{BLE-Kommunikation}
 
-Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation, hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, das die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, das die empfangenen Daten zu unserem Sensor gehört, müssen diese umgerechnet werden.
+Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation. Hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, das die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, dass die empfangenen Daten zu unserem Sensor gehört, müssen diese umgerechnet werden.
 
 \subsubsection{Inbetriebnahme des Codes der PA}
 
@@ -1010,19 +1038,19 @@ Der nächste logische Schritt war, dass die empfangenen Daten gefiltert werden m
 \end{tabbing}
 Aufgrund dieser Struktur können alle empfangenen Daten, welche nicht die definierte Länge, Typ und UUID besitzen, ignoriert werden.
 
-Wenn sichergestellt ist, dass die Daten von unserem Sensor stammen, musste noch die Adresse vom Sender gespeichert werden. Alle Adressen werden in einer Liste gespeichert, vor dem Speichern wird jedoch noch geprüft, ob die Adresse bereits in der Liste ist, falls ja wird die Adresse nicht noch einmal gespeichert.
+Wenn sichergestellt ist, dass die Daten von unserem Sensor stammen, musste noch die Adresse vom Sender gespeichert werden. Alle Adressen werden in einer Liste gespeichert, vor dem Speichern wird jedoch noch geprüft, ob die Adresse bereits in der Liste ist, falls dies so ist wird die Adresse nicht noch einmal gespeichert.
 
 \subsubsection{Berechnung der Daten}
 
-Der Sensor sendet Werte, wie den Zeitunterschied zwischen zwei Magnetdurchläufen, dem Luftdruck, der Temperatur und die relative Luftfeuchtigkeit. Diese Daten müssen erst noch in die realen Werte umgerechnet werden, da alle Werte in mehreren Bytes verteilt vorliegen.
+Der Sensor sendet Werte wie den Zeitunterschied zwischen zwei Magnetdurchläufen, den Luftdruck, die Temperatur und die relative Luftfeuchtigkeit. Diese Daten müssen erst noch in die korrekten Werte umgerechnet werden, da alle Werte in mehreren Bytes verteilt vorliegen.
 
-Der Zeitunterschied zwischen zwei Magnetdurchläufen wird in vier Bytes dargestellt. Die ersten beiden Bytes enthalten die Anzahl Sekunden, es muss also das erste Byte um acht Bit geschoben werden und anschliessen muss das zweite Byte noch addiert werden. Folgende Formel zeigt die Umrechnung von zwei Bytewerten in eine reelle Zahl:
+Der Zeitunterschied zwischen zwei Magnetdurchläufen wird in vier Bytes dargestellt. Die ersten beiden Bytes enthalten die Anzahl Sekunden. Folgende Formel zeigt die Umrechnung von zwei Bytewerten in eine reelle Zahl:
 
 \begin{equation}
 	t = ((byte_0 << 8) + byte_1)
 \end{equation}
 
-Die erhaltene Zahl muss noch mit einem Typecast in den Datentyp float umgewandelt werden.
+Die erhaltene Zahl muss noch mit einem Typecast in den Datentyp float umgewandelt werden, um die weiteren Berechnungen zu erleichtern.
 
 Das dritte und vierte Byte des übermittelten Zeitunterschieds enthält die Sekundenbruchteile. Folgende Formel zeigt, wie die Bytes verrechnet werden müssen, um die korrekten Werte zu erhalten:
 
@@ -1032,23 +1060,33 @@ Das dritte und vierte Byte des übermittelten Zeitunterschieds enthält die Seku
 
 Der erhaltene Sekundenbruchteil kann nun zu den ganzen Sekunden dazu addiert werden, um die ganze Zeit zwischen zwei Magnetdurchläufen zu erhalten.
 
-Ein Beispiel, wird also der hexadezimale Wert 0x00014000 empfangen sind das 1.25 Sekunden zwischen zwei Magnetdurchläufen.
+Ein Beispiel: Wird also der hexadezimale Wert 0x00041000 empfangen sind das 1.25 Sekunden zwischen zwei Magnetdurchläufen. Die genaue Berechnung des Beispiels kann in den nachfolgenden Formeln verfolgt werden:
+
+\begin{equation}
+	t_{ganze Sekunden} = ((0x01 << 8) + 0x00) = 1 s
+\end{equation}
+
+\begin{equation}
+	t_{Sekundenbruchteile} = \frac{((0x40 << 8) + 0x00)}{2^{16}} = 0.25 s
+\end{equation}
+
+\begin{equation}
+	t_{Total} = t_{ganze Sekunden} + t_{Sekundenbruchteile} = 1 s + 0.25 s = 1.25 s
+\end{equation}
 
 Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit geteilt werden. Jedoch befinden sich an unserem Rad zwei Magnete, deswegen darf nur der halbe Radumfang verrechnet werden. Ausserdem ist das Resultat in m/s und muss deshalb noch in km/h umgerechnet werden, was nichts anderes als eine Multiplikation mit dem Faktor 3.6 ist.
 
-Der Druck wird in Pa übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, das erste Byte kann ignoriert werden. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl.
+Der Druck wird in Pascal (Pa) übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, da das TI-SensorTag nur drei Bytes aus dem Drucksensor erhält. Das erste Byte kann ignoriert werden. Trotzdem wurden vier Byte übertragen, um später die Daten zum Druck mit weitern Informationen zu bestücken. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl:
 
 \begin{equation}
 	p = (float)((byte_2 << 16) + (byte_1 << 8) + byte_0) \times 0.01
 \end{equation}
 
-Die barometrische Höhenformel zeigt die Abhängigkeit des Druckes von der aktuellen Höhe.
+Die barometrische Höhenformel (\cite{Formelbuch}, Seite 284) zeigt die Abhängigkeit des Druckes von der aktuellen Höhe.
 
 \begin{equation}
 	p(h) = p_0 \times e^{-\frac{h}{7991 m}}
 \end{equation}
-
-- Referenz: Buch "Mathematik für Ingenieure und Naturwissenschaftler Band 1, 12. Auflage, Lothar Papula, Seite 284
 
 Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Druck berechnen lässt.
 
@@ -1056,7 +1094,7 @@ Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Dru
 	h = ln(\frac{p(h)}{p_0}) \times (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) \times (-7991 m)
 \end{equation}
 
-Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln. Das bedeutet die Temperatur, welche empfangen wird, muss zusammengesetzt und mit 1000 dividiert werden. Die Formel sieht folgendermassen aus:
+Die Temperatur wird in zwei Bytes übertragen. Jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln Grad Celsius. Das bedeutet, dass die Temperatur, welche empfangen wird, zusammengesetzt werden muss und durch 1000 dividiert werden muss. Die Formel sieht folgendermassen aus:
 
 \begin{equation}
 	T = (float)((byte_1 << 8) + byte_0) \times 0.001
@@ -1065,18 +1103,18 @@ Die Temperatur wird in zwei Bytes übertragen. jedoch wird die Temperatur nicht 
 Der letzte Wert, welcher vom Sensor versendet wird, ist die relative Luftfeuchtigkeit. Die Formel zur Berechnung der relativen Luftfeuchtigkeit sieht folgendermassen aus:
 
 \begin{equation}
-	H = (float)(byte_3 << 24) + (byte_2 << 16) + (byte_1 << 8) + byte_0
+	H = (float)((byte_3 << 24) + (byte_2 << 16) + (byte_1 << 8) + byte_0) \times 0.01
 \end{equation}
 
 
 \subsection{Einstellungsmöglichkeiten}
 
-Als nächstes wurde die Aufgabe in Angriff genommen, die Applikation als User einstellen zu können. Es musste genau überlegt werden, welche Einstellungen ein User machen darf und welche dem Programmierer, bzw. der Applikation überlassen werden.
+Als nächstes wurde die Aufgabe in Angriff genommen, die Applikation als User einstellen zu können. Es musste genau überlegt werden, welche Einstellungen ein User machen darf und welche dem Programmierer bzw. der Applikation überlassen werden.
 
 
 \subsubsection{Adressauswahl}
 
-Die Adressauswahl, oder auch Sensorwahl, wurde bald ein Bedürfnis, da der User die Applikation mit seinem eigenen Sensor paaren können sollte. Es sollte sichergestellt werden, dass die Applikation nach der Sensorwahl nur noch Daten von dem gewählten Sensor anzeigt und die Daten der anderen Sensoren ignoriert werden. Die Adressen von Sensoren in der Nähe sollten aber weiterhin gespeichert werden, damit man gegebenenfalls auch einen anderen Sensor auswählen konnte.
+Die Adressauswahl oder auch Sensorwahl ist ein Bedürfnis, da der User die Applikation mit seinem eigenen Sensor paaren können sollte. Es sollte sichergestellt werden, dass die Applikation nach der Sensorwahl nur noch Daten von dem gewählten Sensor anzeigt und die Daten der anderen Sensoren ignoriert werden. Die Adressen von Sensoren in der Nähe sollten aber weiterhin gespeichert werden, damit man gegebenenfalls auch einen anderen Sensor auswählen konnte.
 
 Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur übereinstimmen soll die Adresse gespeichert werden. Dafür wurde folgende Funktion entwickelt:
 
@@ -1086,9 +1124,9 @@ Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur 
 	\label{app_saveAdress} 
 \end{figure}
 
-Der adressCounter wird mit dem Wert -1 initialisiert, werden die ersten Daten mit der vorgegeben Struktur empfangen wird die Funktion automatisch die Adresse in der adressList an der Stelle 0 speichern. Werten erneut Daten von einem unserer Sensoren empfangen wird zuerst geprüft, ob die Adresse bereits ein Teil der adressList ist, falls die Adresse noch nicht in der Liste enthalten ist, wird der Index, bzw. der adressCounter, erhöht und die Adresse in der Liste gespeichert.
+Der adressCounter wird mit dem Wert -1 initialisiert. Werden die ersten Daten mit der vorgegeben Struktur empfangen wird die Funktion automatisch die Adresse in der adressList an der Stelle 0 speichern. Werten erneut Daten von einem unserer Sensoren empfangen wird zuerst geprüft, ob die Adresse bereits ein Teil der adressList ist. Falls die Adresse noch nicht in der Liste enthalten ist, wird der Index bzw. der adressCounter, erhöht und die Adresse in der Liste gespeichert.
 
-Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies genauso behandelt, als ob der Sensor die richtige Adresse hat.
+Sobald eine Adresse ausgewählt wurde, müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies behandelt, als ob der Sensor die richtige Adresse hat.
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_checkAdress.png}
@@ -1096,7 +1134,7 @@ Sobald eine Adresse ausgewählt wurde müssen die zukünftigen Datenpackete übe
 	\label{app_checkAdress} 
 \end{figure}
 
-Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird eine neue Activity erstellt. Die neue Activity ist eine List-Activity, das bedeutet es wird eine Liste von möglichen Adressen angezeigt, welche mit einem Klick auf die gewünschte Adresse ausgewählt wird. Anschliessend wird die ausgewählte Adresse an die Haupt-Activity zurückgegeben. In Abbildung \ref{BLEadressauswahl} ist die List-Activity zu sehen, welche eine Adresse zur Auswahl hat. Damit die ausgewählte Adresse von der Haupt-Activity überhaupt empfangen werden kann musste die List-Activity mit den auszuwählenden Adressen mit folgendem Befehl gestartet werden: startActivityForResult. Die gestartete Activity kann somit ein Resultat, also die ausgewählte Adresse zurückgeben und die Haupt-Activity kann diese in der Funktion onActivityResult empfangen und abspeichern. Die genaue Ausführung der Übergabe der Adressen, sowie die Rückgabe der ausgewählten Adresse kann dem Quellcode entnommen werden.
+Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird eine neue Benutzeroberläche (Activity) erstellt. Die neue Activity ist eine List-Activity. Das bedeutet, dass es wird eine Liste von möglichen Adressen angezeigt wird, welche mit einem Klick auf die gewünschte Adresse ausgewählt wird. Anschliessend wird die ausgewählte Adresse an die Haupt-Activity zurückgegeben. In Abbildung \ref{BLEadressauswahl} ist die List-Activity zu sehen, welche eine Adresse zur Auswahl hat. Damit die ausgewählte Adresse von der Haupt-Activity überhaupt empfangen werden kann, musste die List-Activity mit den auszuwählenden Adressen mit folgendem Befehl gestartet werden: startActivityForResult. Die gestartete Activity kann somit ein Resultat, also die ausgewählte Adresse, zurückgeben und die Haupt-Activity kann diese in der Funktion onActivityResult empfangen und abspeichern. Die genaue Ausführung der Übergabe der Adressen sowie die Rückgabe der ausgewählten Adresse kann dem Quellcode entnommen werden.
 
 \begin{figure}[ht]
     \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/BLEAdresseAuswaehlen.png}
@@ -1108,7 +1146,7 @@ Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird
 
 \subsubsection{Einheiten}
 
-Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert, die Enumeration für die Temperatur sieht folgendermassen aus:
+Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert. Die Enumeration für die Temperatur sieht folgendermassen aus:
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_tempSetting.png}
@@ -1116,17 +1154,17 @@ Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werd
 	\label{app_tempSetting} 
 \end{figure}
 
-Es wurde der Enumeration drei Elemente hinzugefügt, welche alle einen Faktor, einen Offset und einen String mit der geschriebenen Einheit enthalten. Anhand dieser Enumeration kann der Faktor und der Offset einfach zugänglich gemacht werden. 
+Es wurden der Enumeration drei Elemente hinzugefügt, welche alle einen Faktor, einen Offset und einen String mit der geschriebenen Einheit enthalten. Anhand dieser Enumeration kann der Faktor und der Offset einfach zugänglich gemacht werden. (\cite{calcTemp})(\cite{calcPressure})(\cite{calcVelocity}) 
 
-- Referenz Temperaturumrechnung: %http://www.umrechnung.org/masseinheiten-temperatur-celsius-fahrenheit-kelvin/celsius-fahrenheit-umrechnung.htm (Konsultation am 22.04.16)
-- Referenz Druckumrechnung: %http://www.dolder-ing.ch/wissen/Einheiten/Tab_Druckumr/Tab-Druckumrechn-Gebrf.htm (Konsultation am 22.04.16)
-- Referenz Geschwindkeitsumrechnung: %http://www.convertworld.com/de/geschwindigkeit/knoten.html (Konsultation am 22.04.16)
+Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten, ein Eingabefeld (EditText) für die Eingabe des Radumfangs und ein EditText für die Kalibrierung der Temperatur zur Verfügung stellt. Die eingestellten Einheiten und die eingetragenen Werte werden über den Speichern-Button an die Haupt-Activity zurückgegeben. In der Haupt-Activity werden diese Daten empfangen und abgespeichert und anschliessend zur Darstellung der Werte verwendet. Erst bei der Anzeige der Werte werden die eingestellten Faktoren und Summanden der Enumerationen verwendet.
 
-Die Enumerationen wurden anschliessend verwendet um die aktuelle Einstellung der Einheiten abzuspeichern. Da die Einstellung der Einheiten nun gespeichert werden konnte, musste diese Einstellung dem User zugänglich gemacht werden.
+\begin{figure}[ht]
+    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/onActivityResult.PNG}
+    \caption{Datenübergabe zwischen den Activities}
+	\label{onActivityResult} 
+\end{figure}
 
-Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten, einen EditText für die Eingabe des Radumfangs und ein EditText für die Kalibrierung der Temperatur zur Verfügung stellt. Die eingestellten Einheiten und die eingetragenen Werte werden über den Speichern-Button an die Haupt-Activity zurückgegeben. In der onActivityResult Methode in der Haupt-Activity werden die aktuellen Einstellungen empfangen und abgespeichert und anschliessend zur Darstellung der Werte verwendet. Erst bei der Anzeige der Werte, werden die eingestellten Faktoren und Summanden der Enumerationen verwendet.
-
-Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte, bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen, die zuvor abgespeicherten Werte an. Ein Beispiel, wenn man in der Activity den Spinner für die Temperatur auf "Fahrenheit ($^\circ$F)" einstellt und diese Einstellung abspeichert. Die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung "Fahrenheit ($^\circ$F)" angezeigt, da diese Einstellung zuvor abgespeichert wurde.
+Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen die zuvor abgespeicherten Werte an. Ein Beispiel: Wenn man in der Activity den Spinner für die Temperatur auf \glqq Fahrenheit ($^\circ$F) \grqq einstellt und diese Einstellung abspeichert und dann die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung \glqq Fahrenheit ($^\circ$F)\grqq angezeigt, da diese Einstellung zuvor abgespeichert wurde.
 
 \begin{figure}[ht]
     \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
@@ -1140,15 +1178,15 @@ Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend 
 
 Während der Entwicklung wurde festgestellt, dass der Wert der Temperatur von der Referenztemperatur abweicht. Aus diesem Grund wurde eine Möglichkeit zur Kalibrierung der Temperatur geschaffen.
 
-Die Kalibrierungsmöglichkeit befindet sich in der gleichen Activity, wie die Einstellungen der Einheiten und der Eingabemöglichkeit für den Radumfang. Wird bei dem Textfeld ein Wert eingegeben, so wird diese Temperatur an die Haupt-Activity zurückgegeben. Die Referenztemperatur wird gespeichert und beim Empfang der nächsten Daten, wird die automatisch ein Offset berechnet. Dieser Offset fliesst automatisch in die Berechnung der Temperatur ein.
+Die Kalibrierungsmöglichkeit befindet sich in der gleichen Activity, wie die Einstellungen der Einheiten und der Eingabemöglichkeit für den Radumfang. Wird bei dem Textfeld ein Wert eingegeben, so wird diese Temperatur an die Haupt-Activity zurückgegeben. Die Referenztemperatur wird gespeichert und beim Empfang der nächsten Daten wird die automatisch ein Offset berechnet. Dieser Offset fliesst automatisch in die Berechnung der Temperatur ein.
 
 \subsection{Animierter Tachometer}
 
-Eine interessante Aufgabe war die Realisierung eines animierten Tachometers, da diese Funktion dem User der Applikation sofort ins Auge stechen würde. Diese Funktion würde die ansonsten relativ triste Aufmachung der Applikation aufwerten. Es sollte ein Tachometer entwickelt werden, welches eine animierte Tachonadel hat, die die aktuelle Geschwindigkeit anzeigt.
+Es sollte ein Tachometer entwickelt werden, welches eine animierte Tachonadel hat, die die aktuelle Geschwindigkeit anzeigt.
 
 \subsubsection{Funktionsweise}
 
-Bereits in der PA von Manuel König wurde mit der Anzeige von Bitmaps experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
+Bereits in der PA von Manuel König wurde mit der Anzeige von Bilddateien, genauer Bitmaps (.bmp-Datei), experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich, ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
 
 Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
 
@@ -1167,11 +1205,11 @@ Das Bild konnte mit folgender Funktion eingelesen werden:
 	\label{app_getPixel} 
 \end{figure}
 
-Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im Array stellen den Farbwert des jeweiligen Pixels dar. Diese Farbwerte können nun verändert werden. Als erstes wurde das ganze Bild gespiegelt, da es noch falsch herum ist, heisst der rote Bereich des Tachometers soll auf der rechten Seite angezeigt werden.
+Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im Array stellen den Farbwert des jeweiligen Pixels dar. Diese Farbwerte können nun verändert werden. Als erstes wurde das ganze Bild gespiegelt, da der rote Bereich des Tachometers auf der rechten Seite angezeigt werden sollte, wie es von anderen Tachometern bekannt ist.
 
-Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt genauer beschrieben.
+Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt (\ref{math_tachonadel}) genauer beschrieben.
 
-Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. Wichtig ist dabei, dass die richtige Konfiguration ausgewählt wurde, da ansonsten das Bitmap falsch oder gar nicht angezeigt werden konnte.
+Aus dem Bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_createBitmap.png}
@@ -1180,6 +1218,7 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 \end{figure}
 
 \subsubsection{Mathematik der Tachonadel}
+\label{math_tachonadel}
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
@@ -1187,7 +1226,7 @@ Aus dem bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werde
 	\label{app_drawNeedle} 
 \end{figure}
 
-Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit der Breite von einem Pixel animiert. Die Tachonadel kann als ein Vektor angesehen werden, der im Ursprung gedreht und anschliessend verschoben wurde. Die X- bzw. Y-Koordinaten im Bild konnten folgendermassen berechnet werden:
+Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit der Breite von einem Pixel animiert. Die Tachonadel kann als ein Vektor angesehen werden, der im Ursprung des Bitmaps (linke untere Ecke) gedreht und anschliessend verschoben wurde. Die X- bzw. Y-Koordinaten im Bild konnten folgendermassen berechnet werden:
 
 \begin{equation}
 	x = \frac{Breite\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel \times \cos(Winkel\, der\, Tachonadel)
@@ -1197,19 +1236,27 @@ Die Tachonadel wurde in mehreren Schritten animiert, erst wurde ein Strich mit d
 	y = \frac{H\ddot{o}he\, des\, Tachometers}{2} + L\ddot{a}nge\, der\, Tachonadel \times \sin(Winkel\, der\, Tachonadel)
 \end{equation}
 
-Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite von nur einem Pixel nicht leicht auf einem hochauflösenden Display, wie dem Display des Samsung Galaxy S7, zu erkennen ist.
+Anschliessend sollte die Tachonadel dicker werden, da ein Strich mit der Breite von nur einem Pixel nicht leicht auf einem hochauflösenden Display zu erkennen ist.
 
-Die Betrachtungsweise, dass die Tachonadel ein Vektor ist musste angepasst werden. Jeder einzelne Pixel hatte einen Ortsvektor der angepasst werden musste. Nachfolgende Formel zur Berechnung der Koordinaten nach einer Drehung des Vektors konnte angewendet werden.
+Die Betrachtungsweise, dass die Tachonadel ein Vektor ist, musste angepasst werden. Jeder einzelne Pixel hatte einen Ortsvektor, der angepasst werden musste. Nachfolgende Formel zur Berechnung der Koordinaten nach einer Drehung des Vektors konnte angewendet werden:
 
 \begin{equation}
-	x_neu = x_aktuell \times \cos(\alpha) - y_aktuell \times \sin(\alpha)
+	x_{neu} = x_{aktuell} \times \cos(\alpha) - y_{aktuell} \times \sin(\alpha)
 \end{equation}
 
 \begin{equation}
-	y_neu = x_aktuell \times \sin(\alpha) + y_aktuell \times \cos(\alpha)
+	y_{neu} = x_{aktuell} \times \sin(\alpha) + y_{aktuell} \times \cos(\alpha)
 \end{equation}
 
 Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachometers ergänzt werden. Die Koordinaten jedes Pixels der Tachonadel konnten nun berechnet werden und wurden anschliessend mit dem Farbwert für Rot in dem Integer-Array überschrieben.
+
+\begin{equation}
+	x_{neu} = \frac{Breites\,des\,Tachometers}{2} + x_{aktuell} \times \cos(\alpha) - y_{aktuell} \times \sin(\alpha)
+\end{equation}
+
+\begin{equation}
+	y_{neu} = \frac{H\ddot{o}he\,des\,Tachometer}{2} + x_{aktuell} \times \sin(\alpha) + y_{aktuell} \times \cos(\alpha)
+\end{equation}
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/tachometer_mit_nadel.png}
@@ -1217,9 +1264,9 @@ Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachomete
 	\label{tachometer_mit_nadel} 
 \end{figure}
 
-\subsection{Modularer Aufbau}
+\subsection{Modularität der Applikation}
 
-Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation ohne Probleme möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind, in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code.
+Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind, in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code. Die verwendeten Texte werden in einem XML-File gespeichtert und mit einer ID versehen, die Applikation greift auf die ID zu. Somit kann der Inhalt des Textes angepasst werden, ohne dass der Sourcecode der Applikation angepasst werden muss.
 
 
 
