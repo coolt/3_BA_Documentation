@@ -14,7 +14,7 @@ Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Pro
   \item Entwickeln einer BLE-Applikation       
  \end{enumerate}  
 
-Die sprachliche Unterscheidung von Energy - und Power-Management entspricht der Unterscheidung zweier \glqq Management-Teile\grqq\medskip im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff \glqq Energy Management \grqq wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff \glqq Power Management \grqq wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
+Die sprachliche Unterscheidung von Energy - und Power-Management entspricht der Unterscheidung zweier ``Management-Teile'' im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff ``Energy Management'' wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff ``Power Management'' wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
  
  
  % 1---------------------------------------------------------------------------
@@ -28,21 +28,16 @@ Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit von \cite{PA_bicycl
       
 \subsection{Funktionsblöcke}\label{fb} 
 
-Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe \grqq 1) \glqq in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
+Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
 
 \todo{korrekter SensorTag Name}
 
 \begin{figure}[ht]
-   \begin{minipage}[t]{1\textwidth}
        \includegraphics[width=1\textwidth]{3Vorgehen/imag/Blockdiagramm.png}
        \caption{Funktionsblöcke Bicycle Computer}
        \label{funktionsdiagramm_bild}
-    \end{minipage}
-\end{figure}
 
-\begin{minipage}{\textwidth}
-\captionof{table}{Legende zur Abbildung \ref{funktionsdiagramm_bild} Funktionsblöcke}
-    \begin{tabbing}s
+    \begin{tabbing}
         Bezeichnung \quad\= Beschreibung\\[0.8ex]
         V\_HRV \> Ausgangsspannung Harvesterquelle, Eingangsspannung Energy Management\\
         V\_STS\> Spannung am STS--Kondensator (Primärspeicher)\\
@@ -50,7 +45,7 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
         V\_SUP\> Ausgangsspannung Energy Managment, Eingangsspannung Sensortag\\
         BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble} \\
     \end{tabbing} 
-\end{minipage}
+\end{figure}
 
 Den Funktionsblöcken sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
 
@@ -1169,7 +1164,7 @@ Eine neue Activity wurde codiert, welche drei Spinner zur Auswahl der Einheiten,
 	\label{onActivityResult} 
 \end{figure}
 
-Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen die zuvor abgespeicherten Werte an. Ein Beispiel: Wenn man in der Activity den Spinner für die Temperatur auf \glqq Fahrenheit ($^\circ$F) \grqq einstellt und diese Einstellung abspeichert und dann die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung \glqq Fahrenheit ($^\circ$F)\grqq angezeigt, da diese Einstellung zuvor abgespeichert wurde.
+Abschliessend wurde die Activity zur Einstellung der Einheiten noch dahingehend verbessert, dass die eingestellten Einheiten und die eingetragenen Werte bei erneutem Aufrufen der Activity dargestellt werden. Wird die Activity zur Einstellung der Einheiten gestartet, wird ihr die aktuelle Einstellung übergeben und die Spinner und EditText zeigen die zuvor abgespeicherten Werte an. Ein Beispiel: Wenn man in der Activity den Spinner für die Temperatur auf ``Fahrenheit ($^\circ$F)'' einstellt und diese Einstellung abspeichert und dann die Activity dann erneut über einen Druck auf den Button startet, wird beim Spinner für die Temperatur die Einstellung ``Fahrenheit ($^\circ$F)'' angezeigt, da diese Einstellung zuvor abgespeichert wurde.
 
 \begin{figure}[ht]
     \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/BLEEinheitenUndEinstellungenStart.png}
