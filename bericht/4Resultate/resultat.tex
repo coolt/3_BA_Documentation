@@ -1,7 +1,7 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Beim Harvester geht es um den produzierten Print, die Leistungsfähigkeit der Schaltung, und die Qualität des Signals am Harvesterausgang. Beim Energy Management wird die Leistungsabgabe nach der Regelung dokumentiert, und die Wirkung der Schwellwerte auf die Kondensatoren STS und LTS und auf die Speisung V\_SUP. Beim Power Management wird der finale Stand an Schlafzyklen zusammengestellt und bei der BLE-Applikation das User Interface gezeigt.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Beim Harvester geht es um den produzierten Print, die Leistungsfähigkeit der Schaltung, und die Qualität des Signals am Harvesterausgang. Beim Energy Management wird das Verhalten mit den finalen Schwellwerten dokumentiert. Einerseits geht es um die Kontroller der eingestellten Schwellwert sowie um die erreichte Ladezeit des Primärspeichers STS. Es wird zusammengefasst, bei welcher Geschwindigkeit wie oft BLE-Pakete gesendet werden. Das Verhalten wird im Unterkapitel durch die Energiebilanz gedeutet. Der Zusammenhang zwischen der Geschwindigkeit und dem realen Verbrauch des TI-Sensortags wird für ein erstes Anfahren und für das Weiterfahren beschrieben. Der Vorteil des Weiterfahrens ist, dass die Kondensatoren in diesem Fall bereits geladen sind. Als letztes wird das User Interface der neuen BLE-Applikation gezeigt.
  
 \section{Harvesterschaltung}
 
@@ -189,10 +189,14 @@ Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das 
 \subsection{Verwendete Werte}
 \label{werte}
 
-Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt:
+Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt. Die Herleitung der Werte steht in den Unterkapiteln Energiekalkulation \ref{v_e_kalkulation} und Schwellwerte. Zwei Änderungen der Schwellwerte werden aufgrund letzter Messungen vorgenommen. Die Applikationsspeisung (V\_SUP) wird um 0.1 V auf 2.1 V erhöht. Der Grund ist, dass die Speisung bei 2 V, dem Minimum für das TI-SensorTag nicht 100\thinspace\% funktioniert. Das TI-SensorTag stellte teils selbständig ab, da angeblich zu wenig Spannung am Eingang anliegt. Deshalb die Spannungserhöhung. Um die gleiche Spannungsdifferenz von $\Delta$ 0.8 V zwischen STS\_HIGH und STS\_LOW zu haben, wird parallel dazu auch  v\_bat\_min\_hi\_dis erhöht. Der neue Wert ist nun 3.0 V, um sicher genügend Energie zur Verfügung zu stellen.
 
-STS = 100 $\mu$F
-LTS = 3300 $\mu$F
+%Gleichung berechung totalenergie = 189 u J  \label{eq:e-high-e-low}
+%Gleichung Berechnung CSTS ) 100 uJ         \label{eq:e_sts}
+%Gleichung: STS_HIGH = 3 V    \ref{eq:bat_min_low_schwellwert}              
+
+STS = 100 $\mu$F        (siehe Gleichung \ref{eq:e_sts})
+LTS = 3300 $\mu$F       (nicht wichtig. Wert von Vorgängermodell behalten)
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Schwellwerte Energy Management Bicycle Computer}
@@ -200,9 +204,9 @@ LTS = 3300 $\mu$F
         Register \quad\= Spannungswert \\[0.8ex]
         v\_bat\_max\_hi       \> 3.8 V \\
         v\_bat\_max\_lo       \> 3.7 V \\
-        v\_bat\_min\_hi\_dis  \> 3.6 V \\
+        v\_bat\_min\_hi\_dis  \> 3.0 V  (STS\_HIGH)\\
         v\_bat\_min\_hi\_con  \> 2.2 V \\
-        v\_bat\_min\_lo       \> 2.1 V \\
+        v\_bat\_min\_lo       \> 2.1 V (STS\_LOW)\\
         v\_appl\_max\_hi      \> 3.8 V \\
         v\_appl\_max\_lo      \> 3.7 V \\   
         mpp-ration            \> 60\thinspace\%
@@ -211,47 +215,21 @@ LTS = 3300 $\mu$F
 
 
 
-\section{Power Management}
+\section{Energiebilanz}
 
-Bei der Entwicklung werden die Energiewerte für die gemessen. Diese werden in der untenstehenden Abbildung \ref{r_bild_e_zusammenfassung} zusammen mit der Energielieferung am EM8500-Chip zusammengestellt. Diese Abbildung fasst zusammen, bei welchen Geschwindigkeit nach welcher Zeit, welche Daten gesendet werden. 
+Das vorangehende Unterkapitel Energy Managment zeigte, die erzielten Resultate. Diese Kapitel liefert die Deutung dazu. Dazu werden aus der Tabelle \ref{tab_zsm} im Unterkapitel Energiemessungen den Energieverbrauch nach Aufgaben übernommen und in Zusammenhang mit der gelieferten Energie am EM8500-Ausgang gestellt. Die Energiedaten für den Ausgang des EM8500 stammt aus den Messungen \ref{em_enerige_ausgang}, die in der Tabelle \ref{tab:em_out_zsm} zusammengefasst sind.
 
 \subsection{Energiebilanz Bicycle Computer}
+
+Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \todo{Refrerenz}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen getan werden muss, und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
 
 
 \subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
 
-Der zur Verfügung stehenden Energie wird der minimale Aufwand (Sockelbetrag und Geschindigkeit) abgezogen. \todo{Gleichung einfügen}
-Für einen Neustart, bei dem die Kondensatoren noch nicht geladen sind, ergibt sich folgende Energiebilanz (siehe Tabelle xxx) nach 10 Sekunden:
-
-\begin{minipage}{\textwidth}
-\captionof{table}{Energiebilanz Bicycle Computer nach 10 s}
-    \begin{tabbing}
-        Geschwindigkeit \quad\= Energieabgabe EM8500\_out  \quad\= mit Sockelbeitrag STS\\[0.8ex]
-        10 km/h      \> 54.4   $\mu$J        \> Rechnung = 274.9  $\mu$J\\
-        15 km/h      \> 209.1  $\mu$J        \> 429.6  $\mu$J\\
-        20 km/h>     \> 413.9  $\mu$J        \> 634.4  $\mu$J\\
-        40 km/h>     \> 1707.5 $\mu$J        \> 1928.0 $\mu$J\\
-    \end{tabbing}
-\end{minipage} 
-
-Startet man den Bicycle Computer neu, genügen braucht es 20 km/h, um nach 10 s ein Geschwindigkeitspaket zu erhalten. 
-
-\subsubsection{Energiebilanz nach 5 min Fahrradfahren}
-
-\begin{equation}
-  E_{Laden STS}= 100, \mu F \times \frac{1}{2}\, (2.1)^2 = 100, \mu F \times \frac{1}{2}\, 4.41 = 220.5, \mu F
-\end{equation}
-
-
-
-\subsection{Energieaufwand pro Aufgabe}
-
-Als Zusammenfassung des Energieverbrauchs dokumentiert die Abbildung \ref{energie_zsm} den Energieverbrauch für das Senden von Daten ab dem ungeladenen Zustand der Speicher. Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte am EM8500-Ausgang (siehe Tabelle \ref{resultat_Zsm_Energy}) aufgerechnet als Energiewert nach 10 s und der Addition des Sockelbetrags, für das einmalige Aufladen von STS auf den Schwellwert von v\_bat\_min\_lo mit 2.1 V. Die Umrechnung zum Energiewert stehen in der Tabelle Unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}, da die Werte aus der Abbildung nicht präzis abgelesen werden können und die Berechnung des Sockelbetraqs von xxxxx $\mu$J in der untenstehenden Gleichung.
-
-Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets mit und ohne Sensordaten eingetragen. Die Initialisierung und das Refreshen sind als violetter Sockelbetrag eingetragen. Auf diesen wird das Berechnen bzw. Auslesend der Daten und das Versenden, grauer Balken, dazuaddiert. Die Werte beziehen sich auf die Tabelle der Energiemessungen der Version V4 des TI-SensorTags (\ref{erst_EMessungen}). Die zweite Tabelle unterhalb der Abbildung \ref{r_bild_e_zusammenfassung} zeigt die Berechnung der Balken.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (viollet), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich eine Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am Em8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle unterhalb der Abbildung.
 
 \begin{figure}[ht]
-     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}\label{resultat_Zsm_Energy} 
+     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}
      \caption{Energieverbrauch gem\"{a}ss Verarbeitungsaufwand für CPU}
      \label{r_bild_e_zusammenfassung}
 \end{figure}
@@ -259,35 +237,65 @@ Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets 
 \begin{minipage}{\textwidth}
 \captionof{table}{Energieverbrauch nach Aufgaben}
     \begin{tabbing}
-    Funktionsblöcke \quad\= Energieverbrauch \\[0.8ex]
-    Einmaliges Laden der Kondensatoren auf TI-SensorTag        \> 63.2 $\mu$J\\
-    Initialisierung + Refresh-Zyklen                           \> 77 $\mu$J + 13 $\mu$J = 90 $\mu$J\\
-    Neustart = Laden Kondensatoren + Init + Refreshen          \> 63.2 $\mu$J + 90 $\mu$J = 153.2 $\mu$J\\
-    Neustart + Geschwindigkeit und BLE-Paket                   \> 90 $\mu$J + 33 $\mu$J = 123 $\mu$J\\
-    Neustart + Druck + Geschwindigkeit und Daten mit BLE-Paket \> 90 $\mu$J + 5 $\mu$J+ 43 $\mu$J = 138 $\mu$J\\
+    Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
+    Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle xxx\\
+    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle xxx\\
+    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J+ 43 $\mu$J = 49 $\mu$J    \> Tabelle xxx\\
+    Gesamtverbrauch TI-SensorTag     \>     \> 203 $\mu$J    \> Gleichung \ref{eq:e-high-e-low}\\
     \end{tabbing}
 \end{minipage}
 
+\todo{referenzen Quellen eingtragen}
 
-(Folgende Resultate werden mit dem produzierten Prototyp erzeugt:)
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe \todo{ref}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung geht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Paket bei Aufgeladenem System wird im nächsten Unterkapitel dokumentiert.
+
+\begin{minipage}{\textwidth}
+\captionof{table}{Gesammelter Energieverbrauch für 10 km/h}
+\label{tab_zeit_aufsummiert}
+    \begin{tabbing}
+    Zeit  \quad\=  Energievorrat \quad\= Quelle\\[0.8ex]
+    10 s  \> 54.4 $\mu$J   \>  Messung xxxx \\
+    20 s  \> 108.8 $\mu$J  \> \\
+    30 s  \> 163.2 $\mu$J  \> \\
+    40 s  \> 217.6 $\mu$J  \> \\
+    50 s  \> 272.0 $\mu$J  \> \\
+    \end{tabbing}
+\end{minipage}
+
+\todo{Referenz einbauen}
+
+\subsection{Energiebilanz nach 1 min Fahrzeit}
+
+Fällt das Aufladen der TI-SensorTag-Kondensatoren weg, so sieht die Energiebilanz besser aus. Die Abbildung \ref{r_bild_e_zusammenfassung_ohneSockel} zeigt, dass bei einer Geschwindigkeit von 10 km/h nach 30 s genügend Energie zum Senden eines Paketes mit Sensordaten zur Verfügung steht. Zudem zeigt sich, dass mit zunehmender Geschwindigkeit kein Energieproblem mehr besteht. 
+
+
+\begin{figure}[ht]
+     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung_ohneSockel.png}
+     \caption{Energieverbrauch gem\"{a}ss Verarbeitungsaufwand für CPU}
+     \label{r_bild_e_zusammenfassung_ohneSockel}
+\end{figure}
+
+Die zur Verfügung stehende Energie ändert sich mit zunehmender Geschwindigkeit schnell.
+
+% Startet man den Bicycle Computer neu, genügen braucht es 20 km/h, um nach 10 s ein Geschwindigkeitspaket zu erhalten. 
+Zusammenfassend lassen sich über den Protoypen eines Fahrrad-Computers sagen:
 
 \todo{ genauere Angaben nach Endmessungen}
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Resultate Bicycle Computer}
     \begin{enumerate}
-    \item Das Übermitteln der Geschwindigkeit ist ab 10 km/h möglich
-    \item Das Übermitteln aller Sensordaten (gestaffelt) ist ab xxx km/h möglich
-    \item Das Übermitteln aller Sensordaten braucht bei einer Geschwindigkeit von 10 km/h xxxx s
-    \item Das Übermitteln aller Sensordaten braucht bei 40 km/h xxx s
+    \item Das Übermitteln der Geschwindigkeit und Sensordaten ist ab 10 km/h möglich
+    \item Das Übermitteln der Daten braucht bei einer Geschwindigkeit von 10 km/h gut 40 s
+    \item Bei einer Geschwindigkeit von 40 km/h werden die Daten alle xxx s aktulisiert
     \end{enumerate}
 \end{minipage}
 
 
-Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Sockelbetrag zum Starten des Systems. Der Short Time Storage muss zuerst auf die Höhe des Schwellwerts zur Speisung der Applikatin geladen werden. Dies bedeutet einen einmaligen Energieaufwand von 220 $\mu$J. Die Kondensatoren des TI-SensorTags müssen zu Beginn ebenfalls geladen werden. Dies sind weitere 63.2 $\mu$J. Zudem braucht die Initialisierung und das Refreshen zusammen in den ersten 10 s 90 $\mu$J. Zusammen ergibt dies einen Grundenergieverbrauch ab Start von 373.3 $\mu$J. Dies ist bei einer Geschwindikeit von 10 km/h erst nach xxx s möglich.
-
-\todo{Zeit bei 10km/h eintragen. Abschlusssatz besser}
-
+%Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Sockelbetrag zum Starten des Systems. Der Short Time Storage muss zuerst auf die Höhe des Schwellwerts zur Speisung der Applikatin geladen werden. Dies bedeutet einen einmaligen Energieaufwand von 220 $\mu$J. Die Kondensatoren des TI-SensorTags müssen zu Beginn ebenfalls geladen werden. Dies sind weitere 63.2 $\mu$J. Zudem braucht die Initialisierung und das Refreshen zusammen in den ersten 10 s 90 $\mu$J. Zusammen ergibt dies einen Grundenergieverbrauch ab Start von 373.3 $\mu$J. Dies ist bei einer Geschwindikeit von 10 km/h erst nach xxx s möglich.
+%
+%\todo{Zeit bei 10km/h eintragen. Abschlusssatz besser}
+%
 
 
 \section{Ergebnisse BLE-Applikation}

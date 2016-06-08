@@ -494,6 +494,7 @@ Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, d
 Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlich verbessert werden. 
 
 \subsection{Ausmessen der Energieabgabe EM8500-Chip}
+\label{em_enerige_ausgang}
 
 Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
 
@@ -512,6 +513,7 @@ Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche
 
 
 \captionof{table}{Leistungsabgabe Ausgang EM8500}
+\label{tab:em_out_zsm}
 \begin{tabbing}
     Geschwindigkeit   	\quad\= abgegebene Energie    \\[0.8ex]
     10 km/h		        \> 261.2 $\mu$Ws\\
@@ -617,7 +619,7 @@ Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \t
 
 \clearpage
 
-Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-Sensortag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden})- bei der Zeitmarke von 2.07 s - 43.44 $\mu$J verbraucht werden.
+Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-Sensortag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden})43.44 $\mu$J verbraucht werden. Das Senden des BLE-Paketes ist bei der Zeitmarke siehe Zeitmarke bei 2.07 s.
 
 
 \subsubsection*{Energieverbrauch Starten des Drucksensors}
@@ -672,7 +674,7 @@ Um die verschiedenen Energiewerte in Bezug zueinander zustellen, werden in der T
     Starten Temperatursensor        \> 11  $\mu$J \\
     Starten Feuchtigkeitssensor     \>  6 $\mu$J \\
     Senden BLE-Paket nur Geschwindigkeit\> 33 $\mu$J\\
-    Senden BLE_Paket mit Sensordaten   \> 43 $\mu$J \\
+    Senden BLE-Paket mit Sensordaten   \> 43 $\mu$J \\
 \end{tabbing}
 \end{minipage}
 
@@ -691,20 +693,21 @@ Es wird deutlich, dass die Initialisierung und das notwendige Refresehen des Spe
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, also einer Geschwindigkeit von 10 km/h, und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
+Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, also einer Geschwindigkeit von 10 km/h, und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. Als oberer Schwellwerte beim STS wird 3 V angenommen. Die Berechnung dazu findet sich in der Gleichung \ref{eq:bat_min_low_schwellwert}. 
+
 
 \todo{Gleichungen als Referenz einbauen}
 
 \begin{flalign}\label{eq:e-high-e-low}
-  E_{Applikation} &= E_{Laden C} + E_{Init} + E_{Start Drucksensor} + E_{Senden BLE} \\\nonumber
-       &= 63\, \mu J + 77\, \mu J + 6\, \mu J + 43\, \mu J = 189\, \mu J\nonumber
+  E_{Applikation} &= E_{Laden C} + E_{Init} + E_{Refreshen}+ E_{Start Drucksensor} + E_{Senden BLE} \\\nonumber
+       &= 63\, \mu J + 77\, \mu J + 14\, \mu J+ 6\, \mu J + 43\, \mu J = 203\, \mu J\nonumber
 \end{flalign}
 
 \begin{flalign}\label{eq:e_sts}
-  C_{STS} &= \frac{2\times 189\, \mu J}{3^2 - (2.1)^2}\\
-          &= \frac{ 378\, \mu J}{9 - 4.41}\\\nonumber
-          &= \frac{ 378\, \mu J}{4.59}\\\nonumber
-          &= 81.9\, \mu F
+  C_{STS} &= \frac{2\times 203\, \mu J}{3^2 - (2.1)^2}\\
+          &= \frac{ 406\, \mu J}{9 - 4.41}\\\nonumber
+          &= \frac{ 406\, \mu J}{4.59}\\\nonumber
+          &= 88.45\, \mu F
 \end{flalign}
 
 Der Wert wird aufgerundet auf 100 $\mu$ F, um genügend Energie zu haben.
@@ -777,12 +780,12 @@ Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{erst_EMes
     \end{tabbing}
 \end{minipage}
 
-Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$ \todo{Referenz Theorie}, wobei  $E_{Applikation}$ aus der Messung von V4 mit total 188 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden. Als Kondensatorwert für STS wird 100 $\mu$F genommen. So ergibt sich folgender minimaler oberer Schwellwert:
+Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_LOW}$ \todo{Referenz Theorie}, wobei  $E_{Applikation}$ aus der Messung von V4 mit total 189 $\mu$J für die Initialisierung und das Senden der Daten gebraucht werden. Als Kondensatorwert für STS wird 100 $\mu$F genommen. So ergibt sich folgender minimaler oberer Schwellwert:
 
 \begin{flalign}\label{eq:bat_min_low_schwellwert}
     (v\_bat\_min\_low) ^2  &=  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2\\
-     &=  \frac{2\, \times \, 188, \mu J}{100 \,\mu F} + (2.0)^2\\ \nonumber
-    v\_bat\_min\_low  &=  \sqrt{\frac{376}{100 } + 4} = \sqrt{7.8} = 2.79 \\\nonumber
+     &=  \frac{2\, \times \, 189, \mu J}{100 \,\mu F} + (2.0)^2\\ \nonumber
+    v\_bat\_min\_low  &=  \sqrt{\frac{378}{100 } + 4} = \sqrt{7.8} = 2.79 \\\nonumber
 \end{flalign}
 
 Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.

@@ -78,7 +78,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -95,7 +95,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan3340"
          x="-474.82465"
@@ -109,7 +110,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan3344"
          x="-474.09955"
@@ -123,7 +125,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan3348"
          x="-493.79749"
@@ -137,7 +140,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan3352"
          x="-474.31955"
@@ -151,7 +155,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          x="-473.08939"
          y="278.0293"
@@ -162,7 +167,8 @@
        id="path3360"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -172,7 +178,8 @@
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan3348-3"
          x="-492.02844"
@@ -185,38 +192,28 @@
        id="text4182"
        sodipodi:linespacing="125%"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan4184"
          x="307.88071"
-         y="524.68451">VSUP</tspan></text>
+         y="524.68451">I_SUP</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4476)"
        d="m 6,502.3622 0,-195"
        id="path4186"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Mend)"
        d="m 6,503.3622 365,0"
        id="path4188"
        inkscape:connector-curvature="0"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="13.383245"
-       y="319.93835"
-       id="text4654"
-       sodipodi:linespacing="125%"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4656"
-         x="13.383245"
-         y="319.93835">V</tspan></text>
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -225,10 +222,25 @@
        id="text4658"
        sodipodi:linespacing="125%"
        inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       inkscape:export-ydpi="150"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"><tspan
          sodipodi:role="line"
          id="tspan4660"
          x="384.34262"
          y="506.45358">t</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="20"
+       y="317.36221"
+       id="text4167"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\schalfen_zw_funktionen.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan4169"
+         x="20"
+         y="317.36221">I</tspan></text>
   </g>
 </svg>

@@ -29,7 +29,7 @@ TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die au
 \subsection{Energy Harvesting über Bewegungsinduktion}\label{harv_bewegung} 
 Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben \cite{PA_bicycle} S.8.:
 
-\todo{kleiner Abstand vor S.8}
+\todo{kleiner Abstand vor S. 8}
 
 Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
 
@@ -190,10 +190,10 @@ Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendu
  \end{minipage}
 \end{figure}
 
-Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
+Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Der Registerwert v\_bat\_min\_low wird zukünftig STS\_LOW bezeichnet. Denn es ist der tiefere Schwellwert des STS, der die Spannungshöhe der Applikation definiert. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von STS\_LOW, so wird die Speisung der Applikation gestoppt.
 
 Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
-VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildung \ref{energiespeisung_lts}).
+VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_lo ist (siehe Abbildung \ref{energiespeisung_lts}).
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -210,7 +210,7 @@ VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildu
 
 Im Datenblatt des EM8500 (siehe \cite{datasheet_EM85}) sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres Betreiben. Die Dateien sind auf der CD abgelegt.
 
-Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (v\_bat\_min\_lo), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
+Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (STS\_LOW), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 \label{optimaleLeistung}
@@ -240,10 +240,10 @@ Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Block
 $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation. Die Applikation wird über das Signal V\_SUP, das die Energie vom Primärspeicher STS erhält, gespiesen.
 
 \begin{equation}
-  E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS} )^2
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS_LOW} )^2
 \end{equation}
 
-Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten v\_bat\_min\_hi\_dis (ab diesem Schwellwert wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab diesem Schwellwert hört die Speisung von V\_SUP auf). Die zwei Schwellwerte werden in der Gleichung vereinfacht als STS\_HIGH und STS\_LOW bezeichnet.
+Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten STS\_LOW (ab diesem Schwellwert wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab diesem Schwellwert hört die Speisung von V\_SUP auf). Der zweite Schwellwerte wird in der Gleichung vereinfacht als STS\_HIGH bezeichnet.
 
 \todo{schon früher die Schwellwerte vereinfacht als STS \_HIGH,STS\_LOW bezeichnen}
 
