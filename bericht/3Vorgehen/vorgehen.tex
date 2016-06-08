@@ -30,21 +30,6 @@ Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit von \cite{PA_bicycl
 
 Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe \grqq 1) \glqq in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgaben des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
 
-%\begin{minipage}{\textwidth}
-%\captionof{table}{Messresultate nach TI-SensorTag-Versionen}
-%\begin{tabbing}
-%    Version   \quad\= Datum    \quad\= Aufgabe\hphantom{re, kein Schlafmodus optimiert} \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
-%    V0        \> 10.3.16  \> Nur BLE Paket      \> unbekannt            \> 33 $\mu$J \\
-%    V1        \> 16.3.16  \> mit Geschwindigkeit      \> 87 $\mu$J            \> 32 $\mu$J \\
-%    V3        \> 22.4.16   \> Schlafmodus optimiert     \> 40 $\mu$J            \> 29 $\mu$J \\
-%    V4        \> 03.6.16    \> 3 Sensore, kein Schlafmodus optimiert     \> 77 $\mu$J            \> 43 $\mu$J \\
-%    V5        \> ongoing    \> 3 Sensore mit optimiertem Schlafmodus     \> 77 $\mu$J            \> 43 $\mu$J \\
-%\end{tabbing}
-%\end{minipage}
-
-
-
-
 \todo{korrekter SensorTag Name}
 
 \begin{figure}[ht]
@@ -393,7 +378,7 @@ Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlich
     \item Die Abstände zwischen den Testpunkten müssen vergrössert werden, damit eine KO-Sonde gut daran befestigt werden kann ohne einen Kurzschluss zu verursachen.
     \item Der Footprint vom Stecker X1 muss überarbeitet werden, da dieser falsch erfasst wurde.
 	\item Die Position des Steckers X1 muss verändert werden, da die Position nicht mit dem Gegenstück des TI-SensorTags übereinstimmt.
-	\item Die Netze VCC_STS, VCC_LTS und VREG dürfen nicht mit dem Stecker X1 verbunden werden, da die Energie über diese Anschlüsse verloren geht.
+	\item Die Netze VCC\_STS, VCC\_LTS und VREG dürfen nicht mit dem Stecker X1 verbunden werden, da die Energie über diese Anschlüsse verloren geht.
 \end{enumerate}
 
 Die Punkte c bis e, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messung mit der ersten Version der Leiterplatte durchgeführt.

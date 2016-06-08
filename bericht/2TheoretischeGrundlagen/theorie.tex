@@ -60,6 +60,7 @@ In diesem Fall berechnet sich die induzierte Spannung in einer Spule vereinfacht
 
 Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen eines Magneten an einer fix verankerten Spule erzeugt.
 Die produzierte Spannung hängt von folgenden vier Faktoren ab:
+
 \begin{enumerate}
     \item die eingeschlossene Fläche $A$ der Spule    
     \item die magnetische Flussdichte des Magneten $B$ 
@@ -75,6 +76,7 @@ Diese Harvestermethode produziert einen Wechselstrom, deshalb sind ein Gleichric
 
 \todo{Satz unverständlich!! neu schreiben. Siehe Notizen Alexey}
 \todo{ gliedern in einerseits ... mit a und b  anderseits.. mit c und d}
+
 Unterschiede zwischen den Harvesting-Methoden bestehen in der Art, in der die Energie zur Verfügung steht. Die nachfolgenden zwei Unterpunkte zeigen, dass zwei Differenzen auf: 
 
 Punkt a verweist auf die unterschiedliche Art, in der die Energie erhältlich ist:
@@ -116,6 +118,7 @@ Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, t
 \label{mpp_theorie_diff}
 
 Die drei Harvester unterscheiden sich in ihrer Leistungskurve. 
+
 \todo{ Erklärung der Leistungskurve} 
 \todo{Erklären, was Leistungsmaximum ist} 
 \todo{Übergang text neu}
@@ -189,8 +192,6 @@ Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendu
 
 Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Die Applikation sollte nicht alle Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von v\_bat\_min\_low, so wird die Speisung der Applikation gestoppt.
 
-
-
 Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
 VLTS wird geladen, wenn der Schwellwert bei v\_appl\_max\_los ist (siehe Abbildung \ref{energiespeisung_lts}).
 
@@ -236,7 +237,8 @@ Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Block
 \subsection{Energiezustand kennen und In- und Ausgänge schalten}
 \label{th_energiebilanz}
 
-$E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation. Die Applikation wird über das Signal V_SUP, das die Energie vom Primärspeicher STS erhält gespiesen.
+$E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation. Die Applikation wird über das Signal V\_SUP, das die Energie vom Primärspeicher STS erhält, gespiesen.
+
 \begin{equation}
   E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS} )^2
 \end{equation}
@@ -323,7 +325,6 @@ Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_senso
 
 Low Power Microcontroller können Gebiete des Prozessors oder von Peripherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereiche aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
 
-
 Das Verhalten, dass Prozessoren nach längerer Zeit ohne externe Input in den Schlafmodus gehen, ist typische Verhalten für Low-Power-Prozessoren. Bei einer optimierten Ultra-Low-Power-Applikation geht der Prozessor nach kleinsten Ausführungsblöcken schlafen. So gehört nach dem Aufwecken einer Peripherie, das Aktivieren des Schlafmodus derselben dazu. In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Moduses konzeptionell erklärt.
 
 \subsubsection{Schlafen zwischen Ausführungen}
@@ -377,7 +378,7 @@ Bluetooth Low Energy (BLE) bezeichnet eine Funktechnik, welche es ermöglicht, D
 
 \subsection{BLE im Vergleich zu Bluetooth}
   
-Bluetooth Low Energy verwendet das gleiche Frequenzband wie das traditionelle Bluetooth, jedoch sind nur 40 Kanäle à 2 MHz verfügbar, anstatt 79 Kanäle à 1 MHz beim traditionellen Bluetooth. Ausserdem verbraucht BLE, wie der Name bereits indiziert, weniger Energie als andere Übertragungsmedien. So sendet BLE mit maximal 10 mW, was einer Reichweite von ca. 10 Metern entspricht im Gegensatz zu Klasse 1 Bluetooth-Geräten, welche mit 100 mW eine Reichweite von rund 100 Metern erreichen. Ein \todo{Wort fehlt} der BLE-Technik ist, dass die Bauteile für eine BLE-Kommunikation relativ günstig sind und damit die Geräte ebenfalls günstiger hergestellt werden können (\cite{Interent_BLE}, Abschnitt Bluetooth Range).
+Bluetooth Low Energy verwendet das gleiche Frequenzband wie das traditionelle Bluetooth, jedoch sind nur 40 Kanäle \`{a} 2 MHz verfügbar, anstatt 79 Kanäle \`{a} 1 MHz beim traditionellen Bluetooth. Ausserdem verbraucht BLE, wie der Name bereits indiziert, weniger Energie als andere Übertragungsmedien. So sendet BLE mit maximal 10 mW, was einer Reichweite von ca. 10 Metern entspricht im Gegensatz zu Klasse 1 Bluetooth-Geräten, welche mit 100 mW eine Reichweite von rund 100 Metern erreichen. Ein Vorteil der BLE-Technik ist, dass die Bauteile für eine BLE-Kommunikation relativ günstig sind und damit die Geräte ebenfalls günstiger hergestellt werden können (\cite{Interent_BLE}, Abschnitt Bluetooth Range).
 
 \subsection{Advertising und Connected Mode}
 

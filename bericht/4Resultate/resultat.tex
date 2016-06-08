@@ -19,7 +19,6 @@ Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehe
     \label{print_rueckseite}
 \end{figure}
 
-
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.png} 
     \caption{Print Ansicht von oben}
@@ -38,14 +37,17 @@ Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich
 
 Die Leistung, welche der Harvester zur Verfügung stellen kann, liegt bereits bei einer Geschwindigkeit von 10 km/h bei 24.77 $\mu$W. Dies ist die Durchschnittsleistung bei optimaler Belastung. Es handelt sich nicht um die Spitzenleistung. In der Tabelle \ref{leistungHarvester} ist es ersichtlich, dass die Leistung mit der steigender Geschwindigkeit zunimmt.
 
-\begin{tabbing}
-\label{leistungHarvester}
-    Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
-    10 km/h  \> 24.77  $\mu$W \\
-    15 km/h  \> 61.07  $\mu$W \\
-    20 km/h \> 116.69 $\mu$W \\
-    40 km/h \> 472.61 $\mu$W \\
-\end{tabbing}  
+\begin{minipage}{\textwidth}
+\captionof{table}{Leistung Harvesterschaltung Bicycle Computer}
+    \begin{tabbing}
+    \label{leistungHarvester}
+        Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
+        10 km/h  \> 24.77  $\mu$W \\
+        15 km/h  \> 61.07  $\mu$W \\
+        20 km/h \> 116.69 $\mu$W \\
+        40 km/h \> 472.61 $\mu$W \\
+    \end{tabbing}
+\end{minipage}
 
 Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können diese Leistungen nur erreicht werden, wenn die Einstellung des EM8500-Chips dementsprechend eingestellt werden.
 
@@ -71,15 +73,18 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 
 Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
 
-\subsubsection*{Tabelle Leistung EM-8500 Ausgang}
-\label{res_em_aus}
-\begin{tabbing}
-    Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
-    10 km/h  \> 5.44   $\mu$W\\
-    15 km/h  \> 20.91  $\mu$W\\
-    20 km/h> \> 41.39  $\mu$W\\
-    40 km/h> \> 170.75 $\mu$W\\
-\end{tabbing}  
+
+\begin{minipage}{\textwidth}
+\captionof{table}{Leistung EM8500-Chip-Ausgang}
+    \label{res_em_aus}
+    \begin{tabbing}
+        Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
+        10 km/h  \> 5.44   $\mu$W\\
+        15 km/h  \> 20.91  $\mu$W\\
+        20 km/h> \> 41.39  $\mu$W\\
+        40 km/h> \> 170.75 $\mu$W\\
+    \end{tabbing}
+\end{minipage}
 
 
 \begin{figure}[ht]
@@ -100,16 +105,17 @@ Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich
 
 Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursachen, dass trotz genug geernteter Energie das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad (siehe Tabelle \ref{wirkungsgrad_emchip}). Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
 
-\subsubsection*{Tabelle Leistung und Wirkungsgrad }
-\begin{tabbing}
-\label{wirkungsgrad_emchip}
-    Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
-    10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
-    15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
-    20 km/h \> 114.67 $\mu$W \> 41.39  $\mu$W \> 36.09\thinspace\%  \\
-    40 km/h \> 416.29 $\mu$W \> 170.75 $\mu$W \> 41.01\thinspace\%  \\
-\end{tabbing}   
-
+\begin{minipage}{\textwidth}
+\captionof{table}{Wirkungsgrad Bicycle Computer nach Geschwindigkeiten}
+    \begin{tabbing}
+    \label{wirkungsgrad_emchip}
+        Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
+        10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
+        15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
+        20 km/h \> 114.67 $\mu$W \> 41.39  $\mu$W \> 36.09\thinspace\%  \\
+        40 km/h \> 416.29 $\mu$W \> 170.75 $\mu$W \> 41.01\thinspace\%  \\
+    \end{tabbing}
+\end{minipage}  
 
 
 \section{Energy Management}
@@ -124,21 +130,19 @@ Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_3.PNG}
-    \caption{Senden von Paketen bei 9 - 10 km/h; rot: V_SUP, gelb: V_STS}
+    \caption{Senden von Paketen bei 9 - 10 km/h; rot: V\_SUP, gelb: V\_STS}
     \label{paket_100kmh}
 \end{figure}
 
 Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16kmh}). Die Fahrerin bzw. der Fahrer erhält alle 20 s einen aktuellen Wert. Trügerisch in diesem Bild ist, dass LTS bereits geladen ist. Dies entsteht nicht durch 16 km/h, sondern entstand durch vorangehende Messungen mit höheren Geschwindigkeiten. Auf die Ladezeit des STS hat dies keine Auswirkung.
 
-
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic2.PNG}
-    \caption{Senden von Paketen bei 16 km/h; rot: V_SUP, gelb: V_STS, blau: V_LTS}
+    \caption{Senden von Paketen bei 16 km/h; rot: V\_SUP, gelb: V\_STS, blau: V\_LTS}
     \label{paket_16kmh}
 \end{figure}
 
 Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird und zwar für für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
-
 
 \begin{figure}[ht]
    \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic4.PNG}
@@ -182,11 +186,6 @@ Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbet
 
 Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4 die Sensoren zu viel Energie verbrauchen und V\_SUP abfällt. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstrierbar. Auszugehen ist, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
 
-
-
-
-\todo{correct space in table}
-% Values from V1
 \subsection{Verwendete Werte}
 \label{werte}
 
@@ -195,18 +194,20 @@ Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Se
 STS = 100 $\mu$F
 LTS = 3300 $\mu$F
 
-
-\subsubsection*{Tabelle Finale Konfiguration Schwellwerte }
-\begin{tabbing}
-    Register \quad\= Spannungswert \\[0.8ex]
-    v\_bat\_max\_hi       \> 3.8 V \\
-    v\_bat\_max\_lo       \> 3.7 V \\
-    v\_bat\_min\_hi\_dis  \> 3.6 V \\
-    v\_bat\_min\_hi\_con  \> 2.2 V \\
-    v\_bat\_min\_lo       \> 2.1 V \\
-    v\_appl\_max\_hi      \> 3.8 V \\
-    v\_appl\_max\_lo      \> 3.7 V \\   
-\end{tabbing}  
+\begin{minipage}{\textwidth}
+\captionof{table}{Schwellwerte Energy Management Bicycle Computer}
+    \begin{tabbing}
+        Register \quad\= Spannungswert \\[0.8ex]
+        v\_bat\_max\_hi       \> 3.8 V \\
+        v\_bat\_max\_lo       \> 3.7 V \\
+        v\_bat\_min\_hi\_dis  \> 3.6 V \\
+        v\_bat\_min\_hi\_con  \> 2.2 V \\
+        v\_bat\_min\_lo       \> 2.1 V \\
+        v\_appl\_max\_hi      \> 3.8 V \\
+        v\_appl\_max\_lo      \> 3.7 V \\   
+        mpp-ration            \> 60\thinspace\%
+    \end{tabbing}
+\end{minipage}  
 
 
 
@@ -214,13 +215,40 @@ LTS = 3300 $\mu$F
 
 Bei der Entwicklung werden die Energiewerte für die gemessen. Diese werden in der untenstehenden Abbildung \ref{r_bild_e_zusammenfassung} zusammen mit der Energielieferung am EM8500-Chip zusammengestellt. Diese Abbildung fasst zusammen, bei welchen Geschwindigkeit nach welcher Zeit, welche Daten gesendet werden. 
 
+\subsection{Energiebilanz Bicycle Computer}
+
+
+\subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
+
+Der zur Verfügung stehenden Energie wird der minimale Aufwand (Sockelbetrag und Geschindigkeit) abgezogen. \todo{Gleichung einfügen}
+Für einen Neustart, bei dem die Kondensatoren noch nicht geladen sind, ergibt sich folgende Energiebilanz (siehe Tabelle xxx) nach 10 Sekunden:
+
+\begin{minipage}{\textwidth}
+\captionof{table}{Energiebilanz Bicycle Computer nach 10 s}
+    \begin{tabbing}
+        Geschwindigkeit \quad\= Energieabgabe EM8500\_out  \quad\= mit Sockelbeitrag STS\\[0.8ex]
+        10 km/h      \> 54.4   $\mu$J        \> Rechnung = 274.9  $\mu$J\\
+        15 km/h      \> 209.1  $\mu$J        \> 429.6  $\mu$J\\
+        20 km/h>     \> 413.9  $\mu$J        \> 634.4  $\mu$J\\
+        40 km/h>     \> 1707.5 $\mu$J        \> 1928.0 $\mu$J\\
+    \end{tabbing}
+\end{minipage} 
+
+Startet man den Bicycle Computer neu, genügen braucht es 20 km/h, um nach 10 s ein Geschwindigkeitspaket zu erhalten. 
+
+\subsubsection{Energiebilanz nach 5 min Fahrradfahren}
+
+\begin{equation}
+  E_{Laden STS}= 100, \mu F \times \frac{1}{2}\, (2.1)^2 = 100, \mu F \times \frac{1}{2}\, 4.41 = 220.5, \mu F
+\end{equation}
+
+
+
 \subsection{Energieaufwand pro Aufgabe}
 
 Als Zusammenfassung des Energieverbrauchs dokumentiert die Abbildung \ref{energie_zsm} den Energieverbrauch für das Senden von Daten ab dem ungeladenen Zustand der Speicher. Die Kurve E\_Sensortag nach 10 s ist das Produkt der gemessenen Leistungswerte am EM8500-Ausgang (siehe Tabelle \ref{resultat_Zsm_Energy}) aufgerechnet als Energiewert nach 10 s und der Addition des Sockelbetrags, für das einmalige Aufladen von STS auf den Schwellwert von v\_bat\_min\_lo mit 2.1 V. Die Umrechnung zum Energiewert stehen in der Tabelle Unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}, da die Werte aus der Abbildung nicht präzis abgelesen werden können und die Berechnung des Sockelbetraqs von xxxxx $\mu$J in der untenstehenden Gleichung.
 
 Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets mit und ohne Sensordaten eingetragen. Die Initialisierung und das Refreshen sind als violetter Sockelbetrag eingetragen. Auf diesen wird das Berechnen bzw. Auslesend der Daten und das Versenden, grauer Balken, dazuaddiert. Die Werte beziehen sich auf die Tabelle der Energiemessungen der Version V4 des TI-SensorTags (\ref{erst_EMessungen}). Die zweite Tabelle unterhalb der Abbildung \ref{r_bild_e_zusammenfassung} zeigt die Berechnung der Balken.
-
-
 
 \begin{figure}[ht]
      \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}\label{resultat_Zsm_Energy} 
@@ -228,73 +256,37 @@ Auf der y-Achse sind die Minimalwerte für das ab Start Senden eines BLE-Pakets 
      \label{r_bild_e_zusammenfassung}
 \end{figure}
 
-
-\subsubsection*{Energie Sensortag in 10 s}
-\begin{tabbing}
-    Geschwindigkeit \quad\= Energieabgabe EM8500\_out  \quad\= mit Sockelbeitrag STS\\[0.8ex]
-    10 km/h      \> 54.4   $\mu$J        \> 274.9  $\mu$J\\
-    15 km/h      \> 209.1  $\mu$J        \> 429.6  $\mu$J\\
-    20 km/h>     \> 413.9  $\mu$J        \> 634.4  $\mu$J\\
-    40 km/h>     \> 1707.5 $\mu$J        \> 1928.0 $\mu$J\\
-\end{tabbing}  
-
-\begin{equation}
-  E_{Laden STS}= 100, \mu F \times \frac{1}{2}\, (2.1)^2 = 100, \mu F \times \frac{1}{2}\, 4.41 = 220.5, \mu F
-\end{equation}
-
-
-\subsubsection*{Tabelle Energieverbrauch nach Aufgaben}
-\begin{tabbing}
+\begin{minipage}{\textwidth}
+\captionof{table}{Energieverbrauch nach Aufgaben}
+    \begin{tabbing}
     Funktionsblöcke \quad\= Energieverbrauch \\[0.8ex]
     Einmaliges Laden der Kondensatoren auf TI-SensorTag        \> 63.2 $\mu$J\\
     Initialisierung + Refresh-Zyklen                           \> 77 $\mu$J + 13 $\mu$J = 90 $\mu$J\\
     Neustart = Laden Kondensatoren + Init + Refreshen          \> 63.2 $\mu$J + 90 $\mu$J = 153.2 $\mu$J\\
     Neustart + Geschwindigkeit und BLE-Paket                   \> 90 $\mu$J + 33 $\mu$J = 123 $\mu$J\\
     Neustart + Druck + Geschwindigkeit und Daten mit BLE-Paket \> 90 $\mu$J + 5 $\mu$J+ 43 $\mu$J = 138 $\mu$J\\
-\end{tabbing} 
+    \end{tabbing}
+\end{minipage}
 
 
-
-%Die Lösung ist das Aufsplitten von Aufgabenblöcken. Bei genug Energie, wird nicht ein Sensor gestartet, ausgelesen und seine Daten versendet, sondern der Sensor wird gestartet, dann geht das System schlafen, bis dass LTS voll ist. Dann folgt der nächste Aufgabe: die Werte auslesen. Es wird wieder geschlafen und beim dritten Mal genügend Energie wird das Paket versendet. Das Konzept des Schlaffens zwischen Aufgabeblöcken ist im theoretischen Teil im Unterkapitel \ref{pm_sleep} im Abschnitt \ref{schlafen_theorie} beschrieben . Die Abbildung \ref{arbeitsaufteilung} zeigt, das Aufteilen der Arbeitsschritte: Zuerst folgt die Initialisierung des Sensors, dann folgt das Auslesen der Daten und zum Schluss das Senden der Werte.
-%
-%\todo{Bild Arbeitsaufteilung }
-%\begin{figure}[ht]
-%    \includegraphics[width=0.4\textwidth]{idle.png}
-%    %\includegraphics[width=0.1\textwidth]{4Resultate/imag/SpannungVCC.png} 
-%    \caption{Aufteilen in drei Schritte bis zum Senden der Daten}
-%    \label{arbeitsaufteilung}
-%\end{figure}
-%
-%% ev. Grossaufnahme: BLE Energieverbrauch
-%
-%Das Ergebnis ist in der Abbildung \ref{Sensor_Energie} graphisch dargestellt. Es zeigt sich, dass das Senden von Sensordaten \todo{Wert eintragen Tabelle und Text} xx mal mehr Energie verbrauchen, als das Senden der Geschwindigkeit. Die schlechteste Bilanz hat das Auslesen des Status Registers aus dem EM8500-Chip. In diesem Byte ist hinterlegt, welche Schwellwerte des EM8500 überschritten wurden und dient dadurch auf einfache Art dem Abbilden des aktuellen Energiezustands (siehe Unterkapitel \ref{v_energiezustand}). 
-%
-%\begin{figure}[ht]
-%    \includegraphics[width=0.4\textwidth]{idle.png}
-%    %\includegraphics[width=0.5\textwidth]{4Resultate/imag/FakeLTSEntaden.png} 
-%    \caption{LTS liefert Energie für die Arbeitspakete}
-%    \label{Sensor_Energie}
-%\end{figure}
-%
-
-
-
-Folgende Resultate werden mit dem produzierten Prototyp erzeugt:
+(Folgende Resultate werden mit dem produzierten Prototyp erzeugt:)
 
 \todo{ genauere Angaben nach Endmessungen}
 
-\begin{enumerate}
+\begin{minipage}{\textwidth}
+\captionof{table}{Resultate Bicycle Computer}
+    \begin{enumerate}
     \item Das Übermitteln der Geschwindigkeit ist ab 10 km/h möglich
     \item Das Übermitteln aller Sensordaten (gestaffelt) ist ab xxx km/h möglich
     \item Das Übermitteln aller Sensordaten braucht bei einer Geschwindigkeit von 10 km/h xxxx s
     \item Das Übermitteln aller Sensordaten braucht bei 40 km/h xxx s
-\end{enumerate}
+    \end{enumerate}
+\end{minipage}
 
 
 Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Sockelbetrag zum Starten des Systems. Der Short Time Storage muss zuerst auf die Höhe des Schwellwerts zur Speisung der Applikatin geladen werden. Dies bedeutet einen einmaligen Energieaufwand von 220 $\mu$J. Die Kondensatoren des TI-SensorTags müssen zu Beginn ebenfalls geladen werden. Dies sind weitere 63.2 $\mu$J. Zudem braucht die Initialisierung und das Refreshen zusammen in den ersten 10 s 90 $\mu$J. Zusammen ergibt dies einen Grundenergieverbrauch ab Start von 373.3 $\mu$J. Dies ist bei einer Geschwindikeit von 10 km/h erst nach xxx s möglich.
+
 \todo{Zeit bei 10km/h eintragen. Abschlusssatz besser}
-
-
 
 
 
@@ -344,16 +336,17 @@ Die Zahl des Radumfangs kann über die Tastatur in das Feld eingegeben, es könn
 
 Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei Temperatursensoren auf dem TI-SensorTag einheitlich zu hohe Werte ausgeben. Der zu hohe Temperaturwert liegt am Aufbau des Prototypen. TI-SensorTag und Print liegen nahe aufeinander und es entsteht Wärme im Zwischenraum. Der Benutzer oder die Benutzerin kann den korrekten Wert im Kalibrationsfeld eingeben. Die nächste Temperatur, die empfangen wird, wird mit dem eingetragenen Wert verglichen und ein Offset wird eingestellt. Wird keine Kalibration eingetragen, wird die Temperatur nicht kalibriert und der Offset bleibt unverändert.
 
-\subsubsection*{Auswählbare Einheiten}
-\begin{tabbing}
+\begin{minipage}{\textwidth}
+\captionof{table}{Auswählbare Einheiten}
+    \begin{tabbing}
     Temperatur     \quad\= Geschwindigkeit            \quad\= Druck \\[0.8ex]
     Celsius (C)    \> Kilometer pro Stunde (km/h)\> Pascal (haP)\\
     Fahrenheit (F) \> Miles per hour (mph)       \> Bar (bar)\\
     Kelvin (K)     \>                            \> Atmosph\"{a}re (atm)\\
                    \>                      \> Pound-Force per sqare inch (psi)\\
                    \>                      \> Millimeter Quecksilber (mmHG)\\
-\end{tabbing} 
-
+    \end{tabbing}
+\end{minipage}
   
 Die vorgenommenen Einstellungen werden über den Button \glqq Speichern\grqq gesichert. Danach werden die eingelesenen Sensordaten in den ausgewählten Einheiten dargestellt.
 
@@ -361,8 +354,9 @@ Die vorgenommenen Einstellungen werden über den Button \glqq Speichern\grqq ges
 
 TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
 
-\subsubsection*{Paketverlust BLE-Applikation}
-\begin{tabbing}
+\begin{minipage}{\textwidth}
+\captionof{table}{Paketverlust BLE-Applikation}
+    \begin{tabbing}
     Messperiode \quad\= Gesendete Pakete \quad\= Empfangene Pakete \quad\= Paketverlust\\[0.8ex]
     1 min  \> 38   \> 35 \> 7.9\thinspace\%  \\
     1 min  \> 37   \> 31 \> 16.2\thinspace\%  \\
@@ -371,8 +365,9 @@ TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen w
     5 min  \> 193   \> 168 \> 13.0\thinspace\%  \\
     5 min  \> 190   \> 158 \> 16.8\thinspace\%  \\
     10 min  \> 345   \> 301 \> 12.8\thinspace\%  \\
-    10 min  \> 349   \> 302 \> 13.5\thinspace\%  \\
-\end{tabbing} 
+    10 min  \> 349   \> 302 \> 13.5\thinspace\%
+    \end{tabbing}
+\end{minipage}
 
 \subsection{Korrektheit der Daten}
 
