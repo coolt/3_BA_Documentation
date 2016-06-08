@@ -100,7 +100,7 @@ Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgabe
 
 Im Resultatsteil Kapitel \ref{ch_resultat} werden die Fortschritte in diesen vier Punkten ausgewiesen.
 
-\subsection*{Vertiefung in auffälliges Verhalten des Harvestereingangs}\label{auffaellig} 
+\subsection{Vertiefung Harvestereingangs}\label{auffaellig} 
 
 Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, einer zu grossen Kapazität am Eingang des EM-Chips, hingewiesen. Laut seiner Aussage sollte der Kondensator am Eingang des EM-Chips, bzw. dem Ausgang des Harvesters am besten kleiner sein als 4.7 $\mu$F. Bisher wurde im Aufbau der Machbarkeitsstudie ein Kondensator mit 470 $\mu$F verwendet. Herr Ivex Théoduloz meinte, dass dieser Kondensator viel zu gross sei und dass die Regelung am Eingang des EM-Chips möglicherweise nicht richtig funktionieren würde. Daher wurde dieses Problem näher untersucht und in mehreren Schritten optimiert.
 
@@ -139,8 +139,6 @@ Problematisch ist, dass die Spannung am Eingang des EM8500-Chip wiederholt unter
 Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessung keine korrekten Messwerte erhält. Sobald die Last vom Harvesterausgang abgehängt wird, steigt die Spannung über dem Kondensator, jedoch wird die Open Loop Spannung bei einer grossen Kapazität nicht erreicht, da die Zeit, bis der Kondensator komplett geladen ist, sehr gross ist. Jedoch bedeutet eine niedrige Kapazität, dass die Rippelspannung relativ hoch ist und je nach Zeitpunkt der Open Loop Messung eine andere Spannung am Kondensator ergibt und die Spannung am Kondensator steigt bei jeder Messung auf ein anderes Spannungslevel.
 
 Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Der Kondensator sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open Loop Messung keine richtigen Werte liefert. Der Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
-
-
 
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
@@ -203,7 +201,7 @@ Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau rea
 
 Die Harvesterschaltung der Abbildung \ref{schema_harvester_pa15} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne unnötig Leistung zu verschwenden.
 
-\subsubsection{EM-Chip}
+\subsubsection{EM8500-Chip}
 
 Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, das Schema inklusive aller Kondensatoren ist im Datenblatt zu finden. Jedoch wurden die Jumper nicht übernommen und nur einige Stecker wurden übernommen, bzw. mit eigenen Signalen ergänzt.
 
@@ -301,7 +299,7 @@ Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die
 
 \subsubsection{Der Limiter}
 
-Die Spannungsbegrenzung, nachfolgend der Limiter genannt, ist ein sehr krititscher Teil der Harvesterschaltung, da die Spannung am EM-Chip Eingang nicht höher als 2 V sein darf, da ansonsten der EM-Chip beschädigt werden kann. Trotzdem soll möglichst wenig Energie verloren gehen, wenn die Spannungsbegrenzungsschaltung ihre Arbeit verrichtet. Bisher wurden drei Dioden in Durchlassrichtung in Serie geschalten, um die Spannung zu begrenzen.
+Die Spannungsbegrenzung, nachfolgend der Limiter genannt, ist ein sehr krititscher Teil der Harvesterschaltung, da die Spannung am EM-Chip Eingang nicht höher als 2 V sein darf, da ansonsten der EM-Chip beschädigt werden kann. Trotzdem soll möglichst wenig Energie verloren gehen, wenn die Spannungsbegrenzungsschaltung ihre Arbeit verrichtet. Bisher wurden drei Dioden in Durchlassrichtung in Serie geschaltet, um die Spannung zu begrenzen.
 
 Herr Erich Ruff hat eine Spannungsbegrenzungsschaltung entwickelt, welche er uns freundlicherweise zur Verfügung stellte. Diese Schaltung wurde mit dem Limiter verglichen, welcher aus drei Dioden bestand.
 
@@ -338,7 +336,7 @@ der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist ca. 1.0 m$\Omega$
 
 Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
 
-Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Paltzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
+Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
@@ -347,7 +345,7 @@ Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Le
 
 \subsubsection{Das erste Layout}
 
-Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5mm angeordnet und die Netze der Spannung nach dem Harvester. Die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33x42mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
+Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5 mm angeordnet und die Netze der Spannung nach dem Harvester. Die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33 x 42 mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
 
 \subsubsection{Das Redesign}
 
@@ -396,7 +394,7 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
   \label{EnergieMessungStellen} 
 \end{figure}
 
-\todo{Fehler: \Label without caption}
+\todo{Fehler:  Label without caption}
 
 \subsection{Testen der Harvesterschaltung}
 
@@ -421,11 +419,11 @@ Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um di
 	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%
 \end{tabbing}
 
-Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
+Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPP-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPP-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
 
-\subsubsection{Test: stärkere Spule}
+\subsubsection{Testen der Spule}
 
-Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
+Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis an hin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
 \captionof{table}{Leistung mit unterschiedlichen Spulen}
 \begin{tabbing}
@@ -435,7 +433,7 @@ Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen
 	
 \end{tabbing}
 
-Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37 \% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
+Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37\thinspace\% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
 
 \begin{equation}
 	L = \mu_0 \times \frac{N^2\times A}{l}
@@ -449,9 +447,9 @@ Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivit�
 	neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
 \end{equation}
 
-Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannung von der Wicklungszahl abhängt, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41 \% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
+Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannung von der Wicklungszahl abhängt, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41\thinspace\% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
 
-\subsubsection{Test: mehrere Magnete in Serie}
+\subsubsection{Testen Magnete in Serie}
 
 Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
 
@@ -479,12 +477,11 @@ Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wi
 \end{figure}
 
 
-\subsection{Ausmessen der Leistung der endgültigen Hardware}
+\subsection{Ausmessen der Leistung endgültige Hardware}
 
 Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
 
-%\begin{minipage}{\textwidth}
-
+\begin{minipage}{\textwidth}
 \captionof{table}{Leistung des Prototypen}
 \begin{tabbing}
     Geschwindigkeit   	\quad\= maximale Leistung    \\[0.8ex]
@@ -493,10 +490,11 @@ Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, d
 	20 km/h		        \> 116.69 $\mu$W\\
 	40 km/h		        \> 472.61 $\mu$W\\
 \end{tabbing}
+\end{minipage}
 
 Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlich verbessert werden. 
 
-\subsection{Ausmessen der Energieabgabe des EM8500-Chips}
+\subsection{Ausmessen der Energieabgabe EM8500-Chip}
 
 Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
 
