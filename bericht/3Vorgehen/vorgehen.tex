@@ -77,7 +77,7 @@ Im Folgenden werden die einzelnen Spannungsverläufe chronologisch der Kanalnumm
 
 Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch (Details zu den Schwellwerten im Kapitel Theoretische Grundlagen \ref{t_energy_management}). Der hohe Wert erklärt sich durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie für weitere 5 Datenpakete gespeichert.
 
-In der Auswertung fiel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit von 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Inpulsen, ergibt sich die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgaben nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
+In der Auswertung fiel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit von 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung \ref{spannungMachbarkeit}\todo{Referenz überprüfen}gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Inpulsen, ergibt sich die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgaben nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
 
 
 Kanal 3, das rosa Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
@@ -302,7 +302,7 @@ Die Spannungsbegrenzung, nachfolgend der Limiter genannt, ist ein sehr krititsch
 
 Herr Erich Ruff hat eine Spannungsbegrenzungsschaltung entwickelt, welche er uns freundlicherweise zur Verfügung stellte. Diese Schaltung wurde mit dem Limiter verglichen, welcher aus drei Dioden bestand.
 
-Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem LImiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung x zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
+Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem LImiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung \ref{messung_optimierung_limiter} zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -385,7 +385,7 @@ Die Punkte c bis e, welche den Stecker X1 betreffen konnten vor Abschluss noch �
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
-Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung x ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}). 
+Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung \ref{EnergieMessungStellen} ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}). 
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               
@@ -396,6 +396,7 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
 \subsection{Testen der Harvesterschaltung}
 
 \subsubsection{Leistungsverifizierung}
+\label{leistungsverifizierung}
 
 Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
@@ -418,9 +419,9 @@ Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um di
 	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%
 \end{tabbing}
 
-Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPP-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPP-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80 \% akzeptiert.
+Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPP-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPP-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80\thinspace\% akzeptiert.
 
-\subsubsection{Testen der Spule}
+\subsubsection{Testen der Spule}\label{starkeSpule}
 
 Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis an hin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
@@ -450,9 +451,9 @@ Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannun
 
 \subsubsection{Testen Magnete in Serie}
 
-Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{Referenz einfügen}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
+Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{ausgang}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
 
-Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100 \% entsprach.
+Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100\thinspace\% entsprach.
 
 \captionof{table}{Leistung mit unterschiedlicher Anzahl an Magneten}
 \begin{tabbing}
@@ -461,7 +462,7 @@ Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die 
 	Spule Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
 \end{tabbing}
 
-Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
+Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung \ref{zweiMagneteInSerie} zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -478,7 +479,7 @@ Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wi
 
 \subsection{Ausmessen der Leistung endgültige Hardware}
 
-Gemäss dem vorangegangen Kapitel \todo{Referenz einfügen} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
+Gemäss dem vorangegangen Kapitel \ref{starkeSpule} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Leistung des Prototypen}
@@ -498,7 +499,7 @@ Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlic
 
 Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
 
-Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand, messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung x zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war, konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
+Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand, messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung \ref{EnergieEMChip15kmh} zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war, konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
 
 \begin{equation}
 	E = \frac{U^2}{R}  \times \Delta t
@@ -537,7 +538,7 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 
 Die Entwicklung ist konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (TI-SensorTag). Für die Energiemessungen wird der Power Analyser von Agilent Electronic N6705B mit der Serienummer MY50000795 gebraucht. Dieses Messgerät misst gleichzeitig Strom, Spannung und Leistung im Zeitverlauf. Annäherungen aus den KO-Messungen sind nicht mehr notwendig.
 
-In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen dargestellt. Mehr Messgraphiken und Erklärungen sind in der Datei \todo{referenz} abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
+In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen dargestellt. Mehr Messgraphiken und Erklärungen sind in der Datei \cite{messung_energie_sensortag} abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
 
 
 \subsubsection{Überblick Energiemessungen}
@@ -575,7 +576,7 @@ Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeig
     \label{i2c_problem}
 \end{figure}
 
-Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel (\ref{powerOptimierung} Power Management) zusammengefasst. Bei der Version V4 zeigt sich, dass die Funktion BLE-Send, zu der auch das Einlesen der Sensordaten gehört, ein Zuwachs von 50 \% an Energiebedarf bewirkt. 
+Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel (\ref{powerOptimierung} Power Management) zusammengefasst. Bei der Version V4 zeigt sich, dass die Funktion BLE-Send, zu der auch das Einlesen der Sensordaten gehört, ein Zuwachs von 50\thinspace\% an Energiebedarf bewirkt. 
 
 
 
@@ -716,7 +717,7 @@ Der Wert wird aufgerundet auf 100 $\mu$ F, um genügend Energie zu haben.
 
 \todo{Messprotokolle eintrage}
 
-Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum. Das Leistungsmaximum liegt beim entwickelten Bicycle Computer bei 21.87  $\mu$W. Die MPP-Ratio liegt beim MPP bei 24.87\thinspace\% (siehe \todo{Referenz einbauen}). Die MPP-Ratio liegt somit unter 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
+Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Messprotokoll \cite{messung_harvester_finish}). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum.\todo{Werte überprüfen, aus welchem Messprotokoll kommen die Werte?} Das Leistungsmaximum liegt beim entwickelten Bicycle Computer bei 21.87  $\mu$W. Die MPP-Ratio liegt beim MPP bei 24.87\thinspace\% (siehe \todo{Referenz einbauen}). Die MPP-Ratio liegt somit unter 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
 
 \begin{minipage}{\textwidth}
     \captionof{table}{MPPT-Ratio Einstellungen EM8500}
@@ -792,11 +793,11 @@ Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird
 
 \todo{Messprotokoll und Sitzungsprotokoll einfügen}
 
-Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll xxx und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Um eine Minimalspannung von 0.3 V bei niedrigen Geschwindigkeit zu garantieren wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
+Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll \cite{messung_inbetrieb_prototyp} und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Um eine Minimalspannung von 0.3 V bei niedrigen Geschwindigkeit zu garantieren wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
 
-Ein unerwartetes Verhalten des Drucksensors zeigt sich bei der Implementation des Auslesen. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an die Harvesterschaltung, riss die Spannung sofort zusammen. Innert kürzester Zeit entlädt sich der STS sowie der parallel geschaltene LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbidlung yyy im Resultat-Teil).
+Ein unerwartetes Verhalten des Drucksensors zeigt sich bei der Implementation des Auslesen. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an die Harvesterschaltung, riss die Spannung sofort zusammen. Innert kürzester Zeit entlädt sich der STS sowie der parallel geschaltene LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbildung \ref{r_bild_e_zusammenfassung}\todo{Referenz überprüfen} im Resultat-Teil).
 
-\todo{link zu Abbildung im Resultat Teil. Faktor ausrechnen}
+\todo{Faktor ausrechnen}
 
 Durch den deutlich höheren Energieverbrauch wird eine Power-Optimierung im Softwareteil notwendig. Es zwingt aber auch dazu, den Schwellwert von v\_bat\_min\_hi\_dis  wieder zu erhöhen. Die finale Konfiguration ist im Resultate-Teil abgebildet.
 
@@ -885,7 +886,7 @@ Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten 
 \subsection{Schlafenszeiten implementieren}
 \label{sleep_funktion}
 
-In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen xxx  xxx xx \todo{LInks}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung \ref{warten_zw_bloecken} zeigt der implementierte Codeablauf der TI-SensorTag Version V4, bei einer Geschwindikeit unter 50 km/h \todo{Geschwindikeit überprüfen}. Der Fall von einer Geschwindigkeit von über 50 km/h\todo{Geschwindikeit überprüfen}, bei der V\_SUP nicht mehr abstellt, ist im letzten Unterkapitel illustriert.
+In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen \ref{warten_zw_bloecken}\todo{referenz überprüfen}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung \ref{warten_zw_bloecken} zeigt der implementierte Codeablauf der TI-SensorTag Version V4, bei einer Geschwindikeit unter 50 km/h \todo{Geschwindikeit überprüfen}. Der Fall von einer Geschwindigkeit von über 50 km/h\todo{Geschwindikeit überprüfen}, bei der V\_SUP nicht mehr abstellt, ist im letzten Unterkapitel illustriert.
 
 \begin{figure}[ht]
   \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/schlafen_funktionen.png}
@@ -997,7 +998,7 @@ Nachfolgend wird der Aufbau von TI SensorTag zusammen mit unserem selbst entwick
     \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
 \end{figure}
 
-Der Aufbau der Applikation sollte am Anfang in vier Teile des Bildschirms geteilt werden. 
+Der Aufbau der Applikation sollte am Anfang in vier Teile des Bildschirms geteilt werden (siehe Abbildung \ref{aufbau_applikation_1}). 
 Im Bereich GPS soll eine Karte angezeigt werden. Ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
 Der Verlauf zeigt die Entwicklung der Geschwindigkeit über einen gewissen Zeitraum, wobei es wählbar sein soll welche Daten angezeigt werden.
 Die Geschwindigkeit soll anschaulich in einem Tachometer angezeigt werden und die Tachonadel soll im besten Fall animiert sein.
