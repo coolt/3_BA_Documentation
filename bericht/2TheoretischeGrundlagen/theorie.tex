@@ -7,7 +7,7 @@ Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnel
 % 2.1-------------------------------------------------------------------
 \section{Energy Harvesting}\label{t_harvesting} 
 
-\glqq Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.\grqq \todo{Abstand zu klein} \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting-Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den unterschiedlichen Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
+``Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.'' \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting-Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den unterschiedlichen Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
 
 \subsection{Energy-Harvesting-Methoden}\label{harv_arten} 
@@ -27,11 +27,9 @@ TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die au
 
 
 \subsection{Energy Harvesting über Bewegungsinduktion}\label{harv_bewegung} 
-Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben \cite{PA_bicycle} S.8.:
+Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben \cite{PA_bicycle} S.\,8.:
 
-\todo{kleiner Abstand vor S. 8}
-
-Befindet sich eine Spule in einem \textit{dynamischen} \glqq Magnetfeld\grqq, wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
+Befindet sich eine Spule in einem \textit{dynamischen} ``Magnetfeld'', wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
 
 \begin{equation}
     U_{ind}=-\frac{d}{dt}\intop A\,dB \ \label{Formel_induzSpannung} 
@@ -332,7 +330,7 @@ Das Verhalten, dass Prozessoren nach längerer Zeit ohne externe Input in den Sc
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
-Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig \glqq refreshed\grqq (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen \glqq rentention\grqq, siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
+Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``rentention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -360,7 +358,7 @@ Ein System kann intern seine Signale auswerten und aufgrund kombinatorischer Log
 
 \subsubsection{Aufwachen durch externe Events}
 
-Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Letzteres wird durch eine Entprellschaltung oder einer Entprelllösung in Software gelöst. Ansonsten können zu viele Interrupts das System absorbieren und es \glqq vehungert\grqq.
+Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Letzteres wird durch eine Entprellschaltung oder einer Entprelllösung in Software gelöst. Ansonsten können zu viele Interrupts das System absorbieren und es ``vehungert''.
 
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
