@@ -89,6 +89,8 @@
 %    \@startlot{lot}%
 %}
 
+\setlength\@fptop{0\p@} % when an image is left alone on the last page in the chapter, move it to the top of the page
+
 % Lists
 % =====
 % dashes instead of bullets for the lists
