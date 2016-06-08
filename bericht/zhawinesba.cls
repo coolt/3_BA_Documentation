@@ -45,7 +45,8 @@
 % ============
 \usepackage[sectionbib]{natbib} % bibl will be a section and not a chapter
 \bibliographystyle{abbrvnat}
-\setcitestyle{authoryear,open={(},close={)}}
+%\setcitestyle{authoryear,open={(},close={)}}
+\setcitestyle{authoryear,open={},close={}}
 
 % Titles tweaking
 % ===============
@@ -109,6 +110,10 @@
 % ==========
 %\let\oldpercent=\%
 %\renewcommand{\%}{\ifmmode\oldpercent\else\thinspace\oldpercent\fi}
+
+
+\usepackage[babel,german=swiss]{csquotes}
+%\MakeOuterQuote{"}
 
 % Title page
 % ==========
