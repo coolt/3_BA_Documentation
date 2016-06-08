@@ -1,0 +1,74 @@
+// Texpassagen aus: TI Dokumentation (mitgelierfert mit TI installation)
+SWRU393_CC2640_BLE_Software_Developers's_Guide.pdf
+(Text ist auch ausgedruckt)    S. 30
+
+Power Management
+In general, all power management functionality is handled by the peripheral drivers and the BLE protocol stack. This feature can be enabled / disabled by including / excluding the POWER_SAVING preprocessor define symbol. When POWER_SAVING is enabled, the device will come in and out of sleep as is needed for BLE events, peripheral events, application timers, etc. When POWER_SAVING is not defined, the device will stay awake. See Section 9.2 for steps to modify preprocessor defines.
+More information on power management functionality including the API and a sample use case for a custom UART driver can be found in the Power Management User’s Guide [8] included in the RTOS install. Note that these API’s will only likely be necessary in the case of a custom driver.
+Also see the Measuring Power Consumption App Note [3] for steps to analyze the system power consumption and battery life.
+3.8 Hardware Interrupts (HWI’s)
+Hardware interrupts (HWIs) handle critical processing that the application must perform in response to external asynchronous events. The SYS/BIOS target/device specific HWI modules are used to manage hardware interrupts. Specific information on the nesting, vectoring, and functionality of interrupts can be found in the Technical Reference Manual [2]. Furthermore, the SYS/BIOS User Guide details the HWI API and provides several software examples.
+In general, HWI’s are abstracted through the peripheral driver they pertain to (see the relevant driver in Section 6). An example of using GPIO’s as HWI’s can be found in Section [9]. This is the preferred method of using interrupts. Using the Hwi_plug() function, it is possible to write ISR’s which do not interact with SYS/BIOS. However, these ISR’s must do their own context preservation in order to prevent breaking the time-critical BLE Stack.
+In order for the BLE protocol stack to meet RF time-critical requirements, all application-defined HWIs execute at the lowest priority. For this reason, it is not recommended to modify the default HWI priority when adding new HWIs to the system.
+In general, there should be no application-defined critical sections in order to prevent breaking the RTOS or time-critical sections of the BLE protocol stack. Code executing in a critical section will prevent processing of real-time interrupt related events.
+3.9 Software Interrupts (SWI’s)
+See the SYS/BIOS User Guide for an API and detailed information about the SWI module. Software interrupts have priorities that are higher than tasks but lower than hardware interrupts (See Figure 14). Therefore, the amount of processing done in a SWI should be extremely limited as this processing will take priority over the BLE protocol stack task. As described in Section 3.4, the clock module uses SWI’s to preempt tasks. The only processing the clock handler SWI does is set an event and post a semaphore for the application to continue processing outside of the SWI. Whenever possible, the Clock module should be used to implement SWI’s. If necessary, a SWI can be implemented with the SWI module as described in the SYS/BIOS User Guide.
+Note that, in order to preserve the RTOS heap, the amount of dynamically created SWI’s should be limited as described in Section 3.11.6.
+
+
+---------------------------------------------------------------------------
+
+Anddere Referenz 
+****************
+aus: http://processors.wiki.ti.com/index.php/CC26xx_Family_SW_Quickstart_Guide
+Datum: 12.23.16
+
+CC26xx power management
+
+The CC26xx power management is handled by the TI-RTOS kernel, and detailed information can be found in the CC26xx power management user guide: <TI-RTOS-installation-path/docs/Power_Management_CC26xx.pdf>
+
+The kernel's background task will run whenever there are no other higher level tasks, SWI, or HWIs running. This background task will try to put the CC26xx into the lowest possible power saving mode, while still making sure all requested resources from the application are available.
+
+TI-RTOS implements 4 power saving modes which are described in full detail in the technical reference manual, but are listed here as a quick reference (where the most efficient power mode is listed last):
+
+    Active mode: CPU is running and all resources including radio is available.
+    Idle mode: CPU is in deep-sleep, but all resources including radio are available. CPU can wake up on any enabled interrupt source.
+    Standby: CPU is in deep-sleep, limited resources are available (radio cannot be used). CPU can wake up from a scheduled clock object, a pin interrupt or by the sensor controller.
+    Shutdown: CC26xx is shutdown, no resources are available (including sensor controller). CPU can only wake up from pin interrupt but device will boot from scratch.
+
+TI-RTOS peripheral drivers
+
+The TI-RTOS bundle also includes a set of peripheral drivers that are written to work specifically with TI-RTOS. These drivers provides a common API across multiple TI platforms which simplifies porting of pre-existing applications from other TI architectures.
+TI-RTOS peripheral drivers power management
+
+The drivers are written such that the CC26xx will enter the most efficient power mode while still supporting the resources being used by the application.
+
+Example: If the application initiates a UART write transaction and no other tasks are running, the CC26xx will enter the idle power mode to save current while transmitting the bytes. It will wake up (interrupt driven) from idle periodically to keep supplying bytes to the UART transmit FIFO, however for the majority of the time the CC26xx will remain in idle, thus saving power.
+
+If no UART transaction is in progress, and no tasks are running or ready to run, the device will enter standby to conserve as much power as possible.
+
+All drivers are built around the same principle of conserving power whenever possible, so there is no need to modify the drivers to support power management, it's already part of the current implementation.
+Including TI-RTOS peripheral drivers in application
+
+If the application wants to use a driver, the application should either:
+
+    Include the pre-compiled peripheral driver library found here: <TI-RTOS-installation-path/packages/ti/drivers/lib/drivers_cc26xxware.arm3>
+    Include the peripheral driver source code (header and source files) found here: <TI-RTOS-installation-path/packages/ti/drivers>
+
+TI-RTOS peripheral drivers documentation
+
+The drivers also includes Doxygen format documentation and use-case example code which is found here:
+<TI-RTOS-installation-path/docs/doxygen/html/index.html>
+Supported TI-RTOS peripheral drivers
+
+The following drivers are currently supported for the CC26xx:
+
+    UART
+    SPI
+    I2C
+    PIN/GPIO
+    CRYPTO (AES)
+    DMA (only used together with SPI)
+    LCD (builds on top of the SPI driver, to be used with SmartRF06 EB)
+
+

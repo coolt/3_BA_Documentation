@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg3055"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Neues Dokument 1">
+  <defs
+     id="defs3" />
+  <sodipodi:namedview
+     inkscape:document-units="mm"
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="-335.71429"
+     inkscape:cy="520"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:window-width="536"
+     inkscape:window-height="416"
+     inkscape:window-x="189"
+     inkscape:window-y="189"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3061" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3098"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\7Anhang\imag\powerDomain_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150">
+      <image
+         width="384"
+         height="437"
+         xlink:href="file:///C:/Users/katrin/Documents/Dokumente/ZHAW/5Jahr/3_BA_documentation/ressources/Anhang/Unbenannt2.png"
+         id="image3071"
+         x="0"
+         y="-504.63782" />
+      <image
+         width="1010"
+         height="725"
+         xlink:href="file:///C:/Users/katrin/Documents/Dokumente/ZHAW/5Jahr/3_BA_documentation/ressources/Anhang/Unbenannt1.png"
+         id="image3082"
+         x="-1050"
+         y="367.36218" />
+      <image
+         width="1013"
+         height="833"
+         xlink:href="file:///C:/Users/katrin/Documents/Dokumente/ZHAW/5Jahr/3_BA_documentation/ressources/Anhang/Unbenannt.png"
+         id="image3093"
+         x="-1040"
+         y="-500.63782" />
+    </g>
+  </g>
+</svg>

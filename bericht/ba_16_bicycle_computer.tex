@@ -1,23 +1,46 @@
-\documentclass[a4paper, 12pt]{book}
-\usepackage[ngerman]{babel}
-\usepackage[utf8]{inputenc}
+\documentclass[]{zhawinesba} 
 
+%\usepackage[final]{pdfpages}
 
-\title{Energy harvesting bicycle computer}
-\author{Katrin Bächli, Manuel König}
+%\graphicspath{{C:/Users/katrin/Documents/Dokumente/ZHAW/5Jahr/3_BA_documentation/ressources}}
+\graphicspath{{../ressources}}
 
+\title{Energy Harvesting Bicycle Computer}
+%\subtitle{Bachelorarbeit Elektrotechnik}
+\author{Katrin Bächli,\\Manuel König}
+\tutor{Prof. Dr. Marcel Meli}
+\cotutor{Herr Dario Dündar}
 
+%\includegraphics[scale=0.1]{0Titelblatt/road.png} 
+\newcommand{\titleImagePath}{0Titelblatt/road.png}
 
-\usepackage[sectionbib]{natbib} % bibl will be a section and not a chapter
-\bibliographystyle{abbrvnat}
-\setcitestyle{authoryear,open={(},close={)}}
+%\makeatletter
+%\let\oldpercent=\%
+%\renewcommand{\%}{\ifmmode\oldpercent\else\thinspace\oldpercent\fi}
+%\makeatother
 
 \begin{document}
+
+
+% hotfix for todos: 
+% https://forum.finf.uni-hannover.de/index.php?page=Thread&threadID=10377
+\setlength{\textwidth}{5.5in}    % temporär, original: 6.5in
+%setlength{\evensidemargin}{1.1in} % temporär, original: 0.1in
+\setlength{\marginparwidth}{3cm}  % for todos (so they don't get out of side}
+
+
 \maketitle
+
+\include{0Vorspann/abstract}
+\include{0Vorspann/zusammenfassung}
+\include{0Vorspann/vorwort}
+
 \tableofcontents
 \include{1Einleitung/einleitung}
 \include{2TheoretischeGrundlagen/theorie}
 \include{3Vorgehen/vorgehen}
+\include{4Resultate/resultat}
+\include{5Diskussion/diskussion}
 \include{6Verzeichnisse/verzeichnis}
 \include{7Anhang/anhang}
 

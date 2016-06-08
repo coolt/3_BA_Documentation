@@ -1,0 +1,334 @@
+﻿
+\begin_layout Standard
+Die wesentliche Eigenschaft einer Spule ist die Induktivität 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ An der Induktivität ist die Spannung 
+\begin_inset Formula $u$
+\end_inset
+
+ proportional zur zeitlichen Änderung des Stromes 
+\begin_inset Formula $i$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Induktivitaet"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u=L\cdot\frac{di}{dt}\label{eq:Spannung in Induktivität}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+i=\frac{1}{L}\intop u\,dt+I_{0}\label{eq:Strom in Induktivität}
+\end{equation}
+
+\end_inset
+
+Fliesst ein Strom in einer Spule, so entsteht ein Magnetfeld mit der Feldstärke
+ 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Wobei 
+\begin_inset Formula $N$
+\end_inset
+
+ die Anzahl Windungen der Spule beschreibt und 
+\begin_inset Formula $l$
+\end_inset
+
+ deren Länge.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+H=I\cdot\frac{N}{l}\label{eq:Feldstärke Spule}
+\end{equation}
+
+\end_inset
+
+Besteht ein Magnetfeld, so ergibt sich die Flussdichte 
+\begin_inset Formula $B$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mu_{r}$
+\end_inset
+
+, der magnetischen Materialkonstante und 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+, der magnetischen Feldkonstante.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+B=\mu_{r}\cdot\mu_{0}\cdot H\label{eq:Flussdicht Spule}
+\end{equation}
+
+\end_inset
+
+Die ideale Induktivität nimmt elektrische Energie auf und gibt diese als
+ elektrische Energie wieder ab.
+ Sie setzt keine Energie in Wärme um.
+ Die Energie 
+\begin_inset Formula $W$
+\end_inset
+
+ wird im magnetischen Feld gespeichert und beträgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+W=\intop u(t)\cdot i(t)\,dt+W_{0}\label{eq:Energie Spule}
+\end{equation}
+
+\end_inset
+
+Spulen sind in diversen Formen erhältlich.
+ Ein wichtiger Aspekt sind Spulen mit Eisenkern.
+ Ein Eisenkern hat folgende Konsequenzen:
+\end_layout
+
+\begin_layout Itemize
+bündelt den magnetischen Fluss 
+\begin_inset Formula $\phi$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+vergrössert die magnetische Flussdichte 
+\begin_inset Formula $B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eisenkern aus Blech: zur Verhinderung von Wirbelstromverlusten
+\end_layout
+
+\begin_layout Standard
+Ein weiterer Aspekt ist, der in Spulen eingesetzte Draht.
+ Dieser ist aus dem leitfähigen Material Kupfer und mit einem Lack abgeschirmt.
+ Es muss beachtet werden, dass der Draht nur bis zu einer bestimmten Stromstärke
+ belastet werden kann.
+ Je grösser der Durchmesser des Drahtes, desto grösser die maximale Stromstärke.
+ Ein Kupferdraht sollte die Stromdichte 
+\begin_inset Formula $J$
+\end_inset
+
+ von 1...5 A/mm2 nicht überschreiten, da er sich sonst zu stark erwärmt.
+\end_layout
+
+\begin_layout Subsection
+Induzierte Spannung
+\end_layout
+
+\begin_layout Standard
+Befindet sich eine Spule in einem dynamischen Magntetfeld, wird in der Spule
+ eine Spannung induziert.
+ Bei der induzierten Spannung 
+\begin_inset Formula $U_{ind}$
+\end_inset
+
+ in einer Spule, handelt es sich um eine Wechselspannung.
+ Sie liegt der dritten Maxwelschen Gleichung zu Grunde.
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist dabei die eingeschlossene Fläche durch die Spulenwicklungen 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Induktion"
+
+\end_inset
+%_______________________________________________________________________________
+.
+
+\begin{equation}
+U_{ind}=-\frac{d}{dt}\intop B\,dA\label{eq:Induzierte Spannung}
+\end{equation}
+
+\end_inset
+
+Geht man davon aus, dass die magnetische Flussdichte und die eingeschlossene
+ Fläche senkrecht aufeinander stehen und die Fläche durch eine Spule hervorgeht,
+ kann man das Integral ersetzen durch:
+\end_layout
+
+
+\begin{equation}
+\int B\,dA=\phi\cdot N=B\cdot A\cdot N\label{eq:Magnetischer Fluss - Induktion}
+\end{equation}
+
+
+
+Somit berechnet sich die induzierte Spannung in einer Spule durch:
+\end_layout
+
+
+\begin{equation}
+U_{ind}=-N\cdot\frac{d\phi}{dt}\label{eq:Induzierte Spannung (B senkrecht zu A)}
+\end{equation}
+
+
+Zusammengefasst kann man die induzierte Spannung beeinflussen durch:
+\end_layout
+
+\begin_layout Itemize
+die eingeschlossene Fläche 
+\begin_inset Formula $A$
+\end_inset
+
+ der Spule
+\end_layout
+
+\begin_layout Itemize
+die Bewegungsgeschwindigkeit 
+\begin_inset Formula $v$
+\end_inset
+
+ des Magneten, welche Einfluss auf 
+\begin_inset Formula $dt$
+\end_inset
+
+ hat
+\end_layout
+
+\begin_layout Itemize
+die magnetische Flussdichte des Magneten
+\end_layout
+
+\begin_layout Itemize
+die Anzahl Windungen der Spule
+\end_layout
+
+\begin_layout Section
+Vorgaben der Hardware
+\end_layout
+
+\begin_layout Subsection
+Power Management
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Power-Management"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da auf dem Markt im Bereich Power Management Chips bereits sehr viele Bauteile
+ erhältlich sind, wird der Power Management Chip für diese Arbeit vorgegeben.
+ Dabei handelt es sich um den im September 2015 erschienenen EM8500 von
+ EM-Microelectronics
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+siehe auf www.emmicroelectronics.com
+\end_layout
+
+\end_inset
+
+.
+ Dieser Chip ist ausgelegt für Energy Harvesting Quellen wie Solarzellen
+ oder Thermoelektrische Harvester, die einen Spannungsbereich von 0 V -
+ 2 V DC liefern.
+ Beide genannten Harvesting Quellen liefern einen Gleichstrom oder eine
+ Gleichspannung.
+ Die Schwierigkeit besteht nun darin, eine geeignete Hardware zu entwickeln,
+ um die induzierte Spannung in der Spule so aufzubereiten, dass daraus eine
+ Gleichspannung in dem gewünschten Bereich entsteht.
+ Weiteres zu diesem Chip kann im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Power-Management"
+
+\end_inset
+
+ und im Datenblatt im 
+\color black
+Anhang
+\color red
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Datenblätter"
+
+\end_inset
+
+ 
+\color inherit
+gefunden werden.
+\end_layout
+
+\begin_layout Subsection
+Microcontroller und Bluetooth
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Microcontroller-und-Bluetooth"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um sich in dieser Arbeit auf das Power Management und die Hardware für das
+ Harvesting zu fokussieren, wird der Microcontroller und der Bluetooth Chip
+ ebenfalls vorgegeben.
+ Hierfür bietet Texas Instruments 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+www.ti.com
+\end_layout
+
+\end_inset
+
+ einen Chip an, der einen Arm-Cortex M3 Microcontroller und einen Bluetoothchip
+ in einem Chip integriert hat.
+ Es handelt sich dabei um den CC2650.
+ Dieser Chip verspricht einen sehr geringen Stromverbrauch im Standby Modus.
+ Für diese Projektarbeit wird der TI-SenorTag gebraucht, welcher diesen
+ Chip und bereits verschiedene Sensoren auf einer kleinen Hardware integriert
+ hat.
+ Dies ist im Kapitel 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Ti SensorTag"
+
+\end_inset
+
+ genauer beschrieben.
+\end_layout
+
+\end_body
+\end_document

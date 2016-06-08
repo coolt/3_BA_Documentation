@@ -1,0 +1,32 @@
+Senden Sensortag
+-----------------
+Messdatum 25.2.16
+
+Impuls vom Velo:
+Speisung Board: 		2 V (Spannungsquelle)
+Speisung Reed-Relais: 	2 V (Spannungsquelle)
+Impuls:					1 V (Reed-Relais)
+App: 					keine Daten.
+
+
+
+Sensortag Energieverbrauch Prototyp  (Bild: Prototyp_Stromverbrauch)
+----------------------------------------------------------------------
+Messdatum 25.2.16
+
+Speisung Board: 		2 V (Spannungsquelle)
+Widerstand: 			1 Ohm/1%
+
+
+Sensortag Energieverbrauch Neues Sensortag (Bild: NeuesSensortag_Stromverbrauch)
+-----------------------------------------------------------------------------------
+Messdatum 25.2.16
+Speisung Board: 		2 V (Spannungsquelle)
+
+Widerstand: 			1 Ohm/1%
+
+
+
+Sensortag Anschlüsse
+--------------------
+Read-Relais Anschluss ist auf PIn 20 mit der Bezeichnung DP0 (Schematic: J2/Pin20). Auf dem Prozessor DIO25 (Pin38).
