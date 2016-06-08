@@ -127,7 +127,7 @@ Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH
 \label{tiefes_v}
 
 
-Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
+Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Nach rund 40 Sekunden sendet der Fahrrad-Computer neue Daten. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_3.PNG}
@@ -163,7 +163,7 @@ Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Ve
     \label{lts_ein}
 \end{figure}
 
-Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
+Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite Connected Mode Beschreibung im EM8500 Datenblatt}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_5.PNG}
@@ -181,7 +181,7 @@ Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbet
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic1.PNG}
-    \caption{Paralleles Entladen der Kondensatoren}
+    \caption{Paralleles Entladen und Wiederaufladen der Kondensatoren}
     \label{parallel_entladen}
 \end{figure}
 
@@ -241,9 +241,9 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pe
 \captionof{table}{Energieverbrauch nach Aufgaben}
     \begin{tabbing}
     Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
-    Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle xxx\\
-    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle xxx\\
-    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J+ 43 $\mu$J = 49 $\mu$J    \> Tabelle xxx\\
+    Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle \textbf{xxx}\\
+    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle \textbf{xxx}\\
+    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J+ 43 $\mu$J = 49 $\mu$J    \> Tabelle \textbf{xxx}\\
     Gesamtverbrauch TI-SensorTag     \>     \> 203 $\mu$J    \> Gleichung \ref{eq:e-high-e-low}\\
     \end{tabbing}
 \end{minipage}
@@ -257,7 +257,7 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Ap
 \label{tab_zeit_aufsummiert}
     \begin{tabbing}
     Zeit  \quad\=  Energievorrat \quad\= Quelle\\[0.8ex]
-    10 s  \> 54.4 $\mu$J   \>  Messung xxxx \\
+    10 s  \> 54.4 $\mu$J   \>  Messung \textbf{xxxx} \\
     20 s  \> 108.8 $\mu$J  \> \\
     30 s  \> 163.2 $\mu$J  \> \\
     40 s  \> 217.6 $\mu$J  \> \\
@@ -283,14 +283,12 @@ Die zur Verfügung stehende Energie ändert sich mit zunehmender Geschwindigkeit
 % Startet man den Bicycle Computer neu, genügen braucht es 20 km/h, um nach 10 s ein Geschwindigkeitspaket zu erhalten. 
 Zusammenfassend lassen sich über den Protoypen eines Fahrrad-Computers sagen:
 
-\todo{ genauere Angaben nach Endmessungen}
-
 \begin{minipage}{\textwidth}
 \captionof{table}{Resultate Bicycle Computer}
     \begin{enumerate}
     \item Das Übermitteln der Geschwindigkeit und Sensordaten ist ab 10 km/h möglich
-    \item Das Übermitteln der Daten braucht bei einer Geschwindigkeit von 10 km/h gut 40 s
-    \item Bei einer Geschwindigkeit von 40 km/h werden die Daten alle xxx s aktulisiert
+    \item Das Übermitteln erster Daten braucht bei 10 km/h gut 40 s.
+    \item Bei einer Geschwindigkeit von 40 km/h werden die Daten alle 2 s aktulisiert
     \end{enumerate}
 \end{minipage}
 
