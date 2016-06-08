@@ -17,6 +17,8 @@
 \usepackage{tocloft} % for cftaddtitleline
 \usepackage{todonotes}
 
+\usepackage{emptypage} % do not put a page number on empty pages
+
 \usepackage[fleqn]{amsmath} % for multiline equations, [left aligned]
 
 % Page
