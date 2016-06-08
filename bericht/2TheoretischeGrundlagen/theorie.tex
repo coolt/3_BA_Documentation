@@ -321,18 +321,18 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
 
 Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_sensortag}.
 
-\subsection{Einbauen von Schlaufmodi}\label{pm_sleep} 
+\subsection{Einbauen von Schlafmodi}\label{pm_sleep} 
 
 Low Power Microcontroller können Gebiete des Prozessors oder von Peripherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereiche aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
 
-Das Verhalten, dass Prozessoren nach längerer Zeit ohne externe Input in den Schlafmodus gehen, ist typische Verhalten für Low-Power-Prozessoren. Bei einer optimierten Ultra-Low-Power-Applikation geht der Prozessor nach kleinsten Ausführungsblöcken schlafen. So gehört nach dem Aufwecken einer Peripherie, das Aktivieren des Schlafmodus derselben dazu. In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Moduses konzeptionell erklärt.
+Das Verhalten, dass Prozessoren nach längerer Zeit ohne externe Input in den Schlafmodus gehen, ist typische Verhalten für Low-Power-Prozessoren. Bei einer optimierten Ultra-Low-Power-Applikation geht der Prozessor nach kleinsten Ausführungsblöcken schlafen. So gehört zum Aufwecken einer Periphierie, das Schlafen aller anderen Power Domains. Und nach dem Aufwecken der Peripherie, geht diese selbst auch wieder in den Schlafmodus. In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Moduses konzeptionell erklärt.
 
 \subsubsection{Schlafen zwischen Ausführungen}
 \label{schlafen_theorie}
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
-Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig \glqq refreshed\grqq. (Zu den unabdingbaren Aktivitäten eines laufenden Microkontrollers gehört das Refreshen (Neuladen) der Register mit den Systemeinstellungen. Diese Refreshing-Peaks sieht man im Standby Modus.)  Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Spannungsspitzen zu sehen. Ohne "refreshen" des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
+Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig \glqq refreshed\grqq (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen \glqq rentention\grqq, siehe Anhang xx\todo{Link TI Power Domain 2 einfügen}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -341,7 +341,7 @@ Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (
 \end{figure}
 
 \subsubsection{Schlafen innerhalb einer Aktion}
-Bei einer Applikation im $\mu$ - oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip mit UML dargestellt.
+Bei einer Applikation im $\mu$ - oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip als Flussdiagramm dargestellt.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
@@ -356,20 +356,11 @@ Zum Schlafen gehört auch ein Aufwachen. Dies ist ein nicht-triviales Problem, w
 
 \subsubsection{Aufwachen durch interne Interrupts}
 
-Ein System kann intern seine Signale auswerten und aufgrund kombinatorischer Logik, dem Erreichen eines Schwellwertes oder dem Ablaufen eines Timers, aufwachen. Solche Wakeups sind fix und unabhängig von äusseren Einflüssen. Ein System mit internen Interrupts ist determinierbar. Das heisst, der Empfang interner Interrupts ist präzis (nur einmalig und kein Prellen) und kann über Prioritäten gut geregelt werden.
+Ein System kann intern seine Signale auswerten und aufgrund kombinatorischer Logik, dem Erreichen eines Schwellwertes oder dem Ablaufen eines Timers, aufwachen. Solche Wakeups sind fix und unabhängig von äusseren Einflüssen. Ein System mit internen Interrupts ist determinierbar. Das heisst, der Empfang interner Interrupts ist vorhersehbar und kann über Prioritäten geregelt werden.
 
 \subsubsection{Aufwachen durch externe Events}
 
-Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Das Löschen der eingegangenen Interrupts und das Prüfen, ob ein Event nicht zu oft verarbeitet wird, muss bewerkstelligt werden. Löst eine Quelle Interrupts über längere Zeit aus, kann dies das System absorbieren und schlimmstenfalls den Systemablauf aus dem Rhythmus bringen.
-
-%\subsection{State Machine für definierte Abläufe}\label{pm_state_machine} 
-%Low Power Applikationen enthalten viele Interrupts. Jede grössere Tätigkeit braucht das Aktivieren mehrerer Schnittstellen, die alle aufgeweckt und aufeinander abgestimmt werden. Da die Codeausführung nicht sequentiell verläuft, sondern Ausführungen in den Interrupt-Handlern stehen, ist ein Überblick der Abhängigkeiten nicht einfach ersichtlich. Um unerwünschte Effekte zu vermeiden, kann eine State Machine implementiert werden. Diese stellt sicher, dass nur aufgrund von gewissen Signalen, ein Aktion ausgeführt wird. Alle anderen Effekte werden ignoriert. Die Abbildung \ref{t_stateMachine} zeigt die definierte Abhängigkeiten durch eine State Machine.
-%
-%\begin{figure}[ht]
-%    \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/StateMachineGrundlage.png}
-%    \caption{Struktur durch State Machine}
-%    \label{t_stateMachine} 
-%\end{figure}
+Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Letzteres wird durch eine Entprellschaltung oder einer Entprelllösung in Software gelöst. Ansonsten können zu viele Interrupts das System absorbieren und es \glqq vehungert\grqq.
 
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
