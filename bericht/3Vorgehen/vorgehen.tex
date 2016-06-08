@@ -845,99 +845,118 @@ Bei etwas mehr Energie befindet sich das System in einem Zwischenzustand (Abbild
   \label{HIGH_ENER}
 \end{figure}
 
-%\subsubsection*{Energiezustände umgesetzt in Software}
-
 
 % 4 ---------------------------------------------------------------------------
 \section{Power Management}
 \label{powerOptimierung}
 
-Das Power Management wird mit dem TI-SensorTags umgesetzt. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, auf welche Bibliotheken und Hilfen man von Texas Instruments zurückgreifen kann. In nächsten Unterkapitel \ref{PowerDomains} wird das Ausschalten der der Bauteile auf dem MCU erklärt und im letzten zwei Unterkapitel die Umsetzung, wie Schlafenszeiten zwischen den Funktionen eingebaut werden \ref{sleep_funktion}.
-
+Das Power Management wird mit dem TI-SensorTag umgesetzt. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, auf welche Bibliotheken und Hilfen man von Texas Instruments zurückgreifen kann. In nächsten Unterkapitel \ref{PowerDomains} werden die Power-Domains des TI-SensorTags erklärt und im letzten Unterkapitel die Umsetzung, wie Schlafenszeiten eingebaut werden \ref{sleep_funktion}.
 
 
 \subsection{Programmieren für Low Power Applikation im Adevertising Mode}
 \label{keinROTS}
 
-Das ausgewählte TI-SensorTag ist für Low Power-Anwendungen ausgelegt. Die Low Power-Programmbeispiele von TI basieren auf RTOS. Da bei 10 km/h Energie im $\mu$J-Bereich zur Verfügung steht, startet die Applikation im Advertising Mode. Diese braucht weniger Energie als der Connected Mode und der Overhead eines Betriebsystems (RTOS) und der Initialisierung des BLE-Stacks sind nicht notwendig. Der Nachteil dieser schlanken Programmierung ist, dass die TI-SensorTag Beispiele ausschliesslich auf RTOS aufbauen, und somit nicht 1:1 übernommen werden können. Für nachkommende Entwicklerinnen und Entwickler sind zwei Vorzüge und zwei Nachteile aus dieser Wahl festgehalten:
+Das ausgewählte TI-SensorTag ist für Low-Power-Anwendungen ausgelegt. Die Low-Power-Programmbeispiele von TI basieren auf dem TI-Real Time Operating System (kurz RTOS). Da bei 10 km/h Energie im $\mu$J-Bereich zur Verfügung steht, läuft die Applikation im Advertising Mode. Dieser braucht weniger Energie als der Connected Mode und der Overhead eines Betriebsystems (RTOS) und der Initialisierung des BLE-Stacks sind nicht notwendig. Der Nachteil dieser schlanken Programmierung ist, dass die TI-SensorTag Beispiele ausschliesslich auf RTOS aufbauen, und somit nicht 1:1 übernommen werden können. Für nachkommende Entwicklerinnen und Entwickler sind zwei Vorzüge und zwei Nachteile dieser Wahl festgehalten:
 
 \begin{minipage}{1\textwidth}
     \begin{enumerate}
-        \item    Sehr schlanker Code entsteht. Die Register werden direkt gesetzt und die Funktionsaufrufe sind sehr schnell.
-        \item  Nur das Minimum wird ausgeführt. Der Code wird übersichtlich.    
-        \item Der Umfang der Library von Texas Instruments (cc26xxware/driverLib) ist gross und komplex. Der Versuch, die Abhängigkeiten zu verstehen, ist nicht immer einfach.
-       \item Eine gute Dokumentation fehlt oder sie bezieht sich auf RTOS. Unerwünschte Nebeneffekte treten auf.
+        \item Vorteil ohne RTOS: Ein sehr schlanker Code entsteht. Die Register werden direkt gesetzt, und die Funktionsaufrufe sind sehr schnell.
+        \item Vorteil ohne RTOS: Man muss sich nicht in das TI-RTOS-Konzept einarbeiten. Die Message-Queue und das Thread-Handling bei TI muss man nicht kennen.
+        \item Nachteil ohne RTOS: TI implementierte über die Library die Hauptaktivitäten wie Power Domains einschalten oder Kommunikation zu Peripheriegeräten aufbauen. Die Zugriffe werden vom OS übernommen. Ohne RTOS muss man sich selber z.B. ums Aufwachen oder das Abhandeln der Interrupts kümmern.        
+       \item Eine Dokumentation zur umfangreichen Library (cc26xxware/driverLib) fehlt, da TI davon ausgeht, dass man über das OS auf die Bibliothek zugreift. Die internen Abhängigkeiten zu verstehen, ist nicht einfach. Unerwünschte Nebeneffekte treten auf.
     \end{enumerate}
 \end{minipage}
 
 \subsection{Power Domains beim TI-SensorTag}
 \label{PowerDomains}
 
-Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten Power Domains eine zentrale Rolle. Das TI-SensorTag unterscheidet 10 Power Domains. Ein Überblick  ist in der Abbildung  \ref{supply_syst} abgebildet. Das Konzept der Verbrauchsoptimierung besteht im Abschalten unnötigen Peripherie- und Prozessorteilen. Nur absolut notwendigen Prozesse laufen weiter. Der Teil, der nicht abstellt wird AON (Always On) genannt. Zu dieser Domain gehört ein Clock, ein Timer, gewisse Interrupts und Schnittstellen. Im Anhang \ref{anhang_sensortag_PowerDomain} ist in der Abbildung \ref{a_powerdomain} detailliert dargestellt, wie die einzelnen Power Domains sich beim Ausschalten verhalten. So braucht z.B. das RAM und die GPIO ein \textit{rentention}. Beim RAM bedeutet dies eine Speicherauffrischung, bei der GPIO eine Kontrolle der Pinzustände.
+Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten Power Domains eine zentrale Rolle. Das TI-SensorTag unterscheidet 10 Power Domains. Ein Überblick  ist in der Abbildung  \ref{supply_syst} abgebildet. Das Konzept der Verbrauchsoptimierung besteht im Abschalten unnötigen Peripherie- und Prozessorteilen. Nur absolut notwendigen Power Domains laufen weiter. Der Teil, der nicht abstellt wird AON (Always On) genannt. Zu dieser Domain gehört ein Clock, ein Timer, gewisse Interrupts und Schnittstellen. Im Anhang \ref{anhang_sensortag_PowerDomain} ist in der Abbildung \ref{a_powerdomain} detailliert dargestellt, wie die einzelnen Power Domains sich beim Ausschalten verhalten. So braucht z.B. das RAM und die GPIO Refreshzyklen. Beim RAM bedeutet dies eine Speicherauffrischung, bei der GPIO eine Kontrolle der Pinzustände.
 
-
+\clearpage
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/powerdomain_1.png}
   \caption{Supply System TI-SensorTag}
   \label{supply_syst}
 \end{figure}
 
-In den nachfolgenden zwei Codebeispielen \ref{vorbereiten} und \ref{ausschalten} wird das Ein- und Ausstellen exemplarisch dargestellt. %Dass die Power Domains teilweise für zwei   
 
-\subsection{Schlafenszeiten zwischen Funktionen}
+\subsection{Schlafenszeiten implementieren}
 \label{sleep_funktion}
 
-In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen xxx  xxx xx \todo{LInks}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung zeigt der implementierte Codeablauf der TI-SensorTag Version V4.
+In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen xxx  xxx xx \todo{LInks}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung \ref{warten_zw_bloecken} zeigt der implementierte Codeablauf der TI-SensorTag Version V4, bei einer Geschwindikeit unter 50 km/h \todo{Geschwindikeit überprüfen}. Der Fall von einer Geschwindigkeit von über 50 km/h\todo{Geschwindikeit überprüfen}, bei der V\_SUP nicht mehr abstellt, ist im letzten Unterkapitel illustriert.
 
 \begin{figure}[ht]
   \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/schlafen_funktionen.png}
-  \caption{Schalfenszeiten zwischen Aktionen einbauen}
+  \caption{Schlafenszeiten zwischen Aktionen}
   \label{warten_zw_bloecken}
 \end{figure}
 
-Ist eine Aufgabe getätigt, wie z. B. das Starten eines Sensors, kann das System schlafen gehen. Dieses Prozedere funktioniert einwandfrei und sicher. Das System wacht aufgrund eines Interrupts wieder auf. Nachfolgend sind die zwei Hauptfunktionen: Vorbereiten zum Stand By (\ref{vorbereiten}) und ausschalten des Hauptprozessors (\ref{ausschalten}) abgebildet.
+Ist eine Aufgabe getätigt, wie z. B. das Starten eines Sensors, kann das System schlafen gehen. Dieses Prozedere funktioniert einwandfrei und sicher. Das System wacht aufgrund eines Interrupts wieder auf. Nachfolgend sind die zwei Hauptfunktionen: Vorbereiten zum Standby und ausschalten des Hauptprozessor abgebildet.
 
 \subsubsection{Stand By-Prozedur}
 \label{vorbereiten}
 
-Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer veranlasst werden. Der Christal-Oszillator wird abgeschaltet, das Radio-Modul ebenfalls, dann wird ein niedriger Takt eingestellt und unnötige Periphierie-Speisung weggenommen. Dem Prozessor wird erlaubt,seine notwendigen Register zu refreshen und das Cache wird abgeschaltet. Wobei ein Refresh-Zyklus aktiviert wird.
+Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer ausgeführt werden.  Zum Verständnis werden einige Zeilen des Codes kurz kommentiert: 
+
+Zeile 1:   Der Christal-Oszillator wird abgeschaltet,\\
+Zeile 2:   Das Radio-Modul ebenfalls,\\ 
+Zeile 3:   Ein niedriger Takt wird eingestellt und\\ 
+Zeile 4:   unnötige Periphieriespeisung abgestellt.\\ 
+Zeile 5:   Dem Prozessor wird erlaubt, seine notwendigen Register zu refreshen und\\ 
+Zeile 6:   das Cache wird abgeschaltet.\\ 
+Zeile 7:   Wobei ein Refreshzyklus aktiviert wird.\\
+Zeile 11:  Das Intervall zwischen den Refreshzyklen wird berechnet\\
+Zeile 12:  Es wird gewartet, bis alle Anweisungen abgeschlossen sind\\
+
+
+\todo{Leerzeile einbauen}
 
 \begin{minipage}[t]{1\textwidth}
 \small\begin{verbatim}
-void go_to_standby(){ 
-    powerDisableXtal();
-    powerDisableRFC();
-    OSCHfSourceSwitch(); // activates lower clock
-    powerDisableAuxForceOn();
-    powerEnableMcuPdReq();
-    powerDisableCache();
-    powerDisableCacheRetention();
-
-    // calculate next recharge time
-    SysCtrlSetRechargeBeforePowerDown(XOSC_IN_HIGH_POWER_MODE);
-    SysCtrlAonSync();
-} 
+1    void go_to_standby(){ 
+2        powerDisableXtal();
+3        powerDisableRFC();
+4        OSCHfSourceSwitch(); // activates lower clock
+5        powerDisableAuxForceOn();
+6        powerEnableMcuPdReq();
+7        powerDisableCache();
+8        powerDisableCacheRetention();
+9
+10        // calculate next recharge time
+11        SysCtrlSetRechargeBeforePowerDown(XOSC_IN_HIGH_POWER_MODE);
+12        SysCtrlAonSync();
+13    } 
     \end{verbatim}\normalsize
 \end{minipage} 	    
 
 \subsubsection{Abschalt-Prozedur}
 \label{ausschalten}
 
+Nach der Vorbereitung zum Abschalten wird der Prozessor zum Schlafen geschickt.
+
+Zeile 1:   Cortex M3 wird zum Schlafen geschickt
+Zeile 2:   Das Power-Controll-Register erhält das Schlafens-Flag
+Zeile 3:   Die Always-On-Power-Domain muss die Konfigurationen speichern
+Zeile 4:   Den Refrehzyklus-Wert setzen
+Zeile 5:   Warten, dass alle Prozesse fertig abgehandelt sind.
+
 \begin{minipage}[t]{1\textwidth}
 \small\begin{verbatim}
-void go_to_deep_sleep(){ 
-    powerDisableCPU();
-    PRCMDeepSleep();
-    SysCtrlAonUpdate();
-    SysCtrlAdjustRechargeAfterPowerDown();
-    SysCtrlAonSync();
-}
+1    void go_to_deep_sleep(){ 
+2        powerDisableCPU();
+3        PRCMDeepSleep();
+4        SysCtrlAonUpdate();
+5        SysCtrlAdjustRechargeAfterPowerDown();
+6        SysCtrlAonSync();
+7    }
 \end{verbatim}\normalsize
 \end{minipage}
 
 \subsubsection{Sleep Time-Übersicht bei Version V4}
 	    
-Bei den ersten Messungen von Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet wird \todo{Link}. Das Senden wird möglich, indem zwischen einzelnen Aufgaben geschlafen wird. Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sensors und das Senden der Daten. Diese zwei Aufgaben werden getrennt und dazwischen geht das System schlafen (siehe vereinfacht dargestellt in der Abbildung \ref{schnarch}).
+Bei den ersten Messungen von Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet wird \todo{Link}. Das Senden wird möglich, indem zwischen einzelnen Aufgaben geschlafen wird. Denn während dem das TI-SensorTag nur die minimale Energie verbraucht, kann der Bicycle Computer Energie sammeln. Während der Schlafenszeit steigt der Spannungswert an den Kondensatoren STS und LTS. Die Abbildung \ref{schnarch} zeigt, dass bei der Version V4 (siehe xxxx \todo{Link zu Sensortag versionen einbauen} die Aufgaben aufteilt werden. Dies entspricht dem Konzept des vorangehenden Unterkapitels mit der Abbildung \ref{warten_zw_bloecken}, nur dass in Abbildung \ref{schnarch} der Fall von einer Geschwindigkeit von über 40 km/h \todo{Wert prüfen} gezeigt wird, und V\_SUP deshalb nicht abstellt.   
+
+Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sensors und das Senden der Daten. Diese zwei Aufgaben werden getrennt und dazwischen geht das System schlafen (siehe vereinfacht dargestellt in der Abbildung \ref{schnarch}).
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/HIGH_ENERGY.png}
@@ -946,15 +965,15 @@ Bei den ersten Messungen von Sensoren riss V\_SUP so schnell zusammen, dass kein
 \end{figure}
 
 
-Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zählt ein Counter die Reed Switch-Interrupts. Ist  das Zählermaximum erreicht, wird der Code rund um eine energiestarke Aktion ausgeführt. Danach geht das System schlafen. Das System soll so lang schalfen, dass die Spannung von V\_STS genug gross ist, dass die enerigestarke Aktion ausgeführt werden kann. In der unten aufgeführten Tabelle findet sich eine grobe Count-Statistik der Version V4 für verschiedene Geschwindigkeiten. 
+Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zählt ein Counter die Reed Switch-Interrupts, also die Radumdrehungen. Da am Fahrrad zwei Magnete befestigt sind, entspricht der Counterwert der doppelten Anzahl Radumdrehungen. Ist  das Zählermaximum erreicht, wird der Code rund um eine energiestarke Aktion ausgeführt. Danach geht das System schlafen. Das System soll so lang schalfen, dass die Spannung von V\_STS genug gross ist, dass die enerigestarke Aktion ausgeführt werden kann. In der unten aufgeführten Tabelle findet sich eine grobe Count-Statistik der Version V4 für verschiedene Geschwindigkeiten. 
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Zählerstände für Schlafenszeit}
     \begin{tabbing}
-   Geschwindigkeit \quad\= Counter-Wert  \quad\= Ladezeit STS\\[0.8ex]
-   13 - 16 km/h          \> 100               \> 80 s\\
-   20 km/h               \> 50                \> 17 s\\
-   31 - 32 km/h          \> 50                \> 11 s\\    
+   Geschwindigkeit \quad\= Counter-Wert  \quad\= Ladezeit STS    \quad\= Radumdrehungen\\[0.8ex]
+   13 - 16 km/h          \> 100               \> 80 s    \> 50\\
+   20 km/h               \> 50                \> 17 s    \> 25\\
+   31 - 32 km/h          \> 50                \> 11 s    \> 25\\    
     \end{tabbing}
 \end{minipage}
 
