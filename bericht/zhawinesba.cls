@@ -13,7 +13,7 @@
 \setkeys{Gin}{keepaspectratio=true} % default graphicx width to pagewidth
 \usepackage{helvet}
 %\usepackage{fancyhdr}
-\usepackage{url}
+\usepackage[hyphens]{url}
 \usepackage{tocloft} % for cftaddtitleline
 \usepackage{todonotes}
 
