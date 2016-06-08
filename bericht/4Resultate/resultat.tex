@@ -14,15 +14,16 @@ Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{pri
 Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_rueckseite.png} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/print_rueckseite.png} 
     \caption{Print Ansicht von unten}
     \label{print_rueckseite}
-\end{figure}
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/print_vorne.png} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/print_vorne.png} 
     \caption{Print Ansicht von oben}
     \label{print_vorne}
+ \end{minipage}
 \end{figure}
 
 \subsection{Leistung am Harvesterausgang}
@@ -39,8 +40,8 @@ Die Leistung, welche der Harvester zur Verfügung stellen kann, liegt bereits be
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Leistung Harvesterschaltung Bicycle Computer}
-    \begin{tabbing}
     \label{leistungHarvester}
+    \begin{tabbing}
         Geschwindigkeit \quad\= Leistung Harvester \\[0.8ex]
         10 km/h  \> 24.77  $\mu$W \\
         15 km/h  \> 61.07  $\mu$W \\
@@ -57,17 +58,17 @@ Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können di
 Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_47uF.PNG} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/SpannungVCC_47uF.PNG} 
     \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
     \label{resultat_Harvester_Spannung_47uF}
-\end{figure}
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/SpannungVCC_100uF.png} 
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/SpannungVCC_100uF.png} 
     \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
     \label{resultat_Harvester_Spannung_100uF}
+ \end{minipage}
 \end{figure}
-
 
 \subsection{Energie am EM8500-Chipausgang}
 
@@ -81,8 +82,8 @@ Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die
         Geschwindigkeit \quad\= Leistung EM8500\_out \\[0.8ex]
         10 km/h  \> 5.44   $\mu$W\\
         15 km/h  \> 20.91  $\mu$W\\
-        20 km/h> \> 41.39  $\mu$W\\
-        40 km/h> \> 170.75 $\mu$W\\
+        20 km/h  \> 41.39  $\mu$W\\
+        40 km/h  \> 170.75 $\mu$W\\
     \end{tabbing}
 \end{minipage}
 
@@ -107,8 +108,8 @@ Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschw
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Wirkungsgrad Bicycle Computer nach Geschwindigkeiten}
-    \begin{tabbing}
     \label{wirkungsgrad_emchip}
+    \begin{tabbing}
         Geschwindigkeit \quad\= Leistung Harvester \quad\= Leistung EM8500\_out \quad\= Wirkungsgrad\\[0.8ex]
         10 km/h  \> 21.87  $\mu$W \> 5.44   $\mu$W \> 24.87\thinspace\%  \\
         15 km/h  \> 57.19  $\mu$W \> 20.91  $\mu$W \> 36.56\thinspace\%  \\
@@ -129,7 +130,7 @@ Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH
 Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_3.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_3.PNG}
     \caption{Senden von Paketen bei 9 - 10 km/h; rot: V\_SUP, gelb: V\_STS}
     \label{paket_100kmh}
 \end{figure}
@@ -137,7 +138,7 @@ Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h
 Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16kmh}). Die Fahrerin bzw. der Fahrer erhält alle 20 s einen aktuellen Wert. Trügerisch in diesem Bild ist, dass LTS bereits geladen ist. Dies entsteht nicht durch 16 km/h, sondern entstand durch vorangehende Messungen mit höheren Geschwindigkeiten. Auf die Ladezeit des STS hat dies keine Auswirkung.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic2.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic2.PNG}
     \caption{Senden von Paketen bei 16 km/h; rot: V\_SUP, gelb: V\_STS, blau: V\_LTS}
     \label{paket_16kmh}
 \end{figure}
@@ -145,7 +146,7 @@ Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16k
 Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird und zwar für für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic4.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic4.PNG}
     \caption{Senden von vielen Paketen bei 40 km/h}
     \label{paket_40kmh}
 \end{figure}
@@ -157,7 +158,7 @@ Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter 
 Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \todo{Link}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/LTS_Ladeschwelle.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/LTS_Ladeschwelle.PNG}
     \caption{Einschalten von LTS nach Schwellwert von 3.7 V}
     \label{lts_ein}
 \end{figure}
@@ -165,13 +166,13 @@ Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Ve
 Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic_5.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_5.PNG}
     \caption{VSUP wird konstant gespiesen. LTS lädt sich.}
     \label{vsup_konstant}
 \end{figure}
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/STS_LTS_connect.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/STS_LTS_connect.PNG}
     \caption{Connedted Mode der zwei Speicher}
     \label{connected_mode}
 \end{figure}
@@ -179,7 +180,7 @@ Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fa
 Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
 
 \begin{figure}[ht]
-   \includegraphics[width=0.5\textwidth]{4Resultate/imag/pic1.PNG}
+   \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic1.PNG}
     \caption{Paralleles Entladen der Kondensatoren}
     \label{parallel_entladen}
 \end{figure}
@@ -195,13 +196,15 @@ Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Se
 %Gleichung Berechnung CSTS ) 100 uJ         \label{eq:e_sts}
 %Gleichung: STS_HIGH = 3 V    \ref{eq:bat_min_low_schwellwert}              
 
-STS = 100 $\mu$F        (siehe Gleichung \ref{eq:e_sts})
-LTS = 3300 $\mu$F       (nicht wichtig. Wert von Vorgängermodell behalten)
+\begin{tabbing}
+STS = 100 $\mu$F \hspace{1cm} \= (siehe Gleichung \ref{eq:e_sts})\\
+LTS = 3300 $\mu$F             \> (nicht wichtig. Wert von Vorgängermodell behalten)
+\end{tabbing}
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Schwellwerte Energy Management Bicycle Computer}
     \begin{tabbing}
-        Register \quad\= Spannungswert \\[0.8ex]
+        Register \hspace{2cm} \quad\= Spannungswert \\[0.8ex]
         v\_bat\_max\_hi       \> 3.8 V \\
         v\_bat\_max\_lo       \> 3.7 V \\
         v\_bat\_min\_hi\_dis  \> 3.0 V  (STS\_HIGH)\\
@@ -309,34 +312,36 @@ Der animierte Tachometer stellt die aktuelle Geschwindigkeit schnell und übersi
 Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Abbildung \ref{permission}). Sollte Bluetooth nicht aktiviert sein, wird der User gefragt, ob Bluetooth aktiviert werden darf. Sollte der User die Aktivierung ablehnen schliesst sich die Applikation sofort.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEBluetoothPermission.png} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/BLEBluetoothPermission.png} 
     \caption{Bluetooth Permission}
     \label{permission}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/APPHomeScreen.png} 
+    \caption{Startbildschirm der Applikation}
+    \label{tacho}
+ \end{minipage}
 \end{figure}
 
 Wird die Aktivierung der Bluetooth-Schnittstelle erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Messwerte angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
 
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/APPHomeScreen.png} 
-    \caption{Startbildschirm der Applikation}
-    \label{tacho}
-\end{figure}
-
 Wählt man auf dem Startbildschirm \glqq Sensor wählen\grqq, erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor war. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/BLEAdresseAuswaehlen.png} 
     \caption{TI-SensorTagauswahl}
     \label{sensorauswahl}
+ \end{minipage}
+ \begin{minipage}[t]{0.5\textwidth}
+    \includegraphics[width=0.9\textwidth]{4Resultate/imag/BLEEinheitenUndEinstellungenStart.png} 
+    \caption{Einheiten und Einstellungen}
+    \label{einheiten}
+ \end{minipage}
 \end{figure}
 
 Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, indem man den Button \glqq Einheiten + Einstellungen \grqq auswählt.
-
-\begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/BLEEinheitenUndEinstellungenStart.png} 
-    \caption{Einheiten und Einstellungen}
-    \label{einheiten}
-\end{figure}
 
 Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
 
@@ -347,9 +352,9 @@ Bei der Temperaturanzeige ist eine Kalibrierung eingebaut. Dies, weil alle drei 
 \begin{minipage}{\textwidth}
 \captionof{table}{Auswählbare Einheiten}
     \begin{tabbing}
-    Temperatur     \quad\= Geschwindigkeit            \quad\= Druck \\[0.8ex]
-    Celsius (C)    \> Kilometer pro Stunde (km/h)\> Pascal (haP)\\
-    Fahrenheit (F) \> Miles per hour (mph)       \> Bar (bar)\\
+    Temperatur\hspace{.3cm} \quad\= Geschwindigkeit\hspace{2.7cm} \quad\= Druck \\[0.8ex]
+    Celsius ($^{\circ}$C)    \> Kilometer pro Stunde (km/h)\> Pascal (haP)\\
+    Fahrenheit ($^{\circ}$F) \> Miles per hour (mph)       \> Bar (bar)\\
     Kelvin (K)     \>                            \> Atmosph\"{a}re (atm)\\
                    \>                      \> Pound-Force per sqare inch (psi)\\
                    \>                      \> Millimeter Quecksilber (mmHG)\\
@@ -385,22 +390,16 @@ Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuell
 \todo{aktuelles Sniffer Bild} 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/sniffer.png} 
+    \includegraphics[width=1.0\textwidth]{4Resultate/imag/sniffer.png} 
     \caption{Empfangende Daten des Sniffers}
     \label{sniffer}
 \end{figure}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.5\textwidth]{4Resultate/imag/app_alle.png} 
+    \includegraphics[width=1.0\textwidth]{4Resultate/imag/app_alle.png} 
     \caption{Empfangene Daten der Applikation}
     \label{applikation_daten}
 \end{figure}
 
 
 \todo{Video zeiger (auf CD)}
-
-
-
-
-
-
