@@ -55,7 +55,7 @@ Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können di
 
 \subsection{Verhalten des Harvesterausgangs}
 
-Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \todo{Messprotokoll} zu finden.
+Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \cite{messung_harvester_elko} zu finden.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -72,7 +72,7 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 
 \subsection{Energie am EM8500-Chipausgang}
 
-Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll yyy dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
+Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll \cite{messung_emausgang_finish} dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
 
 
 \begin{minipage}{\textwidth}
@@ -104,7 +104,7 @@ Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich
     \label{zsmEnergyGewinn}
 \end{figure}
 
-Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle unten). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursachen, dass trotz genug geernteter Energie das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad (siehe Tabelle \ref{wirkungsgrad_emchip}). Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
+Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschwindigkeiten berechnet (siehe Tabelle \ref{wirkungsgrad_emchip}). Der Wirkungsgrad ist bei tiefen Geschwindigkeiten sehr schlecht (24.87\thinspace\%). Dies ist eine der zwei Ursachen, dass trotz genug geernteter Energie das TI-SensorTag für das Senden der Sensorwerte bei tiefer Geschwindigkeiten nicht wie erwartet genug Energie hat. Mit mehr Geschwindigkeit erhöht sich nicht nur die geerntete Leistung rapide, sondern auch der Wirkungsgrad (siehe Tabelle \ref{wirkungsgrad_emchip}). Der Wirkungsgrad des EM8500 innerhalb des entwickelten Prototypen liegt bei 40 km/h  bei 41.01\thinspace\%.  
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Wirkungsgrad Bicycle Computer nach Geschwindigkeiten}
@@ -155,7 +155,7 @@ Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter 
 \subsection{Laden und Entladen des LTS}
 \label{res_entladen}
 
-Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \todo{Link}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
+Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \ref{lts_ein}\todo{Referenz überprüfen}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/LTS_Ladeschwelle.PNG}
@@ -177,7 +177,7 @@ Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fa
     \label{connected_mode}
 \end{figure}
 
-Die letzte Abbildung zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
+Die letzte Abbildung (\ref{parallel_entladen})zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic1.PNG}
@@ -198,7 +198,7 @@ Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Se
 
 \begin{tabbing}
 STS = 100 $\mu$F \hspace{1cm} \= (siehe Gleichung \ref{eq:e_sts})\\
-LTS = 3300 $\mu$F             \> (nicht wichtig. Wert von Vorgängermodell behalten)
+LTS = 3300 $\mu$F             \> (Wert von Vorgängermodell behalten)
 \end{tabbing}
 
 \begin{minipage}{\textwidth}
@@ -224,12 +224,12 @@ Das vorangehende Unterkapitel Energy Managment zeigte, die erzielten Resultate. 
 
 \subsection{Energiebilanz Bicycle Computer}
 
-Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \todo{Refrerenz}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen getan werden muss, und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
+Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \ref{r_bild_e_zusammenfassung}\todo{Welche Refrerenz?? Worauf?}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen getan werden muss, und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
 
 
 \subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (viollet), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich eine Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am Em8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle unterhalb der Abbildung.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (viollet), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich eine Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am Em8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
 
 \begin{figure}[ht]
      \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}
@@ -238,7 +238,7 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pe
 \end{figure}
 
 \begin{minipage}{\textwidth}
-\captionof{table}{Energieverbrauch nach Aufgaben}
+\captionof{table}{Energieverbrauch nach Aufgaben}\label{everbrauch_aufgaben}
     \begin{tabbing}
     Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
     Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle \textbf{xxx}\\
@@ -364,10 +364,10 @@ Die vorgenommenen Einstellungen werden über den Button ``Speichern'' gesichert.
 
 \subsection{Paketverlust}
 
-TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe untenstehende Tabelle und \todo{Messprotokoll erwähnen}). \todo{Tabelle referenzieren}  
+TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen wird der Paketverlust bei einer Geschwindigkeit von 20 km/h (siehe Tabelle \ref{BLEPaketverlust} und \cite{messung_BLE}). 
 
 \begin{minipage}{\textwidth}
-\captionof{table}{Paketverlust BLE-Applikation}
+\captionof{table}{Paketverlust BLE-Applikation}\label{BLEPaketverlust}
     \begin{tabbing}
     Messperiode \quad\= Gesendete Pakete \quad\= Empfangene Pakete \quad\= Paketverlust\\[0.8ex]
     1 min  \> 38   \> 35 \> 7.9\thinspace\%  \\
@@ -384,9 +384,6 @@ TI-SensorTag sendet im Advertising Mode drei Pakete pro Sendevorgang. Gemessen w
 \subsection{Korrektheit der Daten}
 
 Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuellen Vergleich der Datenpakete im BLE-Sniffer von TI verglichen (siehe Abbildung \ref{sniffer}).  Die Daten im Sniffer entsprechen exakt den Daten, welche die Applikation empfängt. Der Inhalt der Daten wird somit unverfälscht übermittelt.
-
-
-\todo{aktuelles Sniffer Bild} 
 
 \begin{figure}[ht]
     \includegraphics[width=1.0\textwidth]{4Resultate/imag/sniffer.png} 
