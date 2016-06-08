@@ -41,8 +41,8 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
 \end{figure}
 
 \begin{minipage}{\textwidth}
-\captionof{table}{Legende Abbildung \ref{funktionsdiagramm_bild}}
-    \begin{tabbing}
+\captionof{table}{Legende zur Abbildung \ref{funktionsdiagramm_bild} Funktionsblöcke}
+    \begin{tabbing}s
         Bezeichnung \quad\= Beschreibung\\[0.8ex]
         V\_HRV \> Ausgangsspannung Harvesterquelle, Eingangsspannung Energy Management\\
         V\_STS\> Spannung am STS--Kondensator (Primärspeicher)\\
@@ -213,7 +213,6 @@ Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, 
 \subsubsection{Energiespeicher}
 
 Die Energiespeicher waren zum Zeitpunkt der Entwicklung der Hardware noch nicht definiert. Als Platzhalten wurden zwei Elektrolytkondensatoren mit den Werten aus der Machbarkeitsstudie eingefügt. 
-%Die Energiespeicher sollten flexibel gestaltet werden, da die genaue Art, bzw. Dimensionierung noch nicht definitiv war und noch Tests bezüglich der Energiespeicher anstanden. Jedoch wurde im Schema jeweils ein Elko als Platzhalter verwendet, da in der Machbarkeitsstudie ebenfalls Elkos verwendet wurden, die Kapazitätswerte sind jedoch nur erste Werte, welche nur abgeschätzt wurden.
 
 \begin{figure}[ht]
     \includegraphics[width=0.3\textwidth]{3Vorgehen/imag/Schema_Energiespeicher.png}
@@ -394,14 +393,13 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
   \label{EnergieMessungStellen} 
 \end{figure}
 
-\todo{Fehler:  Label without caption}
-
 \subsection{Testen der Harvesterschaltung}
 
 \subsubsection{Leistungsverifizierung}
 
 Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
+\begin{minipage}{1\textwidth}
 \captionof{table}{Leistung des fliegenden Aufbaus}
 \label{tab:leistung_fliegenden-aufbaus} 
 \begin{tabbing}
@@ -410,6 +408,7 @@ Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um di
 	20 km/h        \> 43.35 $\mu$W  \> 45.51 \%\\
 	40 km/h        \> 250.26 $\mu$W  \> 48.44 \%
 \end{tabbing}
+\end{minipage}
 
 \captionof{table}{Leistung der neuen Leiterplatte}
 \label{tab:leistung_neuen_leiterplatte} 
@@ -458,8 +457,8 @@ Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die 
 \captionof{table}{Leistung mit unterschiedlicher Anzahl an Magneten}
 \begin{tabbing}
     Konfiguration\hphantom{4.77 mH, 3 Magnete in Serie (Reelight)}   \quad\= maximale Leistung    \\[0.8ex]
-    Spule: Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
-	Spule: Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
+    Spule Premo 4.77 mH, 1 Magnet in Serie        \> 66.82 $\mu$W\\
+	Spule Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
 \end{tabbing}
 
 Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung x zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotzdem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
@@ -562,7 +561,7 @@ Die untenstehende Tabelle stellt dieEnergieresultate dar. Unterschieden wird zwi
     V1        \> 16.3.16  \> mit Geschwindigkeit      \> 87 $\mu$J            \> 32 $\mu$J \\
     V3        \> 22.4.16   \> Schlafmodus optimiert     \> 40 $\mu$J            \> 29 $\mu$J \\
     V4        \> 03.6.16    \> 3 Sensore, kein Schlafmodus optimiert     \> 77 $\mu$J            \> 43 $\mu$J \\
-    V5        \> ongoing    \> 3 Sensore mit optimiertem Schlafmodus     \> 77 $\mu$J            \> 43 $\mu$J \\
+    V5        \> ongoing    \> 3 Sensore mit optimiertem Schlafmodus     \> unbekannt           \> unbekannt\\
 \end{tabbing}
 \end{minipage}
 
@@ -574,8 +573,6 @@ Bei den ersten drei Messungen werden die Sensoren noch nicht ausgelesen. Es zeig
     \label{i2c_problem}
 \end{figure}
 
-
-
 Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentralen Herausforderung in dieser Arbeit. Details darüber sind im nächsten Unterkapitel (\ref{powerOptimierung} Power Management) zusammengefasst. Bei der Version V4 zeigt sich, dass die Funktion BLE-Send, zu der auch das Einlesen der Sensordaten gehört, ein Zuwachs von 50 \% an Energiebedarf bewirkt. 
 
 
@@ -583,7 +580,7 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 \subsubsection{Resultate Energieverbrauch TI-SensorTag Applikation V4}
 \label{energie_sensortag} 
 
-Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx)folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden}) und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. 
+Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx) folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden}) und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Im Durchschnittlich folgt ca. alle 0.1 s folgt ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. Am Schluss dieses Unterkapitels werden alle Energiewerte in einer Tabelle zusammengefasst.
 
 \clearpage
 
@@ -616,7 +613,6 @@ Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \t
   \caption{Energieverbrauch senden eines BLE-Paketes mit Sensordaten}
   \label{energie_senden}
 \end{figure}
-
 
 
 \clearpage
@@ -660,8 +656,27 @@ Der Feuchtigkeitssensor xxx der Marke yyy verbraucht 6.358 $\mu$J, siehe Abbildu
 \enlargethispage*{15cm}
 
 \clearpage
+Um die verschiedenen Energiewerte in Bezug zueinander zustellen, werden in der Tabelle \ref{tab_zsm} die Energiewerte zusammengesfasst und in der Abbildung \ref{energie_zsm} der Verbrauch aller Aktionen in Bezug zueinander graphisch dargestellt. 
 
-Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildung \ref{energie_zsm} der Verbrauch aller Aktionen nebeneinander aufgelistet. Es wird deutlich, dass die Initialisierung und das notwendige Refresehen des Speichers zusammen (die Balken sind violett)  fast gleich viel Energie brauchen, wie das Senden zweier BLE-Pakete mit Sensorwerten. Aus diesem Grund hat erste Priorität beim Power Management, dass die Speisung V\_SUP nicht abstellt. Denn wenn bei der Datenverarbeitung zu viel Energie verbraucht wird und dadurch die Kondensatoren unter den minimalen Schwellwert fallen, stellt die Speisung ab. Jedes Mal wenn die Speisung unterbrochen wird, ist eine neue Initialisierung notwendig. Diese verbraucht unnötig viel Energie.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{\textwidth}
+\captionof{table}{Zusammenfassung Energieverbrauch nach Aktion}
+\label{tab_zsm}
+\begin{tabbing}
+    Aktion \hspace{6cm}                       \quad\= Energie \\[0.8ex]
+    Laden C TI-Sensortag            \> 63 $\mu$J \\
+    Initialisierung TI-Sensortag    \> 77 $\mu$J \\
+    Refresh-Peaks während 10 s      \> 14 $\mu$J \\
+    Starten Drucksensor             \> 6 $\mu$J \\
+    Starten Temperatursensor        \> 11  $\mu$J \\
+    Starten Feuchtigkeitssensor     \>  6 $\mu$J \\
+    Senden BLE-Paket nur Geschwindigkeit\> 33 $\mu$J\\
+    Senden BLE_Paket mit Sensordaten   \> 43 $\mu$J \\
+\end{tabbing}
+\end{minipage}
+
+\todo{Einfügen Space in Tabelle}
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Energy_pro_Aufgabe.png}
@@ -669,29 +684,26 @@ Um die verschiedenen Energiewerte in Bezug zueinander zustellen, wird in Abbildu
   \label{energie_zsm}
 \end{figure}
 
+Es wird deutlich, dass die Initialisierung und das notwendige Refresehen des Speichers zusammen (die Balken sind violett)  fast gleich viel Energie brauchen, wie das Senden zweier BLE-Pakete mit Sensorwerten. Aus diesem Grund hat erste Priorität beim Power Management, dass die Speisung V\_SUP nicht abstellt. Denn wenn bei der Datenverarbeitung zu viel Energie verbraucht wird und dadurch die Kondensatoren unter den minimalen Schwellwert fallen, stellt die Speisung ab. Jedes Mal wenn die Speisung unterbrochen wird, ist eine neue Initialisierung notwendig. Diese verbraucht unnötig viel Energie.
 
 
 % x.2 ---------------------------------
 \subsection{Energiekalkulation}
 \label{v_e_kalkulation}
 
-Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, also einer Geschwindigkeit von 10 km/h, und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Das einmalige Laden der Kondensatoren des TI-SensorTags verbraucht 63 $\mu$ J, die Initialisierung benötigt 77 $\mu$J, der Drucksensor 5 $\mu$J und das Senden des BLE-Pakets 43 $\mu$J. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
+Die Energiekalkulation dient der Bestückung des Kondensators STS und der Definition von Schwellwerten für die Register im EM8500-Chip. Es wird vom schlechtesten  Fall, also einer Geschwindigkeit von 10 km/h, und dem noch nicht optimalen Energieverbrauch des TI-Sensortags V4 ausgegangen. Laut Datenblatt des EM8500 (\cite{datasheet_EM85}, S. 9, Abschnitt Operating Conditions ) soll STS zwischen 10 - 100 $\mu$F gross sein. Typisch ist 47 $\mu$F. Die Grundlagen zur Energiekalkulation sind im Theorieteil \ref{th_energiebilanz} abgebildet. 
 
-%\begin{flalign}\label{eq:e-high-e-low}
-%E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
-%                &= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
-%\end{flalign}
+\todo{Gleichungen als Referenz einbauen}
 
-
-\begin{equation}
-  E_{Applikation} = 63\, \mu J + 77\, \mu J + 5\, \mu J + 43\, \mu J = 188\, \mu J
-\end{equation}
-
+\begin{flalign}\label{eq:e-high-e-low}
+  E_{Applikation} &= E_{Laden C} + E_{Init} + E_{Start Drucksensor} + E_{Senden BLE} \\\nonumber
+       &= 63\, \mu J + 77\, \mu J + 6\, \mu J + 43\, \mu J = 189\, \mu J\nonumber
+\end{flalign}
 
 \begin{flalign}\label{eq:e_sts}
-  C_{STS} &= \frac{2\times 188\, \mu J}{3^2 - (2.1)^2}\\
-          &= \frac{ 376\, \mu J}{9 - 4.41}\\\nonumber
-          &= \frac{ 376\, \mu J}{4.59}\\\nonumber
+  C_{STS} &= \frac{2\times 189\, \mu J}{3^2 - (2.1)^2}\\
+          &= \frac{ 378\, \mu J}{9 - 4.41}\\\nonumber
+          &= \frac{ 378\, \mu J}{4.59}\\\nonumber
           &= 81.9\, \mu F
 \end{flalign}
 
@@ -701,20 +713,7 @@ Der Wert wird aufgerundet auf 100 $\mu$ F, um genügend Energie zu haben.
 
 \todo{Messprotokolle eintrage}
 
-Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum.  
-
- 
-\subsubsection*{MPP-Ratio bei 10 km/h gemäss Messprotokollen}
-\begin{tabbing}
-    Datum       \quad\= Leistungmaximum    \quad\= MPP-Ratio\\[0.8ex]
-    30. März    \> 12 $\mu$W        \> 43.23\thinspace\% \\
-    xx          \> xx $\mu$W        \> xx\thinspace\%\\
-    resultat    \> 21.87  $\mu$W    \> 24.87\thinspace\%\\
-\end{tabbing}
-
-\todo{Werte}
-
-Wie dokumentiert, liegt das Leistungsmaximum unterhalb von 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
+Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Anhang \ref{uebersicht_messprotokolle}, xxx,yyy, zz). Wie im Theorieteil erklärt \ref{harv_diff} unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum. Das Leistungsmaximum liegt beim entwickelten Bicycle Computer bei 21.87  $\mu$W. Die MPP-Ratio liegt beim MPP bei 24.87\thinspace\% (siehe \todo{Referenz einbauen}). Die MPP-Ratio liegt somit unter 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber, als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
 
 \begin{minipage}{\textwidth}
     \captionof{table}{MPPT-Ratio Einstellungen EM8500}
@@ -749,7 +748,7 @@ Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte 
 \begin{minipage}{\textwidth}
     \captionof{table}{Konfiguration Vorgängermodell}
     \begin{tabbing}
-    Register \quad\= Wert \\[0.8ex]
+    Register \hspace{4cm} \quad\= Wert \\[0.8ex]
     v\_bat\_max\_hi       \> 4.2 V \\
     v\_bat\_max\_lo       \> 4.1 V \\
     v\_bat\_min\_hi\_dis  \> 3.6 V \\
@@ -766,7 +765,7 @@ Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{erst_EMes
 \begin{minipage}{\textwidth}
     \captionof{table}{Konfiguration aufgrund Geschwindigkeitsmessung}
     \begin{tabbing}
-    Register \quad\= Wert \\[0.8ex]
+    Register\hspace{4cm} \quad\= Wert \\[0.8ex]
     v\_bat\_max\_hi       \> 4.8 V \\
     v\_bat\_max\_lo       \> 4.7 V \\
     v\_bat\_min\_hi\_dis  \> 2.8 V (siehe Berechnungen unten)\\
@@ -893,20 +892,20 @@ In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_
 
 Ist eine Aufgabe getätigt, wie z. B. das Starten eines Sensors, kann das System schlafen gehen. Dieses Prozedere funktioniert einwandfrei und sicher. Das System wacht aufgrund eines Interrupts wieder auf. Nachfolgend sind die zwei Hauptfunktionen: Vorbereiten zum Standby und ausschalten des Hauptprozessor abgebildet.
 
-\subsubsection{Stand By-Prozedur}
+\subsubsection{Standby-Prozedur}
 \label{vorbereiten}
 
-Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer ausgeführt werden.  Zum Verständnis werden einige Zeilen des Codes kurz kommentiert: 
+Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer ausgeführt werden.  Zum Verständnis werden einige Zeilen des Codes kurz kommentiert:\\ 
 
-Zeile 1:   Der Christal-Oszillator wird abgeschaltet,\\
-Zeile 2:   Das Radio-Modul ebenfalls,\\ 
-Zeile 3:   Ein niedriger Takt wird eingestellt und\\ 
-Zeile 4:   unnötige Periphieriespeisung abgestellt.\\ 
-Zeile 5:   Dem Prozessor wird erlaubt, seine notwendigen Register zu refreshen und\\ 
-Zeile 6:   das Cache wird abgeschaltet.\\ 
-Zeile 7:   Wobei ein Refreshzyklus aktiviert wird.\\
-Zeile 11:  Das Intervall zwischen den Refreshzyklen wird berechnet\\
-Zeile 12:  Es wird gewartet, bis alle Anweisungen abgeschlossen sind\\
+Zeile 1:\hspace{1cm}    Der Christal-Oszillator wird abgeschaltet,\\
+Zeile 2:\hspace{1cm}   Das Radio-Modul ebenfalls,\\ 
+Zeile 3:\hspace{1cm}   Ein niedriger Takt wird eingestellt und\\ 
+Zeile 4:\hspace{1cm}   unnötige Periphieriespeisung abgestellt.\\ 
+Zeile 5:\hspace{1cm}   Dem Prozessor wird erlaubt, seine notwendigen Register zu refreshen und\\ 
+Zeile 6:\hspace{1cm}   das Cache wird abgeschaltet.\\ 
+Zeile 7:\hspace{1cm}   Wobei ein Refreshzyklus aktiviert wird.\\
+Zeile 11:\hspace{1cm}  Das Intervall zwischen den Refreshzyklen wird berechnet\\
+Zeile 12:\hspace{1cm}  Es wird gewartet, bis alle Anweisungen abgeschlossen sind\\
 
 
 \todo{Leerzeile einbauen}
@@ -932,13 +931,13 @@ Zeile 12:  Es wird gewartet, bis alle Anweisungen abgeschlossen sind\\
 \subsubsection{Abschalt-Prozedur}
 \label{ausschalten}
 
-Nach der Vorbereitung zum Abschalten wird der Prozessor zum Schlafen geschickt.
+Nach der Vorbereitung zum Abschalten wird der Prozessor zum Schlafen geschickt.\\
 
-Zeile 1:   Cortex M3 wird zum Schlafen geschickt
-Zeile 2:   Das Power-Controll-Register erhält das Schlafens-Flag
-Zeile 3:   Die Always-On-Power-Domain muss die Konfigurationen speichern
-Zeile 4:   Den Refrehzyklus-Wert setzen
-Zeile 5:   Warten, dass alle Prozesse fertig abgehandelt sind.
+Zeile 1:\hspace{1cm}   Cortex M3 wird zum Schlafen geschickt
+Zeile 2:\hspace{1cm}   Das Power-Controll-Register erhält das Schlafens-Flag
+Zeile 3:\hspace{1cm}   Die Always-On-Power-Domain muss die Konfigurationen speichern
+Zeile 4:\hspace{1cm}   Den Refrehzyklus-Wert setzen
+Zeile 5:\hspace{1cm}   Warten, dass alle Prozesse fertig abgehandelt sind.
 
 \begin{minipage}[t]{1\textwidth}
 \small\begin{verbatim}
