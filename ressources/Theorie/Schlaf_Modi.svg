@@ -14,7 +14,7 @@
    viewBox="0 0 1195.6943 873.30419"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="Schlaf_Modi.svg"
    inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
    inkscape:export-xdpi="150"
@@ -437,7 +437,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="0.53740115"
      inkscape:cx="-241.34493"
-     inkscape:cy="-75.933221"
+     inkscape:cy="296.22825"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -492,7 +492,7 @@
        orientation="1,0"
        id="guide8053" />
     <sodipodi:guide
-       position="43.238872,717.88089"
+       position="-656.76113,917.8809"
        orientation="1,0"
        id="guide8055" />
     <sodipodi:guide
@@ -544,7 +544,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -709,21 +709,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-20.750628"
-       y="364.31067"
-       id="text4514-6-7-2-5-2"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4516-0-6-9-5-1"
-         x="-20.750628"
-         y="364.31067"
-         style="font-size:25.00000381px">[V]</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1079.5118"
        y="599.8974"
        id="text4518-8-2-7-0-9"
@@ -824,7 +809,7 @@
        inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.00000173px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="33.266933"
        y="627.56256"
        id="text7171-7"
@@ -908,7 +893,7 @@
              height="660"
              width="1540"
              id="rect8005" /></flowRegion><flowPara
-           id="flowPara8007"></flowPara></flowRoot>    </g>
+           id="flowPara8007" /></flowRoot>    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1315,5 +1300,19 @@
          id="tspan12717"
          x="428"
          y="1972.3622">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-19.999996"
+       y="372.36221"
+       id="text3163"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\SleepGrundprinzip.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3165"
+         x="-19.999996"
+         y="372.36221">[I]</tspan></text>
   </g>
 </svg>
