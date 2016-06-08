@@ -14,7 +14,7 @@
    viewBox="0 0 744.09448819 1052.3622047"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="AufgabenBlocks.svg"
    inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\SimpleLink\V0Sendeablauf.png"
    inkscape:export-xdpi="150"
@@ -87,9 +87,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="525.20622"
-     inkscape:cy="857.45378"
+     inkscape:zoom="3.959798"
+     inkscape:cx="723.7544"
+     inkscape:cy="1012.8385"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -104,13 +104,21 @@
        type="xygrid"
        id="grid3336" />
     <sodipodi:guide
-       position="670.00001,870.00002"
+       position="670.00001,620.00001"
        orientation="1,0"
        id="guide5441" />
     <sodipodi:guide
        position="480,810"
        orientation="1,0"
        id="guide5443" />
+    <sodipodi:guide
+       position="520,1040"
+       orientation="1,0"
+       id="guide4416" />
+    <sodipodi:guide
+       position="-40,1000"
+       orientation="1,0"
+       id="guide4684" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -128,46 +136,38 @@
      inkscape:label="Ebene 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.25063396;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5249"
-       width="707.60657"
-       height="377.24936"
-       x="-8.4461117"
-       y="-23.941048"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.08225465;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5251-0"
-       width="219.91776"
-       height="292.7749"
-       x="222.89827"
-       y="10.403334"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.08225441;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5251-0-5"
-       width="219.91776"
-       height="292.7749"
-       x="7.3176918"
-       y="9.8982649"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.07973385;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5251"
-       width="219.92027"
-       height="292.06311"
-       x="464.03989"
-       y="10.402074"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+    <g
+       id="g4602"
+       transform="matrix(1,0,0,1.3216785,-1.4285714,-2.2227442)">
+      <rect
+         y="2.4688406"
+         x="778.32477"
+         height="249.6041"
+         width="279.5939"
+         id="rect4555-8-9-9"
+         style="fill:#ff0000;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="2.4688406"
+         x="499.16223"
+         height="249.6041"
+         width="279.5939"
+         id="rect4555-8-9"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="2.4688406"
+         x="220.23366"
+         height="249.6041"
+         width="279.5939"
+         id="rect4555-8"
+         style="fill:#aa4400;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         y="2.4688406"
+         x="-59.781643"
+         height="249.6041"
+         width="280.60403"
+         id="rect4555"
+         style="fill:#ff6600;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -206,9 +206,9 @@
          id="tspan4344" /></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="19.87817"
-       y="32.127831"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:'Arial Bold';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-41.812927"
+       y="-7.6865377"
        id="text5141"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
@@ -216,13 +216,14 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5143"
-         x="19.87817"
-         y="32.127831">Harvesterschaltung</tspan></text>
+         x="-41.812927"
+         y="-7.6865377"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ff6600">Harvesterschaltung</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="237.89847"
-       y="32.127831"
+       x="239.74547"
+       y="-8.8910313"
        id="text5145"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
@@ -230,13 +231,14 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5147"
-         x="237.89847"
-         y="32.127831">Energiemanagement</tspan></text>
+         x="239.74547"
+         y="-8.8910313"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#aa4400">Energy Management</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="476.86292"
-       y="32.127831"
+       x="519.49597"
+       y="-9.3094501"
        id="text5149"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
@@ -244,22 +246,9 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5151"
-         x="476.86292"
-         y="32.127831">Powermanagement</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="475.62433"
-       y="121.52645"
-       id="text5153"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5155"
-         x="475.62433"
-         y="121.52645">Kommunikation</tspan></text>
+         x="519.49597"
+         y="-9.3094501"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold'">Power Management</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -271,20 +260,6 @@
          id="tspan5169"
          x="620"
          y="382.36221" /></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="718.46332"
-       y="140.76242"
-       id="text5191"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5193"
-         x="718.46332"
-         y="140.76242">Per GPS Position ermitteln</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -321,21 +296,11 @@
            x="-30"
            y="-47.637794"
            style="font-size:12.5px;" /></flowRegion><flowPara
-         id="flowPara5227" /></flowRoot>    <rect
-       style="fill:#ffffff;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.07973385;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5251-04"
-       width="219.92026"
-       height="292.06311"
-       x="715.75415"
-       y="10.116352"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
+         id="flowPara5227" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="728"
-       y="32.362206"
+       x="802.80566"
+       y="-8.2889986"
        id="text5245"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
@@ -343,390 +308,452 @@
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan5247"
-         x="728"
-         y="32.362206">Applikation</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="19.428572"
-       y="1.6479191"
-       id="text5298"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5300"
-         x="19.428572"
-         y="1.6479191">On the Fly-Aufbau</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="240.71428"
-       y="3.0764902"
-       id="text5302"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5304"
-         x="240.71428"
-         y="3.0764902">EM-Evalboard</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="479.28571"
-       y="2.3622048"
-       id="text5306"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5308"
-         x="479.28571"
-         y="2.3622048">Sensortag</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="735.71429"
-       y="0.21934742"
-       id="text5310"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5312"
-         x="735.71429"
-         y="0.21934742">Android-Endgerät</tspan></text>
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2, 4;stroke-dashoffset:0"
-       id="rect5314"
-       width="187.8156"
-       height="29.958456"
-       x="22.592199"
-       y="97.382973"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.47860312;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5314-8"
-       width="186.28546"
-       height="44.521397"
-       x="22.810728"
-       y="44.744373"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.00000004;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5314-4"
-       width="180"
-       height="30"
-       x="239.57143"
-       y="44.790779"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="27.776642"
-       y="46.194656"
-       id="text5157"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5159"
-         x="27.776642"
-         y="46.194656" /><tspan
-         sodipodi:role="line"
-         x="27.776642"
-         y="64.944656"
-         id="tspan5211"
-         style="font-size:15px">PCB erstellen </tspan><tspan
-         sodipodi:role="line"
-         x="27.776642"
-         y="83.694656"
-         style="font-size:15px"
-         id="tspan3094">2 Platinen auf eine</tspan><tspan
-         sodipodi:role="line"
-         x="27.776642"
-         y="102.44466"
-         style="font-size:15px"
-         id="tspan5429" /><tspan
-         sodipodi:role="line"
-         x="27.776642"
-         y="121.19466"
-         style="font-size:15px"
-         id="tspan5431">Schaltung optimieren</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="246.58846"
-       y="65.176514"
-       id="text5175"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5177"
-         x="246.58846"
-         y="65.176514"
-         style="font-size:15px">Für Fahrrad optimieren</tspan></text>
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.05322838;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect5314-4-9"
-       width="189.64793"
-       height="39.647923"
-       x="731.60461"
-       y="45.109695"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:2,4;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5314-4-0"
-       width="191.74973"
-       height="40.321152"
-       x="479.48227"
-       y="44.701656"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.05642247;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5314-4-37"
-       width="190.65787"
-       height="29.943577"
-       x="478.88538"
-       y="167.10474"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2.06012368;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5314-4-7"
-       width="191.36844"
-       height="29.939877"
-       x="478.60147"
-       y="133.10657"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="487.85715"
-       y="57.933609"
-       id="text5187"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         x="487.85715"
-         y="57.933609"
-         id="tspan5243">Daten speichern, bei </tspan><tspan
-         sodipodi:role="line"
-         x="487.85715"
-         y="76.683609"
-         id="tspan5437">genügend Energie senden</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="745.94702"
-       y="57.938694"
-       id="text5179"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5181"
-         x="745.94702"
-         y="57.938694">benutzerfreundlich,</tspan><tspan
-         sodipodi:role="line"
-         x="745.94702"
-         y="76.68869"
-         id="tspan5445">optisch ansprechend </tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="489.10843"
-       y="153.3067"
-       id="text5171"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5173"
-         x="489.10843"
-         y="153.3067"
-         style="font-size:15px">BLE-Daten zu App</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="490.10367"
-       y="189.87808"
-       id="text5183"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5185"
-         x="490.10367"
-         y="189.87808"
-         style="font-size:15px">Geschwindigkeit und Höhe</tspan></text>
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:2,4;stroke-dashoffset:0;stroke-opacity:1"
-       id="rect5314-9"
-       width="189.94728"
-       height="29.947287"
-       x="480.59781"
-       y="201.67427"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.5px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="486.14203"
-       y="223.90672"
-       id="text5199"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan5201"
-         x="486.14203"
-         y="223.90672"><tspan
-           style="font-size:15px"
-           id="tspan5439"> Connected Modus</tspan></tspan></text>
-    <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.00000004, 4.00000008;stroke-dashoffset:0"
-       id="rect5314-9-9"
-       width="189.94728"
-       height="29.947287"
-       x="731.31207"
-       y="90.817123"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="745.94702"
-       y="109.93872"
-       id="text5179-7"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         x="745.94702"
-         y="109.93872"
-         id="tspan5445-5">GPS einbinden</tspan></text>
+         x="802.80566"
+         y="-8.2889986"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Arial;-inkscape-font-specification:'Arial Bold';fill:#ff0000">Applikation</tspan></text>
     <g
-       transform="matrix(0.03897899,0.05829992,-0.05829992,0.03897899,668.0811,71.223339)"
-       inkscape:label="Ebene 1"
-       id="layer1-2"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150">
-      <path
-         inkscape:export-xdpi="174.68852"
-         inkscape:connector-curvature="0"
-         inkscape:export-filename="/home/woody/Desktop/64.png"
-         inkscape:export-ydpi="174.68852"
-         d="m 372.85,247.45 c -128,0 -247.42,36.862 -348.01,100.76 l 6.774,9.3142 65.199,77.054 c 81.036,-48.613 175.67,-77.054 276.89,-77.054 101.11,0 195.06,28.541 276.04,77.054 l 64.353,-77.054 6.774,-9.3142 C 620.27,284.31 500.85,247.45 372.85,247.45 z m 0.84539,145.64 c -92.671,0 -179.38,25.17 -254.02,68.586 l 61.812,73.667 c 57.292,-30.519 123.06,-48.264 192.21,-48.264 69.152,0 134.24,17.746 191.36,48.264 l 61.812,-73.667 c -74.39,-43.42 -160.5,-68.59 -253.17,-68.59 z m 0,129.55 c -60.798,0 -118.55,14.99 -169.35,40.644 l 63.506,75.36 c 32.522,-13.347 67.853,-21.169 105,-21.169 37.39,0 73.221,7.6524 105.84,21.169 l 62.659,-75.36 c -50.48,-25.44 -107.14,-40.64 -167.66,-40.64 z m -0.85,131.25 c -28.34,0 -55.159,5.5636 -80.441,14.395 l 80.441,95.682 80.441,-96.529 c -25.07,-8.7 -52.3,-13.54 -80.44,-13.54 z"
-         style="text-indent:0;text-transform:none;block-progression:tb;color:#000000;fill:#7c7c7c"
-         id="path3792" />
+       id="g4389"
+       transform="translate(-41.834082,-311.8542)">
+      <rect
+         y="383.64566"
+         x="0.078412734"
+         height="50"
+         width="240"
+         id="rect4324-6"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4256"
+         y="403.06778"
+         x="11.614203"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="403.06778"
+           x="11.614203"
+           id="tspan4258"
+           sodipodi:role="line">Fliegender Aufbau zu einer</tspan><tspan
+           y="421.81778"
+           x="11.614203"
+           sodipodi:role="line"
+           id="tspan4394">miniaturisierten Platine vereinen</tspan></text>
+    </g>
+    <g
+       id="g4418"
+       transform="translate(-42.857143,-289.96818)">
+      <g
+         id="g4381-1"
+         transform="translate(-2.8571431e-8,-100)">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4324-9"
+           width="240"
+           height="50"
+           x="1.1014742"
+           y="523.27081" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4260"
+         y="443.43542"
+         x="9.5431356"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="443.43542"
+           x="9.5431356"
+           id="tspan4262"
+           sodipodi:role="line">Schaltung optimieren</tspan></text>
+    </g>
+    <g
+       id="g4482"
+       transform="translate(-20.415465,-360.89991)">
+      <rect
+         y="372.36218"
+         x="260.07541"
+         height="50"
+         width="240"
+         id="rect4324-7"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4272"
+         y="393.3934"
+         x="269.6113"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="393.3934"
+           x="269.6113"
+           id="tspan4274"
+           sodipodi:role="line">Energy Management </tspan><tspan
+           id="tspan4276"
+           y="412.1434"
+           x="269.6113"
+           sodipodi:role="line">für Fahrrad optimieren</tspan></text>
+    </g>
+    <g
+       id="g4424"
+       transform="translate(238.55847,-451.47935)">
+      <g
+         id="g4381">
+        <rect
+           style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect4324"
+           width="240"
+           height="50"
+           x="1.1014742"
+           y="523.27081" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text4278"
+         y="542.86987"
+         x="11.400954"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           id="tspan4282"
+           y="542.86987"
+           x="11.400954"
+           sodipodi:role="line">Energy Management für </tspan><tspan
+           id="tspan4322"
+           y="561.61987"
+           x="11.400954"
+           sodipodi:role="line">verschiedene Geschwindigkeiten</tspan></text>
+    </g>
+    <g
+       id="g4543"
+       transform="translate(520.52442,-219.2031)">
+      <rect
+         y="352.50574"
+         x="0.37423325"
+         height="50"
+         width="240"
+         id="rect4324-39-1"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4300"
+         y="372.95602"
+         x="9.8704224"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="372.95602"
+           x="9.8704224"
+           id="tspan4302"
+           sodipodi:role="line">Daten im Connected Modus</tspan><tspan
+           id="tspan4541"
+           y="391.70602"
+           x="9.8704224"
+           sodipodi:role="line">senden</tspan></text>
+    </g>
+    <g
+       id="g4384"
+       transform="translate(-41.547511,-589.59028)">
+      <rect
+         y="601.05255"
+         x="-0.20815822"
+         height="50"
+         width="240"
+         id="rect4324-0"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4252"
+         y="620.75824"
+         x="10.604052"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="620.75824"
+           x="10.604052"
+           id="tspan4254"
+           sodipodi:role="line">PCB erstellen</tspan></text>
+    </g>
+    <g
+       id="g4488"
+       transform="translate(521.11827,-85.96449)">
+      <rect
+         y="342.50574"
+         x="0.37423378"
+         height="50"
+         width="240"
+         id="rect4324-39-1-0"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4284"
+         y="363.79077"
+         x="10.714286"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="363.79077"
+           x="10.714286"
+           id="tspan4286"
+           sodipodi:role="line">Daten speichern und bei</tspan><tspan
+           id="tspan4288"
+           y="382.54077"
+           x="10.714286"
+           sodipodi:role="line">genügend Energie senden</tspan></text>
+    </g>
+    <g
+       id="g4494"
+       transform="translate(40.898618,-332.32847)">
+      <rect
+         y="343.79074"
+         x="480.00003"
+         height="50"
+         width="240"
+         id="rect4324-2"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4290"
+         y="363.07651"
+         x="489.28571"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="363.07651"
+           x="489.28571"
+           id="tspan4292"
+           sodipodi:role="line">BLE-Daten an App senden</tspan></text>
+    </g>
+    <g
+       id="g4499"
+       transform="translate(321.24358,-331.42857)">
+      <rect
+         y="342.89084"
+         x="479.84494"
+         height="50"
+         width="240"
+         id="rect4324-3"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4310"
+         y="362.36221"
+         x="490.71429"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="362.36221"
+           x="490.71429"
+           id="tspan4312"
+           sodipodi:role="line">Benutzerfreundlich und</tspan><tspan
+           id="tspan4314"
+           y="381.11221"
+           x="490.71429"
+           sodipodi:role="line">optisch ansprechend</tspan></text>
+    </g>
+    <g
+       id="g4505"
+       transform="translate(800,-371.42857)">
+      <rect
+         y="443.22003"
+         x="1.0885162"
+         height="50"
+         width="240"
+         id="rect4324-39-1-9"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4316"
+         y="462.36218"
+         x="9.2857141"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="462.36218"
+           x="9.2857141"
+           id="tspan4318"
+           sodipodi:role="line">GPS einbinden</tspan></text>
+    </g>
+    <g
+       id="g4531"
+       transform="translate(40.942807,-350.9235)">
+      <rect
+         y="422.71497"
+         x="479.95584"
+         height="50"
+         width="240"
+         id="rect4324-39-9"
+         style="fill:#b3b3b3;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4294"
+         y="442.76065"
+         x="489.28931"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="442.76065"
+           x="489.28931"
+           id="tspan4296"
+           sodipodi:role="line">Daten enthalten</tspan><tspan
+           id="tspan4298"
+           y="461.51065"
+           x="489.28931"
+           sodipodi:role="line">Geschwindigkeit und Höhe</tspan></text>
+    </g>
+    <g
+       id="g4549"
+       transform="translate(521.23871,-237.38585)">
+      <rect
+         y="431.79144"
+         x="-0.34006172"
+         height="50"
+         width="240"
+         id="rect4324-39-1-9-2"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.47900009;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text4304"
+         y="453.36215"
+         x="9.9719324"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="453.36215"
+           x="9.9719324"
+           id="tspan4306"
+           sodipodi:role="line">Weitere Sensoren senden:</tspan><tspan
+           id="tspan4308"
+           y="472.11215"
+           x="9.9719324"
+           sodipodi:role="line">Temperatur, Feuchtigkeit, ...</tspan></text>
     </g>
     <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.00000004, 4.00000008;stroke-dashoffset:0"
-       id="rect5314-4-3-1"
-       width="179.50014"
-       height="47.000145"
-       x="239.67851"
-       y="80.326431"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608"
+       width="60"
+       height="20"
+       x="-40.807102"
+       y="-106.19987" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="246.31836"
-       y="102.59354"
-       id="text5195-7"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="39.192898"
+       y="-88.856606"
+       id="text4614"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan5197-4"
-         x="246.31836"
-         y="102.59354"
-         style="font-size:15px;fill:#000000">Für verschiedene </tspan><tspan
-         sodipodi:role="line"
-         x="246.31836"
-         y="121.34354"
-         style="font-size:15px;fill:#000000"
-         id="tspan5433-0">Geschwindigkeiten</tspan></text>
+         id="tspan4616"
+         x="39.192898"
+         y="-88.856606">= Minimale Anforderung an Bicycle Computer</tspan></text>
     <rect
-       style="fill:#e6e6e6;fill-opacity:1;stroke:#0b0b0b;stroke-width:2;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:2.00000004, 4.00000008;stroke-dashoffset:0"
-       id="rect5314-4-3"
-       width="179.50014"
-       height="47.000145"
-       x="483.36017"
-       y="240.09508"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-6"
+       width="60"
+       height="20"
+       x="-40.705578"
+       y="-79.589272" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="490"
-       y="262.36218"
-       id="text5195"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="39.192898"
+       y="-62.24601"
+       id="text4633"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan5197"
-         x="490"
-         y="262.36218"
-         style="font-size:15px;fill:#000000">Temperatur, </tspan><tspan
+         id="tspan4635"
+         x="39.192898"
+         y="-62.24601">= Optionale Anforderungen an Bicycle Computer</tspan></text>
+    <rect
+       style="fill:#00ff66;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-60"
+       width="60"
+       height="20"
+       x="519.19287"
+       y="-106.19987" />
+    <rect
+       style="fill:#ccff00;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2"
+       width="60"
+       height="20"
+       x="519.19287"
+       y="-134.20718" />
+    <rect
+       style="fill:#37c8ab;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-3"
+       width="60"
+       height="20"
+       x="519.19287"
+       y="-79.589272" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="590"
+       y="-117.6378"
+       id="text4686"
+       sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="490"
-         y="281.11218"
-         style="font-size:15px;fill:#000000"
-         id="tspan5433">Feuchtigkeit, und andere</tspan></text>
-    <g
-       transform="matrix(0.03897899,0.05829992,-0.05829992,0.03897899,932.36682,-25.919526)"
-       inkscape:label="Ebene 1"
-       id="layer1-2-4"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\ressources\Projektorganisation\Arbeitsbloecke.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150">
-      <path
-         inkscape:export-xdpi="174.68852"
-         inkscape:connector-curvature="0"
-         inkscape:export-filename="/home/woody/Desktop/64.png"
-         inkscape:export-ydpi="174.68852"
-         d="m 372.85,247.45 c -128,0 -247.42,36.862 -348.01,100.76 l 6.774,9.3142 65.199,77.054 c 81.036,-48.613 175.67,-77.054 276.89,-77.054 101.11,0 195.06,28.541 276.04,77.054 l 64.353,-77.054 6.774,-9.3142 C 620.27,284.31 500.85,247.45 372.85,247.45 z m 0.84539,145.64 c -92.671,0 -179.38,25.17 -254.02,68.586 l 61.812,73.667 c 57.292,-30.519 123.06,-48.264 192.21,-48.264 69.152,0 134.24,17.746 191.36,48.264 l 61.812,-73.667 c -74.39,-43.42 -160.5,-68.59 -253.17,-68.59 z m 0,129.55 c -60.798,0 -118.55,14.99 -169.35,40.644 l 63.506,75.36 c 32.522,-13.347 67.853,-21.169 105,-21.169 37.39,0 73.221,7.6524 105.84,21.169 l 62.659,-75.36 c -50.48,-25.44 -107.14,-40.64 -167.66,-40.64 z m -0.85,131.25 c -28.34,0 -55.159,5.5636 -80.441,14.395 l 80.441,95.682 80.441,-96.529 c -25.07,-8.7 -52.3,-13.54 -80.44,-13.54 z"
-         style="text-indent:0;text-transform:none;block-progression:tb;color:#000000;fill:#7c7c7c"
-         id="path3792-8" />
-    </g>
+         id="tspan4688"
+         x="590"
+         y="-117.6378">= Zu erledigen bis 1. Meilenstein</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="590"
+       y="-89.637794"
+       id="text4690"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4692"
+         x="590"
+         y="-89.637794">= Zu erledigen bis 2. Meilenstein</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="590"
+       y="-61.637794"
+       id="text4694"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4696"
+         x="590"
+         y="-61.637794">= Zu erledigen bis 3. Meilenstein</tspan></text>
+    <rect
+       style="fill:#ccff00;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8"
+       width="239.12946"
+       height="3.9053779"
+       x="-41.486614"
+       y="57.436924" />
+    <rect
+       style="fill:#ccff00;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-8"
+       width="239.12946"
+       height="3.9053779"
+       x="-41.991692"
+       y="117.59177" />
+    <rect
+       style="fill:#ccff00;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-4"
+       width="239.12946"
+       height="3.9053779"
+       x="239.79909"
+       y="57.436924" />
+    <rect
+       style="fill:#00ff66;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-4-4"
+       width="239.12946"
+       height="3.9053779"
+       x="520.87054"
+       y="57.079781" />
+    <rect
+       style="fill:#00ff66;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-4-4-9"
+       width="123.46699"
+       height="3.9053779"
+       x="521.22766"
+       y="117.79407" />
+    <rect
+       style="fill:#37c8ab;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-4-4-9-0"
+       width="239.12946"
+       height="3.9053779"
+       x="801.58478"
+       y="56.722637"
+       inkscape:transform-center-x="86.071429"
+       inkscape:transform-center-y="14.642857" />
+    <rect
+       style="fill:#37c8ab;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4608-2-8-4-4-9-3"
+       width="123.46699"
+       height="3.9053779"
+       x="637.9472"
+       y="117.52122" />
   </g>
 </svg>
