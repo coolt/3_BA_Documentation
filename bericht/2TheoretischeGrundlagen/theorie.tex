@@ -89,7 +89,7 @@ Die aufwendige Art \todo{unklar} der Energieerntung wird für den Prototypen rel
 
 \todo{Messprotokolle}
 
-Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}), weshalb keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll \todo{Link} xxxx). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. \todo{kommender Satz umschreiben} Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: 
+Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}), weshalb keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll \cite{messung_opt_spule}). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. \todo{kommender Satz umschreiben} Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: 
 
 Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}, aus Messsprotokoll xxxx). 
 
@@ -332,7 +332,7 @@ Das Verhalten, dass Prozessoren nach längerer Zeit ohne externe Input in den Sc
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
-Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig \glqq refreshed\grqq (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen \glqq rentention\grqq, siehe Anhang xx\todo{Link TI Power Domain 2 einfügen}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
+Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig \glqq refreshed\grqq (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen \glqq rentention\grqq, siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System neu komplett initialisert werden.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
