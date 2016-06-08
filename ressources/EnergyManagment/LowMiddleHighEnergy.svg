@@ -151,8 +151,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
-     inkscape:cx="785.50229"
-     inkscape:cy="1766.8897"
+     inkscape:cx="139.50229"
+     inkscape:cy="886.8897"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -160,11 +160,11 @@
      guidetolerance="10000"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1004"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     inkscape:window-maximized="1"
+     inkscape:window-width="952"
+     inkscape:window-height="996"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -176,7 +176,7 @@
        originy="157.8809" />
     <sodipodi:guide
        orientation="1,0"
-       position="-236.76113,607.8809"
+       position="-496.76113,377.8809"
        id="guide3030" />
     <sodipodi:guide
        orientation="1,0"
@@ -244,34 +244,6 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="832.36224"
-       id="text4444"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446"
-         x="-280"
-         y="832.36224">v_bat_min_lo</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="572.36224"
-       id="text4448"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4450"
-         x="-280"
-         y="572.36224">v_bat_min_hi_dis</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -442,34 +414,6 @@
     <text
        xml:space="preserve"
        style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="1632.3623"
-       id="text4444-2"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-0"
-         x="-280"
-         y="1632.3623">v_bat_min_lo</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="1372.3623"
-       id="text4448-0"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4450-1"
-         x="-280"
-         y="1372.3623">v_bat_min_hi_dis</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="2.7838678"
        y="1158.4137"
        id="text4514-4"
@@ -617,20 +561,6 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="1272.3623"
-       id="text3988"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan3990"
-         x="-280"
-         y="1272.3623">v_appl_max_lo</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -950,7 +880,7 @@
        d="m 20.000018,178.36201 0,-580"
        id="path4406-43"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -964,39 +894,11 @@
     <text
        xml:space="preserve"
        style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-279.99997"
-       y="58.362198"
-       id="text4444-0"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-8"
-         x="-279.99997"
-         y="58.362198">v_bat_min_lo</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-279.99997"
-       y="-201.6378"
-       id="text4448-8"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4450-0"
-         x="-279.99997"
-         y="-201.6378">v_bat_min_hi_dis</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000191px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
        x="2.7838678"
        y="-415.58652"
        id="text4514-6"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1165,19 +1067,11 @@
          x="-118.36221"
          y="580.00006">Sensor</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1.00000024px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4474)"
-       d="m 20.000012,-587.63806 1059.999988,0"
-       id="path4404-7-2"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
-    <path
        style="fill:none;stroke:#000000;stroke-width:1.00000024px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker5100)"
        d="m 20.000012,-587.63806 0,-580.00004"
        id="path4406-43-2"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1185,37 +1079,9 @@
        d="m 18.652232,-710.45133 1059.999968,0"
        id="path4404-3-8-9"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="-707.63782"
-       id="text4444-0-4"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-8-1"
-         x="-280"
-         y="-707.63782">v_bat_min_lo</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:30.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="-967.63794"
-       id="text4448-8-9"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4450-0-6"
-         x="-280"
-         y="-967.63794">v_bat_min_hi_dis</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -1223,7 +1089,7 @@
        y="-1181.5865"
        id="text4514-6-9"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1237,7 +1103,7 @@
        y="-582.52429"
        id="text4518-1-2"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1251,7 +1117,7 @@
        y="-707.63782"
        id="text4526-8-5"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1263,7 +1129,7 @@
        d="m 21.421372,-965.38203 1060.000028,0"
        id="path4404-3-8-3-72-9"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <text
@@ -1273,7 +1139,7 @@
        y="-967.63794"
        id="text4553-2-1"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1283,60 +1149,46 @@
     <text
        xml:space="preserve"
        style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ff0000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="94.000122"
-       y="-1055.6378"
+       x="960.00006"
+       y="-887.63788"
        id="text3836-9-5"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3838-0-0"
-         x="94.000122"
-         y="-1055.6378">V_STS</tspan></text>
+         x="960.00006"
+         y="-887.63788">V_STS</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="94.000122"
-       y="-727.63782"
+       x="940.00006"
+       y="-727.63788"
        id="text3840-7-8"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3842-81-3"
-         x="94.000122"
-         y="-727.63782">V_SUP</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="94.000122"
-       y="-647.63782"
-       id="text3850-86-3"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan3852-1-9"
-         x="94.000122"
-         y="-647.63782">V_LTS</tspan></text>
+         x="940.00006"
+         y="-727.63788">V_SUP</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="647.63806"
-       y="282.00006"
+       x="607.63782"
+       y="100.00002"
        id="text3996-2-6"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3998-4-7"
-         x="647.63806"
-         y="282.00006">Initialisierung</tspan></text>
+         x="607.63782"
+         y="100.00002">Initialisierung</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -1345,7 +1197,7 @@
        id="text4000-2-9"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1360,7 +1212,7 @@
        id="text4326-9"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1372,7 +1224,7 @@
        d="m 20.000003,-591.63778 39.999998,0 0,-120 979.999999,0"
        id="path4450"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -1380,23 +1232,9 @@
        d="m 21.421379,-1025.3818 1060.000221,0"
        id="path4404-3-8-3-7-6-5"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
-       x="-280"
-       y="-1027.6378"
-       id="text3988-7"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan3990-6"
-         x="-280"
-         y="-1027.6378">v_appl_max_lo</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -1404,22 +1242,13 @@
        y="-1027.6378"
        id="text3992-65"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
          id="tspan3994-82"
          x="-19.999996"
          y="-1027.6378">3.7</tspan></text>
-    <path
-       style="fill:none;stroke:#f91717;stroke-width:3.00000022000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 63.238872,-924.5767 39.999998,-380 60,-60 c 20.00002,-10e-5 120.00002,-20.0001 120.00002,-20.0001 l 200.00002,140 140.00001,-80 140.00001,80 120.00001,-80 139.99996,80"
-       id="path4484"
-       inkscape:connector-curvature="0"
-       transform="translate(-43.238869,336.93892)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150" />
     <text
        xml:space="preserve"
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
@@ -1428,7 +1257,7 @@
        id="text4486"
        sodipodi:linespacing="125%"
        transform="matrix(0,-1,1,0,0,0)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -1436,13 +1265,203 @@
          x="647.63782"
          y="900.00006">Sensor 2</tspan></text>
     <path
-       style="fill:none;stroke:#1f24d5;stroke-width:3.00000022000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
-       d="m 63.238872,-924.5767 79.999998,0 140,-20 60,20 140,0 140,-60 140,60 120,-60 140.00003,60"
+       style="fill:none;stroke:#1f24d5;stroke-width:3.00000024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 222,-587.63778 80,0 140,-20 60,20 140,0 140,-60 140,60 120,-60 140,60"
        id="path4490"
        inkscape:connector-curvature="0"
-       transform="translate(-43.238869,336.93892)"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-220.00002"
+       y="832.36224"
+       id="text3174"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3176"
+         x="-220.00002"
+         y="832.36224">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-220.00002"
+       y="1372.3623"
+       id="text3178"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3180"
+         x="-220.00002"
+         y="1372.3623">STS_HIGH</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="1632.3623"
+       id="text3174-1"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3176-7"
+         x="-200.00002"
+         y="1632.3623">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="52.362202"
+       id="text3174-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3176-0"
+         x="-200.00002"
+         y="52.362202">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="-207.63782"
+       id="text3178-9"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\MIDDLE_ENERGY.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3180-4"
+         x="-200.00002"
+         y="-207.63782">STS_HIGH</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-240.00002"
+       y="572.36224"
+       id="text3178-9-8"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\LOW_ENERGY.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3180-4-8"
+         x="-240.00002"
+         y="572.36224">STS_HIGH</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="1272.3623"
+       id="text3254"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3256"
+         x="-200.00002"
+         y="1272.3623">APPL_LTS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="-967.63788"
+       id="text3178-9-7"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3180-4-3"
+         x="-200.00002"
+         y="-967.63788">STS_HIGH</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="-707.63788"
+       id="text3174-4-0"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3176-0-0"
+         x="-200.00002"
+         y="-707.63788">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000381px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="-200.00002"
+       y="-1027.6378"
+       id="text3254-4"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3256-8"
+         x="-200.00002"
+         y="-1027.6378">APPL_LTS</tspan></text>
+    <path
+       style="fill:none;stroke:#ee0b0b;stroke-width:3.00000022000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 63.238872,-924.5767 39.999998,-380 60,40 200,-100 120,-20"
+       id="path3321"
+       inkscape:connector-curvature="0"
+       transform="translate(-43.238869,336.93892)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#ec0202;stroke-width:3.00000022;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 483.23887,-1384.5767 200,140 140,-80 140,80 120.00003,-80"
+       id="path3323"
+       inkscape:connector-curvature="0"
+       transform="translate(-43.238869,336.93892)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:#0000ff;stroke:#000000;stroke-width:3.00000022000000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="m 63.238872,-924.5767 299.999998,0"
+       id="path3325"
+       inkscape:connector-curvature="0"
+       transform="translate(-43.238869,336.93892)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <rect
+       style="fill:#ffffff;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4143"
+       width="200"
+       height="140"
+       x="1083.2389"
+       y="-1024.5767"
+       transform="translate(-43.238869,336.93892)"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.00000024px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker4474)"
+       d="m 20.000012,-587.63806 1059.999988,0"
+       id="path4404-7-2"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150" />
+    <text
+       xml:space="preserve"
+       style="font-size:32.00000763px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000ff;fill-opacity:1;stroke:none;font-family:Arial;-inkscape-font-specification:Arial"
+       x="960.00006"
+       y="-607.63782"
+       id="text3850-86-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\3Vorgehen\imag\HIGH_ENERGY_2.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan3852-1-9"
+         x="960.00006"
+         y="-607.63782">V_LTS</tspan></text>
   </g>
 </svg>

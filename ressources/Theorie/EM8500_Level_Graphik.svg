@@ -230,8 +230,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.53740115"
-     inkscape:cx="148.49486"
-     inkscape:cy="-814.03399"
+     inkscape:cx="446.22403"
+     inkscape:cy="-1632.7892"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -239,11 +239,11 @@
      guidetolerance="10000"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1004"
-     inkscape:window-x="-4"
-     inkscape:window-y="-4"
-     inkscape:window-maximized="1"
+     inkscape:window-width="1407"
+     inkscape:window-height="750"
+     inkscape:window-x="405"
+     inkscape:window-y="497"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -338,7 +338,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -562,7 +562,7 @@
        d="m -3.0348305,2413.259 1060.0003305,0"
        id="path4404-34-7"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -570,7 +570,7 @@
        d="m 0.91253951,2414.5748 0,-378.0024"
        id="path4406-7-8"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -578,24 +578,9 @@
        d="m 0.88054951,2254.9193 1060.00035049,0"
        id="path4404-3-7-0"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-204.757"
-       y="2253.3896"
-       id="text4444-0-1"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-8-8"
-         x="-204.757"
-         y="2253.3896"
-         style="font-size:25.00000298px">v_bat_min_low</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -603,7 +588,7 @@
        y="2020.626"
        id="text4514-6-7"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -618,7 +603,7 @@
        y="2414.425"
        id="text4518-8-2"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -636,7 +621,7 @@
        d="m 0,2414.3622 160,0 c 0,0 0,-160 0,-160 l 160,-80 160,40 160,-20 160,60 0,160 180.00003,0"
        id="path5005"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <path
@@ -644,7 +629,7 @@
        d="m 0,2412.3622 160,-160 160,-80 160,40 160,-20 160,60 180.00003,80"
        id="path5007"
        inkscape:connector-curvature="0"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
     <text
@@ -654,7 +639,7 @@
        y="2354.1384"
        id="text5039"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -669,7 +654,7 @@
        y="2310.8486"
        id="text5051"
        sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTS.png"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
@@ -789,21 +774,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-204.58838"
-       y="1651.3964"
-       id="text4444-0-1-7"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitSTsTheoriel.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-8-8-6"
-         x="-204.58838"
-         y="1651.3964"
-         style="font-size:25.00000381px">v_bat_min_low</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="-17.450714"
        y="1418.6327"
        id="text4514-6-7-2"
@@ -885,21 +855,6 @@
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitLTS.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-207.29866"
-       y="2834.1804"
-       id="text4444-0-1-7-8"
-       sodipodi:linespacing="125%"
-       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitLTS.png"
-       inkscape:export-xdpi="150"
-       inkscape:export-ydpi="150"><tspan
-         sodipodi:role="line"
-         id="tspan4446-8-8-6-9"
-         x="-207.29866"
-         y="2834.1804"
-         style="font-size:25.00000381px">v_bat_min_low</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1025,16 +980,58 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="-211.39929"
-       y="2753.9888"
-       id="text5851"
+       x="-131.00287"
+       y="1651.8491"
+       id="text7271"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitSTsTheoriel.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7273"
+         x="-131.00287"
+         y="1651.8491">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-130.534"
+       y="2255.2048"
+       id="text7271-3"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelSTSReal.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7273-9"
+         x="-130.534"
+         y="2255.2048">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-132.86368"
+       y="2833.447"
+       id="text7271-3-4"
        sodipodi:linespacing="125%"
        inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitLTS.png"
        inkscape:export-xdpi="150"
        inkscape:export-ydpi="150"><tspan
          sodipodi:role="line"
-         id="tspan5853"
-         x="-211.39929"
-         y="2753.9888">v_appl_max_low</tspan></text>
+         id="tspan7273-9-4"
+         x="-132.86368"
+         y="2833.447">STS_LOW</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:25px;line-height:125%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="-141.83136"
+       y="2750.5015"
+       id="text7311"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="C:\Users\katrin\Documents\Dokumente\ZHAW\5Jahr\3_BA_documentation\bericht\2TheoretischeGrundlagen\imag\levelMitLTS.png"
+       inkscape:export-xdpi="150"
+       inkscape:export-ydpi="150"><tspan
+         sodipodi:role="line"
+         id="tspan7313"
+         x="-141.83136"
+         y="2750.5015">STS_HIGH</tspan></text>
   </g>
 </svg>
