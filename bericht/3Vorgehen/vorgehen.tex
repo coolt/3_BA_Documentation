@@ -373,7 +373,7 @@ Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlich
 	\item Die Netze VCC\_STS, VCC\_LTS und VREG dürfen nicht mit dem Stecker X1 verbunden werden, da die Energie über diese Anschlüsse verloren geht.
 \end{enumerate}
 
-Die Punkte 3 bis 5, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messung mit der ersten Version der Leiterplatte durchgeführt.
+Die Punkte 3 bis 5, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messungen mit der ersten Version der Leiterplatte durchgeführt.
 
 \todo{ Namensklärung: V HRV = VCC}
 \todo{Messprotokolle umbenennen}
@@ -546,9 +546,7 @@ In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen da
 
 Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTagversion V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheitert am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete. 
 
-Die untenstehende Tabelle stellt dieEnergieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom xxxxx - xxxx. 
-
-\todo{Sitzungsprotokolle Datum einsezten, Anhanhgsbezeichnung}
+Die untenstehende Tabelle stellt dieEnergieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom \cite{sitzungsprotokoll_160226} - \cite{sitzungsprotokoll_160516_ms3}.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Messresultate nach TI-SensorTag-Versionen}
@@ -709,8 +707,6 @@ Der Wert wird aufgerundet auf 100 $\mu$F, um genügend Energie zu haben.
 
 \subsubsection*{MPP einstellen}
 
-\todo{Messprotokolle eintrage}
-
 Während der Entwicklung des Harvesters wurde die Leistungskurve aufgenommen (siehe Messprotokoll \cite{messung_harvester_finish}). Wie im Theorieteil \ref{harv_diff} erklärt unterscheidet sich das Leistungsmaximum nach Geschwindigkeit. Weil das Ziel ein funktionstüchtiger Prototyp bei 10 km/h ist, bezieht sich das Einstellen auf dieses Leistungsmaximum.\todo{Werte überprüfen, aus welchem Messprotokoll kommen die Werte?} Das Leistungsmaximum liegt beim entwickelten Bicycle Computer bei 21.87  $\mu$W. Die MPP-Ratio liegt beim MPP bei 24.87\thinspace\% (siehe \todo{Referenz einbauen}). Die MPP-Ratio liegt somit unter 50\thinspace\%. In der Umsetzung eines Energy Managements mit dem EM8500-Chip ergibt sich das Problem, dass nur Konfigurationen von MPPT-Ratios von 50 - 80\thinspace\% erlaubt sind (siehe Tabelle unten). Zudem sind die Einstellungsschritte der tieferen MPP-Ratio von 50\thinspace\% bis 67\thinspace\% gröber als die von 71\thinspace\% bis 88\thinspace\%. Dies, weil der EM8500-Chip für Harvester vom Typ TEG (ein konstantes MPP bei 50\thinspace\%) und Solarzellen konzipiert ist. Bei der Bewegungsinduktion ist dieser vorgegebene Range nicht ideal.
 
 \begin{minipage}{\textwidth}
@@ -779,17 +775,15 @@ Die Grundlage bildete die Gleichung  $E_{Applikation}= E_{STS\_HIGH} - E_{STS\_L
 
 \begin{flalign}\label{eq:bat_min_low_schwellwert}
     (v\_bat\_min\_low) ^2  &=  \frac{2\, \times \, E_{Applikation}}{C_{STS}} + (V_{STS\_LOW})^2\\
-     &=  \frac{2\, \times \, 189, \mu J}{100 \,\mu F} + (2.0)^2\\ \nonumber
-    v\_bat\_min\_low  &=  \sqrt{\frac{378}{100 } + 4} = \sqrt{7.8} = 2.79 \\\nonumber
+     &=  \frac{2\, \times \, 189, \mu J}{100 \,\mu F} + (2.0 V)^2\\ \nonumber
+    v\_bat\_min\_low  &=  \sqrt{\frac{378 \,\mu J}{100 \,\mu F} + 4 V^2} = \sqrt{7.8 V^2} = 2.79 V \\\nonumber
 \end{flalign}
 
-Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solang Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
+Wichtigster Wert in der Konfiguration ist jedoch der korrekte MPPT-Wert. Er wird auf das Minimum (50\thinspace\%) gesetzt. Das Maximum des Ladezustands  wird auf den maximal erlaubten Wert gesetzt: v\_bat\_max  = 4.8 V bzw. 4.7 V. Denn solange Energie geerntet werden kann, soll sie gespeichert werden. v\_appl\_max spielt in unserer Anwendung keine wichtige Rolle. Der Wert wird von den Vorgängern übernommen.
 
-\todo{Messprotokoll und Sitzungsprotokoll einfügen}
+Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll \cite{messung_inbetrieb_prototyp}). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Um eine Minimalspannung von 0.3 V bei niedrigen Geschwindigkeit zu garantieren wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
 
-Das Zusammensetzen der Last (TI-SensorTag) mit der konfigurierten Hardware erstaunte (siehe Messprotokoll \cite{messung_inbetrieb_prototyp} und Sitzungsprotokoll yyy). Ab 25 km/h funktionierte die Schaltung gut. Doch darunter reagiert der EM8500-Chip nicht. Weder STS noch LTS konnten sich laden. Nachmessungen am Eingang vom EM8500-Chip ergaben, dass bei  10 km/h und einer MPPT-Ratio von 50\thinspace\% eine Spannung von 0.2 V anliegt. Diese ist zu tief, um den Booster zu starten. Erst bei höherer Geschwindigkeit wird eine Eingangsspannung von mehr als 0.3 V erreicht, und das System beginnt zu funktionieren. Um eine Minimalspannung von 0.3 V bei niedrigen Geschwindigkeit zu garantieren wird die MPPT-Ratio zukünftig auf den zweittiefsten Wert (60 \thinspace\%) eingestellt.
-
-Ein unerwartetes Verhalten des Drucksensors zeigt sich bei der Implementation des Auslesen. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an die Harvesterschaltung, riss die Spannung sofort zusammen. Innert kürzester Zeit entlädt sich der STS sowie der parallel geschaltene LTS und unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbildung \ref{r_bild_e_zusammenfassung}\todo{Referenz überprüfen} im Resultat-Teil).
+Ein unerwartetes Verhalten des Drucksensors zeigt sich bei der Implementation des Auslesens. Der BLE-Sniffer empfängt die Druckdaten korrekt, doch beim Anschliessen des TI-SensorTags an die Harvesterschaltung, riss die Spannung sofort zusammen. Innert kürzester Zeit entlädt sich der STS sowie der parallel geschaltene LTS. Unterschreitet der STS den Schwellwert von V\_SUP von 2 V, so stellt die Speisung der Applikation ab (siehe Abbildung \ref{i2c_problem} im Unterkapitel \ref{erst_EMessungen}). Das Ausmessen des Energieverbrauchs bringt Klarheit: Die I2C-Kommunikation und das Aufstarten des Sensors brauchen xxx-mal mehr Energie als das Berechnen der Geschwindigkeit aus den Reed-Switch Impulsen (siehe Abbildung \ref{r_bild_e_zusammenfassung}\todo{Referenz überprüfen} im Resultat-Teil).
 
 \todo{Faktor ausrechnen}
 
@@ -807,7 +801,7 @@ Die letzte der vier Aufgaben aus der Optimierungsliste nach der Inbetriebnahme (
 \subsubsection*{Definition von Energiezuständen}
 \label{def_zustaende} 
 
-Da die produzierte Energie von der Fahrgeschwindigkeit abhängt, werden die Energiezustände aufgrund der Fahrgeschwindigkeit definiert. Welche Aufgaben in welchem Energiezustand getan werden, folgt in den Abbildungen \ref{LOW_ENER}, \ref{MID_ENER} und \ref{HIGH_ENER}, direkt nach der Definition der Zustände. 
+Da die produzierte Energie von der Fahrgeschwindigkeit abhängt, werden die Energiezustände aufgrund der Fahrgeschwindigkeit definiert. Welche Aufgaben in welchem Energiezustand erledigt werden, folgt in den Abbildungen \ref{LOW_ENER}, \ref{MID_ENER} und \ref{HIGH_ENER}, direkt nach der Definition der Zustände. 
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Energiezustände aufgrund der Geschwindigkeit}
@@ -819,7 +813,7 @@ Da die produzierte Energie von der Fahrgeschwindigkeit abhängt, werden die Ener
     \end{tabbing}
 \end{minipage}
 
-Bei wenig Energie lädt sich nur der STS. Erreicht er den Schwellwert für die Speisung der Applikation, so erhält TI-SensorTag Spannung. Die Reed-Impulse werden ausgelesen, der zweite Prozessor für das Senden der BLE-Pakete gestartet und die Daten übertragen. Bei wenig Energie verbrauchen diese drei Aktionen alle zur Verfügung stehende Energie. Denn LTS hat sich nicht geladen. Die Energie genügt nicht für weitere Aktionen.
+Bei wenig Energie lädt sich nur der STS. Erreicht er den Schwellwert für die Speisung der Applikation, so erhält TI-SensorTag Spannung. Die Reed-Impulse werden ausgelesen, der zweite Prozessor für das Senden der BLE-Pakete gestartet und die Daten übertragen. Bei wenig Energie verbrauchen diese drei Aktionen sämtliche zur Verfügung stehende Energie. Denn LTS hat sich nicht geladen. Die Energie genügt nicht für weitere Aktionen.
 
 \begin{figure}[ht]
     \begin{minipage}[t]{0.5\textwidth}
@@ -834,7 +828,7 @@ Bei wenig Energie lädt sich nur der STS. Erreicht er den Schwellwert für die S
     \end{minipage}
 \end{figure}
 
-Bei etwas mehr Energie befindet sich das System in einem Zwischenzustand (Abbildung \ref{MID_ENER}). Zu jeder Geschwindigkeitsmessung wird ein Sensor ausgelesen. Im Idealfall unterstützt LTS die Stabilität. Wenn nicht, schaltet V\_SUP bei zu wenig Energie ab. Im hohen Energiezustand wird mit jedem Geschwindigkeitspaket die aktualisierten Werte der drei Sensoren mitübertragen. 
+Bei etwas mehr Energie befindet sich das System in einem Zwischenzustand (Abbildung \ref{MID_ENER}). Zu jeder Geschwindigkeitsmessung wird ein Sensor ausgelesen. Im Idealfall unterstützt LTS die Stabilität. Wenn nicht, schaltet V\_SUP bei zu wenig Energie ab. Im hohen Energiezustand werden mit jedem Geschwindigkeitspaket die aktualisierten Werte der drei Sensoren mitübertragen. 
 
 \begin{figure}[ht]
   \includegraphics[width=0.45\textwidth]{3Vorgehen/imag/HIGH_ENERGY.png}
@@ -847,7 +841,7 @@ Bei etwas mehr Energie befindet sich das System in einem Zwischenzustand (Abbild
 \section{Power Management}
 \label{powerOptimierung}
 
-Das Power Management wird mit dem TI-SensorTag umgesetzt. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, auf welche Bibliotheken und Hilfen man von Texas Instruments zurückgreifen kann. In nächsten Unterkapitel \ref{PowerDomains} werden die Power-Domains des TI-SensorTags erklärt und im letzten Unterkapitel die Umsetzung, wie Schlafenszeiten eingebaut werden \ref{sleep_funktion}.
+Das Power Management wird mit dem TI-SensorTag umgesetzt. Im ersten Unterkapitel \ref{keinROTS} wird beschrieben, auf welche Bibliotheken und Hilfen man von Texas Instruments zurückgreifen kann. In nächsten Unterkapitel \ref{PowerDomains} werden die Power-Domains des TI-SensorTags erklärt und im letzten Unterkapitel die Umsetzung, z.B. wie Schlafenszeiten eingebaut werden \ref{sleep_funktion}.
 
 
 \subsection{Programmieren für Low Power Applikation im Adevertising Mode}
@@ -860,14 +854,14 @@ Das ausgewählte TI-SensorTag ist für Low-Power-Anwendungen ausgelegt. Die Low-
         \item Vorteil ohne RTOS: Ein sehr schlanker Code entsteht. Die Register werden direkt gesetzt, und die Funktionsaufrufe sind sehr schnell.
         \item Vorteil ohne RTOS: Man muss sich nicht in das TI-RTOS-Konzept einarbeiten. Die Message-Queue und das Thread-Handling bei TI muss man nicht kennen.
         \item Nachteil ohne RTOS: TI implementierte über die Library die Hauptaktivitäten wie Power Domains einschalten oder Kommunikation zu Peripheriegeräten aufbauen. Die Zugriffe werden vom OS übernommen. Ohne RTOS muss man sich selber z.B. ums Aufwachen oder das Abhandeln der Interrupts kümmern.        
-       \item Eine Dokumentation zur umfangreichen Library (cc26xxware/driverLib) fehlt, da TI davon ausgeht, dass man über das OS auf die Bibliothek zugreift. Die internen Abhängigkeiten zu verstehen, ist nicht einfach. Unerwünschte Nebeneffekte treten auf.
+       \item Nachteil ohne RTOS: Eine Dokumentation zur umfangreichen Library (cc26xxware/driverLib) fehlt, da TI davon ausgeht, dass man über das OS auf die Bibliothek zugreift. Die internen Abhängigkeiten zu verstehen, ist nicht einfach. Unerwünschte Nebeneffekte treten auf.
     \end{enumerate}
 \end{minipage}
 
 \subsection{Power Domains beim TI-SensorTag}
 \label{PowerDomains}
 
-Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten Power Domains eine zentrale Rolle. Das TI-SensorTag unterscheidet 10 Power Domains. Ein Überblick  ist in der Abbildung  \ref{supply_syst} abgebildet. Das Konzept der Verbrauchsoptimierung besteht im Abschalten unnötigen Peripherie- und Prozessorteilen. Nur absolut notwendigen Power Domains laufen weiter. Der Teil, der nicht abstellt wird AON (Always On) genannt. Zu dieser Domain gehört ein Clock, ein Timer, gewisse Interrupts und Schnittstellen. Im Anhang \ref{anhang_sensortag_PowerDomain} ist in der Abbildung \ref{a_powerdomain} detailliert dargestellt, wie die einzelnen Power Domains sich beim Ausschalten verhalten. So braucht z.B. das RAM und die GPIO Refreshzyklen. Beim RAM bedeutet dies eine Speicherauffrischung, bei der GPIO eine Kontrolle der Pinzustände.
+Bei einer Low Power Applikation hat das Ein- und Ausschalten von sogenannten Power Domains eine zentrale Rolle. Das TI-SensorTag unterscheidet 10 Power Domains. Ein Überblick  ist in der Abbildung  \ref{supply_syst} abgebildet. Das Konzept der Verbrauchsoptimierung besteht im Abschalten unnötiger Peripherie- und Prozessorteilen. Nur absolut notwendige Power Domains laufen weiter. Der Teil, der nicht abstellt wird, wird AON (Always On) genannt. Zu dieser Domain gehört ein Clock, ein Timer, gewisse Interrupts und Schnittstellen. Im Anhang \ref{anhang_sensortag_PowerDomain} ist in der Abbildung \ref{a_powerdomain} detailliert dargestellt, wie die einzelnen Power Domains sich beim Ausschalten verhalten. So braucht z.B. das RAM und die GPIO Refreshzyklen. Beim RAM bedeutet dies eine Speicherauffrischung, bei der GPIO eine Kontrolle der Pinzustände.
 
 \clearpage
 \begin{figure}[ht]
@@ -880,7 +874,7 @@ Bei einer Low Power Applikation stellt das Ein- und Ausschalten von sogenannten 
 \subsection{Schlafenszeiten implementieren}
 \label{sleep_funktion}
 
-In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen \ref{warten_zw_bloecken}\todo{referenz überprüfen}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung \ref{warten_zw_bloecken} zeigt der implementierte Codeablauf der TI-SensorTag Version V4, bei einer Geschwindikeit unter 50 km/h \todo{Geschwindikeit überprüfen}. Der Fall von einer Geschwindigkeit von über 50 km/h\todo{Geschwindikeit überprüfen}, bei der V\_SUP nicht mehr abstellt, ist im letzten Unterkapitel illustriert.
+In der Theorie wird das Schlafen zwischen Funktionsblöcken beschrieben \ref{pm_sleep}. Der Energy Managements-Teil fasst zusammen, welche Aktionen bei welcher Energie gemacht werden können (siehe Abbildungen \ref{warten_zw_bloecken}\todo{referenz überprüfen}). Das Auslesen der Sensoren ist nur möglich, weil die Aktionsblöcke aufgeteilt werden und das System dazwischen Schlafen geht. Die Abbildung \ref{warten_zw_bloecken} zeigt den implementierten Codeablauf der TI-SensorTag Version V4, bei einer Geschwindikeit unter 50 km/h \todo{Geschwindikeit überprüfen}. Der Fall von einer Geschwindigkeit von über 50 km/h\todo{Geschwindikeit überprüfen}, bei der V\_SUP nicht mehr abstellt, ist im letzten Unterkapitel illustriert.
 
 \begin{figure}[ht]
   \includegraphics[width=0.5\textwidth]{3Vorgehen/imag/schlafen_funktionen.png}
@@ -895,13 +889,13 @@ Ist eine Aufgabe getätigt, wie z. B. das Starten eines Sensors, kann das System
 
 Die abgebildete Funktion verdeutlicht exemplarisch, welche Schritte bei einer Programmierung ohne RTOS durch die Programmiererin bzw. den Programmierer ausgeführt werden.  Zum Verständnis werden einige Zeilen des Codes kurz kommentiert:\\ 
 
-Zeile 1:\hspace{1cm}    Der Christal-Oszillator wird abgeschaltet,\\
-Zeile 2:\hspace{1cm}   Das Radio-Modul ebenfalls,\\ 
-Zeile 3:\hspace{1cm}   Ein niedriger Takt wird eingestellt und\\ 
-Zeile 4:\hspace{1cm}   unnötige Periphieriespeisung abgestellt.\\ 
-Zeile 5:\hspace{1cm}   Dem Prozessor wird erlaubt, seine notwendigen Register zu refreshen und\\ 
-Zeile 6:\hspace{1cm}   das Cache wird abgeschaltet.\\ 
-Zeile 7:\hspace{1cm}   Wobei ein Refreshzyklus aktiviert wird.\\
+Zeile 2:\hspace{1cm}   Der Crystal-Oszillator wird abgeschaltet,\\
+Zeile 3:\hspace{1cm}   Das Radio-Modul ebenfalls,\\ 
+Zeile 4:\hspace{1cm}   Ein niedriger Takt wird eingestellt und\\ 
+Zeile 5:\hspace{1cm}   unnötige Peripheriespeisung abgestellt.\\ 
+Zeile 6:\hspace{1cm}   Dem Prozessor wird erlaubt, seine notwendigen Register zu refreshen und\\ 
+Zeile 7:\hspace{1cm}   das Cache wird abgeschaltet.\\ 
+Zeile 8:\hspace{1cm}   Wobei ein Refreshzyklus aktiviert wird.\\
 Zeile 11:\hspace{1cm}  Das Intervall zwischen den Refreshzyklen wird berechnet\\
 Zeile 12:\hspace{1cm}  Es wird gewartet, bis alle Anweisungen abgeschlossen sind\\
 
@@ -931,11 +925,11 @@ Zeile 12:\hspace{1cm}  Es wird gewartet, bis alle Anweisungen abgeschlossen sind
 
 Nach der Vorbereitung zum Abschalten wird der Prozessor zum Schlafen geschickt.\\
 
-Zeile 1:\hspace{1cm}   Cortex M3 wird zum Schlafen geschickt
-Zeile 2:\hspace{1cm}   Das Power-Controll-Register erhält das Schlafens-Flag
-Zeile 3:\hspace{1cm}   Die Always-On-Power-Domain muss die Konfigurationen speichern
-Zeile 4:\hspace{1cm}   Den Refrehzyklus-Wert setzen
-Zeile 5:\hspace{1cm}   Warten, dass alle Prozesse fertig abgehandelt sind.
+Zeile 2:\hspace{1cm}   Cortex M3 wird zum Schlafen geschickt\\
+Zeile 3:\hspace{1cm}   Das Power-Control-Register erhält das Schlafens-Flag\\
+Zeile 4:\hspace{1cm}   Die Always-On-Power-Domain muss die Konfigurationen speichern\\
+Zeile 5:\hspace{1cm}   Den Refrehzyklus-Wert setzen\\
+Zeile 6:\hspace{1cm}   Warten, dass alle Prozesse fertig abgehandelt sind.\\
 
 \begin{minipage}[t]{1\textwidth}
 \small\begin{verbatim}
@@ -962,7 +956,7 @@ Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sen
 \end{figure}
 
 
-Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zählt ein Counter die Reed Switch-Interrupts, also die Radumdrehungen. Da am Fahrrad zwei Magnete befestigt sind, entspricht der Counterwert der doppelten Anzahl Radumdrehungen. Ist  das Zählermaximum erreicht, wird der Code rund um eine energiestarke Aktion ausgeführt. Danach geht das System schlafen. Das System soll so lang schalfen, dass die Spannung von V\_STS genug gross ist, dass die enerigestarke Aktion ausgeführt werden kann. In der unten aufgeführten Tabelle findet sich eine grobe Count-Statistik der Version V4 für verschiedene Geschwindigkeiten. 
+Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zählt ein Counter die Reed Switch-Interrupts, also die Radumdrehungen. Da am Fahrrad zwei Magnete befestigt sind, entspricht der Counterwert der doppelten Anzahl Radumdrehungen. Ist  das Zählermaximum erreicht, wird der Code rund um eine energiestarke Aktion ausgeführt. Danach geht das System schlafen. Das System soll so lang schlafen, dass die Spannung von V\_STS genug gross ist, dass die energiestarke Aktion ausgeführt werden kann. In der unten aufgeführten Tabelle findet sich eine grobe Count-Statistik der Version V4 für verschiedene Geschwindigkeiten. 
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Zählerstände für Schlafenszeit}
@@ -974,7 +968,7 @@ Die Schlafenszeit wird experimentell ermittelt. Innerhalb des GPIO-Handlers zäh
     \end{tabbing}
 \end{minipage}
 
-Das Setzen der Schlafenszeit ist ein einer globalen Variable gespeichert. Abhängig von der Geschwindigkeit, wird das Schlafensintervall (das Counter-Maximum) angepasst.
+Das Setzen der Schlafenszeit ist einer globalen Variable gespeichert. Abhängig von der Geschwindigkeit, wird das Schlafensintervall (das Counter-Maximum) angepasst.
 
 
 
@@ -1013,7 +1007,7 @@ Es kam ebenfalls der Wunsch auf, die Einheiten der Werte einstellbar zu machen, 
 
 \subsubsection{BLE-Kommunikation}
 
-Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation. Hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, das die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, dass die empfangenen Daten zu unserem Sensor gehört, müssen diese umgerechnet werden.
+Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation. Hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, dass die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, dass die empfangenen Daten zu unserem Sensor gehören, müssen diese umgerechnet werden.
 
 \subsubsection{Inbetriebnahme des Codes der PA}
 
@@ -1032,11 +1026,15 @@ Der nächste logische Schritt war, dass die empfangenen Daten gefiltert werden m
 
 \captionof{table}{Filter}
 \begin{tabbing}
-   Length	\quad\= Type	\quad\= UUID 	\quad\= Package ID\\[0.8ex]
-   23	\> 0x03	\> 0xDEBA \> 2 bytes\> \\
-   
-   \quad\= Speed	\quad\= Pressure	\quad\= Temperature	\quad\= Humidity	\quad\= Checksum   \\[0.8ex]
-   4 bytes\> 4 bytes\> 4 bytes\> 2 bytes \\
+	Lenth \quad\=		23\\[0.8ex]
+	Type\>				0x03\\
+	UUID\>				0xDEBA\\
+	Package ID\>		2 bytes\\
+	Speed\>				4 bytes\\
+	Pressure\>			4 bytes\\
+	Temperature\>		4 bytes\\
+	Humidity\>			4 bytes\\
+	Checksum\>			2 bytes\\
 \end{tabbing}
 Aufgrund dieser Struktur können alle empfangenen Daten, welche nicht die definierte Länge, Typ und UUID besitzen, ignoriert werden.
 
@@ -1078,7 +1076,7 @@ Ein Beispiel: Wird also der hexadezimale Wert 0x00041000 empfangen sind das 1.25
 
 Um die Geschwindigkeit zu erhalten muss der Radumfang durch die erhaltene Zeit geteilt werden. Jedoch befinden sich an unserem Rad zwei Magnete, deswegen darf nur der halbe Radumfang verrechnet werden. Ausserdem ist das Resultat in m/s und muss deshalb noch in km/h umgerechnet werden, was nichts anderes als eine Multiplikation mit dem Faktor 3.6 ist.
 
-Der Druck wird in Pascal (Pa) übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, da das TI-SensorTag nur drei Bytes aus dem Drucksensor erhält. Das erste Byte kann ignoriert werden. Trotzdem wurden vier Byte übertragen, um später die Daten zum Druck mit weitern Informationen zu bestücken. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl:
+Der Druck wird in Pascal (Pa) übertragen, hier müssen die verschiedenen Bytes miteinander addiert werden und in hPa umgerechnet werden. Es werden jedoch nur die letzten drei Bytes mit Werten befüllt sein, da das TI-SensorTag nur drei Bytes aus dem Drucksensor erhält. Das erste Byte kann ignoriert werden. Trotzdem wurden vier Byte übertragen, um später die Daten zum Druck mit weiteren Informationen zu bestücken. Folgende Formel zeigt die Umrechnung der Bytes in eine float Zahl:
 
 \begin{equation}
 	p = (float)((byte_2 << 16) + (byte_1 << 8) + byte_0) \times 0.01
@@ -1096,7 +1094,7 @@ Durch Umformen ergibt sich die folgende Formel, womit sich die Höhe aus dem Dru
 	h = ln(\frac{p(h)}{p_0}) \times (-7991 m) = ln(\frac{p(h)}{1013.25 hPa}) \times (-7991 m)
 \end{equation}
 
-Die Temperatur wird in zwei Bytes übertragen. Jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln Grad Celsius. Das bedeutet, dass die Temperatur, welche empfangen wird, zusammengesetzt werden muss und durch 1000 dividiert werden muss. Die Formel sieht folgendermassen aus:
+Die Temperatur wird in zwei Bytes übertragen. Jedoch wird die Temperatur nicht in $^\circ$C übertragen, sondern in Tausendsteln Grad Celsius. Ein Beispiel: Die Temperatur 23 $^\circ$C wird als 23000 übertragen. Das bedeutet, dass die Temperatur, welche empfangen wird, zusammengesetzt werden muss und durch 1000 dividiert werden muss. Die Formel sieht folgendermassen aus:
 
 \begin{equation}
 	T = (float)((byte_1 << 8) + byte_0) \times 0.001
@@ -1126,9 +1124,9 @@ Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur 
 	\label{app_saveAdress} 
 \end{figure}
 
-Der adressCounter wird mit dem Wert -1 initialisiert. Werden die ersten Daten mit der vorgegeben Struktur empfangen wird die Funktion automatisch die Adresse in der adressList an der Stelle 0 speichern. Werten erneut Daten von einem unserer Sensoren empfangen wird zuerst geprüft, ob die Adresse bereits ein Teil der adressList ist. Falls die Adresse noch nicht in der Liste enthalten ist, wird der Index bzw. der adressCounter, erhöht und die Adresse in der Liste gespeichert.
+Der adressCounter wird mit dem Wert -1 initialisiert. Werden die ersten Daten mit der vorgegeben Struktur empfangen wird die Funktion automatisch die Adresse in der adressList an der Stelle 0 speichern. Werden erneut Daten von einem unserer Sensoren empfangen wird zuerst geprüft, ob die Adresse bereits ein Teil der adressList ist. Falls die Adresse noch nicht in der Liste enthalten ist, wird der Index bzw. der adressCounter, erhöht und die Adresse in der Liste gespeichert.
 
-Sobald eine Adresse ausgewählt wurde, müssen die zukünftigen Datenpackete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies behandelt, als ob der Sensor die richtige Adresse hat.
+Sobald eine Adresse ausgewählt wurde, müssen die zukünftigen Datenpakete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies behandelt, als ob der Sensor die richtige Adresse hat.
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_checkAdress.png}
@@ -1148,7 +1146,7 @@ Der User muss noch die Möglichkeit haben eine Adresse auszuwählen, dafür wird
 
 \subsubsection{Einheiten}
 
-Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumeration definiert. Die Enumeration für die Temperatur sieht folgendermassen aus:
+Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumerationen definiert. Die Enumeration für die Temperatur sieht folgendermassen aus:
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_tempSetting.png}
@@ -1184,11 +1182,11 @@ Die Kalibrierungsmöglichkeit befindet sich in der gleichen Activity, wie die Ei
 
 \subsection{Animierter Tachometer}
 
-Es sollte ein Tachometer entwickelt werden, welches eine animierte Tachonadel hat, die die aktuelle Geschwindigkeit anzeigt.
+Es sollte ein Tachometer entwickelt werden, welche eine animierte Tachonadel hat, die die aktuelle Geschwindigkeit anzeigt.
 
 \subsubsection{Funktionsweise}
 
-Bereits in der PA von Manuel König wurde mit der Anzeige von Bilddateien, genauer Bitmaps (.bmp-Datei), experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich, ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
+Bereits in der PA von Manuel König \cite{PA_koenigma} wurde mit der Anzeige von Bilddateien, genauer Bitmaps (.bmp-Datei), experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich, ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
 
 Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
 
@@ -1211,7 +1209,7 @@ Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im A
 
 Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt (\ref{math_tachonadel}) genauer beschrieben.
 
-Aus dem Bearbeiten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. 
+Aus dem bearbeiteten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_createBitmap.png}
@@ -1268,7 +1266,7 @@ Diese Formeln mussten noch mit der Verschiebung in den Mittelpunkt des Tachomete
 
 \subsection{Modularität der Applikation}
 
-Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden können muss, dafür wurden alle Texte, die ersichtlich sind, in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code. Die verwendeten Texte werden in einem XML-File gespeichtert und mit einer ID versehen, die Applikation greift auf die ID zu. Somit kann der Inhalt des Textes angepasst werden, ohne dass der Sourcecode der Applikation angepasst werden muss.
+Die Applikationsentwicklung basiert auf einer modularen Struktur.  Dadurch wird eine Weiterentwicklung der Applikation möglich. Ebenfalls wurde beachtet, dass die Applikation sogar in andere Sprachen übersetzt werden kann, dafür wurden alle Texte, die ersichtlich sind, in einem File aufgenommen und können zentral abgeändert werden, ohne einen Eingriff in den aktuellen Code. Die verwendeten Texte werden in einem XML-File gespeichtert und mit einer ID versehen, die Applikation greift auf die ID zu. Somit kann der Inhalt des Textes angepasst werden, ohne dass der Sourcecode der Applikation angepasst werden muss.
 
 
 
