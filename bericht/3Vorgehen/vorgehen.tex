@@ -81,15 +81,16 @@ Kanal 4, das grüne Signal zeigt die Speisung des TI-SensorTags. Im Modell der P
 
 \subsection{Optimierungsliste}\label{optimierung} 
 
-Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgaben, die in der ersten Liste der Arbeitsschritte zu Beginn des Vorgehens  beschrieben wurden. Folgende vier Punkte sollen durch den Prototypen verbessert werden: 
+Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgaben, die in der ersten Liste der Arbeitsschritte zu Beginn des Vorgehens  beschrieben wurden. Nachfolgende vier Punkte sollen durch den Prototypen verbessert werden: 
 
+\begin{minipage}{1\textwidth}
 \begin{itemize}
      \item Der Verlauf des Harvester-Eingangs wechselt abrupt. Der Eingang soll besser geregelt werden. 
      \item Für das Laden des Primärspeichers von 470 $\mu$F in 25 s benötigt es eine Geschwindigkeit von mehr als 60 km/h.  Die Harvesterschaltung soll so weiterentwickelt werden, dass bei 10 km/h genug Energie zum Senden von BLE-Paketen besteht.    
      \item Das zweite Speicherelement, der LTS, entlädt sich nicht. Dadurch kann seine Energie nicht verwendet werden. Die Schwellwerte am EM8500 und ev. die Kondensatorenwerte sollen so angepasst werden, dass sich der zweite Kondensator entlädt
      \item Die Energie wird statisch nach einem fixen Zeitintervall von 10 s genutzt. Das Zeitintervall soll der Geschwindigkeit angepasst werden. Bei höherer Geschwindigkeit soll das Intervall kürzer werden.
 \end{itemize} 
-
+\end{minipage}
 
 Im Resultatsteil Kapitel \ref{ch_resultat} werden die Fortschritte in diesen vier Punkten ausgewiesen.
 
@@ -442,25 +443,11 @@ Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen
 
 Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37\thinspace\% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
 
-
-
-%\begin{flalign}\label{eq:e-high-e-low}
-%E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
-%                &= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
-%\end{flalign}
-///////////////////////////////////////////////////////////
-\begin{equation}
-	L = \mu_0 \times \frac{N^2\times A}{l}
-\end{equation}
-
-\begin{equation}
-	N = \sqrt{\frac{L\times l}{\mu_0\times A}}
-\end{equation}
-
-\begin{equation}
-	neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
-\end{equation}
-
+\begin{flalign}
+	&L = \mu_0 \times \frac{N^2\times A}{l}\\
+	&N = \sqrt{\frac{L\times l}{\mu_0\times A}}\\
+	&neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
+\end{flalign}
 
 Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannung von der Wicklungszahl abhängt, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41\thinspace\% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
 
@@ -517,7 +504,7 @@ Die maximal verfügbare Leistung konnte durch die stärkere Spule erneut deutlic
 
 Es war nun bekannt, wie viel Leistung die Harvesterschaltung zur Verfügung stellte, jedoch musste die Leistungsabgabe nach dem konfigurierten EM8500-Chip noch erfasst werden. Diese Angabe war sehr wichtig, um die Entwicklung der Firmware zu optimieren. Diese Werte gaben einen Rahmen, wie viel Energie das TI-SensorTag verbrauchen durfte.
 
-Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand, messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung \ref{EnergieEMChip15kmh} zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war, konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
+Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche bei uns auf 2 V konfiguriert wurde, konnte man die Energie, welche zur Verfügung stand, messen. Der Ausgang des EM8500-Chips wurde für diesen Zweck mit einem 10 k$\Omega$ Widerstand belastet. Anschliessend wurde gemessen, wie lange die Spannung am Ausgang aufrecherhalten werden konnte. Die Abbildung \ref{EnergieEMChip15kmh} zeigt den Spannungsverlauf über der Last. Da der Spannungsverlauf annähernd ein Rechteck war, konnte die Energie anhand der Zeit, welche der Ausgang aktiv war, berechnet werden.
 
 \begin{equation}
 	E = \frac{U^2}{R}  \times \Delta t
@@ -544,7 +531,7 @@ Da es sich beim Ausgang des EM8500-Chips um eine Spannungsquelle handelt, welche
 % 5---------------------------------------------------------------------------
 \section{Energy Management}
 
-Das Ziel des Energy Managements ist es, dass die zur Verfügung stehende Energie bei 10 km/h genügt, um BLE-Pakete zu versenden. Die sekundäre Aufgabe ist es, dass sich der Long Time Storage lädt und entlädt. Ein Laden des LTS ohne dass die Energie im LTS verwertet werden kann ist Energieverschwendung. Die zwei gestellten Aufgaben sollen durch möglichst optimale Speichergrössen und intelligente Schwellwerte erreicht werden.
+Das Ziel des Energy Managements ist es, dass die zur Verfügung stehende Energie bei 10 km/h genügt, um BLE-Pakete zu versenden. Die sekundäre Aufgabe ist es, dass sich der LTS lädt und entlädt. Ein Laden des LTS ohne dass die Energie im LTS verwertet werden kann ist Energieverschwendung. Die zwei gestellten Aufgaben sollen durch möglichst optimale Speichergrössen und intelligente Schwellwerte erreicht werden.
 
 Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshalb stehen als erstes im Unterkapitel \ref{v_messungen_sensortag} die Energie-Messergebnisse, danach folgt im zweiten Unterkapitel \ref{v_e_kalkulation} die Dimensionierung der Kondensatoren und dann das Berechnen der Schwellwerte in Unterkapitel \ref{v_schwellwerte}. Als letzer Punkt werden die Energiezustände innerhalb des Bicycle Computers definiert. Dies, weil die letzte offene Aufgabe der Optimierungsliste (\ref{optimierung}) das Senden nach 10 s dem Energiezustand angepasst werden soll.
 
@@ -554,9 +541,9 @@ Damit man die Kondensatorenwerte berechnen kann, braucht es Energiedaten. Deshal
 \label{v_messungen_sensortag}
 
 
-Die Entwicklung ist konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (TI-SensorTag). Für die Energiemessungen wird der Power Analyser von Agilent Electronic N6705B gebraucht. Dieses Messgerät misst gleichzeitig Strom, Spannung und Leistung im Zeitverlauf. Annäherungen aus den Messungen mit einem Oszilloskop sind nicht mehr notwendig.
+Die Entwicklung ist konstant begleitet durch Energiemessungen. Sei dies durch Leistungsmessungen bei der Hardware (Harvester und EM8500-Chip) oder sei dies als Energiemessung der Software (TI-SensorTag). Für die Energiemessungen wird der Power Analyser von Agilent Electronic N6705B verwendet. Dieses Messgerät misst gleichzeitig Strom, Spannung und Leistung im Zeitverlauf. Annäherungen aus den Messungen mit einem Oszilloskop sind nicht mehr notwendig.
 
-In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen dargestellt. Mehr Messgraphiken und Erklärungen sind in der Datei \cite{messung_energie_sensortag} abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
+In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen dargestellt. Mehr Messgrafiken und Erklärungen sind im Messprotokoll (\cite{messung_energie_sensortag}) abgelegt. Den Überblick über die Versionen ist in der untenstehenden Tabelle aufgelistet. 
 
 
 \subsubsection{Überblick Energiemessungen}\label{erst_EMessungen}
@@ -567,9 +554,9 @@ In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen da
     \label{BLE_send}
 \end{figure}
 
-Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTagversion V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheitert am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete. 
+Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTag-Version V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung der Version V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheitert am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete. 
 
-Die untenstehende Tabelle stellt dieEnergieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom \cite{sitzungsprotokoll_160226} - \cite{sitzungsprotokoll_160516_ms3}.
+Die untenstehende Tabelle stellt die Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom \cite{sitzungsprotokoll_160226} - \cite{sitzungsprotokoll_160516_ms3}.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Messresultate nach TI-SensorTag-Versionen}
@@ -598,7 +585,7 @@ Aus diesen Grund wurde die Poweroptimierung innerhalb des Programms zur zentrale
 \subsubsection{Resultate Energieverbrauch TI-SensorTag Applikation V4}
 \label{energie_sensortag} 
 
-Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \todo{Link einbauen} xxx) folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden}) und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens darstellt, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Durchschnittlich folgt ca. alle 0.1 s ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. Am Schluss dieses Unterkapitels werden alle Energiewerte in einer Tabelle zusammengefasst.
+Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe Messprotokoll \cite{messung_energie_sensortag}) folgt exemplarisch ein Bild zur Initialisierung (Abbildung \ref{energie_init}), eines zum Senden der drei BLE-Pakete (Abbildung \ref{energie_senden}) und dann je eine Abbildung zum Energieverbrauch beim Starten der drei Sensoren. Die Abbildung \ref{energie_ueberblick} zeigt den Überblick eines erstmaligen Sendens. Ganz links ist das einmalige Aufladen der Kondensatoren auf dem TI-SensorTag zu sehen. Dieser Vorgang ist in Abbildung \ref{energie_kondensatoren_sensortag} vergrössert dargestellt. Aus der Abbildung \ref{energie_ueberblick}, die den Überblick des Sendens darstellt, kann man die durchschnittliche Zeit, nach der ein Refresh erfolgt ungefähr herauslesen. Durchschnittlich folgt ca. alle 0.1 s ein Refresh-Peak. Auch dieser Vorgang ist als einzelne Energiemessung aufgenommen und in Abbildung \ref{Energieverbrauch senden eines BLE-Paketes mit Sensordaten} dokumentiert. Am Schluss dieses Unterkapitels werden alle Energiewerte in einer Tabelle zusammengefasst.
 
 \clearpage
 
@@ -635,7 +622,7 @@ Als Überblick über den konkreten Energieverbrauch bei der Version V4 (siehe \t
 
 \clearpage
 
-Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-Sensortag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden})43.44 $\mu$J verbraucht werden. Das Senden des BLE-Paketes ist bei der Zeitmarke 2.07 s.
+Die Initialisierung ist vergrössert in der Abbildung  \ref{energie_init} dargestellt. Im Überblick geht sie unter, da die Initialisierung direkt ans Laden der TI-SensorTag-Kondensatoren folgt. Da der Peak des Ladens viel höher ist, erscheinen die nachfolgenden Enerigeverbrauche nicht deutlich. Die Energiemessungen einzelner Stellen zeigen, dass für die Initialisierung 77.38 $\mu$J, für das Refreshen ca. $1.4\mu$J (Abbildung \ref{energie_refresh}) und für das Senden des BLE-Pakets (Abbildung \ref{energie_senden}) 43.44 $\mu$J verbraucht werden. Das Senden des BLE-Paketes ist bei der Zeitmarke 2.07 s.
 
 
 \subsubsection*{Energieverbrauch Starten des Drucksensors}
@@ -653,7 +640,7 @@ Auf dem TI-SensorTag wird der Drucksensor BMP 208 von Bosch Sensortec verwendet.
 \subsubsection*{Energieverbrauch beim Starten des Temperatursensors}
 
 \todo{tempsensor daten}
-Der Temperatursensor xxx der Marke yyy verbraucht für das Starten 10.635 $\mu$J. Dies findet bei der Zeitmarke t = 1.54 s statt.
+Der Temperatursensor TMP0007 von Texas Instruments verbraucht für das Starten 10.635 $\mu$J. Dies findet bei der Zeitmarke t = 1.54 s statt.
 
 \begin{figure}[ht]
   \includegraphics[width=0.7\textwidth]{3Vorgehen/imag/tempSensor.png}
@@ -663,7 +650,7 @@ Der Temperatursensor xxx der Marke yyy verbraucht für das Starten 10.635 $\mu$J
 
 \subsubsection*{Energieverbrauch Feuchtigkeitssensor}
 
-Der Feuchtigkeitssensor xxx der Marke yyy verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
+Der Feuchtigkeitssensor HDC1000 der Marke Texas Instruments verbraucht 6.358 $\mu$J, siehe Abbildung \ref{energie_humidity}.
 
 \begin{figure}[ht]
   \includegraphics[width=0.7\textwidth]{3Vorgehen/imag/Humidity.png}
