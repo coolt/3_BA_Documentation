@@ -1,17 +1,16 @@
 \chapter{Theoretische Grundlagen}
 
-Der Bicycle Computer basiert auf Energy Harvesting, was Energie ernten bedeutet. Welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln (engl. to accumulate) und Weiterleiten (engl. to manage) von Energie. Da die im Unterkapitel \ref{t_harvesting} beschriebene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_power_management} befasst sich mit dem notwendigen Power Management. Denn die
-Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie aufs Mal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Bluetooth-Low-Energie-Technologie ist der Ansatz, der in dieser Arbeit verwendet wird. Das Protokoll und die Technologie werden im letzten Grundlagenteil \ref{t_ble} vorgestellt.
+Der Bicycle Computer basiert auf Energy Harvesting, was Energie ernten bedeutet. Welche Art von Energy Harvesting in dieser Arbeit angewandt wird, wird im ersten Unterkapitel \ref{t_harvesting} beschrieben. Im folgenden Unterkapitel \ref{t_energy_management} geht es um Ansätze zum Sammeln (engl. to accumulate) und Weiterleiten (engl. to manage) von Energie. Da die im Unterkapitel \ref{t_harvesting} beschriebene Energie im $\mu$W-Bereich liegt, ist zuerst ein Sammeln der Energie notwendig, sodass Leistungen im mW-Bereich zur Verfügung stehen. Das nächste Unterkapitel \ref{t_pmanagement} befasst sich mit dem notwendigen Power Management. Denn die Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnell und wie viel Energie auf einmal verbraucht werden soll. Als letzte Stufe in der Umsetzung ist eine energiearme Kommunikation notwendig. Die Bluetooth-Low-Energie-Technologie ist der Ansatz, der in dieser Arbeit verwendet wird. Das Protokoll und die Technologie werden im letzten Grundlagenteil \ref{t_ble} vorgestellt.
 
 
 % 2.1-------------------------------------------------------------------
 \section{Energy Harvesting}\label{t_harvesting} 
 
-``Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.'' \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting-Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den unterschiedlichen Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
+``Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.'' (\cite{harvesting}). Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvestingart genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den unterschiedlichen Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
 \subsection{Energy-Harvesting-Methoden}\label{harv_arten} 
 
-Bekannte Methoden des Energy Harvesting sind die Solarzelle, die aus der Energie der Sonnenstrahlen Strom erzeugt, die Thermogeneratoren (TEG), die aus Umgebungswärme Energie gewinnen,  passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. Da der im Prototyp verwendete Energy-Mangement-Chip \cite{datasheet_EM85} auf die Energieoptimierung von Solarzellen oder von Thermogenaratoren spezialisiert ist, werden diese zwei Methoden vorgestellt. 
+Bekannte Methoden des Energy Harvesting sind die Solarzelle, die aus der Energie der Sonnenstrahlen Strom erzeugt, die Thermogeneratoren (TEG), die aus Umgebungswärme Energie gewinnen,  passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. Da der im Prototyp verwendete Energy-Mangement-Chip (\cite{datasheet_EM85}) auf die Energieoptimierung von Solarzellen oder von Thermogenaratoren spezialisiert ist, werden diese zwei Methoden vorgestellt. 
 
 \subsubsection{Energy Harvesting mit einer Solarzelle}\label{harv_solarzelle} 
 
@@ -19,11 +18,11 @@ Bei der Umwandlung von elektromagnetischen Wellen (Licht) in Strom wird eine spe
 Diese Harvestermethode produziert einen Gleichstrom. Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
 
 \subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
-TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind ( \cite{Journal_TEG}). Diese Harvestermethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
+TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind (\cite{Journal_TEG}). Diese Harvestermethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
 
 
 \subsection{Energy Harvesting über Bewegungsinduktion}\label{harv_bewegung} 
-Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben \cite{PA_bicycle} S.\,8.:
+Beim Bicycle Computer wird Energie über Bewegungsinduktion gewonnen. Die Funktionsweise ist in der Machbarkeitsstudie beschrieben (\cite{PA_bicycle}, S.\,8.):
 
 Befindet sich eine Spule in einem \textit{dynamischen} ``Magnetfeld'', wird in der Spule eine Spannung induziert. Dies sieht man in der Formel (\ref{Formel_induzSpannung}).
 
@@ -38,7 +37,7 @@ Der magnetische Fluss $B$ durch die Fläche einer Spule $A$ ist gleich dem magne
     \frac{d}{dt} \int A\,dB=\phi\cdot N\
 \end{equation}
 
-Verläuft der magnetische Fluss $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel\ref{Formelsenkrecht}). 
+Verläuft der magnetische Fluss $\phi$ senkrecht zur Fläche der Spule $A$ kann das Integral durch eine Multiplikation ersetzt werden (siehe Formel \ref{Formelsenkrecht}). 
  
 \begin{equation}
     \frac{d}{dt} \int A\,\perp\, dB=\frac{d}{dt}\int \phi\cdot N=B\cdot A\cdot N\ \label{Formelsenkrecht} 
@@ -55,7 +54,7 @@ Die produzierte Spannung hängt von folgenden vier Faktoren ab:
 
 \begin{enumerate}
     \item die eingeschlossene Fläche $A$ der Spule    
-    \item die magnetische Flussdichte des Magneten $B$ 
+    \item die magnetische Flussdichte $B$ des Magneten  
     \item die Anzahl Windungen $N$ der Spule und
     \item die Zeit $\Delta t$, in der das Magnetfeld an der Spule anliegt
 \end{enumerate}
@@ -68,8 +67,8 @@ Diese Harvestermethode produziert einen Wechselstrom, deshalb sind ein Gleichric
 Harvesting-Methoden können nach verschiedenen Kriterien kategorisiert werden. Das Harvesten über Bewegungsinduktion unterscheidet sich in zwei Punkten deutlich von den bekannten Harvestermethoden wie die Solarzelle oder der TEG:
 
 \begin{enumerate}[label=\alph*]
-    \item der Energiefluss ist bei der Bewegungsinduktion nicht gleichmässig.
-    \item das Leistungsmaximum, die Stelle, an der aus dem Verhältnis von Spannung zu Strom am meisten Leistung bezogen werden kann, ist nicht konstant.
+    \item Der Energiefluss ist bei der Bewegungsinduktion nicht gleichmässig.
+    \item Das Leistungsmaximum, die Stelle, an der aus dem Verhältnis von Spannung zu Strom am meisten Leistung bezogen werden kann, ist nicht konstant.
 \end{enumerate}
 
 
@@ -107,7 +106,7 @@ MPP bedeutet Maximum Power Point und bezeichnet auf den höchsten Punkt einer Le
 
 Der MPP unterscheidet sich unter den Harvestern. Zur Veranschaulichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Diese Abbildungen zeigen die unterschiedlichen Leistungskurven. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt dieses unabhängige Verhalten. 
 
-Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala (siehe Abbildung \ref{teg}. Die Maximum Power Point Tracking Ratio, kurz MPPT-Ratio, beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\% (siehe Abbildung \ref{mppsolar}). Bei der Bewegungsinduktion existiert keine fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala.
+Das Leistungsmaximum liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala (siehe Abbildung \ref{teg}). Die Maximum-Power-Point-Tracking-Ratio, kurz MPPT-Ratio, beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\% (siehe Abbildung \ref{mppsolar}). Bei der Bewegungsinduktion existiert keine fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum auf der Skala aufgrund mehrerer Indikatoren wie die Geschwindigkeit des Magneten, der Abstand des Magnet und der Spule.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -122,9 +121,9 @@ Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kur
  \end{minipage}
 \end{figure}
 
-Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80\thinspace\% liegt.
+Die Abbildung \ref{mppsolar} zeigt, dass das Leistungsmaximum bei der Solarzelle unabhängig von der zur Verfügung stehenden Energie immer bei 80\thinspace\% liegt.
 
-Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde. Im Kapitel \ref{ch_resultat} Resultat sind die ausgemessenen Leistungskurven des Prototypen in der Graphik \ref{mpp_resultat_harvester} abgebildet. Die Leistungskurven wurden für verschiedene Geschwindigkeiten aufgenommen und es zeit sich, dass bei der Harvesterschaltung analog zur Spule, die MPPT-Ratio wandert. Für den theoretischen Teil wurde die MPPT-Kurven des Harverster starkt geglättet und vereinfacht (siehe untenstehende Abbildung \ref{bild_harvester}). So ist der Effekt der Verschiebung des Leistungsmaximums besser ersichtlich. Es lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 35 - 75\thinspace\% bewegt.
+Die Stelle des Leistungsmaximums wandert bei einer Spule und somit bei der Bewegungsinduktion auf der Skala. Exemplarisch sind drei MPPT-Ratios einer Spule in der Abbildung \ref{bildspule} abgebildet. In dieser Abbildung zeigt sich der Einfluss des Abstands der Spule vom Magnetfeld auf die Stelle der maximalen Leistung. Diese Abbildung wurde ausgewählt, weil beim Ausmessen des Harvesters der Abstand des Magneten als einer der Einflüsse festgestellt wurde. Im Kapitel \ref{ch_resultat} Resultat sind die ausgemessenen Leistungskurven des Prototypen in der Grafik \ref{mpp_resultat_harvester} abgebildet. Die Leistungskurven wurden für verschiedene Geschwindigkeiten aufgenommen und es zeit sich, dass bei der Harvesterschaltung analog zur Spule, die MPPT-Ratio wandert. Für den theoretischen Teil wurde die MPPT-Kurven des Harverster starkt geglättet und vereinfacht (siehe untenstehende Abbildung \ref{bild_harvester}). So ist der Effekt der Verschiebung des Leistungsmaximums besser ersichtlich. Es lässt sich grob über die MPPT-Ratio des Bicycle Computers sagen, dass sie sich zwischen 35 - 75\thinspace\% bewegt.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -146,16 +145,17 @@ Der Harvester des Bicycle Computer erntet eine gepulste Energie im $\mu$J-Bereic
 
 Energy Management bezeichnet das Sammeln von Energie in Speichern, das Regeln des Eingangssignals auf das Leistungsmaximum und das Aufwärtswandeln von Spannung oder Strom auf einen geforderten Wert sowie die kontrollierte Freigabe der gesammelten Energie.
 
-In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 ist ein Power Management Controller für den Low Power-Bereich. Das Datenblatt des EM8500 ist der CD beigelegt.  Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings (MPPT) und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das Freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist. 
+In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 ist ein Power Management Controller für den Low-Power-Bereich. Das Datenblatt des EM8500 ist der CD beigelegt.  Als erstes wird das kontrollierte Energiespeichern anhand dieses Chips erklärt. Danach folgt die Umsetzung des Maximum Power Point Trackings und eine kurze Erklärung der Wirkung des Boosters auf das Energy Managments. Zuletzt wird auf das Freischalten von Ausgängen eingegangen, da dies für das Verwenden der Energie die wesentliche Schnittstelle ist. 
 
 \subsection{Kontrollierte Energiespeicherung}
 \label{speicher_konzept}
 
-Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Mikrokontroller genug Energie in Speichern gesammelt wurde. Ansonsten kann der Mikrokontroller nicht sauber aufgestarten, da für den Startvorgang eines Mikrokontrollers mehr Energie benötigt wird als für die Ausführung eines Programms. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass die Freigabe der Energie an eine Applikation erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im EM8500 programmiert werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet. Das Signal der Speisung der Applikation wird als VSUP bezeichnet.
+Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Mikrokontroller genug Energie in Speichern gesammelt wurde. Ansonsten kann der Mikrokontroller nicht sauber aufgestartet, da für den Startvorgang eines Mikrokontrollers mehr Energie benötigt wird als für die Ausführung eines Programms. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass die Freigabe der Energie an eine Applikation erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im EM8500 programmiert werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet. Das Signal der Speisung der Applikation wird als VSUP bezeichnet.
 
 \todo{ev. Blockdiagramm mit allen Bezeichnungen. oder verweis auf Graphik}
 
 \todo{Graphik falsch: VSUP auf batminlow. vsts geht auf v bat min hi dis}
+
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
@@ -169,15 +169,15 @@ Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendu
  \end{minipage}
 \end{figure}
 
-Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Der Registerwert v\_bat\_min\_low wird zukünftig STS\_LOW bezeichnet. Denn es ist der tiefere Schwellwert des STS, der die Spannungshöhe der Applikation definiert. Die Applikation sollte nicht die gesamte Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speiste der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS/VSUP den Schwellwert von STS\_LOW, so wird die Speisung der Applikation gestoppt.
+Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Der Registerwert v\_bat\_min\_low wird zukünftig STS\_LOW bezeichnet. Denn es ist der tiefere Schwellwert des STS, der die Spannungshöhe der Applikation definiert. Die Applikation sollte nicht die gesamte Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speist der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS den Schwellwert von STS\_LOW, so wird die Speisung der Applikation gestoppt.
 
-Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. So bedeutet STS Short Time Storage. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
+Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
 VLTS wird geladen, wenn der Schwellwert v\_appl\_max\_lo überschritten wird (siehe Abbildung \ref{energiespeisung_lts}).
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelMitLTS.png}
-   \caption{Sicheres Betreiben durch Long Term Storage}
+   \caption{LTS aktiv}
    \label{energiespeisung_lts} 
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
@@ -189,14 +189,14 @@ VLTS wird geladen, wenn der Schwellwert v\_appl\_max\_lo überschritten wird (si
 
 Im Datenblatt des EM8500 (siehe \cite{datasheet_EM85}) sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres Betreiben. Die Dateien sind auf der CD abgelegt.
 
-Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (STS\_LOW), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den Beispielkonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
+Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (STS\_LOW), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den BeispiElKonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 \label{optimaleLeistung}
 
-Wichtigster Punkt in der Energieoptimierung ist, das Maximum aus der produzierten Energie weiterzuverwenden. Aus diesem Grund wird vor Inbetriebnahme eine Leistungskurve des Harvesters erstellt. Wie in Unterkapitel \ref{harv_diff} beschrieben, unterscheidet sich der Maximum Power Point (MPP) unter den Harvestern stark.
+Wichtigster Punkt in der Energieoptimierung ist, das Maximum aus der produzierten Energie weiterzuverwenden. Aus diesem Grund wird vor Inbetriebnahme eine Leistungskurve des Harvesters erstellt. Wie in Unterkapitel \ref{harv_diff} beschrieben, unterscheidet sich der Maximum Power Point unter den Harvestern stark.
 
-EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht. Wie häufig die aktuelle Leistung überprüft wird, ist einstellbar. Der EM8500 hat eine Auflösung von 37 mV bei der Spannungsmessung bei der Eingangsspannungsmessung. Die Abbildung \ref{RegelungSpannung} zeigt das periodische Messen des Spannungswert des Harvesters. Da die Kurzschlussmessung für das Messen des Stromwerts eine Spannungsspitze verursacht, (gut zu sehen in der Abbildung bei höherer Spannung), sollte die Leistungsüberprüfung nicht zu oft geschehen. Spannungsspitzen bedeuten Energieverlust, weshalb die Energiemessung nur so oft wie absolut notwendig erfolgen soll. In der Abbildung \ref{RegelungSpannung} beträgt die Periode 8 Sekunden. 
+EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies geschieht über eine Innenwiderstand-Regelung, sodass die Eingangsleistung möglichst dem MPP entspricht. Wie häufig die aktuelle Leistung überprüft wird, ist einstellbar. Der EM8500 hat eine Auflösung von 37 mV bei der Eingangsspannungsmessung. Die Abbildung \ref{RegelungSpannung} zeigt das periodische Messen des Spannungswert des Harvesters. Da die Kurzschlussmessung für das Messen des Stromwerts eine Spannungsspitze verursacht, sollte die Leistungsüberprüfung nicht zu oft geschehen. Spannungsspitzen bedeuten Energieverlust, weshalb die Energiemessung nur so oft wie absolut notwendig erfolgen sollte. In der Abbildung \ref{RegelungSpannung} beträgt die Periode 8 Sekunden. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/RegelungVHRV.png}
@@ -207,8 +207,6 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 
 \subsection{Spannung auf- und abwärtsregeln}
 \label{eingangsspannung}
-
-\todo{Titelname nicht gut} 
 
 Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannung von 0.3 V. Danach regelt er in Schritten von 0.3 V. Der Booster geht von einer Gleichspannung eines TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S. 1).
 
@@ -224,14 +222,11 @@ $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht,
 
 Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten STS\_LOW (ab diesem Schwellwert wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab diesem Schwellwert hört die Speisung von V\_SUP auf). Der zweite Schwellwert wird in der Gleichung vereinfacht als STS\_HIGH bezeichnet.
 
-\todo{schon früher die Schwellwerte vereinfacht als STS \_HIGH,STS\_LOW bezeichnen}
-
 \begin{flalign}\label{eq:e-high-e-low}
 E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
                 &= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
 \end{flalign}
-%\eqref{eq:e-high-e-low} % with brackets
-%\ref{eq:e-high-e-low} % look ma no  brackets
+
 
 Kennt man die notwendige Energie, so kann die Grösse des Kondensator $C_{STS}$ aus der notwendigen Energie berechnet werden:
 
@@ -264,10 +259,13 @@ Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation spei
      \item BAT\_LOW = '1'\\
            Genügend Energie zur Speisung der Applikation.\\
            VSUP ist eingeschaltet.
-      \item HRV\_LOW = '0'\\ %\todo{HRV_LOW oder BAT_LOW???}
+      \item HRV\_LOW = '0'\\
            Genügend Energie zur Speisung von LTS.\\
            VSUP ist eingeschaltet.\\
-           Der Zustand entspricht nicht mehr BAT\_LOW.   
+           Der Zustand entspricht nicht mehr BAT\_LOW.
+     \item HRV\_LOW = '1'\\
+           Nicht genügend Energie zur Speisung von LTS.\\
+           VSUP ist ein- oder ausgeschaltet.\\ 
 \end{itemize} 
 
 Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
@@ -282,7 +280,8 @@ Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
 
 % 2.3-------------------------------------------------------
 
-\section{Power Management}\label{t_power_management} 
+\section{Power Management}
+\label{t_pmanagement} 
 
 Die Aufgabe des EM8500-Chip ist es, Energie zu sammeln und kontrolliert frei zu geben. Die Aufgabe das nachfolgenden Mikrokontrollers ist es, die freigegebenen Energieportionen optimal zu verwenden. Das bedeutet, möglichst wenig Energie bei der Datenverarbeitung zu benötigen. Dies wird durch Abstellen aller unnötigen Mikrokontroller-Bereiche erreicht und einem zusätzlichen Schlafen während allen Warteprozessen.
 
@@ -293,7 +292,7 @@ Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kur
 \begin{minipage}{1\textwidth}
     \begin{itemize}
         \item Ein Cortex M3 dient als Haupt-Mikrokontroller und ist aufgrund seiner hohen Rechenleistung und seiner Low Power-Fähigkeiten für eine Harvester-Anwendung wie der Bicycle Computer geeignet.
-        \item Auf dem Board ist zusätzlich ein Cortex M0 für die Wireless-Anbindung angeschlossen. Dieser Prozessor kann von der Benutzerin oder dem Benutzer nicht programmiert werden, da die Schnittstelle zur Low Power Datenkommunikation fix aufgesetzt ist. Neben Bluetooth Low Energy kann auch Zigbee verwendet werden.
+        \item Auf dem Board ist zusätzlich ein Cortex M0 für die Wireless-Anbindung angeschlossen. Dieser Prozessor kann von der Benutzerin oder dem Benutzer nicht programmiert werden, da die Schnittstelle zur Low-Power-Datenkommunikation fix aufgesetzt ist. Neben Bluetooth Low Energy kann auch Zigbee verwendet werden.
         \item Auf dem Board sind 10 Sensoren eingebunden.
     \end{itemize}
 \end{minipage}
@@ -302,16 +301,16 @@ Die Funktionsblöcke des TI-SensorTags befinden sich im Anhang \ref{anhang_senso
 
 \subsection{Einbauen von Schlafmodi}\label{pm_sleep} 
 
-Low Power Microcontroller können Gebiete des Prozessors oder von Peripherieelementen temporär ausschalten. Das System befindet sich im Standby Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereiche aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
+Low-Power-Mikrokontroller können Gebiete des Prozessors oder von Peripherieelementen temporär ausschalten. Das System befindet sich im Standby-Modus. Nur die für die Applikation unabdingbaren Aktivitäten laufen mit niederstem Takt weiter. Über Interrupts können einzelne Bereiche aufgeweckt werden, die ihre Aktionen ausführen und danach geht das System wieder in den Standby Modus.
 
-Das Verhalten, dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist typisch für Low-Power-Prozessoren. Bei einer optimierten Ultra-Low-Power-Applikation geht der Prozessor nach kleinsten Ausführungsblöcken schlafen. So gehört zum Aufwecken einer Periphierie, das Schlafen aller anderen Power Domains. Und nach dem Aufwecken der Peripherie, geht diese selbst auch wieder in den Schlafmodus. In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Modus konzeptionell erklärt.
+Das Verhalten, dass Prozessoren nach längerer Zeit ohne externen Input in den Schlafmodus gehen, ist typisch für Low-Power-Prozessoren. Bei einer optimierten Ultra-Low-Power-Applikation geht der Prozessor nach kleinsten Ausführungsblöcken schlafen. So gehört zum Aufwecken einer Peripherie, das Schlafen aller anderen Power Domains. Und nach dem Aufwecken der Peripherie, geht diese selbst auch wieder in den Schlafmodus. In diesem Unterkapitel werden zwei Umsetzungen des Sleep-Modus konzeptionell erklärt.
 
 \subsubsection{Schlafen zwischen Ausführungen}
 \label{schlafen_theorie}
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
-Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``retention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System komplett initialisert werden.
+Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``retention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System komplett initialisiert werden.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -320,7 +319,8 @@ Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (
 \end{figure}
 
 \subsubsection{Schlafen innerhalb einer Aktion}
-Bei einer Applikation im $\mu$ - oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die PowerDomain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip als Flussdiagramm dargestellt.
+
+Bei einer Applikation im $\mu$ - oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die Power Domain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip als Flussdiagramm dargestellt.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
@@ -344,7 +344,7 @@ Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwach
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
 
-Bluetooth Low Energy (BLE) bezeichnet eine Funktechnik, welche es ermöglicht, Daten zwischen Geräten auszutauschen. Der Vorteil von Bluetooth Low Energy ist der niedrigere Energieverbrauch im Gegensatz zum traditionellen Bluetooth. Das Bluetooth Low Energy Protokoll gehört zum Bluetooth Core Specification Version 4.0, wo auch das Classic Bluetooth Protokoll und das Bluetooth High Speed Protokoll enthalten sind. Die Bluetooth Core Specification Version 4.0 ist besser unter dem Namen Bluetooth Smart bekannt und wurde im Juli 2010 veröffentlicht (\cite{youtube_BLE}).
+Bluetooth Low Energy (BLE) bezeichnet eine Funktechnik, welche es ermöglicht, mit wenig Energie Daten zwischen Geräten auszutauschen. Der Vorteil von Bluetooth Low Energy ist der niedrigere Energieverbrauch im Gegensatz zum traditionellen Bluetooth. Das Bluetooth-Low-Energy-Protokoll gehört zum Bluetooth Core Specification Version 4.0, wo auch das Classic Bluetooth Protokoll und das Bluetooth-High-Speed-Protokoll enthalten sind. Die Bluetooth Core Specification Version 4.0 ist besser unter dem Namen Bluetooth Smart bekannt und wurde im Juli 2010 veröffentlicht (\cite{youtube_BLE}).
 
 \subsection{BLE im Vergleich zu Bluetooth}
   
@@ -354,7 +354,7 @@ Bluetooth Low Energy verwendet das gleiche Frequenzband wie das traditionelle Bl
 
 BLE wird vor allem für batterielose Sensoren verwendet, welche die Energie aus der Umwelt beziehen. Diese Sensoren arbeiten meist als Beacon, was bedeutet, dass sie Daten senden, ohne eine aktive Verbindung mit einem Gerät aufzubauen oder nur eine Verbindung auf Anfrage eingehen, diese jedoch nach kurzer Zeit wieder beenden. Dieser Modus nennt sich Advertising Mode, was vom Englischen advertisement stammt, es soll aussagen, dass der Beacon eine Werbung aussendet und diese nicht auf eine spezielle Person zugeschnitten ist, sondern an die breite Masse gesendet wird.
 
-Eine aktive Verbindung ist bei den meisten Sensoranwendungen auch nicht notwendig, da die Daten einfach gesendet werden können und das empfangende Gerät entscheidet was mit den vorliegenden Daten gemacht wird. Wenn das Gerät mehr Informationen benötigt kann eine Verbindung aufgebaut werden. Trotzdem kann mit BLE eine aktive Verbindung eingerichtet werden, jedoch verbraucht eine aktive Verbindung mehr Energie, da Daten gesendet und empfangen werden müssen. Das bedeutet der Sensor kann nicht in einen Standby- Modus gehen, in welchem weniger Energie verbraucht wird, da auf ankommende Daten gewartet wird (\cite{BLE_advertising},\cite{ELKO_BLE}).
+Eine aktive Verbindung ist bei den meisten Sensoranwendungen auch nicht notwendig, da die Daten einfach gesendet werden können und das empfangende Gerät entscheidet was mit den vorliegenden Daten gemacht wird. Wenn das Gerät mehr Informationen benötigt kann eine Verbindung aufgebaut werden. Trotzdem kann mit BLE eine aktive Verbindung eingerichtet werden, jedoch verbraucht eine aktive Verbindung mehr Energie, da Daten gesendet und empfangen werden müssen. Das bedeutet der Sensor kann nicht in einen Standby-Modus gehen, in welchem weniger Energie verbraucht wird, da auf ankommende Daten gewartet wird (\cite{BLE_advertising}, \cite{Elko_BLE}).
 
 \subsection{BLE Pakete}
 
