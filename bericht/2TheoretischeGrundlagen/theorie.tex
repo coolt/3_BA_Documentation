@@ -9,18 +9,14 @@ Energie soll nicht sofort verbraucht werden. Power Management regelt, wie schnel
 
 ``Mit Energy Harvesting [...] wird die Gewinnung von elektrischer Energie in kleinen Mengen aus dem Umfeld [...] bezeichnet.'' \cite{harvesting}. Als erstes werden Methoden zur Energiegewinnung vorgestellt (\ref{harv_arten}) und danach die im Bicycle Computer verwendete Harvesting-Art genauer beschrieben (\ref{harv_bewegung}). Als letztes wird der Unterschied zwischen den unterschiedlichen Harvestingmethoden festgehalten. Denn diese Unterschiede werden in der Implementation des Bicycle Computers wichtig.
 
-
 \subsection{Energy-Harvesting-Methoden}\label{harv_arten} 
 
 Bekannte Methoden des Energy Harvesting sind die Solarzelle, die aus der Energie der Sonnenstrahlen Strom erzeugt, die Thermogeneratoren (TEG), die aus Umgebungswärme Energie gewinnen,  passive RFID-Tags, die aus der elektromagnetischen Strahlung Energie gewinnen und der piezoelektrische Effekt, der mechanischen Druck in elektrische Spannung umwandelt. Da der im Prototyp verwendete Energy-Mangement-Chip \cite{datasheet_EM85} auf die Energieoptimierung von Solarzellen oder von Thermogenaratoren spezialisiert ist, werden diese zwei Methoden vorgestellt. 
-
 
 \subsubsection{Energy Harvesting mit einer Solarzelle}\label{harv_solarzelle} 
 
 Bei der Umwandlung von elektromagnetischen Wellen (Licht) in Strom wird eine spezielle Eigenschaft des Halbleiters genutzt: Führt man einem Halbleiter Energie in Form von Sonnenlicht zu, entstehen freie Ladungsträger, bzw. Elektronen und Löcher. Um aus diesen Ladungen einen elektrischen Strom zu erzeugen, ist es nötig, die erzeugten freien Ladungsträger in unterschiedliche Richtungen zu lenken; dies geschieht durch ein internes elektrisches Feld, welches durch einen p-n-Übergang erzeugt werden kann. Auf der einen Seite sammelt sich positive, auf der anderen Seite negative Ladung an. Werden diese verbunden, entsteht ein Strom (\cite{Internet_Solarzelle3}). 
 Diese Harvestermethode produziert einen Gleichstrom. Grössen- und materialabhängig kann Energie im kW-Bereich gesammelt werden.
-
-\todo{Solarstrom macht schule: Zitatfehler. Kein Jahr}
 
 \subsubsection{Energy Harvesting mit einem TEG}\label{harv_TEG} 
 TEG steht für Thermoelectric Generator und bezeichnet eine Konstruktion, die aus einem Temperaturunterschied elektrische Spannung erzeugt. Erzeugt wird die Spannung am Ende zweier metallischer Leiter aus unterschiedlichem Material, die an einem Ende verbunden sind ( \cite{Journal_TEG}). Diese Harvestermethode produziert eine Gleichspannung. Die produzierte Spannung ist vergleichsweise klein und bewegt sich im Bereich einiger 10 $\mu$V pro $1^\circ$C Temperaturdifferenz.
@@ -54,8 +50,6 @@ In diesem Fall berechnet sich die induzierte Spannung in einer Spule vereinfacht
     U_{ind}= - N \cdot A \cdot B
 \end{equation}
 
-\todo{Bild einfügen}
-
 Das dynamische Magnetfeld wird durch das Bewegen, oder im Fall eines Fahrrads einem Vorbeiziehen eines Magneten an einer fix verankerten Spule erzeugt.
 Die produzierte Spannung hängt von folgenden vier Faktoren ab:
 
@@ -69,25 +63,19 @@ Die produzierte Spannung hängt von folgenden vier Faktoren ab:
 Diese Harvestermethode produziert einen Wechselstrom, deshalb sind ein Gleichrichter und ein Kondensator zur Glättung der Rippelspannung nach der Energiegewinnung notwendig. Die Leistung der produzierten Spannung geht vom $\mu$W-Bereich bis zu für die Industrie optimierten Anlagen mit Leistungen im MW-Bereich wie z. B. durch Drehstrom-Generatoren.
 
 
-
 \subsection{Unterschiede Harvestermethoden}\label{harv_diff} 
 
-\todo{Satz unverständlich!! neu schreiben. Siehe Notizen Alexey}
-\todo{ gliedern in einerseits ... mit a und b  anderseits.. mit c und d}
+Harvesting-Methoden können nach verschiedenen Kriterien kategorisiert werden. Das Harvesten über Bewegungsinduktion unterscheidet sich in zwei Punkten deutlich von den bekannten Harvestermethoden wie die Solarzelle oder der TEG:
 
-Unterschiede zwischen den Harvesting-Methoden bestehen in der Art, in der die Energie zur Verfügung steht. Die nachfolgenden zwei Unterpunkte zeigen zwei Differenzen auf: 
+\begin{enumerate}[label=\alph*]
+    \item der Energiefluss ist bei der Bewegungsinduktion nicht gleichmässig.
+    \item das Leistungsmaximum, die Stelle, an der aus dem Verhältnis von Spannung zu Strom am meisten Leistung bezogen werden kann, ist nicht konstant.
+\end{enumerate}
 
-Punkt a verweist auf die unterschiedliche Art, in der die Energie erhältlich ist:
-
-Entspricht dies einer gleichmässigen Energie, analog zum DC, oder liefert die Quelle Energie in Form von Wechselstrom? Folgt der Strom konstant oder in Pulsen?\todo{Was soll hier ausgesagt werden? Sehr unklar!}
-
-Die aufwändige Art \todo{unklar} der Energieerntung wird für den Prototypen relevant.  Der zweite Unterschied unter den Harvestermethoden ist die Leistungskurve. An welcher Stelle zwischen Kurzschluss \todo{unklar} und Leerlauf liegt das Leistungsmaximum? Die unterschiedlichen Leistungsmaxima der einzelnen Harvestermethoden werden unter Punkt b zusammengefasst. Beide Unterschiede werden für die Entwicklung des Prototypen über Bewegungsinduktion relevant.
 
 \subsubsection{Gleichmässige Energie versus gepulster Energie}
 
-\todo{Messprotokolle}
-
-Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}), weshalb keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll \cite{messung_opt_spule}). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. \todo{kommender Satz umschreiben} Die Energie ist somit nicht konstant da, sondern nur in Zeitintervallen. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: 
+Die Solarzelle und ein TEG liefern Gleichstrom bzw. -spannung (siehe Abbildung \ref{dc}), weshalb keine Gleichrichterschaltung und Glättung notwendig sind. Die durch Bewegungsinduktion gewonnene Energie ist eine Wechselspannung (siehe Abbildung \ref{ac}, aus Messprotokoll \cite{messung_opt_spule}). Im Fall des Bicycle Computers ist diese gleichzeitig gepulst. Dadurch ergeben sich zwei Probleme bei der Energiegewinnung: 
 
 Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, trotz Signalglättung über einen Kondensator, eine Rippelspannung (siehe Abbildung \ref{rippel}, aus Messsprotokoll \cite{messung_elko_ausgang}). 
 
@@ -115,18 +103,11 @@ Durch den Gleichrichter geht Energie verloren und durch die Pulsform entsteht, t
 \subsubsection{Konstanter MPP zu dynamischem MPP}
 \label{mpp_theorie_diff}
 
-Die drei Harvester unterscheiden sich in ihrer Leistungskurve. 
+MPP bedeutet Maximum Power Point und bezeichnet auf den höchsten Punkt einer Leistungskurve. Die Leistungskurve zeigt Produkt aus Strom und Spannung einer Energiequelle. Beim Kurvenmaximum wird am meisten Leistung bezogen. Der Unterschied zwischen dem Leistungsmaximum (MPP) und dem MPPT (dem Maximum Power Point Tracking) und der MPPT-Ratio ist im Glossar erklärt. Grundsätzlich bezeichnet das T aus ``Tracking'', dass die Energie der Quelle über einen Widerstand konstant Richtung Maximum Power Point geregelt wird.\\ 
 
-\todo{ Erklärung der Leistungskurve} 
-\todo{Erklären, was Leistungsmaximum ist} 
-\todo{Übergang text neu}
-
-Zur Verdeutlichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt dieses unabhängige Verhalten. 
-
+Der MPP unterscheidet sich unter den Harvestern. Zur Veranschaulichung der Unterschiede sind für jedes Leistungsverhalten eine Abbildung angefügt. Diese Abbildungen zeigen die unterschiedlichen Leistungskurven. Das TEG hat unabhängig von der gewonnenen Energie und der Temperatur das Leistungsmaximum immer bei 50\thinspace\%. Die Abbildung \ref{teg} zeigt dieses unabhängige Verhalten. 
 
 Das Leistungsmaximum, der Maximum Power Point (MPP), liegt auf der Skala von Kurzschluss bis Leerlauf proportional an unterschiedlichen Stellen.  Bei einem TEG liegt das MPP in der Mitte dieser Skala (siehe Abbildung \ref{teg}. Die Maximum Power Point Tracking Ratio, kurz MPPT-Ratio, beträgt 50\thinspace\%. Bei der Solarzelle liegt das Leistungsmaximum auf der Skala bei ca. 80\thinspace\% der maximalen Spannung. Die MPP-Ratio ist 80\thinspace\% (siehe Abbildung \ref{mppsolar}). Bei der Bewegungsinduktion existiert keine fixe MPP-Ratio. Wie bei der Spule, wandert das Leistungsmaximum aufgrund mehrerer Indikatoren (wie Geschwindigkeit des Magneten durch die Spule, Abstand von Magnet und Spule) auf der Skala.
-
-
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
