@@ -556,17 +556,17 @@ In diesem Unterkapitel werden die Resultate den TI-SensorTag-Energiemessungen da
 
 Um einen ersten Anhaltspunkt über den Energieverbrauch des TI-SensorTags zu erhalten, werden drei BLE-Pakete im Advertsing Mode per Knopfdruck gesendet (siehe Abbildung \ref{BLE_send}). Dies entspricht der Messung zur TI-SensorTag-Version V0. Nach der Weiterentwicklung des Programms zum Auslesen der Sensoren, folgte die Messung der Version V1. In dieser Version wird die GPIO ausgelesen. Die GPIO ist für das Einlesen der Reed Switch-Impulse unumgänglich. Die Version V2, der Versuch mehr Sleep-Time einzubauen, scheitert am Zusammenspiel des Timings der BLE-Radio-Interrupts mit den GPIO-Interrupts. Durch das Neuaufsetzen des Programms entsteht die Version V3. Diese sendet power-optimiert Geschwindigkeitspakete.\\ 
 
-Die untenstehende Tabelle stellt die Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen vom \cite{sitzungsprotokoll_160226} - \cite{sitzungsprotokoll_160516_ms3}.\\
+Die untenstehende Tabelle stellt die Energieresultate dar. Unterschieden wird zwischen dem Energieverbrauch für die Initialisierung, kurz Init, und der Energie zum Senden von drei BLE-Paketen. Die Diskussion über Energieoptimierungen und die Deutung der Resultate finden sich in den Sitzungsprotokollen (\cite{sitzungsprotokoll_160226}, \cite{sitzungsprotokoll_160516_ms3}).\\
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Messresultate nach TI-SensorTag-Versionen}
 \begin{tabbing}
-    Version   \quad\= Datum    \quad\= Aufgabe\hphantom{re, kein Schlafmodus optimiert} \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
+    Version   \quad\= Datum    \quad\= Aufgabe\hphantom{re ohne Schlafmodus} \quad\= Energie Init    \quad\=  Energie Senden \\[0.8ex]
     V0        \> 10.3.16  \> Nur BLE Paket      \> unbekannt            \> 33 $\mu$J \\
     V1        \> 16.3.16  \> mit Geschwindigkeit      \> 87 $\mu$J            \> 32 $\mu$J \\
     V3        \> 22.4.16   \> Schlafmodus optimiert     \> 40 $\mu$J            \> 29 $\mu$J \\
-    V4        \> 03.6.16    \> 3 Sensore, kein Schlafmodus optimiert     \> 77 $\mu$J            \> 43 $\mu$J \\
-    V5        \> ongoing    \> 3 Sensore mit optimiertem Schlafmodus     \> unbekannt           \> unbekannt\\
+    V4        \> 03.6.16    \> 3 Sensore ohne Schlafmodus   \> 77 $\mu$J            \> 43 $\mu$J \\
+    V5        \> ongoing    \> 3 Sensore mit Schlafmodus     \> unbekannt           \> unbekannt\\
 \end{tabbing}
 \end{minipage}
 
@@ -754,7 +754,7 @@ Aus der Vorgängerarbeit sind in der Tabelle unten notierte Konfigurationswerte 
     \end{tabbing}
 \end{minipage}
 
-Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \ref{messung_energie_sensortag}), in dem die Geschwindigkeit per BLE gesendet werden kann, entstanden folgende Schwellwerte:
+Nach der Energiemessungen der Version V3 des TI-SensorTags (siehe \cite{messung_energie_sensortag}), in dem die Geschwindigkeit per BLE gesendet werden kann, entstanden folgende Schwellwerte:
 
 \begin{minipage}{\textwidth}
     \captionof{table}{Konfiguration aufgrund Geschwindigkeitsmessung}
@@ -940,9 +940,9 @@ Zeile 6:\hspace{1cm}   Warten, dass alle Prozesse fertig abgehandelt sind.\\
 \end{verbatim}\normalsize
 \end{minipage}
 
-\subsubsection{Sleep Time-Übersicht bei Version V4}
+\subsubsection{Sleep-Time-Übersicht bei Version V4}
 	    
-Bei den ersten Messungen der Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet werden konntes. Das Senden wird möglich, indem zwischen einzelnen Aufgaben geschlafen wird. Denn während dem das TI-SensorTag nur die minimale Energie verbraucht, kann der Bicycle Computer Energie sammeln. Während der Schlafenszeit steigt der Spannungswert an den Kondensatoren STS und LTS. Die Abbildung \ref{schnarch} zeigt, dass bei der Version V4 (siehe Messprotokoll \ref{messung_energie_sensortag}) die Aufgaben aufgeteilt werden. Dies entspricht dem Konzept des vorangehenden Unterkapitels mit der Abbildung \ref{warten_zw_bloecken}, nur dass in Abbildung \ref{schnarch} der Fall von einer Geschwindigkeit von über 40 km/h gezeigt wird, und V\_SUP deshalb nicht abstellt.\\   
+Bei den ersten Messungen der Sensoren riss V\_SUP so schnell zusammen, dass kein BLE-Paket gesendet werden konnte. Das Senden wird möglich, indem zwischen einzelnen Aufgaben geschlafen wird. Denn während dem das TI-SensorTag nur die minimale Energie verbraucht, kann der Bicycle Computer Energie sammeln. Während der Schlafenszeit steigt der Spannungswert an den Kondensatoren STS und LTS. Die Abbildung \ref{schnarch} zeigt, dass bei der Version V4 (siehe Messprotokoll \cite{messung_energie_sensortag}) die Aufgaben aufgeteilt werden. Dies entspricht dem Konzept des vorangehenden Unterkapitels mit der Abbildung \ref{warten_zw_bloecken}, nur dass in Abbildung \ref{schnarch} der Fall von einer Geschwindigkeit von über 40 km/h gezeigt wird, und V\_SUP deshalb nicht abstellt.\\   
 
 Beim Senden von Sensordaten sind zwei Funktionen kritisch: das Starten eines Sensors und das Senden der Daten. Diese zwei Aufgaben werden getrennt und dazwischen geht das System schlafen (siehe vereinfacht dargestellt in der Abbildung \ref{schnarch}).\\
 

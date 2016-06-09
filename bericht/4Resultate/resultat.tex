@@ -9,7 +9,7 @@ Nachfolgend werden die Resultate, der Harvesterschaltung beschrieben. Die Energi
 
 \subsection{Der Print}
 
-Die erstellte Leiterplatte ist in den Abbildungen \ref{print_rueckseite} und \ref{print_vorne} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Elektrolytkondensatoren, kurz Elkos, über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_rueckseite} und \ref{print_vorne} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Elektrolytkondensatoren, kurz Elkos, über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt.\\
 
 Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
@@ -55,7 +55,7 @@ Es ist zu beachten, dass diese Werte die Leistung des MPP sind, somit können di
 
 \subsection{Verhalten des Harvesterausgangs}
 
-Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Kapitel \ref{Ausmessen der Auswirkung des Ausgangskondensators} beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \cite{messung_harvester_elko} zu finden.
+Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Harvesterausgangs mit einem 47 $\mu$F Elko bei der Belastung durch den EM8500-Chip. Die Spannung ist über einen längeren Zeitraum betrachtet sehr instabil. Diese Problematik wurde bereits im Unterkapitel 3.1.4 beschrieben. Die Abbildung \ref{resultat_Harvester_Spannung_100uF} zeigt das reelle Verhalten des Harvesterausgangs mit einem 100 $\mu$F Elko. Es ist zu sehen, dass die Spannung am Harvesterausgang über einen längeren Zeitraum relativ konstant bleibt. Genaue Messdaten zu dieser Problematik sind im Messprotokoll \cite{messung_harvester_elko} zu finden.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -127,8 +127,9 @@ Im Kapitel Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und H
 \label{tiefes_v}
 
 
-Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Nach rund 40 Sekunden sendet der Fahrrad-Computer neue Daten. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.
+Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Nach rund 40 Sekunden sendet der Fahrrad-Computer neue Daten. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.\\
 
+\clearpage
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_3.PNG}
     \caption{Senden von Paketen bei 9 - 10 km/h; rot: V\_SUP, gelb: V\_STS}
@@ -163,7 +164,9 @@ Das zweite Ziel, dass die vom LTS gespeicherte Energie für das Versenden der BL
     \label{lts_ein}
 \end{figure}
 
+\begin{minipage}{1\textwidth}
 Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-Optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt,  S. 6). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
+\end{minipage}
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_5.PNG}
@@ -240,24 +243,24 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pe
 \begin{minipage}{\textwidth}
 \captionof{table}{Energieverbrauch nach Aufgaben}\label{everbrauch_aufgaben}
     \begin{tabbing}
-    Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
+    Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energie\quad\= Quelle \\[0.8ex]
     Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle 3.8\\
-    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle 3.8\\
-    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J + 43 $\mu$J = 49 $\mu$J    \> Tabelle 3.8\\
+    Init+ Refreshen \> rot \> 91 $\mu$J \> Tabelle 3.8\\
+    Start Sensor, Geschwindigkeit, Daten senden\> grau \>  49 $\mu$J    \> Tabelle 3.8\\
     Gesamtverbrauch TI-SensorTag     \>     \> 203 $\mu$J    \> Gleichung \ref{eq:e-high-e-low}\\
     \end{tabbing}
 \end{minipage}
 
 
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe Messprotokoll \ref{messung_energie_sensortag}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung bereit steht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Pakete bei aufgeladenem System gesendet werden, wird im nächsten Unterkapitel dokumentiert.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe Messprotokoll \cite{messung_energie_sensortag}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung bereit steht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Pakete bei aufgeladenem System gesendet werden, wird im nächsten Unterkapitel dokumentiert.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Gesammelter Energieverbrauch für 10 km/h}
 \label{tab_zeit_aufsummiert}
     \begin{tabbing}
     Zeit  \quad\=  Energievorrat \quad\= Quelle\\[0.8ex]
-    10 s  \> 54.4 $\mu$J   \>  Messung \textbf{xxxx} \\
+    10 s  \> 54.4 $\mu$J   \>  Tabelle 4.2 \\
     20 s  \> 108.8 $\mu$J  \> \\
     30 s  \> 163.2 $\mu$J  \> \\
     40 s  \> 217.6 $\mu$J  \> \\
@@ -265,11 +268,9 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Ap
     \end{tabbing}
 \end{minipage}
 
-\todo{Referenz einbauen}
-
 \subsection{Energiebilanz nach 1 min Fahrzeit}
 
-Fällt das Aufladen der TI-SensorTag-Kondensatoren weg, so sieht die Energiebilanz besser aus. Die Abbildung \ref{r_bild_e_zusammenfassung_ohneSockel} zeigt, dass bei einer Geschwindigkeit von 10 km/h nach 30 s genügend Energie zum Senden eines Paketes mit Sensordaten zur Verfügung steht. Zudem zeigt sich, dass mit zunehmender Geschwindigkeit kein Energieproblem mehr besteht. 
+Fällt das Aufladen der TI-SensorTag-Kondensatoren weg, so sieht die Energiebilanz besser aus. In der Abbildung \ref{r_bild_e_zusammenfassung_ohneSockel} zeigt die gepunktete Linie (E\_TI-SensorTag nach 30 s), dass bei einer Geschwindigkeit von 10 km/h nach 30 s genügend Energie zum Senden eines Paketes mit Sensordaten zur Verfügung steht. Zudem zeigt sich, dass mit zunehmender Geschwindigkeit kein Energieproblem mehr besteht. 
 
 
 \begin{figure}[ht]
@@ -292,12 +293,6 @@ Zusammenfassend lassen sich über den Protoypen eines Fahrrad-Computers sagen:
     \item Bei einer Geschwindigkeit von 40 km/h werden die Daten alle 2 s aktulisiert
     \end{enumerate}
 \end{minipage}
-
-
-%Der Grund für die Schwierigkeit bei tiefer Geschwindigkeit liegt am hohen Sockelbetrag zum Starten des Systems. Der Short Time Storage muss zuerst auf die Höhe des Schwellwerts zur Speisung der Applikatin geladen werden. Dies bedeutet einen einmaligen Energieaufwand von 220 $\mu$J. Die Kondensatoren des TI-SensorTags müssen zu Beginn ebenfalls geladen werden. Dies sind weitere 63.2 $\mu$J. Zudem braucht die Initialisierung und das Refreshen zusammen in den ersten 10 s 90 $\mu$J. Zusammen ergibt dies einen Grundenergieverbrauch ab Start von 373.3 $\mu$J. Dies ist bei einer Geschwindikeit von 10 km/h erst nach xxx s möglich.
-%
-%\todo{Zeit bei 10km/h eintragen. Abschlusssatz besser}
-%
 
 
 \section{Ergebnisse BLE-Applikation}
@@ -325,7 +320,7 @@ Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Ab
 
 Wird die Aktivierung der Bluetooth-Schnittstelle erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Messwerte angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
 
-Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor wahr. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
+Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betitelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor wahr. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -342,7 +337,7 @@ Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bilds
 
 Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, indem man den Button ``Einheiten + Einstellungen'' auswählt.
 
-Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalibrieren. 
+Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop-Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalibrieren. 
 
 Die Zahl des Radumfangs kann über die Tastatur in das Feld eingegeben, es können nur Zahlen eingegeben werden. Dies wurde implementiert, um zu verhindern, dass die Eingabe von der Applikation nicht interpretiert werden kann.
 
@@ -397,5 +392,3 @@ Die Korrektheit der empfangenen Daten auf der Applikation wird mit einem visuell
     \label{applikation_daten}
 \end{figure}
 
-
-\todo{Video zeiger (auf CD)}
