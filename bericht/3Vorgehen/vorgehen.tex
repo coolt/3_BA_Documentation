@@ -332,6 +332,7 @@ der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist ca. 1.0 m$\Omega$
 
 Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
 
+\clearpage
 \begin{minipage}{1\textwidth}
 Ein wichtiger Punkt ist die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste (rot eingerahmt) eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
 \end{minipage}
@@ -350,9 +351,7 @@ Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausge
 
 Das Layout wurde von Herr Olivier Rion begutachtet. Seine Kritikpunkte werden auf der nächsten Seite aufgelistet.
 
-\newpage
 \begin{minipage}{1\textwidth}
-
 Kritikpunkte am Schema:
 \begin{enumerate}
     \item VCC sollte in Pfeil sein: Das Symbol für VCC und generell alle Speisungen sollten als Pfeil im Schema dargestellt werden.
@@ -362,7 +361,7 @@ Kritikpunkte am Schema:
 	\item Unten links auf dem Schema fehlt die Versionen, die Beschreibung, usw.
 	\item Eine kleine Beschreibung beim Harvester wäre gut, z.B. Prinzip mit T1, Spannungsregulierung usw.: Eine Beschreibung hilft die Schaltung schneller zu verstehen, dass macht eine Übergabe an die nachfolgenden Studenten einfacher.
 \end{enumerate}
-
+\end{minipage}
 
 Kritikpunkte am PCB:
 \begin{enumerate}
@@ -372,7 +371,10 @@ Kritikpunkte am PCB:
 	\item GND kann Kontakt mit den Schraubenköpfen haben: Es muss sichergestellt werden, dass die Schraube keinen Kontakt mit den Leitungen hat und dass die Flächen nicht unter dem Schraubenkopf platziert werden. 
 \end{enumerate}
 
+\newpage
+\begin{minipage}{1\textwidth}
 Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlichen Gründen noch nicht umgesetzt werden. Neben den Kritikpunkten von Herr Rion wurden während der Arbeit noch weitere Kritikpunkte ersichtlich.
+
 
 \begin{enumerate}
     \item Die Testpunkte auf der Leiterplatte müssen neu platziert werden, weil sie Teilweise auf der Unterseite nicht angelötet werden können, da die Spule sie verdeckt. 
@@ -383,7 +385,6 @@ Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlich
 \end{enumerate}
 \end{minipage}
 
-\newpage
 Die Punkte 3 bis 5, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messungen mit der ersten Version der Leiterplatte durchgeführt.
 
 
@@ -863,10 +864,11 @@ Bei einer Low-Power-Applikation hat das Ein- und Ausschalten von sogenannten Pow
 \clearpage
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/powerdomain_1.png}
-  \caption{Supply System TI-SensorTag aus: \cite{Sensortag_Manual}, S.\,416}
+  \caption{Supply System TI-SensorTag}
   \label{supply_syst}
 \end{figure}
 
+Die Abbildung stammt aus dem Technical Manual des TI-SensorTags (\cite{Sensortag_Manual}, S.\,416). 
 
 \subsection{Schlafenszeiten implementieren}
 \label{sleep_funktion}
@@ -983,12 +985,15 @@ Nachfolgend wird der Aufbau von TI-SensorTag zusammen mit unserem selbst entwick
     \caption{Aufteilung des Bildschirms}\label{aufbau_applikation_1} 
 \end{figure}
 
+\begin{minipage}{1\textwidth}
+
 Der Aufbau der Applikation sollte am Anfang in vier Teile des Bildschirms geteilt werden (siehe Abbildung \ref{aufbau_applikation_1}). 
 Im Bereich GPS soll eine Karte angezeigt werden. Ausserdem soll es möglich sein die Route aufzuzeichnen und abzuspeichern.
 Der Verlauf zeigt die Entwicklung der Geschwindigkeit über einen gewissen Zeitraum, wobei es wählbar sein soll welche Daten angezeigt werden.
 Die Geschwindigkeit soll anschaulich in einem Tachometer angezeigt werden und die Tachonadel soll im besten Fall animiert sein.
 Im Bereich der Werte sollen die aktuellen Werte in Zahlen und den entsprechenden Einheiten dargestellt werden.
 Schnell wurde klar, dass dieser Aufbau wenig Sinn macht, da die Bereiche auf einem Smartphone viel zu klein wären und nicht mehr leserlich sein würden. Darum wurden die Teile des Bildschirms als einzelne Activities geplant, somit wäre der ganze Bildschirm als Anzeige für jede einzelne Aufgabe vorhanden.
+\end{minipage}
 
 \subsubsection{Home-Screen}
 
@@ -1006,7 +1011,7 @@ Es kam ebenfalls der Wunsch auf, die Einheiten der Werte einstellbar zu machen, 
 
 Der wichtigste Teil der Applikation ist die Bluetooth-Kommunikation. Hier werden die Daten vom Sensor empfangen. Die Daten müssen nach dem Empfangen gefiltert werden, damit sichergestellt wird, dass die empfangenen Daten von einem unserer Sensoren kommen. Sobald sichergestellt ist, dass die empfangenen Daten zu unserem Sensor gehören, müssen diese umgerechnet werden.
 
-\subsection{Inbetriebnahme des Codes der PA}
+\subsection{Inbetriebnahme des Codes der Projektarbeit}
 
 Als erster Schritt wurde der Code der vorangegangenen Arbeit analysiert und die wichtigen Teile zur Bluetoothkommunikation übernommen. Es wurden folgende Funktionen aus dem Code übernommen: onStart, onActivityResult, scanLeDevice, BluetoothAdapter.LeScanCallback.\\
 
@@ -1115,7 +1120,7 @@ Die Adressauswahl oder auch Sensorwahl ist ein Bedürfnis, da der User die Appli
 Immer wenn Daten empfangen werden und die Struktur mit der definierten Struktur übereinstimmt soll die Adresse gespeichert werden. Dafür wurde die  Funktion saveAdress (siehe Abbildung \ref{app_saveAdress}) entwickelt. 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_saveAdress.png}
+    \includegraphics[width=0.55\textwidth]{3Vorgehen/imag/app_saveAdress.png}
     \caption{Sourcecode saveAdress}
 	\label{app_saveAdress} 
 \end{figure}
@@ -1125,7 +1130,7 @@ Der adressCounter wird mit dem Wert -1 initialisiert. Werden die ersten Daten mi
 Sobald eine Adresse ausgewählt wurde, müssen die zukünftigen Datenpakete überprüft werden, ob sie vom ausgewählten Sensor stammen. Die Funktion checkAdress (siehe Abbildung \ref{app_checkAdress}) überprüft, ob die ausgewählte Adresse der Adresse des Sensors entspricht, welche die neuen Daten gesendet hat. Sollte keine Adresse ausgewählt sein, so wird dies behandelt, als ob der Sensor die richtige Adresse hat.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_checkAdress.png}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/app_checkAdress.png}
     \caption{Sourcecode checkAdress}
 	\label{app_checkAdress} 
 \end{figure}
@@ -1145,7 +1150,7 @@ Die Benutzerin bzw. der Benutzer muss noch die Möglichkeit haben eine Adresse a
 Die Einheiten der empfangenen Daten sollten ebenfalls einstellbar gestaltet werden. Für diesen Zweck wurden mehrere Enumerationen definiert. Die Enumeration für die Temperatur wird in der Abbildung \ref{app_tempSetting} dargestellt.\\
 
 \begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_tempSetting.png}
+    \includegraphics[width=0.65\textwidth]{3Vorgehen/imag/app_tempSetting.png}
     \caption{Sourcecode Enumeration}
 	\label{app_tempSetting}
 \end{figure}
@@ -1182,32 +1187,34 @@ Es sollte ein Tachometer entwickelt werden, welche eine animierte Tachonadel hat
 
 \subsubsection{Funktionsweise}
 
-Bereits in der PA von Manuel König \cite{PA_koenigma} wurde mit der Anzeige von Bilddateien, genauer Bitmaps (.bmp-Datei), experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich, ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
+Bereits in der Projektarbeit von Manuel König \cite{PA_koenigma} wurde mit der Anzeige von Bilddateien, genauer Bitmaps (.bmp-Datei), experimentiert. Es lag nahe, diese Erfahrung zu nutzen und für dieses Problem eine möglichst einfache Lösung zu generieren. In Android ist es möglich, ein Bitmap in ein Zahlenarray zu laden, dieses Array anzupassen und schlussendlich das Array wieder in ein Bitmap umzuwandeln.
 
 Die Funktion drawTacho liest die Pixel eines Bildes eines Tachometers ohne Tachonadel ein, dreht es und fügt die rote Tachonadel direkt in das Bild ein.
 
 \begin{figure}[ht]
-    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/tachometer.png}
+    \includegraphics[width=0.3\textwidth]{3Vorgehen/imag/tachometer.png}
     \caption{Tachometer ohne Tachonadel}
 	\label{tachometer} 
 \end{figure}
 
+\clearpage
 Das Bild konnte mit folgender Funktion eingelesen werden:
 
-\begin{figure}[ht]
-    \includegraphics[width=0.2\textwidth]{3Vorgehen/imag/app_getPixel.png}
+\begin{figure}%[ht]
+    \includegraphics[width=0.55\textwidth]{3Vorgehen/imag/app_getPixel.png}
     \caption{Sourcecode getPixel}
 	\label{app_getPixel} 
 \end{figure}
+%\end{minipage}
 
-Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im Array stellen den Farbwert des jeweiligen Pixels dar. Diese Farbwerte können nun verändert werden. Als erstes wurde das ganze Bild gespiegelt, da der rote Bereich des Tachometers auf der rechten Seite angezeigt werden sollte, wie es von anderen Tachometern bekannt ist.
+Die Bitmap wird in ein eindimensionales Integer-Array eingelesen, die Werte im Array stellen den Farbwert des jeweiligen Pixels dar. Diese Farbwerte können nun verändert werden. Als erstes wurde das ganze Bild gespiegelt, da der rote Bereich des Tachometers auf der rechten Seite angezeigt werden sollte, wie es von anderen Tachometern bekannt ist.\\
 
-Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt (\ref{math_tachonadel}) genauer beschrieben.
+Nach dem Spiegeln des Bildes musste noch die Tachonadel direkt in das Integer-Array eingefügt werden. Die genaue Vorgehensweise wird im nachfolgenden Punkt (\ref{math_tachonadel}) genauer beschrieben.\\
 
 Aus dem bearbeiteten Integer-Array konnte anschliessend eine Bitmap erstellt werden, welches von der Funktion zurückgegeben wurde. 
 
 \begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_createBitmap.png}
+    \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/app_createBitmap.png}
     \caption{Sourcecode createBitmap}
 	\label{app_createBitmap} 
 \end{figure}
@@ -1216,7 +1223,7 @@ Aus dem bearbeiteten Integer-Array konnte anschliessend eine Bitmap erstellt wer
 \label{math_tachonadel}
 
 \begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
+    \includegraphics[width=1\textwidth]{3Vorgehen/imag/app_drawNeedle.png}
     \caption{Sourcecode Mathematik des Zeigers}
 	\label{app_drawNeedle} 
 \end{figure}
