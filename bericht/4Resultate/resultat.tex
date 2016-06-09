@@ -9,9 +9,9 @@ Nachfolgend werden die Resultate, der Harvesterschaltung beschrieben. Die Energi
 
 \subsection{Der Print}
 
-Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Elektrolytkondensatoren, kurz Elkos, über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_rueckseite} und \ref{print_vorne} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Elektrolytkondensatoren, kurz Elkos, über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
 
-Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
+Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -28,7 +28,7 @@ Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehe
 
 \subsection{Leistung am Harvesterausgang}
 
-Wie erwartet (siehe theoretische Grundlagen \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt. Problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann. Es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
+Wie erwartet (siehe theoretische Grundlagen Unterkapitel 2.1.3 Abschnitt \ref{mpp_theorie_diff}) ändert sich bei einer Hardware mit einer Spule das Leistungsmaximum. Die Abbildung \ref{mpp_resultat_harvester} zeigt die reale MPP-Kurve des Prototypen. Bei verschiedenen Geschwindigkeiten ist der MPP an einem anderen Punkt. Problematisch ist, dass die Einstellung im EM8500 nicht so genau eingestellt werden kann. Es sind nur grobe Schritte im Bereich von 50 - 70 \% verfügbar. 
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{4Resultate/imag/MPPHarvester.png} 
@@ -72,7 +72,7 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 
 \subsection{Energie am EM8500-Chipausgang}
 
-Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll \cite{messung_emausgang_finish} dokumentiert. Die gewonnene Energie, die dem TI-SensorTag zur Verfügung steht ist:
+Die Abbildung \ref{energie_resultat_harvester} zeigt die berechnete Energie, die am Ausgang des EM-Chip abgegeben wird in Bezug zur Geschwindigkeit. Die Berechnung, wie aus dem Puls über die Zeit, bis dass VSUP wieder eingeschalten wird, ist im  Messprotokoll \cite{messung_emausgang_finish} dokumentiert. Die gewonnene Leistung, die dem TI-SensorTag zur Verfügung steht ist:
 
 
 \begin{minipage}{\textwidth}
@@ -155,7 +155,7 @@ Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis V\_STS (gelb) unter den S
 \subsection{Laden und Entladen des LTS}
 \label{res_entladen}
 
-Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in \ref{lts_ein}\todo{Referenz überprüfen}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zur Speisung V\_SUP mit 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
+Das zweite Ziel, dass die vom LTS gespeicherte Energie für das Versenden der BLE-Pakete genutzt wird, wird in diesem Unterabschnitt erklärt. Die Bedingung nach Konzept des EM8500, dass VSTS den Schwellwert von v\_appl\_max\_\_lo von 3.7 V erreicht (siehe Schwellwerte graphisch dargestellt in Abbildung \ref{lts_ein}). In der Konfiguration wurde dieser Schwellwert so nah wie möglich an der Schwelle zu 3.6 V gewählt. Die Idee ist, sobald einmal V\_SUP konstant gespiesen ist, beginnt LTS unmittelbar mit dem Laden. Die Abbildung \ref{lts_ein} zeigt die finalen Einstellungen, zum  möglichst raschen Laden von LTS.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/LTS_Ladeschwelle.PNG}
@@ -163,7 +163,7 @@ Das zweite Ziel, dass die vom Long Time Storage gespeicherte Energie für das Ve
     \label{lts_ein}
 \end{figure}
 
-Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt S. \todo{Seite Connected Mode Beschreibung im EM8500 Datenblatt}). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
+Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fall kann VSTS über den Schwellwert zur Speisung der Applikation von 3.6 V steigen und die Schwelle für die Speisung des LTS bei 3.7 V aktivieren. Dies gelingt ohne Sleep-Optimierung ab einer Geschwindigkeit von 50 km/h. Die Abbildung \ref{vsup_konstant} zeigt dies bei 60 km/h. LTS hat sich bereits auf die Höhe des STS von 3 V geladen. Ab einer Höhe von 3.6 V laden und entladen sich die beiden Kondensatoren parallel. Sie befinden sich im Connected Mode (siehe Datenblatt,  S. 6). Der Connected Mode ist in Abbildung \ref{connected_mode} dokumentiert.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_5.PNG}
@@ -177,7 +177,7 @@ Dies ist erst möglich, wenn VSUP konstant gespiesen wird. Denn nur in diesem Fa
     \label{connected_mode}
 \end{figure}
 
-Die letzte Abbildung (\ref{parallel_entladen})zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
+Die letzte Abbildung (\ref{parallel_entladen}) zum Verhalten des LTS zeigt, wie STS und LTS im Parallelbetrieb sich entladen, V\_SUP sich halten kann und beide sich wieder parallel laden. 
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic1.PNG}
@@ -190,7 +190,7 @@ Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das 
 \subsection{Verwendete Werte}
 \label{werte}
 
-Die oben aufgeführen Messwerte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt. Die Herleitung der Werte steht in den Unterkapiteln Energiekalkulation \ref{v_e_kalkulation} und Schwellwerte. Zwei Änderungen der Schwellwerte werden aufgrund letzter Messungen vorgenommen. Die Applikationsspeisung (V\_SUP) wird um 0.1 V auf 2.1 V erhöht. Der Grund ist, dass die Speisung bei 2 V, dem Minimum für das TI-SensorTag nicht 100\thinspace\% funktioniert. Das TI-SensorTag stellte teils selbständig ab, da angeblich zu wenig Spannung am Eingang anliegt. Um die gleiche Spannungsdifferenz von $\Delta$ 0.8 V zwischen STS\_HIGH und STS\_LOW zu haben, wird parallel dazu auch  v\_bat\_min\_hi\_dis erhöht. Der neue Wert ist nun 3.0 V, um sicher genügend Energie zur Verfügung zu stellen.
+Die oben aufgeführten Messwerte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt. Die Herleitung der Werte steht in den Unterkapiteln Energiekalkulation \ref{v_e_kalkulation} und Schwellwerte 3.4.3. Zwei Änderungen der Schwellwerte werden aufgrund letzter Messungen vorgenommen. Die Applikationsspeisung (V\_SUP) wird um 0.1 V auf 2.1 V erhöht. Der Grund ist, dass die Speisung bei 2 V, dem Minimum für das TI-SensorTag nicht 100\thinspace\% funktioniert. Das TI-SensorTag stellte teils selbständig ab, da angeblich zu wenig Spannung am Eingang anliegt. Um die gleiche Spannungsdifferenz von $\Delta$ 0.8 V zwischen STS\_HIGH und STS\_LOW zu haben, wird parallel dazu auch  v\_bat\_min\_hi\_dis erhöht. Der neue Wert ist nun 3.0 V, um sicher genügend Energie zur Verfügung zu stellen.
 
 %Gleichung berechung totalenergie = 189 u J  \label{eq:e-high-e-low}
 %Gleichung Berechnung CSTS ) 100 uJ         \label{eq:e_sts}
@@ -224,12 +224,12 @@ Das vorangehende Unterkapitel Energy Managment zeigt die erzielten Resultate. Di
 
 \subsection{Energiebilanz Bicycle Computer}
 
-Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \ref{r_bild_e_zusammenfassung}\todo{Welche Refrerenz?? Worauf?}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen erfolgt und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
+Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe  Abbildung \ref{r_bild_e_zusammenfassung}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen erfolgt und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
 
 
 \subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (violett), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich ein Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am EM8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (violett), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich ein Energiebedarf von 203 $\mu$J wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am EM8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
 
 \begin{figure}[ht]
      \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}
@@ -241,16 +241,16 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pe
 \captionof{table}{Energieverbrauch nach Aufgaben}\label{everbrauch_aufgaben}
     \begin{tabbing}
     Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
-    Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle \textbf{xxx}\\
-    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle \textbf{xxx}\\
-    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J + 43 $\mu$J = 49 $\mu$J    \> Tabelle \textbf{xxx}\\
+    Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle 3.8\\
+    Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle 3.8\\
+    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J + 43 $\mu$J = 49 $\mu$J    \> Tabelle 3.8\\
     Gesamtverbrauch TI-SensorTag     \>     \> 203 $\mu$J    \> Gleichung \ref{eq:e-high-e-low}\\
     \end{tabbing}
 \end{minipage}
 
-\todo{referenzen Quellen eingtragen}
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe \todo{ref}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung bereit steht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Pakete bei aufgeladenem System gesendet werden, wird im nächsten Unterkapitel dokumentiert.
+
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe Messprotokoll \ref{messung_energie_sensortag}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung bereit steht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Pakete bei aufgeladenem System gesendet werden, wird im nächsten Unterkapitel dokumentiert.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Gesammelter Energieverbrauch für 10 km/h}
