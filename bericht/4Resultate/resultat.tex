@@ -1,7 +1,7 @@
 \chapter{Resultate}
 \label{ch_resultat}
 
-Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Beim Harvester geht es um den produzierten Print, die Leistungsfähigkeit der Schaltung, und die Qualität des Signals am Harvesterausgang. Beim Energy Management wird das Verhalten mit den finalen Schwellwerten dokumentiert. Einerseits geht es um die Kontroller der eingestellten Schwellwert sowie um die erreichte Ladezeit des Primärspeichers STS. Es wird zusammengefasst, bei welcher Geschwindigkeit wie oft BLE-Pakete gesendet werden. Das Verhalten wird im Unterkapitel durch die Energiebilanz gedeutet. Der Zusammenhang zwischen der Geschwindigkeit und dem realen Verbrauch des TI-Sensortags wird für ein erstes Anfahren und für das Weiterfahren beschrieben. Der Vorteil des Weiterfahrens ist, dass die Kondensatoren in diesem Fall bereits geladen sind. Als letztes wird das User Interface der neuen BLE-Applikation gezeigt.
+Im Kapitel \ref{ch_vorgehen} ist die Umsetzung ausführlich erklärt. In diesem Kapitel geht es um die relevanten Resultate. Beim Harvester geht es um den produzierten Print, die Leistungsfähigkeit der Schaltung, und die Qualität des Signals am Harvesterausgang. Beim Energy Management wird das Verhalten mit den finalen Schwellwerten dokumentiert. Einerseits geht es um die Kontrolle der eingestellten Schwellwerte sowie um die erreichte Ladezeit des Primärspeichers STS. Es wird zusammengefasst, bei welcher Geschwindigkeit wie oft BLE-Pakete gesendet werden. Das Verhalten wird im Unterkapitel durch die Energiebilanz gedeutet. Der Zusammenhang zwischen der Geschwindigkeit und dem realen Verbrauch des TI-Sensortags wird für ein erstes Anfahren und für das Weiterfahren beschrieben. Der Vorteil des Weiterfahrens ist, dass die Kondensatoren in diesem Fall bereits geladen sind. Als letztes wird das User Interface der neuen BLE-Applikation gezeigt.
  
 \section{Harvesterschaltung}
 
@@ -9,7 +9,7 @@ Nachfolgend werden die Resultate, der Harvesterschaltung beschrieben. Die Energi
 
 \subsection{Der Print}
 
-Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Kondensatoren über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
+Die erstellte Leiterplatte ist in den Abbildungen \ref{print_vorne} und \ref{print_rueckseite} zu sehen. Auf der Ansicht von oben ist der Top-Layer inklusive der Bestückung zu sehen. Die Bestückung des Top-Layers beinhaltet die Harvesterschaltung (unten rechts), den EM8500 (oben rechts) und den Stecker (mittig links), welcher als Verbindung zum TI-SensorTag dient. Ebenfalls sind die vielen Testpunkte zu sehen. Jedes Netz wurde mit einem Testpunkt ausgestattet. Oben links sind die Anschlüsse für die Energiespeicher zu sehen. Hier wurden die beiden Elektrolytkondensatoren, kurz Elkos, über Litzen angeschlossen. Die Elkos können nicht auf der Oberseite der Leiterplatte platziert werden, da der Platz zwischen TI-SensorTag und dem Prototypen-PCB nicht ausreicht und auf der Unterseite ist kein Platz, da die Speiche des Fahrrads in einem Abstand von ein bis zwei Zentimeter vorbei schnellt. 
 
 Auf der Ansicht von unten ist der Bottom-Layer inklusive der Bestückung zu sehen. Die Unterseite der Leiterplatte beherbergt die Spule und den Reed-Switch, welche auf der oberen Seite der Leiterplatte keinen Platz mehr gefunden haben. Der Reed-Switch hätte noch Platz auf der oberen Seite gehabt, jedoch muss der Reed-Switch in der Nähe der Spule platziert werden, da hier der Magnet durchläuft.
 
@@ -60,12 +60,12 @@ Die Abbildung \ref{resultat_Harvester_Spannung_47uF} zeigt das Verhalten des Har
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{4Resultate/imag/SpannungVCC_47uF.PNG} 
-    \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
+    \caption{Spannung VCC beim Harvesterausgang mit 47 $\mu$F}
     \label{resultat_Harvester_Spannung_47uF}
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{4Resultate/imag/SpannungVCC_100uF.png} 
-    \caption{Spannung VCC beim Harvesterausgang bei 15 km/h}
+    \caption{Spannung VCC beim Harvesterausgang mit 100 $\mu$F}
     \label{resultat_Harvester_Spannung_100uF}
  \end{minipage}
 \end{figure}
@@ -100,7 +100,7 @@ Aus den zwei Leistungsmessungen wird graphisch die Energiegewinnung im Vergleich
 
 \begin{figure}[ht]
     \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyGewinnNachStelle.png} 
-    \caption{Energiegewinn Zusammengefasst nach Stelle in der Schaltung}
+    \caption{Energiegewinn Zusammengefasst an zwei Messpunkten}
     \label{zsmEnergyGewinn}
 \end{figure}
 
@@ -121,7 +121,7 @@ Aus den zwei Leistungsmessungen wurde der Wirkungsgrad bei den gemessenen Geschw
 
 \section{Energy Management}
 
-Bei dem Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH ENERGY beschrieben (\ref{v_energiezustand}). Die folgenden Abbildungen im Unterkapitel \ref{tiefes_v} zeigen diese Verhalten. Zuerst wird das Verhalten bei LOW und MIDDLE ENERGY beschrieben. Da interessiert die Ladezeit bis dass wieder ein Paket gesendet wird. Bei beiden Zuständen kann sich der LTS nicht laden, da das Senden über BLE alle Energie verbraucht. Erst bei höherer Energie kann das Ladeverhalten von LTS angeschaut werden. Diese Abbildungen sind im Unterkapitel \ref{res_entladen}. Im letzten Unterkapitel stehen die finalen Schwellwerte und Kondensatorenwerte, auf denen diese Messresultate basieren.
+Im Kapitel Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und HIGH ENERGY beschrieben (\ref{v_energiezustand}). Die folgenden Abbildungen im Unterkapitel \ref{tiefes_v} zeigen diese Verhalten. Zuerst wird das Verhalten bei LOW und MIDDLE ENERGY beschrieben. Da interessiert die Ladezeit bis dass wieder ein Paket gesendet wird. Bei beiden Zuständen kann sich der LTS nicht laden, da das Senden über BLE alle Energie verbraucht. Erst bei höherer Energie kann das Ladeverhalten von LTS angeschaut werden. Diese Abbildungen sind im Unterkapitel \ref{res_entladen}. Im letzten Unterkapitel stehen die finalen Schwellwerte und Kondensatorenwerte, auf denen diese Messresultate basieren.
 
 \subsection{Verhalten bei tiefen und mittleren Geschwindigkeiten}
 \label{tiefes_v}
@@ -143,7 +143,7 @@ Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16k
     \label{paket_16kmh}
 \end{figure}
 
-Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis dass V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis dass wieder nonstop gesendet wird und zwar für für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelsen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
+Bei 40 km/h werden rund 15 BLE-Pakete mitgesendet, bis V\_STS (gelb) unter den Schwellwert fällt und V\_SUP (viollet) abstellt (Abbildung \ref{paket_40kmh}). Danach dauert es nicht ganz 2 Sekunden, bis wieder nonstop gesendet wird und zwar für für die nächsten 2.5 Sekunden. Bei 40 km/h werden alle Sensoren im Ringbufferprinzip ausgelesen: beim ersten Paket wird der Druck aktualisiert, danach die Temperatur, dann die Luftfeuchtigkeit. LTS lädt sich bei dieser Geschwindigkeit nicht, da V\_STS nur bis zum Schwellwert zur Speisung von V\_SUP gelangt und nie höher steigt.
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic4.PNG}
@@ -185,12 +185,12 @@ Die letzte Abbildung (\ref{parallel_entladen})zum Verhalten des LTS zeigt, wie S
     \label{parallel_entladen}
 \end{figure}
 
-Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4 die Sensoren zu viel Energie verbrauchen und V\_SUP abfällt. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstrierbar. Auszugehen ist, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
+Diese Bilder belegen, dass das Laden und Entladen von LTS gut funktioniert. Das Problem liegt darin, dass bei der (noch nicht sleep-optimierten) TI-SensorTag Version V4 die Sensoren zu viel Energie verbrauchen und V\_SUP abfällt. Dadurch kommt es nicht zum Laden des LTS. Erst bei 50 km/h ist das Verhalten exemplarisch demonstrierbar. Es ist davon auszugehen, dass bei einer sleep-optimierten TI-SensorTag-Version das Laden und Entladen von LTS bereits bei tiefen Geschwindigkeiten funktioniert.
 
 \subsection{Verwendete Werte}
 \label{werte}
 
-Die oben aufgeführen Messwerrte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt. Die Herleitung der Werte steht in den Unterkapiteln Energiekalkulation \ref{v_e_kalkulation} und Schwellwerte. Zwei Änderungen der Schwellwerte werden aufgrund letzter Messungen vorgenommen. Die Applikationsspeisung (V\_SUP) wird um 0.1 V auf 2.1 V erhöht. Der Grund ist, dass die Speisung bei 2 V, dem Minimum für das TI-SensorTag nicht 100\thinspace\% funktioniert. Das TI-SensorTag stellte teils selbständig ab, da angeblich zu wenig Spannung am Eingang anliegt. Deshalb die Spannungserhöhung. Um die gleiche Spannungsdifferenz von $\Delta$ 0.8 V zwischen STS\_HIGH und STS\_LOW zu haben, wird parallel dazu auch  v\_bat\_min\_hi\_dis erhöht. Der neue Wert ist nun 3.0 V, um sicher genügend Energie zur Verfügung zu stellen.
+Die oben aufgeführen Messwerte sind mit der Software-Version V4 für das TI-Sensortag und den nachfolgenden, genannten Werten umgesetzt. Die Herleitung der Werte steht in den Unterkapiteln Energiekalkulation \ref{v_e_kalkulation} und Schwellwerte. Zwei Änderungen der Schwellwerte werden aufgrund letzter Messungen vorgenommen. Die Applikationsspeisung (V\_SUP) wird um 0.1 V auf 2.1 V erhöht. Der Grund ist, dass die Speisung bei 2 V, dem Minimum für das TI-SensorTag nicht 100\thinspace\% funktioniert. Das TI-SensorTag stellte teils selbständig ab, da angeblich zu wenig Spannung am Eingang anliegt. Um die gleiche Spannungsdifferenz von $\Delta$ 0.8 V zwischen STS\_HIGH und STS\_LOW zu haben, wird parallel dazu auch  v\_bat\_min\_hi\_dis erhöht. Der neue Wert ist nun 3.0 V, um sicher genügend Energie zur Verfügung zu stellen.
 
 %Gleichung berechung totalenergie = 189 u J  \label{eq:e-high-e-low}
 %Gleichung Berechnung CSTS ) 100 uJ         \label{eq:e_sts}
@@ -220,16 +220,16 @@ LTS = 3300 $\mu$F             \> (Wert von Vorgängermodell behalten)
 
 \section{Energiebilanz}
 
-Das vorangehende Unterkapitel Energy Managment zeigte, die erzielten Resultate. Diese Kapitel liefert die Deutung dazu. Dazu werden aus der Tabelle \ref{tab_zsm} im Unterkapitel Energiemessungen den Energieverbrauch nach Aufgaben übernommen und in Zusammenhang mit der gelieferten Energie am EM8500-Ausgang gestellt. Die Energiedaten für den Ausgang des EM8500 stammt aus den Messungen \ref{em_enerige_ausgang}, die in der Tabelle \ref{tab:em_out_zsm} zusammengefasst sind.
+Das vorangehende Unterkapitel Energy Managment zeigt die erzielten Resultate. Dieses Kapitel liefert die Deutung dazu. Dazu wird aus der Tabelle \ref{tab_zsm} im Unterkapitel Energiemessungen der Energieverbrauch nach Aufgaben übernommen und in Zusammenhang mit der gelieferten Energie am EM8500-Ausgang gestellt. Die Energiedaten für den Ausgang des EM8500 stammen aus den Messungen \ref{em_enerige_ausgang}, die in der Tabelle \ref{tab:em_out_zsm} zusammengefasst sind.
 
 \subsection{Energiebilanz Bicycle Computer}
 
-Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \ref{r_bild_e_zusammenfassung}\todo{Welche Refrerenz?? Worauf?}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen getan werden muss, und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
+Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe \ref{r_bild_e_zusammenfassung}\todo{Welche Refrerenz?? Worauf?}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen erfolgt und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
 
 
 \subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (viollet), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich eine Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am Em8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (violett), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich ein Energiebedarf von 203 $\mu$F wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am EM8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
 
 \begin{figure}[ht]
      \includegraphics[width=1\textwidth]{4Resultate/imag/EnergyVerbrauchZusammenfassung.png}
@@ -243,14 +243,14 @@ Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pe
     Aufgabe \hspace{6 cm} \quad\=  Farbe \quad\= Energieverbrauch \hspace{1cm} \quad\= Quelle \\[0.8ex]
     Laden C TI-SensorTag  \> violett      \> 63 $\mu$J    \> Tabelle \textbf{xxx}\\
     Initialisierung + Refresh-Zyklen \> rot \> 77 $\mu$J + 14 $\mu$J = 91 $\mu$J \> Tabelle \textbf{xxx}\\
-    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J+ 43 $\mu$J = 49 $\mu$J    \> Tabelle \textbf{xxx}\\
+    Start Sensor + Geschwindigkeit, Daten BLE\> grau \> 6 $\mu$J + 43 $\mu$J = 49 $\mu$J    \> Tabelle \textbf{xxx}\\
     Gesamtverbrauch TI-SensorTag     \>     \> 203 $\mu$J    \> Gleichung \ref{eq:e-high-e-low}\\
     \end{tabbing}
 \end{minipage}
 
 \todo{referenzen Quellen eingtragen}
 
-Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe \todo{ref}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung geht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Paket bei Aufgeladenem System wird im nächsten Unterkapitel dokumentiert.
+Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt, dass bei der TI-Sensortag-Applikation V4 (siehe \todo{ref}) innerhalb von 10 s nicht genug Energie für den Beginn der Fahrradnutzung bereit steht. Wartet die Fahrerin bzw. der Fahrer jedoch länger so addiert sich die gesammelte Energie (siehe Tabelle \ref{tab_zeit_aufsummiert}). Bei einem minimalen Energieverbrauch von 203 $\mu$J, sollte bei einem Neubeginn der Nutzung des Fahrrad-Computers nach 40 s das erste Datenpaket gesendet werden. Die Wiederholungsrate, mit der neue Pakete bei aufgeladenem System gesendet werden, wird im nächsten Unterkapitel dokumentiert.
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Gesammelter Energieverbrauch für 10 km/h}
@@ -325,7 +325,7 @@ Beim Öffnen der Applikation wird geprüft, ob Bluetooth aktiviert ist (siehe Ab
 
 Wird die Aktivierung der Bluetooth-Schnittstelle erlaubt, erscheint der Startbildschirm. Auf diesem befindet sich zentral der Tachometer (siehe Abbildung \ref{tacho}). Dieser zeigt Geschwindigkeiten von 0 – 90 km/h mit einer animierten Tachonadel an. Unterhalb des Tachometers werden die einzelnen Messwerte angezeigt und im untersten Teil des Startbildschirms befinden sich zwei Buttons, über die man Einstellungen vornehmen kann. Die Kontextmenus zu diesen Einstellungen werden in den nächsten zwei Abbildungen \ref{sensorauswahl} und \ref{einheiten} ersichtlich. 
 
-Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor war. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
+Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bildschirm. Auf diesem erscheinen nur die aktiven Bluetooth Geräte mit dem implementierten Prototypen-Filter. Der Bildschirm bildet die TI-SensorTag-Adresse ab. Der Verbund aus unserer neuen Leiterplatte und dem TI-SensorTag wird absichtlich als Sensor betittelt, da es sich für den User um ein Gerät handelt, welches Umgebungsdaten misst. Der User sieht das Gerät nicht in seinen Einzelteilen, sondern nimmt es als einen Sensor wahr. Es wird nicht der Sensor (Temperatursensor, Drucksensor, etc.) auf dem TI-SensorTag ausgewählt wird, sondern die Adresse des Bluetooth-Chips. Jedes TI-SensorTag hat eine eigene Adresse und bei mehreren Prototypen im Raum, kann das entsprechende Gerät ausgewählt werden, da die Adresse nicht sofort mit einem spezifischen TI-SensorTag in Verbindung gebracht werden kann.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -342,7 +342,7 @@ Wählt man auf dem Startbildschirm ``Sensor wählen'', erscheint ein neuer Bilds
 
 Auf dem Startbildschirm befindet sich auch ein Konfigurationsknopf. In das Untermenu gelangt man, indem man den Button ``Einheiten + Einstellungen'' auswählt.
 
-Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalbrieren. 
+Die Applikation stellt mehrere Konfigurationsmöglichkeiten zur Verfügung (siehe Abbildung \ref{einheiten}). Zu jedem Sensor gehört ein Drop Down-Element, in dem die Einheiten ausgewählt werden können. Neben der Einheitenauswahl verfügt die App über die Möglichkeit, den Radumfang anzupassen und die Temperatur zu kalibrieren. 
 
 Die Zahl des Radumfangs kann über die Tastatur in das Feld eingegeben, es können nur Zahlen eingegeben werden. Dies wurde implementiert, um zu verhindern, dass die Eingabe von der Applikation nicht interpretiert werden kann.
 
