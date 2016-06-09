@@ -252,7 +252,7 @@ EM8500 stellt zwei digitale Überwachungssignale zur Verfügung:\\
 Der Ausgang HRV\_LOW ist auf logisch '0', wenn die Eingangsspannung vom Harvester grösser als 0.3 V ist. Fällt diese darunter, geht HRV\_LOW auf logisch '1'.
 Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation speist:
 
-?????????????????minipage
+\begin{minipage}{1\textwidth}
 \begin{itemize}
      \item BAT\_LOW = '0'\\
            Nicht genügend Energie zur Speisung der Applikation.
@@ -268,6 +268,7 @@ Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation spei
            Nicht genügend Energie zur Speisung von LTS.\\
            VSUP ist ein- oder ausgeschaltet. 
 \end{itemize} 
+\end{minipage}
 
 Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
 
@@ -311,7 +312,9 @@ Das Verhalten, dass Prozessoren nach längerer Zeit ohne externen Input in den S
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
+
 Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``retention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System komplett initialisiert werden.
+
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -362,7 +365,7 @@ Eine aktive Verbindung ist bei den meisten Sensoranwendungen auch nicht notwendi
 Der Aufbau eines BLE Pakets ist in Abbildung \ref{ble_paket}. Als erstes wird ein Preamble gesendet, bestehend aus abwechselnden 1 und 0, womit der Empfänger sich auf die richtige Frequenz synchronisieren kann. Diese Preamble wird auch dafür verwendet, die Verstärkung des Empfängers einzustellen. Dies kann sehr wichtig sein bei Signalen, welche von einer grösseren Distanz versendet werden, da eine falsche Verstärkung des Signals in Fehlern resultieren kann.
 
 \begin{figure}[ht]
-    \includegraphics[width=1.0\textwidth]{2TheoretischeGrundlagen/imag/BLE_Paketstruktur.png}
+    \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/BLE_Paketstruktur.png}
     \caption{BLE Paketstruktur}
     \label{ble_paket} 
 \end{figure}

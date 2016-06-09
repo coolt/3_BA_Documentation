@@ -344,9 +344,13 @@ Ein wichtiger Punkt ist die Platzierung des Steckers, welcher unsere Leiterplatt
 
 Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5 mm angeordnet und die Netze der Spannung nach dem Harvester, die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33 x 42 mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
 
+
 \subsubsection{Das Redesign}
 
-Das Layout wurde von Herr Olivier Rion begutachtet. Seine Kritikpunkte werden nachfolgend aufgelistet:
+Das Layout wurde von Herr Olivier Rion begutachtet. Seine Kritikpunkte werden auf der nächsten Seite aufgelistet.
+
+\newpage
+\begin{minipage}{1\textwidth}
 
 Kritikpunkte am Schema:
 \begin{enumerate}
@@ -357,6 +361,7 @@ Kritikpunkte am Schema:
 	\item Unten links auf dem Schema fehlt die Versionen, die Beschreibung, usw.
 	\item Eine kleine Beschreibung beim Harvester wäre gut, z.B. Prinzip mit T1, Spannungsregulierung usw.: Eine Beschreibung hilft die Schaltung schneller zu verstehen, dass macht eine Übergabe an die nachfolgenden Studenten einfacher.
 \end{enumerate}
+
 
 Kritikpunkte am PCB:
 \begin{enumerate}
@@ -375,11 +380,11 @@ Wir sind dankbar für konstruktive Kritik, jedoch kann diese Kritik aus zeitlich
 	\item Die Position des Steckers X1 muss verändert werden, da die Position nicht mit dem Gegenstück des TI-SensorTags übereinstimmt.
 	\item Die Netze VCC\_STS, VCC\_LTS und VREG dürfen nicht mit dem Stecker X1 verbunden werden, da die Energie über diese Anschlüsse verloren geht.
 \end{enumerate}
+\end{minipage}
 
+\newpage
 Die Punkte 3 bis 5, welche den Stecker X1 betreffen konnten vor Abschluss noch überarbeitet werden, jedoch wäre die Lieferzeit für die Leiterplatte zu lang, als dass die Leiterplatten vor Abgabe der Arbeit eintreffen würden. Darum wurden alle Messungen mit der ersten Version der Leiterplatte durchgeführt.
 
-\todo{ Namensklärung: V HRV = VCC}
-\todo{Messprotokolle umbenennen}
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
@@ -411,6 +416,7 @@ Es wurde eine Leistungskennline der Harvesterschaltung aufgenommen, um die verf�
 \end{tabbing}
 \end{minipage}
 
+\begin{minipage}{1\textwidth}
 \captionof{table}{Leistung der neuen Leiterplatte}
 \label{tab:leistung_neuen_leiterplatte} 
 \begin{tabbing}
@@ -418,6 +424,7 @@ Es wurde eine Leistungskennline der Harvesterschaltung aufgenommen, um die verf�
     10 km/h        \> 10.17 $\mu$W  \> 56.99 \%\\
 	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%
 \end{tabbing}
+\end{minipage}
 
 Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50\thinspace\% und 80\thinspace\% akzeptiert.
 
@@ -435,6 +442,13 @@ Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen
 
 Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivität eine Leistungssteigerung von ca. 37\thinspace\% zur Folge hat. Dies lässt sich auch mathematisch nachweisen:
 
+
+
+%\begin{flalign}\label{eq:e-high-e-low}
+%E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
+%                &= C_{STS} \times \frac{1}{2}\, (V_{STS\_HIGH} )^2 - C_{STS} \times \frac{1}{2}\, (V_{STS\_LOW} )^2
+%\end{flalign}
+///////////////////////////////////////////////////////////
 \begin{equation}
 	L = \mu_0 \times \frac{N^2\times A}{l}
 \end{equation}
@@ -446,6 +460,7 @@ Die Messung hat ergeben, dass die Energie bei einer Verdoppelung der Induktivit�
 \begin{equation}
 	neue\,Wicklungszahl = \sqrt{2} \times bisherige\,Wicklungszahl
 \end{equation}
+
 
 Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannung von der Wicklungszahl abhängt, steigt die Leistung in Abhängigkeit zur Wicklungszahl. Ein Zuwachs der Leistung von bis zu 41\thinspace\% war zu erwarten. Es wurde entschieden, dass die stärkere Spule mit einer Induktivität von 4.77 mH verwendet werden soll.
 
