@@ -152,27 +152,26 @@ In der Bachelorarbeit ist das Verwenden des Chip EM8500 vorgegeben. Der EM8500 i
 
 Bei einer Low-Power-Harvesting-Applikation ist wesentlich, dass vor der Verwendung der Energie durch einen Mikrokontroller genug Energie in Speichern gesammelt wurde. Ansonsten kann der Mikrokontroller nicht sauber aufgestartet, da für den Startvorgang eines Mikrokontrollers mehr Energie benötigt wird als für die Ausführung eines Programms. Dies ist in der Abbildung \ref{em_grundprinzip} dargestellt. Sie zeigt, dass die Freigabe der Energie an eine Applikation erst nach dem Erreichen eines gewissen Speicherzustands erfolgt. Die Höhe des Speicherwertes kann im EM8500 programmiert werden. Die Ladespannung des sogenannten Primärspeichers, dem Short Time Storage (STS), ist mit VSTS in der Abbildung \ref{em_grundprinzip} abgebildet. Das Signal der Speisung der Applikation wird als VSUP bezeichnet.
 
-\todo{ev. Blockdiagramm mit allen Bezeichnungen. oder verweis auf Graphik}
-
-\todo{Graphik falsch: VSUP auf batminlow. vsts geht auf v bat min hi dis}
-
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelMitSTsTheoriel.png}
-   \caption{Grundprinzip Applikationsspeisung }
+   \caption{Grundprinzip}
    \label{em_grundprinzip} 
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/levelSTSReal.png}
-   \caption{Applikationsspeisung EM8500}
+   \caption{Verhalten beim EM8500}
    \label{em_grundprinzip_em8500} 
  \end{minipage}
 \end{figure}
 
-Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Der Registerwert v\_bat\_min\_low wird zukünftig STS\_LOW bezeichnet. Denn es ist der tiefere Schwellwert des STS, der die Spannungshöhe der Applikation definiert. Die Applikation sollte nicht die gesamte Energie verbrauchen, sodass sich der Speicher weiter lädt. \todo{ sofort erklären warum. Denn... } VSUP folgt der Speicherspannung. Verbraucht die Applikation viel Energie, fallen VSUP und VSTS parallel. Speist der Harvester viel Energie, steigt bei beiden die Spannung an. Unterschreitet VSTS den Schwellwert von STS\_LOW, so wird die Speisung der Applikation gestoppt.
+Im EM8500 wird dies folgendermassen umgesetzt (Abbildung \ref{em_grundprinzip_em8500}): Erreicht der Primär\-speicher STS den Schwellwert v\_bat\_min\_low, wird VSUP mit der eingestellten Spannung gespiesen. Der Registerwert v\_bat\_min\_low wird der Einfachheit halber als STS\_LOW bezeichnet. Der tiefere Schwellwert des STS, definiert das Ein- und Ausschalten der Applikation und auch die Spannungshöhe der Applikation. Denn VSUP folgt der STS-Speicherspannung.
+
+Die Applikation sollte nicht die gesamte Energie verbrauchen. Denn verbraucht sie alle Energie, fällt die Spannung am STS unter den Schwellwert STS\_LOW und die Speisung der Applikation stellt ein. Beim nächsten Mal an genug Energie, wird die Applikation wieder gespiesen. Doch, wie bei jedem Neustart, muss sich das System initalisieren und die System-Kondensatoren müssen geladen werden. Diese zwei Aktionen brauchen deutlich mehr Energie, als das anschliessende Betreiben der Applikation (siehe Details dazu im Unterkapitel Energiemessungen \ref{v_messungen_sensortag} oder im Unterkapitel Energiebilanz \ref{energiBilanz}).\\
 
 Der Primärspeicher STS ist für die kurzfristige Speisung der Applikation verantwortlich. Für das langfristige, sichere Ausführen braucht das System ein Long Term Storage (LTS). Seine Aufgabe ist, Reserveenergie aufzubauen. Diese überbrückt die Energieengpässe, wenn der Harvester zu wenig Energie liefert.
 VLTS wird geladen, wenn der Schwellwert v\_appl\_max\_lo überschritten wird (siehe Abbildung \ref{energiespeisung_lts}).
+Dieser Registerwert wird zur Vereinfachung STS\_HIGH genannt. Denn ab diesem höheren Schwellwert, beginnt der zweite Kondensator zu laden.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -182,14 +181,14 @@ VLTS wird geladen, wenn der Schwellwert v\_appl\_max\_lo überschritten wird (si
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
    \includegraphics[width=0.9\textwidth]{2TheoretischeGrundlagen/imag/KonzeptFirma.png}
-   \caption{Konzept Hersteller (\cite{datasheet_EM85})}
+   \caption{Details aus Datenblatt EM8500, S. 5}
    \label{konzept_levels_em} 
  \end{minipage}
 \end{figure}
 
-Im Datenblatt des EM8500 (siehe \cite{datasheet_EM85}) sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres Betreiben. Die Dateien sind auf der CD abgelegt.
+Im Datenblatt des EM8500 (siehe \cite{datasheet_EM85}, S.\,5\,-\,8) sind weitere Feineinstellungen beschrieben und drei Application Notes helfen bei der Berechnung der Schwellwerte für ein sicheres Betreiben. Die Dateien sind auf der CD abgelegt.
 
-Grundsätzlich ist zur Berechnung der Speicher und den Schwellwerten zu sagen, dass der erste Schwellwert (STS\_LOW), bei dem die Speisung der Applikation beginnt, genug Energie für die Initialisierung der Applikation gesammelt haben muss. Zudem muss das Abschalten von VSUP vermieden werden. Denn ein Neustart braucht aufgrund der Initialisierung viel Energie und ist ein unnötiger Kraftakt in einem Low Power System. In den BeispiElKonfigurationen des Herstellers (\cite{datasheet_EM85} S. 5 - 8 ) sieht man, dass in deren Überlegungen VSUP nicht abgeschaltet wird. Der Hersteller geht davon aus, dass sogar bei dem Freischalten von VSUP die Spannung am STS nicht aufgrund der Last der Applikation fällt, sondern sich weiterhin auflädt.
+Grundsätzlich gilt für die Berechnung der Speicher und der Schwellwerten, dass der erste Schwellwert (STS\_LOW), genug Energie für die Initialisierung der Applikation gesammelt haben muss. Der Hersteller geht davon aus, dass durch die Speisung der Applikation die Spannung am STS nicht fällt, sondern sich weiterhin auflädt (\cite{datasheet_EM85}, S.\,5\,-\,8 ).
 
 \subsection{Regelung des optimalen Leistungsbezugs}
 \label{optimaleLeistung}
@@ -208,7 +207,7 @@ EM8500 versucht die Quelle stets in der Nähe dieses Optimums zu betreiben. Dies
 \subsection{Spannung auf- und abwärtsregeln}
 \label{eingangsspannung}
 
-Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannung von 0.3 V. Danach regelt er in Schritten von 0.3 V. Der Booster geht von einer Gleichspannung eines TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S. 1).
+Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Blockdiagramm im Anhang \ref{anhang_em8500}). Die Aufgabe des Boosters ist es, das interne Spannungsniveau (VREG) zu heben. Der Booster arbeitet ab einer Eingangsspannung von 0.3 V. Danach regelt er in Schritten von 37 mV. Der Booster geht von einer Gleichspannung eines TEG oder einer Solarzelle aus. Für diese zwei Anwendungen ist der EM8500 konzipiert (siehe \cite{datasheet_EM85}, Abschnitt Description, S. 1).
 
 
 \subsection{Energiezustand kennen und Ein- und Ausgänge schalten}
@@ -217,10 +216,11 @@ Beim EM8500 bilden der MPPT-Kontroller und der Booster eine Einheit (siehe Block
 $E_{Applikation}$ bezeichnet die  minimale Energie, die die Applikation braucht, also mindestens die Initialisierung der Applikation. Die Applikation wird über das Signal V\_SUP, das die Energie vom Primärspeicher STS erhält, gespiesen.
 
 \begin{equation}
-  E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS_LOW} )^2
+  E_{Applikation}= C_{STS} \times \frac{1}{2}\, (V_{STS_{LOW}} )^2
 \end{equation}
 
 Da sich der Kondensator $C_{STS}$ bei der Freigabe der Energie über V\_SUP nicht auf 0 entlädt, sondern die minimale Applikationsspannung erhalten bleibt, gilt für die Berechnung des Kondensators $C_{STS}$ nur die Energiedifferenz als verwendbar. Es ist die Differenz zwischen den zwei eingestellten Primärspeicher-Schwellwerten STS\_LOW (ab diesem Schwellwert wird V\_SUP gespiesen) und  v\_bat\_min\_low (ab diesem Schwellwert hört die Speisung von V\_SUP auf). Der zweite Schwellwert wird in der Gleichung vereinfacht als STS\_HIGH bezeichnet.
+
 
 \begin{flalign}\label{eq:e-high-e-low}
 E_{Applikation} &= E_{STS\_HIGH} - E_{STS\_LOW}\\\nonumber
@@ -252,6 +252,7 @@ EM8500 stellt zwei digitale Überwachungssignale zur Verfügung:\\
 Der Ausgang HRV\_LOW ist auf logisch '0', wenn die Eingangsspannung vom Harvester grösser als 0.3 V ist. Fällt diese darunter, geht HRV\_LOW auf logisch '1'.
 Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation speist:
 
+?????????????????minipage
 \begin{itemize}
      \item BAT\_LOW = '0'\\
            Nicht genügend Energie zur Speisung der Applikation.
@@ -265,7 +266,7 @@ Der Ausgang BAT\_LOW zeigt die Zeitdauer an, in der nur STS die Applikation spei
            Der Zustand entspricht nicht mehr BAT\_LOW.
      \item HRV\_LOW = '1'\\
            Nicht genügend Energie zur Speisung von LTS.\\
-           VSUP ist ein- oder ausgeschaltet.\\ 
+           VSUP ist ein- oder ausgeschaltet. 
 \end{itemize} 
 
 Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
@@ -285,13 +286,13 @@ Mit den zwei digitalen Signalen kann der Energiezustand grob abgebildet werden.
 
 Die Aufgabe des EM8500-Chip ist es, Energie zu sammeln und kontrolliert frei zu geben. Die Aufgabe das nachfolgenden Mikrokontrollers ist es, die freigegebenen Energieportionen optimal zu verwenden. Das bedeutet, möglichst wenig Energie bei der Datenverarbeitung zu benötigen. Dies wird durch Abstellen aller unnötigen Mikrokontroller-Bereiche erreicht und einem zusätzlichen Schlafen während allen Warteprozessen.
 
-In diesem Kapitel werden zwei Ansätze zum Umsetzen eines Low Power Systems vorgestellt. Das Hauptthema ist das Schlafen zwischen allen Prozessen. Dies wird im ersten Unterkapitel beschrieben. Das Schlafen bedingt ein Aufwecken aufgrund von Ereignissen. Dadurch ergibt sich eine Interrupt Driven Applikation. Diese wird im zweiten Unterkapitel erklärt.
+In diesem Kapitel werden zwei Ansätze zum Umsetzen eines Low-Power-Systems vorgestellt. Das Hauptthema ist das Schlafen zwischen allen Prozessen. Dies wird im ersten Unterkapitel beschrieben. Das Schlafen bedingt ein Aufwecken aufgrund von Ereignissen. Dadurch ergibt sich eine Interrupt-Driven-Applikation. Diese wird im zweiten Unterkapitel erklärt.
 
-Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kurz auf die verwendete Hardware eingegangen. In der Bachelorarbeit war als Mikrokontroller das Simple Link TI-SensorTag von Texas Instrument vorgegeben. Der Grund für dieses Board ist, dass das TI-SensorTag drei Anforderungen auf einem Board vereint:
+Vor der technischen Beschreibung der Konzepte in den drei Unterkapiteln wird kurz auf die verwendete Hardware eingegangen. In der Bachelorarbeit war als Mikrokontroller das Simple Link SensorTag von Texas Instrument vorgegeben. Der Grund für dieses Board ist, dass das TI-SensorTag drei Anforderungen auf einem Board vereint:
 
 \begin{minipage}{1\textwidth}
     \begin{itemize}
-        \item Ein Cortex M3 dient als Haupt-Mikrokontroller und ist aufgrund seiner hohen Rechenleistung und seiner Low Power-Fähigkeiten für eine Harvester-Anwendung wie der Bicycle Computer geeignet.
+        \item Ein Cortex M3 dient als Haupt-Mikrokontroller und ist aufgrund seiner hohen Rechenleistung und seiner Low-Power-Fähigkeiten für eine Harvester-Anwendung wie der Bicycle Computer geeignet.
         \item Auf dem Board ist zusätzlich ein Cortex M0 für die Wireless-Anbindung angeschlossen. Dieser Prozessor kann von der Benutzerin oder dem Benutzer nicht programmiert werden, da die Schnittstelle zur Low-Power-Datenkommunikation fix aufgesetzt ist. Neben Bluetooth Low Energy kann auch Zigbee verwendet werden.
         \item Auf dem Board sind 10 Sensoren eingebunden.
     \end{itemize}
@@ -310,7 +311,7 @@ Das Verhalten, dass Prozessoren nach längerer Zeit ohne externen Input in den S
 
 Die Abbildung \ref{sleep_Grundprinzip} zeigt das Grundprinzip. Das Programm besteht aus verschiedenen Aktionsblöcken. Diese dauern unterschiedlich lang und verbrauchen unterschiedlich viel Energie. Zwischen den Aktionen ist eine frei wählbare Wartezeit einbaubar ($\Delta$ t0 - t3). Die graue Markierung in jedem Aktionsblock sind die Initialisierungen vor jeder Aktion.
 
-Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (hier als Bsp. Cortex M3) werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``retention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System komplett initialisiert werden.
+Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor werden nur die Konfigurationen im Flash regelmässig ``refreshed'' (deutsch: neu laden). Texas Instruments entschied sich für diese Methode. Die Alternative ist, die MCU mit einem minimalen Grundpegel konstant zu speisen. Dies ist jedoch beim TI-SensorTag nicht der Fall. Texas Instruments nennt das Refreshen ``retention'', siehe Anhang \ref{a_powerdomain}. Die Refreshing-Peaks des TI-SensorTags sieht man im Standby-Modus. Dies ist in der Abbildung \ref{sleep_Grundprinzip} an den grünen Stromspitzen zu sehen. Ohne Refreshen des Speichers gehen die Konfigurationen verloren und vor jeder Aktion muss das System komplett initialisiert werden.
 
 \begin{figure}[ht]
     \includegraphics[width=\textwidth]{2TheoretischeGrundlagen/imag/SleepGrundprinzip.png}
@@ -320,7 +321,7 @@ Während der Schlafenszeit sind alle Peripherien abgeschaltet und im Prozessor (
 
 \subsubsection{Schlafen innerhalb einer Aktion}
 
-Bei einer Applikation im $\mu$ - oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die Power Domain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip als Flussdiagramm dargestellt.
+Bei einer Applikation im $\mu$Ws- oder mW-Bereich geht das Gerät bei jedem Warteprozess, wie z.B. die Zeit, die der Sensor zum Aufwachen braucht, in den Sleep-Mode. Innerhalb des Codes dominieren die Aufwach- und Abstelleinstellungen. Für jede Aktion, wird nur die Power Domain dieser Funktionalität eingeschaltet und nach Ausführen der Aktion wieder abgeschaltet. Die Abbildung \ref{sleep_intern} zeigt dieses Prinzip als Flussdiagramm dargestellt.
 
 \begin{figure}[ht]
     \includegraphics[width=0.5\textwidth]{2TheoretischeGrundlagen/imag/SleepInFunktion.png}
@@ -339,16 +340,16 @@ Ein System kann intern seine Signale auswerten und aufgrund kombinatorischer Log
 
 \subsubsection{Aufwachen durch externe Events}
 
-Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Letzteres wird durch eine Entprellschaltung oder einer Entprelllösung in Software gelöst. Ansonsten können zu viele Interrupts das System absorbieren und es ``vehungert''.
+Der Prozessor, oder Teile davon, können auch aufgrund äusserer Impulse aufwachen. Die Verarbeitung des Interrupts ist dieselbe, nur weiss man nicht, wann das Ereignis auftritt. Die Gefahr, dass zwei Interrupts zur selben Zeit eintreffen oder eine Quelle mehrere Interrupts sendet, ist gegeben. Letzteres wird durch eine Entprellschaltung oder einer Entprelllösung in Software gelöst. Ansonsten können zu viele Interrupts das System verlangsamen und es ``vehungert''.
 
 % 2.4-------------------------------------------------------------------
 \section{Bluetooth Low Energy}\label{t_ble} 
 
-Bluetooth Low Energy (BLE) bezeichnet eine Funktechnik, welche es ermöglicht, mit wenig Energie Daten zwischen Geräten auszutauschen. Der Vorteil von Bluetooth Low Energy ist der niedrigere Energieverbrauch im Gegensatz zum traditionellen Bluetooth. Das Bluetooth-Low-Energy-Protokoll gehört zum Bluetooth Core Specification Version 4.0, wo auch das Classic Bluetooth Protokoll und das Bluetooth-High-Speed-Protokoll enthalten sind. Die Bluetooth Core Specification Version 4.0 ist besser unter dem Namen Bluetooth Smart bekannt und wurde im Juli 2010 veröffentlicht (\cite{youtube_BLE}).
+Bluetooth Low Energy (BLE) bezeichnet eine Funktechnik, welche es ermöglicht, mit wenig Energie Daten zwischen Geräten auszutauschen. Der Vorteil von Bluetooth Low Energy ist der niedrigere Energieverbrauch im Gegensatz zum traditionellen Bluetooth. Das Bluetooth-Low-Energy-Protokoll gehört zum Bluetooth Core Specification Version 4.0, wo auch das Classic-Bluetooth-Protokoll und das Bluetooth-High-Speed-Protokoll enthalten sind. Die Bluetooth Core Specification Version 4.0 ist besser unter dem Namen Bluetooth Smart bekannt und wurde im Juli 2010 veröffentlicht (\cite{youtube_BLE}).
 
 \subsection{BLE im Vergleich zu Bluetooth}
   
-Bluetooth Low Energy verwendet das gleiche Frequenzband wie das traditionelle Bluetooth, jedoch sind nur 40 Kanäle \`{a} 2 MHz verfügbar, anstatt 79 Kanäle \`{a} 1 MHz beim traditionellen Bluetooth. Ausserdem verbraucht BLE, wie der Name bereits indiziert, weniger Energie als andere Übertragungsmedien. So sendet BLE mit maximal 10 mW, was einer Reichweite von ca. 10 Metern entspricht im Gegensatz zu Klasse 1 Bluetooth-Geräten, welche mit 100 mW eine Reichweite von rund 100 Metern erreichen. Ein Vorteil der BLE-Technik ist, dass die Bauteile für eine BLE-Kommunikation relativ günstig sind und damit die Geräte ebenfalls günstiger hergestellt werden können (\cite{Interent_BLE}, Abschnitt Bluetooth Range).
+Bluetooth Low Energy verwendet das gleiche Frequenzband wie das traditionelle Bluetooth, jedoch sind nur 40 Kanäle \`{a} 2 MHz verfügbar, anstatt 79 Kanäle \`{a} 1 MHz wie beim traditionellen Bluetooth. Ausserdem verbraucht BLE, wie der Name bereits indiziert, weniger Energie als andere Übertragungsmedien. So sendet BLE mit maximal 10 mW, was einer Reichweite von ca. 10 Metern entspricht im Gegensatz zu Klasse 1 Bluetooth-Geräten, welche mit 100 mW eine Reichweite von rund 100 Metern erreichen. Ein Vorteil der BLE-Technik ist, dass die Bauteile für eine BLE-Kommunikation relativ günstig sind und damit die Geräte ebenfalls günstiger hergestellt werden können (\cite{Interent_BLE}, Abschnitt Bluetooth Range).
 
 \subsection{Advertising und Connected Mode}
 

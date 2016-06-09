@@ -1,7 +1,7 @@
 \chapter{Vorgehen}
 \label{ch_vorgehen} 
 
-Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Projektarbeit von \cite{PA_bicycle}. Die Vorgehensschritte sind in der untenstehenden Auflistung abgebildet. Sie bilden die Struktur dieses Kapitels. Die Definition der konkreten Schritte geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch Assitenten Herr Dario Dünar vom Instiute of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über den aktuellen Entwicklungsstand, die offenen Fragen und die Entscheidungen.
+Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Projektarbeit von \cite{PA_bicycle}. Die Vorgehensschritte sind in der untenstehenden Auflistung abgebildet. Sie bilden die Struktur dieses Kapitels. Die Definition der konkreten Schritte geschah in Absprache mit Prof. Dr. M. Meli und dem Resarch-Assitenten Herr Dario Dünar vom Instiute of Embedded Systems (InES). Auf der CD finden sich die Sitzungsprotokolle über den aktuellen Entwicklungsstand, die offenen Fragen und die Entscheidungen.
 
 \subsubsection*{Liste der Arbeitsschritte}
 \label{liste} 
@@ -14,7 +14,7 @@ Das Ziel ist die Entwicklung eines Prototypen aus dem bestehenden Modell der Pro
   \item Entwickeln einer BLE-Applikation       
  \end{enumerate}  
 
-Die sprachliche Unterscheidung von Energy - und Power-Management entspricht der Unterscheidung zweier ``Management-Teile'' im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff ``Energy Management'' wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff ``Power Management'' wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
+Die sprachliche Unterscheidung von Energy- und Power-Management entspricht der Unterscheidung zweier ``Management-Teile'' im Prototypen: Das Endprodukt regelt an zwei Stellen auf unterschiedliche Art die zur Verfügung stehende Energie. Der Begriff ``Energy Management'' wird in dieser Arbeit für das Sammeln und Weiterleiten von Energie über eine Hardwareimplementation gebraucht. Der Begriff ``Power Management'' wird für die Softwareimplementation gebraucht. Diese regelt, dass die zur Verfügung gestellte Energie nicht sofort verbraucht wird. Die sprachliche Trennung ist künstlich, denn in der Umsetzung spielen Hard- und Softwareregelung Hand in Hand. Die sprachliche Unterscheidung dient der Lesbarkeit und bezeichnet keinen physikalischen Unterschied.
  
  
  % 1---------------------------------------------------------------------------
@@ -28,9 +28,8 @@ Ziel der Inbetriebnahme des Aufbaus der vorangehenden Arbeit von \cite{PA_bicycl
       
 \subsection{Funktionsblöcke}\label{fb} 
 
-Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgabe des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem Sensortag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
+Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \ref{funktionsdiagramm_bild} dargestellt sind. Der erste Funktionsblock ist der Harvester (siehe 1) in der Abbildung \ref{funktionsdiagramm_bild}). Die Aufgabe des Harvesters besteht darin, Energie zu Ernten und dem nächsten Funktionsblock (Nummer 2) in der Abbildung  \ref{funktionsdiagramm_bild} zur Verfügung zu stellen. Der zweite Funktionsblock wird als Energy Management-Teil in der Arbeit bezeichnet. Die Aufgabe des zweiten Blocks ist es, Energie zu Sammeln und kontrolliert an die Verbrauchsstelle freizuschalten. Detaillierte Informationen finden sich in den Theoretischen Grundlagen im Unterkapitel \ref{t_energy_management}. Der dritte Funktionsblock ist der Ort, an dem die Energie verbraucht wird. In dieser Arbeit dient die Energie dem Betreiben von Sensoren und dem Versenden derer Daten. Dies wird auf dem TI-SensorTag (siehe Anhang \ref{anhang_sensortag}) umgesetzt. Der Grund dafür wird in der Einleitung des Kapitels \label{t_power_management} dargelegt. Der letzte Funktionsblock bezeichnet das Ziel, das Erhalten von Sensordaten in einer Applikation.  
 
-\todo{korrekter SensorTag Name}
 
 \begin{figure}[ht]
        \includegraphics[width=1\textwidth]{3Vorgehen/imag/Blockdiagramm.png}
@@ -43,11 +42,11 @@ Der Bicycle Computer besteht aus vier Funktionsblöcken, die in der Abbildung \r
         V\_STS\> Spannung am STS--Kondensator (Primärspeicher)\\
         V\_LTS\> Spannung am LTS--Kondensator (Sekundärspeicher)\\
         V\_SUP\> Ausgangsspannung Energy Managment, Eingangsspannung Sensortag\\
-        BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble} \\
+        BLE \> Senden der Daten per Bluetooth Low Energy (siehe \ref{t_ble}) \\
     \end{tabbing} 
 \end{figure}
 
-Den Funktionsblöcken sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden. Die nachfolgende Legende beschreibt die Beschriftung näher.
+Den Funktionsblöcken sind Spannungsbezeichnungen sowie Kondensatoren beigefügt. Dies, weil bei der Beschreibung des Verhaltens des Vorgängermodells, diese Spannungslevel für die Funktionsbeurteilung wichtig werden.
 
   
 
@@ -68,17 +67,16 @@ Die Inbetriebnahme bestätigte das in der Dokumentation von \cite{PA_bicycle} be
 \end{tabbing}    
 \end{figure}
 
-Im Folgenden werden die einzelnen Spannungsverläufe chronologisch entsprechend der Kanalnummer analysiert. Kanal 1 spiegelt die Spannung am Harvesterausgang wieder (V\_HRV). Gemäss Theorie \ref{eingangsspannung} bzw. gemäss Datenblatt des EM8500 ist der EM8500-Chip für ein DC-Signal ausgelegt. Er geht von einem regelmässigen Eingangssignal aus und regelt die Spannung auf den MPPT. Diese Regelung sollte wie in Abbildung \ref{RegelungSpannung} aussehen. Das reale Signal entspricht nicht diesem Verhalten. Die Regelung ist abrupt und überspringt mehrere Spannungslevel. Der Ursache für die schlechte Regelung soll nachgegangen werden.
+Im Folgenden werden die einzelnen Spannungsverläufe chronologisch entsprechend der Kanalnummer analysiert. Kanal 1 spiegelt die Spannung am Harvesterausgang wieder (V\_HRV). Gemäss Theorie \ref{eingangsspannung} bzw. gemäss Datenblatt des EM8500 ist der EM8500-Chip für ein DC-Signal ausgelegt. Er geht von einem regelmässigen Eingangssignal aus und regelt die Spannung auf den MPP. Diese Regelung sollte wie in Abbildung \ref{RegelungSpannung} aussehen. Das reale Signal entspricht nicht diesem Verhalten. Die Regelung ist abrupt und überspringt mehrere Spannungslevel. Der Ursache für die schlechte Regelung soll nachgegangen werden.
 
-Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch (Details zu den Schwellwerten im Kapitel Theoretische Grundlagen \ref{t_energy_management}). Der hohe Wert erklärt sich durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie für weitere 5 Datenpakete gespeichert.
+Kanal 2, blau, gibt den Spannungsverlauf am Hauptspeicher, dem Primärspeicher, der im Datenblatt von EM8500 STS heisst, wieder. Das Energy Management des Vorgängermodells setzt den Schwellwert für den Primärspeicher (STS) mit 3.6 V hoch an. Details zu den Schwellwerten sind im Kapitel Theoretische Grundlagen \ref{t_energy_management} zu finden. Der hohe Wert erklärt sich durch das Ziel, genug Energie für ein konstantes Paketversenden zu haben. Dies gelingt für fünf BLE-Pakete. Danach reicht die Energie nicht mehr aus. V\_SUP, grünes Signal, wird nicht mehr gespiesen. Nach 30 s ohne Pakete senden ist wieder genug Energie für weitere 5 Datenpakete gespeichert.
 
-In der Auswertung fiel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit von 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung \ref{spannungMachbarkeit}\todo{Referenz überprüfen}gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Impulsen, ergibt sich die Geschwindigkeit von 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgaben nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
+In der Auswertung fiel uns auf, dass dieser Signalverlauf nur bei einer Geschwindigkeit von 45 km/h möglich ist. Die Speicherkapazität von 470 $\mu$F und ein Schwellwert der Spannung von 3.6 V ist mit normaler Geschwindigkeit (10 km/h) nach 30 min nicht zu erreichen. Fährt man rund 45 km/h so erhält man die in der Abbildung \ref{spannungMachbarkeit} gezeigte Ladezeit von rund 25 s. Eine exakte Geschwindigkeitsmessung ist zu Beginn der Arbeit nicht möglich. Das Rad wird von Hand gedreht und mit einem Metronom wird die Umdrehungsgeschwindigkeit vorgegeben. Bei einem Radumfang von 2.04 m und einer Zeitdifferenz von 160 ms zwischen den Reed-Impulsen, ergibt sich die Geschwindigkeit von ca. 45 km/h. Da diese Messmethode über längere Zeit nicht sehr genau ist, bestand eine der Aufgaben nach der Inbetriebnahme im Organisieren eines Messaufbaus. Dieser professionellere Messaufbau wird im Anhang \ref{messaufbau} beschrieben.
 
+Kanal 3, das rosa Signal, zeigt die Spannung am Long-Time-Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
+Die Vermutung ist, dass der eingestellte Schwellwert für den Bezug von Energie von LTS (siehe Abbildung \ref{energiespeisung_lts}) nicht stimmt.
 
-Kanal 3, das rosa Signal, zeigt die Spannung am Long Time Speicher. Die Inbetriebnahme zeigt, dass sich der LTS lädt. Es erstaunt jedoch, dass seine geerntete Energie nicht verwendet wird. Der Spannungswert von LTS geht nie herunter.
-Die Vermutung ist, dass der eingestellte Schwellwert für den Bezug von Energie von LTS \ref{energiespeisung_lts} nicht stimmt.
-
-Kanal 4, das grüne Signal zeigt die Speisung des Sensortags. Im Modell der Projektarbeit steuert der Microkontroller des Sensortags den Verbrauch. Alle 10 s wacht das System auf, bezieht Energie vom EM8500-Ausgang für das Senden eines Paketes und geht dann wieder schlafen. Das Aufwachintervall ist fix.
+Kanal 4, das grüne Signal zeigt die Speisung des TI-SensorTags. Im Modell der Projektarbeit steuert der Mikrokontroller des Sensortags den Verbrauch. Alle 10 s wacht das System auf, bezieht Energie vom EM8500-Ausgang für das Senden eines Paketes und geht dann wieder schlafen. Das Aufwachintervall ist fix.
 
 
 \subsection{Optimierungsliste}\label{optimierung} 
@@ -95,7 +93,7 @@ Aus den Messungen der Inbetriebnahme konkretisierten sich die generellen Aufgabe
 
 Im Resultatsteil Kapitel \ref{ch_resultat} werden die Fortschritte in diesen vier Punkten ausgewiesen.
 
-\subsection{Vertiefung Harvestereingang}\label{auffaellig} 
+\subsection{Vertiefung Harvesterausgang}\label{auffaellig} 
 
 Herr Ives Théoduloz hatte uns im Rahmen eines Besuchs auf die Problematik, einer zu grossen Kapazität am Eingang des EM-Chips, hingewiesen. Laut seiner Aussage sollte der Kondensator am Eingang des EM-Chips, bzw. dem Ausgang des Harvesters am besten kleiner sein als 4.7 $\mu$F. Bisher wurde im Aufbau der Machbarkeitsstudie ein Kondensator mit 470 $\mu$F verwendet. Herr Ives Théoduloz meinte, dass dieser Kondensator viel zu gross sei und dass die Regelung am Eingang des EM-Chips möglicherweise nicht richtig funktionieren würde. Daher wurde dieses Problem näher untersucht und in mehreren Schritten optimiert.
 
@@ -131,9 +129,9 @@ Jedoch muss auch ein Blick auf die Spannung am Harvesterausgang geworfen werden,
 
 Problematisch ist, dass die Spannung am Eingang des EM8500-Chip wiederholt unter die 0.3 V Grenze fällt, bei einer Spannung von 0.3 V kann keine Energie gespeichert werden. Die Regelung am Eingang des EM-Chips kann mit der anliegenden Rippelspannung nicht richtig arbeiten. Die Rippelspannung muss verringert werden, bzw. die Kapazität am Ausgang des Harvesters muss erhöht werden. 
 
-Das Problem ist, dass durch den Rippel die periodische Open Loop Spannungsmessung keine korrekten Messwerte erhält. Sobald die Last vom Harvesterausgang abgehängt wird, steigt die Spannung über dem Kondensator, jedoch wird die Open Loop Spannung bei einer grossen Kapazität nicht erreicht, da die Zeit, bis der Kondensator komplett geladen ist, sehr gross ist. Jedoch bedeutet eine niedrige Kapazität, dass die Rippelspannung relativ hoch ist und je nach Zeitpunkt der Open Loop Messung eine andere Spannung am Kondensator ergibt. Die Spannung am Kondensator steigt bei jeder Messung auf ein anderes Spannungslevel.
+Das Problem ist, dass durch den Rippel die periodische Open-Loop-Spannungsmessung keine korrekten Messwerte erhält. Sobald die Last vom Harvesterausgang abgehängt wird, steigt die Spannung über dem Kondensator, jedoch wird die Open-Loop-Spannung bei einer grossen Kapazität nicht erreicht, da die Zeit, bis der Kondensator komplett geladen ist, sehr gross ist. Jedoch bedeutet eine niedrige Kapazität, dass die Rippelspannung relativ hoch ist und je nach Zeitpunkt der Open-Loop-Messung eine andere Spannung am Kondensator ergibt. Die Spannung am Kondensator steigt bei jeder Messung auf ein anderes Spannungslevel.
 
-Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Die Kapazität des Kondensators sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open Loop Messung keine richtigen Werte liefert. Den Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
+Es musste ein Kompromiss gefunden werden, so dass die Spannung am Eingang des EM-Chips auf ein konstantes Level geregelt werden kann. Die Kapazität des Kondensators sollte nicht zu klein sein, damit der Rippel nicht zu gross wird. Andererseits darf der Kondensator nicht zu gross sein, da ansonsten die Open-Loop-Messung keine richtigen Werte liefert. Den Kompromiss stellt der 100 $\mu$F Kondensator dar, bei diesem ist die Spannung am Eingang relativ konstant und es kann damit gearbeitet werden (siehe Abbildung \ref{VCC_100uF_15kmh_Periode}).
 
 Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Prototypen:
 
@@ -145,9 +143,6 @@ Aus den Beobachtungen ergaben sich folgende Aufgaben für die Entwicklung des Pr
 \end{enumerate}
 
 Punkte 1 und 2 haben Auswirkung auf das Layout, Punkte 3 und 4 auf die Entwicklung des Energymanagements und der Firmware für das TI-SensorTag.
-
-
-
 
 
 %------------------------------------------------------------------------------
@@ -162,7 +157,7 @@ Aus der Inbetriebnahme der Machbarkeitsstudie wurden einige Punkte ersichtlich, 
 
 \textit{Die Schaltung soll für eine Geschwindigkeit von 10 km/h ausgelegt werden.}
 
-Ausserdem soll die neue Leiterplatte den fliegenden Aufbau der Harvesterschaltung und den EM-Chip beherbergen. Es wird in diesem Schritt darauf verzichtet, das TI-SensorTag ebenfalls in die neue Leiterplatte zu integrieren, die Hardware kann gut in mehreren Schritten überarbeitet werden.
+Ausserdem soll die neue Leiterplatte den fliegenden Aufbau der Harvesterschaltung und den EM-Chip beherbergen. Es wird in diesem Schritt darauf verzichtet, das TI-SensorTag ebenfalls in die neue Leiterplatte zu integrieren. Die Hardware kann gut in mehreren Schritten überarbeitet werden.
 
 \subsection{Das Schema}
 
@@ -186,6 +181,7 @@ Diese Vorgaben sollen die Leiterplatte für eventuelle Laborübungen der Schule 
 \end{enumerate}
 
 \subsubsection{Harvesterschaltung}
+
 Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau realisiert, was zu einigen Problemen führen kann, da viele lange Kabel verwendet wurden und somit die Signallaufwege lang sind. Bisher hat dies keine Probleme verursacht, doch es geht wichtige Energie in den Kabeln verloren. Ebenfalls wurde in der Inbetriebnahme bemerkt, dass die gewonnene Leistung sehr gering ist, weswegen die Schaltung in einem zweiten Schritt optimiert werden muss.
 
 \begin{figure}[ht]
@@ -194,30 +190,33 @@ Die Harvesterschaltung wurde in der Machbarkeitsstudie als fliegender Aufbau rea
     \label{schema_harvester_pa15} 
 \end{figure}
 
-Die Harvesterschaltung der Abbildung \ref{schema_harvester_pa15} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne unnötig Leistung zu verschwenden.
+Die Harvesterschaltung der Abbildung \ref{schema_harvester_pa15} wurde im Rahmen der Machbarkeitsstudie erarbeitet. Die Schaltung besteht aus wenigen Teilen, die Spannungbegrenzung wurde mit drei Dioden in Durchlassrichtung realisiert, hier gibt es wahrscheinlich bessere Möglichkeiten die Spannung zu begrenzen, ohne Leistung zu verschwenden.
 
 \subsubsection{EM8500-Chip}
 
 Das EM-Evaluationsboard soll ebenfalls auf der neuen Leiterplatte Platz finden, das Schema inklusive aller Kondensatoren ist im Datenblatt zu finden. Jedoch wurden die Jumper nicht übernommen und nur einige Stecker wurden übernommen, bzw. mit eigenen Signalen ergänzt (siehe Abbildung \ref{schema_em-chip_inkl_peripherie}).
+
 
 \begin{figure}[ht]
     \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/Schema_EM-Chip_inkl_Peripherie.png}
     \caption{Schema des EM-Chips mit der benötigten Peripherie}\label{schema_em-chip_inkl_peripherie} 
 \end{figure}
 
+\clearpage
 \subsubsection{Energiespeicher}
 
-Die Energiespeicher waren zum Zeitpunkt der Entwicklung der Hardware noch nicht definiert. Als Platzhalter wurden zwei Elektrolytkondensatoren mit den Werten aus der Machbarkeitsstudie eingefügt (siehe Abbildung \ref{schema_energiespeicher}). 
+Die Energiespeicher waren zum Zeitpunkt der Entwicklung der Hardware noch nicht definiert. Als Platzhalter wurden zwei Elektrolytkondensatoren (ElKo) mit den Werten aus der Machbarkeitsstudie eingefügt (siehe Abbildung \ref{schema_energiespeicher}). 
 
 \begin{figure}[ht]
     \includegraphics[width=0.3\textwidth]{3Vorgehen/imag/Schema_Energiespeicher.png}
-    \caption{Schema der Energiespeicher (Elkos sind nur Platzhalter)}
+    \caption{Schema der Energiespeicher (ElKos sind nur Platzhalter)}
     \label{schema_energiespeicher} 
 \end{figure}
 
+
 \subsubsection{Umlauferfassung}
 
-Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da bei der Energiegewinnung mit der Spule, das Signal gleichgerichtet wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein verwertbares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reedswitch detektiert und an das TI-SensorTag weitergegeben (siehe Abbildung \ref{schema_umlaufdetektion}). Ein Magnetdurchlauf erzeugt einen positiven Puls, solange sich der Magnet in der Reichweite des Reedswitch befindet.
+Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da bei der Energiegewinnung mit der Spule, das Signal gleichgerichtet wird. Die nicht benutzten Wicklungen der X- und Y-Wicklung liefern kein verwertbares Signal, was bereits in der Machbarkeitsstudie bewiesen wurde. Aus diesem Grund wird der Magnetdurchlauf mit einem Reed Switch detektiert und an das TI-SensorTag weitergegeben (siehe Abbildung \ref{schema_umlaufdetektion}). Ein Magnetdurchlauf erzeugt einen positiven Puls, solange sich der Magnet in der Reichweite des Reed Switch befindet.
 
 \begin{figure}[ht]
     \includegraphics[width=0.1\textwidth]{3Vorgehen/imag/Schema_Umlaufdetektion.png}
@@ -226,7 +225,7 @@ Die Umlauferfassung kann nicht mit der verwendeten Spule realisiert werden, da b
 
 \subsection{Bauteildefinition und Optimierung}
 
-Nachdem klar war, welche Teile auf der Leiterplatte Platz finden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es, bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vorallem die Harvesterschaltung optimiert werden, damit keine Energie verloren geht. 
+Nachdem klar war, welche Teile auf der Leiterplatte Platz finden müssen, konnte die Optimierung der Schaltung in Angriff genommen werden. Ziel der Optimierung war es, bei 10 km/h genügend Energie zu gewinnen, damit das TI-SensorTag damit versorgt werden könnte. Dafür musste vor allem die Harvesterschaltung optimiert werden, damit keine Energie verloren geht. 
 Es wurden folgende Punkte angeschaut und versucht zu optimieren:
 
 \begin{enumerate}
@@ -245,25 +244,26 @@ Die Spule gewinnt die Energie aus dem an einer Speiche des Fahrrads befestigten 
 
 Es wurde nach einer Spule mit einer höheren Induktivität und der gleichen Fläche gesucht, somit können nur noch zwei Variablen sich verändern. Zum einen kann sich die Wicklungszahl verändern und zum andern kann sich die Länge der Spule verändern. Die Spule von Würth Elektronik mit der Bezeichnung 74458308 hat eine ähnliche Fläche und eine grössere Induktivität, was auf den ersten Blick sehr vielversprechend aussieht.
 
-Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo mit der Bezeichnung 3015N 0238J 3206, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit muss der Spule von Premo der Vortritt gerwährt werden. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildung \ref{messung_optimierung_spule}). Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
+Die Messung der erzeugten Spannung über der Spule hat ergeben, dass die Spule von Premo mit der Bezeichnung 3015N 0238J 3206, welche bisher verwendet wurde, eine höhere Spannung erzeugt als die neue Spule von Würth. Die Spule von Premo hat bei den Geschwindigkeiten von 10 km/h und 20 km/h eine grössere induzierte Spannung. Die Spule von Würth hat eine höhere Spannung bei den Geschwindigkeiten von 15 km/h und 40 km/h. Jedoch sollte die Schaltung für 10 km/h optimiert werden, somit wird der Spule von Premo der Vortritt gewährt. Nachfolgend wird der Unterschied zwischen den induzierten Spannungen in den Spulen ersichtlich (siehe Abbildungen \ref{messung_optimierung_spule} und \ref{blublu}). Der Unterschied ist nicht gross, jedoch muss hier die Spule von Premo bevorzugt werden, da die induzierte Spannung grösser ist.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule_links.png}
-    \caption{Spannung über der Spule von Premo, Geschwindigkeit 20 km/h}               
+    \caption{Spule von Premo}               
     \label{messung_optimierung_spule} 
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Spule_rechts.png}
-    \caption{Spannung über der Spule von Würth, Geschwindigkeit 20 km/h}               
+    \caption{Spule von Würth}  
+    \label{blublu}             
  \end{minipage}
 \end{figure}
 
 \subsubsection{Der Gleichrichter}
 
-Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5819. Diese Dioden sind nicht für die LowPower-Anwendung ausgelegt, ausserdem sind die Dioden nicht in einem Gehäuse verbaut. Wichtig ist bei dem Gleichrichter, dass die Leckströme möglichst klein sind und die Schwellenspannung sollte ebenfalls möglichst klein sein, damit wenig Energie verbraucht wird.
+Der Gleichrichter aus der Machbarkeitsstudie bestand aus vier Dioden vom Typ 1N5819. Diese Dioden sind nicht für die Low-Power-Anwendung ausgelegt, ausserdem sind die Dioden nicht in einem Gehäuse verbaut. Wichtig ist bei dem Gleichrichter, dass die Leckströme möglichst klein sind und die Schwellenspannung sollte ebenfalls möglichst klein sein, damit wenig Energie verbraucht wird.
 
-Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet. Die Erwartungen waren entsprechend hoch, da diese Dioden für LowPower-Anwendungen spezialisiert sind. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in der Abbildung \ref{messung_optimierung_gleichrichter_1} gezeigt wird.
+Es wurde als erstes eine Low-Power-Diode, mit der Bezeichnung HSMS-286P, getestet. Die Erwartungen waren entsprechend hoch, da diese Dioden für Low-Power-Anwendungen spezialisiert sind. Die Spule von Premo wurde als Quelle verwendet, um zu sehen, wie die Spannung nach dem Gleichrichter aussieht. Die Spannung nach dem Gleichrichter bestehend aus den Dioden vom Typ 1N5819 ist bei allen getesteten Geschwindigkeiten, also 10 km/h, 15 km/h, 20 km/h und 40 km/h, höher als beim Gleichrichter bestehend aus den Dioden vom Typ HSMS-286P. Der Spannungsunterschied liegt im Minimum bei ca. 40 mV. Der grösste Unterschied ist bei der Geschwindigkeit von 15 km/h ersichtlich, was in den Abbildungen \ref{messung_optimierung_gleichrichter_1} und \ref{pling} gezeigt wird.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -273,11 +273,12 @@ Es wurde als erstes eine LowPower-Diode, mit der Bezeichnung HSMS-286P, getestet
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_1_rechts.png}
-    \caption{Gleichrichter aus HSMS-286P, 15 km/h}
+    \caption{Gleichrichter HSMS-286P}
+    \label{pling}
  \end{minipage}
 \end{figure}
 
-Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp. Der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10mVpp. Dieser Unterschied ist vernachlässigbar, in Angesicht dessen, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
+Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die Spannung nach dem Gleichrichter bestehend aus 1N5819 Dioden ist bei den Geschwindigkeiten von 15 km/h, 20 km/h und 40 km/h höher als nach dem Gleichrichter bestehend aus BAT54 Dioden. Der Spannungsunterschied liegt bei ca. 100 mVpp. Der Unterschied ist marginal, jedoch muss hier der Gleichrichter aus 1N5819 Dioden bevorzugt werden. Nur bei einer Geschwindigkeit von 10 km/h ist der Gleichrichter bestehend aus BAT54 Dioden besser als der Gleichrichter bestehend aus 1N5919 Dioden. Der Spannungsunterschied liegt hier bei ca. 10 mVpp. Dieser Unterschied ist vernachlässigbar, in Angesicht dessen, dass der Gleichrichter bestehend aus 1N5819 Dioden in allen anderen getesteten Geschwindigkeiten besser ist.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -287,7 +288,7 @@ Als nächstes wurde ein Gleichrichter aus den Dioden vom Typ BAT54 getestet. Die
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Gleichrichter_2_rechts.png}
-    \caption{Gleichrichter aus BAT54, 15 km/h}
+    \caption{Gleichrichter BAT54}
  \end{minipage}
 \end{figure}
 
@@ -297,23 +298,23 @@ Die Spannungsbegrenzung, nachfolgend der Limiter genannt, ist ein sehr krititsch
 
 Herr Erich Ruff hat eine Spannungsbegrenzungsschaltung entwickelt, welche er uns freundlicherweise zur Verfügung stellte. Diese Schaltung wurde mit dem Limiter verglichen, welcher aus drei Dioden bestand.
 
-Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem Limiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung \ref{messung_optimierung_limiter} zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
+Die Spannung nach dem Dioden-Limiter ist bei 10 km/h, 15 km/h und 20 km/h höher, jedoch ist die Rippelspannung ebenfalls höher. Nur bei einer Geschwindigkeit von 40 km/h ist die Spannung nach dem Limiter von Herr Erich Ruff, nachfolgend FET-Limiter genannt, besser, sowohl bei Spannungslevel als auch bei der Rippelspannung. Die Abbildung \ref{messung_optimierung_limiter} zeigt, dass der Dioden-Limiter eine höhere Spannung liefert, jedoch ist die Rippelspannung ebenfalls höher.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Limiter_links.png}
-    \caption{Links: Dioden-Limiter}
+    \caption{Dioden-Limiter}
     \label{messung_optimierung_limiter} 
  \end{minipage}
  \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/Messung_Optimierung_Limiter_rechts.png}
-    \caption{Rechts: FET-Limiter, 15 km/h}
+    \caption{FET-Limiter}
  \end{minipage}
 \end{figure}
 
 \subsection{Layout}
 
-Schlussendlich musste aus den optimierten Teilen des Schemas eine Leiterplatte gestaltet werden. Die meisten Footprints waren bereits in den Bibliotheken des IneS vorhanden, einige mussten neu gezeichnet werden.
+Schlussendlich musste aus den optimierten Teilen des Schemas eine Leiterplatte gestaltet werden. Die meisten Footprints waren bereits in den Bibliotheken des InES vorhanden, einige mussten neu gezeichnet werden.
 
 \subsubsection{Positionierung}
 
@@ -330,7 +331,9 @@ der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist ca. 1.0 m$\Omega$
 
 Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
 
-Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
+\begin{minipage}{1\textwidth}
+Ein wichtiger Punkt ist die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
+\end{minipage}
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
@@ -339,7 +342,7 @@ Ein weiterer wichtiger Punkt war die Platzierung des Steckers, welcher unsere Le
 
 \subsubsection{Das erste Layout}
 
-Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5 mm angeordnet und die Netze der Spannung nach dem Harvester. Die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33 x 42 mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
+Die erste Version der Leiterplatte war mit vielen Forderungen der Betreuer ausgestattet. Alle Netze wurden mit Testpunkten ausgestattet. Die Testpunkte des Steckers wurden im Rastermass 2.5 mm angeordnet und die Netze der Spannung nach dem Harvester, die Spannung des Short- und Long-Term-Storage wurden mit Strommesspunkten ausgestattet. Es wurden ebenfalls Montagelöcher platziert, jedoch sind diese sehr minimalistisch, da nur eine M2-Schraube durchpasst. Besser wäre es, Montagelöcher für M3-Schrauben zu platzieren, doch der Platz auf der Leiterplatte ist sehr limitiert. Die Leiterplatte ist nur 33 x 42 mm gross, was ein Milimeter breiter ist als das TI-SensorTag. Der Anschluss der Energiespeicher wurde so realisiert, dass die Energiespeicher nicht auf der Leiterplatte Platz finden, da der Platz nicht ausreicht.
 
 \subsubsection{Das Redesign}
 
@@ -380,7 +383,8 @@ Die Punkte 3 bis 5, welche den Stecker X1 betreffen konnten vor Abschluss noch �
 
 % 4----------------------------------------------------------
 \section{Inbetriebnahme des Prototypen}
-Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen in der Abbildung \ref{EnergieMessungStellen} ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind (siehe Abbildung \ref{EnergieMessungStellen}). 
+
+Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Funktionsweise mit den bisherigen Messungen zu verifizieren. Es werden generell zwei wichtige Messstellen (siehe Abbildung \ref{EnergieMessungStellen}) ersichtlich. Die erste befindet sich nach dem Harvester und vor dem EM8500-Chip, die zweite wichtige Messstelle befindet sich zwischen dem EM8500-Chip und dem TI-SensorTag. Es ist wichtig die Leistungs- oder Energiemessung durchzuführen, da diese Werte essentiell für die Einstellung des EM8500-Chips und die Entwicklung der Firmware für das TI-SensorTags sind. 
 
 \begin{figure}[ht]
   \includegraphics[width=1.0\textwidth]{3Vorgehen/imag/EnergiemessungStellen.png}               
@@ -389,11 +393,12 @@ Nach der Entwicklung der neuen Hardware musste diese getestet werden, um die Fun
 \end{figure}
 
 \subsection{Testen der Harvesterschaltung}
+\label{glace}
 
 \subsubsection{Leistungsverifizierung}
 \label{leistungsverifizierung}
 
-Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
+Es wurde eine Leistungskennline der Harvesterschaltung aufgenommen, um die verfügbare Leistung zu verifizieren. Wichtig ist, dass die verfügbare Leistung im gleichen Bereich ist, wie beim fliegenden Aufbau. 
 
 \begin{minipage}{1\textwidth}
 \captionof{table}{Leistung des fliegenden Aufbaus}
@@ -414,11 +419,11 @@ Es wurde erneut eine Leistungskennline der Harvesterschaltung aufgenommen, um di
 	20 km/h        \> 48.57 $\mu$W  \> 61.82 \%
 \end{tabbing}
 
-Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPP-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPP-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50 und 80\thinspace\% akzeptiert.
+Die maximal zur Verfügung stehende Leistung wurde etwas kleiner, bei dem fliegenden Aufbau betrug die maximale Leistung bei 10 km/h ca. 12 $\mu$W, die maximale Leistung bei der neuen Leiterplatte beträgt ca. 10 $\mu$W. Jedoch ist bei einer Geschwindigkeit von 20 km/h die Leistung der neuen Leiterplatte besser und der MPP wurde ebenfalls verschoben, was ein grosser Vorteil ist, da die Einstellung des MPPT-Ratio auf dem EM8500-Chip konfiguriert werden kann. Bisher konnte das MPPT-Ratio nicht korrekt auf die Hardware eingestellt werden, da die Einstellung nur Werte zwischen 50\thinspace\% und 80\thinspace\% akzeptiert.
 
 \subsubsection{Testen der Spule}\label{starkeSpule}
 
-Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis an hin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
+Es wurde klar, dass die Energie, welche die Harvesterschaltung mit der aktuellen Spule von Premo mit einer Induktivität von 2.38 mH liefert zu klein ist und verbessert werden muss. Ideen wurden gesammelt und Herr Marcel Meli bemerkte, dass noch eine Spule von Premo mit einer Induktivität von 4.77 mH vorhanden wäre, diese sollte getestet werden. Die Spule hatte den exakt gleichen Aufbau wie die Spule, welche bis anhin verwendet wurde, nur die Induktivität war höher. Gemäss der Formel \cite{equ_inductivity} ist die Induktivität von der Wicklungszahl abhängig. Die Wicklungszahl wiederum beeinflusst die induzierte Spannung.
 
 \captionof{table}{Leistung mit unterschiedlichen Spulen}
 \begin{tabbing}
@@ -446,7 +451,7 @@ Da die Leistung von der induzierten Spannung abhängt und die induzierte Spannun
 
 \subsubsection{Testen Magnete in Serie}
 
-Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Kapitel theoretische Grundlagen \todo{ausgang}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
+Herr Dario Dündar machte uns auf ein Produkt von Reelight aufmerksam. Die Firma Reelight stellt Lichter für das Fahrrad her welche über Energy Harvesting betrieben werden, dafür werden neben der Wirbelstromvariante (siehe Unterkapitel Ausgangslage \ref{ausgang}) ebenfalls Produkte mit speziellen Magneten verwendet. Leider war kein Datenblatt für die Magnete mit der Bezeichnung RE-10200 vorhanden und auch auf Nachfrage wurde kein Datenblatt oder Ähnliches herausgegeben. Jedoch konnte man herausfinden, dass in dem Gehäuse drei Magnete verbaut sind, welche stärker sind als unsere Magnete. Unsere Magnete haben eine N42 Magnetisierung, was bedeutet, dass sie eine Remanenz von 1.29 – 1.32 Tesla haben. Die Magnete, welche im Gehäuse von Reelight verbaut sind, haben eine N45 Magnetisierung, was bedeutet sie haben eine Remanenz von 1.37 – 1.42 Tesla. Der Durchmesser der Magnete beträgt 2.5 mm. Unsere bisher verwendeten Magnete wiesen einen Durchmesser von 20 mm auf. 
 
 Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die maximale zur Verfügung stehende Leistung betrug 135.50 $\mu$W, was einem Zuwachs von über 100\thinspace\% entsprach.
 
@@ -457,7 +462,7 @@ Es wurde eine Leistungskennlinie mit dem Magneten von Reelight aufgenommen. Die 
 	Spule Premo 4.77 mH, 3 Magnete in Serie (Reelight)        \> 135.50 $\mu$W
 \end{tabbing}
 
-Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildung \ref{zweiMagneteInSerie} zeigt den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotz dem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
+Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wir modifizierten den Testaufbau, damit zwei Magnete direkt hintereinander montiert werden konnten. Es sollte untersucht werden, ob die beiden Magnete die Spule besser anregten als nur ein Magnet. Die induzierten Spannungswerte unterschieden sich nicht drastisch, jedoch wurde die Spule länger angeregt. Die Abbildungen \ref{zweiMagneteInSerie} und \ref{manu} zeigen den Unterschied zwischen einer Spule, welche nur von einem Magneten angeregt wurde und einer Spule, welche von zwei direkt aufeinander folgenden Magneten angeregt wurde. Es ist zu sehen, dass die Spannung in der Spule, welche nur mit einem Magneten angeregt wurde, höher ist, jedoch wesentlich kürzer anliegt. Es wurde, trotz dem Potential für mehr Energie mit zwei Magneten, dagegen entschieden zwei Magnete in Serie einzusetzen, da man dieses Prinzip wieder ins Extreme treiben könnte und das ganze Rad mit Magneten ausstatten könnte. Sicherlich würde das jegliches Energieproblem unserer Arbeit lösen, jedoch wäre dies unpraktisch, wegen der verstärkten Bremswirkung und es wäre unästhetisch.
 
 \begin{figure}[ht]
  \begin{minipage}[t]{0.5\textwidth}
@@ -468,13 +473,16 @@ Diese Messung brachte uns auf die Idee einen weiteren Versuch zu realisieren. Wi
  \begin{minipage}[t]{0.5\textwidth}
   \includegraphics[width=0.9\textwidth]{3Vorgehen/imag/zweiMagneteInSerie_rechts.png}
   \caption{Anregung der Spule mit zwei Magneten in Serie}
+  \label{manu}
  \end{minipage}
 \end{figure}
 
 
 \subsection{Ausmessen der Leistung der endgültigen Hardware}
 
-Gemäss dem vorangegangen Kapitel \ref{starkeSpule} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
+Gemäss dem vorangegangen Unterkapitel \ref{glace} Abschnitt \ref{starkeSpule} wurde ersichtlich, dass die stärkere Spule verwendet werden sollte. Wir haben uns jedoch gegen die Variante mit zwei Magneten in Serie entschieden, trotzdem könnte dies später verwendet werden. Es musste erneut die Leistung, welche die Harvesterschaltung zur Verfügung stellt, aufgenommen werden.
+
+\todo{xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx}
 
 \begin{minipage}{\textwidth}
 \captionof{table}{Leistung des Prototypen}
