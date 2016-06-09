@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Bicycle Computer BA16</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Sensor wählen</string>
+    <string name="title_activity_unit_settings">Einheiten + Einstellungen</string>
+    <string name="choose_temp_unit">Temperatur anzeigen in:</string>
+    <string name="choose_velocity_unit">Geschwindigkeit anzeigen in:</string>
+    <string name="choose_pressure_unit">Druck anzeigen in:</string>
+    <string name="choose_wheelsize">Radgrösse eingeben:</string>
+    <string name="save">Speichern</string>
+    <string name="velocity">Geschwindigkeit:</string>
+    <string name="pressure">Druck:</string>
+    <string name="altitude">Höhe:</string>
+    <string name="huminity">relative Luftfeuchtigkeit:</string>
+    <string name="temperature">Temperatur:</string>
+    <string name="calibrication">Nachfolgende Felder dienen zur Kalibrierung der Sensoren. Bitte geben Sie nur Werte ein, wenn Sie die Sensoren Kalibrieren wollen.</string>
+    <string name="calibTemp">aktuelle Temperatur eingeben:</string>
+
+    <string-array name="temp_array">
+        <item>Celsius (°C)</item>
+        <item>Fahrenheit (°F)</item>
+        <item>Kelvin (K)</item>
+    </string-array>
+
+    <string-array name="velocity_array">
+        <item>Kilometer pro Stunde (km/h)</item>
+        <item>Miles per hour (mph)</item>
+    </string-array>
+
+    <string-array name="pressure_array">
+        <item>Pascal (hPa)</item>
+        <item>Bar (bar)</item>
+        <item>Atmosphäre (atm)</item>
+        <item>Pound-force per square inch (psi)</item>
+        <item>Milimeter Quecksilber (mmHG)</item>
+    </string-array>
+
+    <string-array name="wheelsize_array">
+        <item>10 Zoll</item>
+        <item>12 Zoll</item>
+        <item>12.5 Zoll</item>
+        <item>14 Zoll</item>
+        <item>16 Zoll</item>
+        <item>18 Zoll</item>
+        <item>20 Zoll</item>
+        <item>24 Zoll</item>
+        <item>26 Zoll</item>
+        <item>27 Zoll</item>
+        <item>27.5 Zoll</item>
+        <item>28 Zoll</item>
+    </string-array>
+
+</resources>
