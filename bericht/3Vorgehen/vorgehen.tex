@@ -118,12 +118,12 @@ Jedoch muss auch ein Blick auf die Spannung am Harvesterausgang geworfen werden,
 \begin{figure}[ht]
    \begin{minipage}[t]{0.5\textwidth}
      \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/VCC_47uF_15kmh_Periode.PNG}
-     \caption{Spannung am EM8500-Eingang über einem 47 $\mu$F Kondensator}
+     \caption{Spannung über einem 47 $\mu$F Kondensator}
 	 \label{VCC_47uF_15kmh_Periode}
   \end{minipage}
   \begin{minipage}[t]{0.5\textwidth}
     \includegraphics[width=0.90\textwidth]{3Vorgehen/imag/VCC_100uF_15kmh_Periode.PNG}
-    \caption{Spannung am EM8500-Eingang über einem 100 $\mu$F Kondensator}
+    \caption{Spannung über einem 100 $\mu$F Kondensator}
 	\label{VCC_100uF_15kmh_Periode}
   \end{minipage} 
 \end{figure}
@@ -333,12 +333,12 @@ der Leiterwiderstand bei einer Leiterbahnbreite von 20 Mil ist ca. 1.0 m$\Omega$
 Der wichtigste Aspekt der Platzierung des EM-Chips war, dass die Stützkondensatoren so nah wie möglich am EM-Chip platziert wurden, damit die Spannung am EM-Chip so konstant wie irgend möglich gehalten werden kann.
 
 \begin{minipage}{1\textwidth}
-Ein wichtiger Punkt ist die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
+Ein wichtiger Punkt ist die Platzierung des Steckers, welcher unsere Leiterplatte mit dem TI-SensorTag verbindet. Durch eine Falschplatzierung kann es hier passieren, dass die beiden Leiterplatten nicht korrekt übereinander ausgerichtet sind, wenn sie aufeinander gesteckt werden. Das ist eher ein ästhetisches Problem, jedoch kann das auch Probleme beim Einbauen in ein Gehäuse bereiten. Zu dem Stecker gehört auch die Platzierung der Testpunkte, welche direkt mit dem Stecker verbunden sind. Gemäss dem Wunsch der Betreuer wurde hier ein Rastermass von 2.5 mm der Testpunkte eingehalten, so dass eine Steckerleiste (rot eingerahmt) eingelötet werden könnte. Problematisch ist jedoch, dass die Testpunkte einen grossen Raum der Leiterplatte einnehmen, wie in Abbildung \ref{layout_testpunkteraster} ersichtlich.
 \end{minipage}
 
 \begin{figure}[ht]
     \includegraphics[width=0.8\textwidth]{3Vorgehen/imag/Layout_Testpunkteraster.png}
-    \caption{Pads der Leiterplatte, rot eingerahmt die Testpunkte des Steckers}\label{layout_testpunkteraster} 
+    \caption{Pads der Leiterplatte}\label{layout_testpunkteraster} 
 \end{figure}
 
 \subsubsection{Das erste Layout}
@@ -1020,7 +1020,7 @@ Die Callback-Funktion des Bluetoothadapters BluetoothAdapter.LeScanCallback wurd
 
 Der nächste logische Schritt war, dass die empfangenen Daten gefiltert werden mussten. Dafür wurde folgende Struktur definiert, damit festgestellt werden kann, ob die Daten von einem unserer Sensoren versendet wurden.
 
-\captionof{table}{Filter}
+\captionof{table}{Filter für BLE-Pakete}
 \begin{tabbing}
     Lenth\hspace{1cm} \quad\=		23\\[0.8ex]
     Type\>				0x03\\

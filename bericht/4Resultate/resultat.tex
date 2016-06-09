@@ -127,12 +127,12 @@ Im Kapitel Vorgehen ist die Einteilung der Energiezustände in LOW, MIDDLE und H
 \label{tiefes_v}
 
 
-Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Nach rund 40 Sekunden sendet der Fahrrad-Computer neue Daten. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS freigeschaltet wird. LTS lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.\\
+Das Primärziel, dass der Energy Harvesting Powered Bicycle Computer bei 10 km/h BLE-Pakete erhält ist gemäss Abbildung \ref{paket_100kmh} gelungen. Nach rund 40 Sekunden sendet der Fahrrad-Computer neue Daten. Das rote Signal ist die Speisung V\_SUP, die nach dem erreichen des Schwellwertes von V\_STS  freigeschaltet wird. V\_STS ist das gelbe Signal. V\_LTS (blau) lädt sich bei niederer Geschwindigkeit nicht. Die Zeit für das Laden beträgt rund eine Minute. Die Software dieser Version beinhaltet, dass bei der ersten Aktivierung der Speisung der Drucksensor geweckt wird  und bei der zweiten Aktivierung der Speisung das Paket versendet wird. So erhält die Fahrerin oder der Fahrer jede zweite Minute ein BLE-Paket mit aktuellen Werten.\\
 
 \clearpage
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic_3.PNG}
-    \caption{Senden von Paketen bei 9 - 10 km/h; rot: V\_SUP, gelb: V\_STS}
+    \caption{Senden von Paketen bei 9 - 10 km/h}
     \label{paket_100kmh}
 \end{figure}
 
@@ -140,7 +140,7 @@ Bei 16 km/h verkürzt sich die Ladezeit auf 10 s (siehe Abbildung \ref{paket_16k
 
 \begin{figure}[ht]
    \includegraphics[width=0.75\textwidth]{4Resultate/imag/pic2.PNG}
-    \caption{Senden von Paketen bei 16 km/h; rot: V\_SUP, gelb: V\_STS, blau: V\_LTS}
+    \caption{Senden von Paketen bei 16 km/h}
     \label{paket_16kmh}
 \end{figure}
 
@@ -230,7 +230,7 @@ Das vorangehende Unterkapitel Energy Managment zeigt die erzielten Resultate. Di
 Da der Sockelbeitrag an Energie für ein erstes Aufladen der Kondensatoren des TI-SensorTags wie auch des Energiespeichers STS gross ist (siehe  Abbildung \ref{r_bild_e_zusammenfassung}), wird zwischen den Startbedingungen, in denen dieses einmalige Aufladen erfolgt und der Nutzung des Bicycle Computers nach einer Minute Fahrzeit unterschieden.
 
 
-\subsubsection{Energiebilanz beim Beginn der Fahrradnutzung}
+\subsubsection*{Energiebilanz beim Beginn der Fahrradnutzung}
 
 Die Abbildung \ref{r_bild_e_zusammenfassung} zeigt in horizontalen Balken den Pegel des Energieverbrauchs des TI-SensorTags dar. Unterschieden wird zwischen dem einmaligen Laden (violett), der Initalisierung (rot) und dem Lesen und Senden der Daten (grau). Total ergibt sich ein Energiebedarf von 203 $\mu$J wie dies in der Gleichung \ref{eq:e-high-e-low} berechnet wird. Die eingetragene grüne Kurve stellt die zur Verfügung stehende Energie am EM8500-Chipausgang dar. Die Datenquellen und die exakten Werte stehen in der Tabelle \ref{everbrauch_aufgaben} unterhalb der Abbildung \ref{r_bild_e_zusammenfassung}.
 
